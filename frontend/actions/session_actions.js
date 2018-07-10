@@ -6,14 +6,14 @@ export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
 
 export const receiveCurrentUser = (currentUser) => ({
   type: RECEIVE_CURRENT_USER,
-  user: currentUser
+  currentUser: currentUser
 });
 
 export const logoutCurrentUser = () => ({
   type: LOGOUT_CURRENT_USER
 });
 
-export const receiveErrors = (errors) =>({
+export const receiveErrors = (errors) => ({
   type: RECEIVE_ERRORS,
   errors
 });
