@@ -28,7 +28,7 @@
     "webpack": "webpack --watch --mode=development",
     "postinstall": "webpack"
   },
-  "enginges": {
+  "engines": {
     "node": "8.4.0",
     "npm": "6.1.0"
   },
