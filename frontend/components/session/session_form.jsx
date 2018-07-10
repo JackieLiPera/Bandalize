@@ -4,7 +4,7 @@ class SessionForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: "",
+      email: "",
       password: ""
     }
 
@@ -30,8 +30,6 @@ class SessionForm extends React.Component {
     });
   }
 
-
-
   render() {
     let button;
 
@@ -40,7 +38,6 @@ class SessionForm extends React.Component {
     } else {
       button = <button>Sign Up</button>
     }
-
 
     return (
       <div>
