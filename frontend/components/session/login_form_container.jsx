@@ -7,15 +7,15 @@ import React from 'react';
 
 export const msp = (state) => ({
   errors: state.errors,
-  formType: "login"
+  formType: "Log In"
 });
 
 const mdp = dispatch => {
   return {
     processForm: (user) => dispatch(login(user)),
     otherForm: (
-      <button onClick={() => dispatch(openModal('login'))}>
-        Log In
+      <button onClick={() => dispatch(openModal('signup'))}>
+        Sign Up
       </button>
     ),
     closeModal: () => dispatch(closeModal())

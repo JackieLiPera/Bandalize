@@ -32,14 +32,7 @@ class SessionForm extends React.Component {
   }
 
   render() {
-    let button;
-
-    if (this.props.formType === 'login') {
-      button = <button>Log In</button>;
-    } else {
-      button = <button>Sign Up</button>
-    }
-
+    let button = this.props.processForm;
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
@@ -53,7 +46,7 @@ class SessionForm extends React.Component {
             <input type="password" onChange={this.handlePasswordChange} value={this.state.password} />
           </label>
 
-          {button}
+          <button onClick={button}>{this.props.formType}</button>
         </form>
       </div>
     );
