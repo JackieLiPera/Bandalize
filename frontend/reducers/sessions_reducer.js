@@ -8,7 +8,7 @@ export default (state = {}, action)  => {
     case RECEIVE_CURRENT_USER:
       return merge({}, state, {currentUser: action.currentUser});
     case LOGOUT_CURRENT_USER:
-      return merge({}, state, {currentUser: {}});
+      return {};
     default:
       return state;
   }
