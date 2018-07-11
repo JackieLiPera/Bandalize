@@ -5,17 +5,19 @@ import { openModal, closeModal } from '../../actions/modal_actions';
 import React from 'react';
 
 
-export const msp = (state) => ({
-  errors: state.errors,
-  formType: "Log In"
-});
+export const msp = (state) => {
+  return {
+    errors: state.errors,
+    formType: "Log In"
+  };
+};
 
 const mdp = dispatch => {
   return {
     processForm: (user) => dispatch(login(user)),
     otherForm: (
-      <button onClick={() => dispatch(openModal('signup'))}>
-        Sign Up
+      <button className="other-form-button" onClick={() => dispatch(openModal('signup'))}>
+        Create New Account
       </button>
     ),
     closeModal: () => dispatch(closeModal())
