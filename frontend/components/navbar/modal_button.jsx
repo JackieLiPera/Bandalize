@@ -15,9 +15,8 @@ const ModalButton = ({ currentUser, logout, openModal }) => {
       <button className="header-button" onClick={logout}>Log Out</button>
     </hgroup>
   );
-
   return (
-    currentUser.id ?
+    currentUser ?
     personalGreeting(currentUser, logout) :
     sessionLinks()
   );
