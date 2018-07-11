@@ -7,6 +7,7 @@ const Navbar = ({ currentUser, logout, openModal }) => {
       <div className="nav-logo" >
         <img src="/assets/bandalizelogo.ico"/>
         <h1 className="app-title">bandalize</h1>
+        <input className="search-bar" type="text" defaultValue="Search for artists" />
       </div>
       <div className="nav-buttons">
         <button className="nav-button" onClick={() => openModal('login')}>Login</button>

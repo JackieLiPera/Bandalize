@@ -30,6 +30,7 @@
   font-size: 27px;
   align-items: center;
   margin-left: 10px;
+  margin-right: 40px;
 }
 
 .nav-logo img{
@@ -42,4 +43,10 @@
   flex-direction: row;
   align-items: center;
   margin-right: 10px;
+}
+
+.search-bar {
+  width: 450px;
+  height: 25px;
+  // border-radius: 3px;
 }
