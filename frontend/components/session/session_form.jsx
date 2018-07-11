@@ -16,7 +16,7 @@ class SessionForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.processForm(this.state).then(() => dispatch(this.props.closeModal))
+    this.props.processForm(this.state).then(this.props.closeModal)
   }
 
   handleEmailChange(e) {
