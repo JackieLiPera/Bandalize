@@ -7,7 +7,6 @@ const App = () => (
   <div>
     <Modal />
     <NavbarContainer />
-    <h1>Bandalize</h1>
   </div>
 
 );
