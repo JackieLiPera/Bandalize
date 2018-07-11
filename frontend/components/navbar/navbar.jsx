@@ -1,17 +1,24 @@
 import React from 'react';
 
-const Navbar = ({ currentUser, logout, openModal }) => {
+const Navbar = ({ currentUser, logout, openModal, login}) => {
+
+  const handleDemo = (user) => {
+    return () => {
+      login(user)
+    };
+  }
 
   const sessionLinks = () => (
     <nav className="login-signup">
       <div className="nav-logo" >
         <img src="/assets/bandalizelogo.ico"/>
         <h1 className="app-title">bandalize</h1>
-        <input className="search-bar" type="text" defaultValue="Search for artists" />
+        <input className="search-bar" type="text" placeholder="Search for artists" value={''}/>
       </div>
       <div className="nav-buttons">
         <button className="nav-button" onClick={() => openModal('login')}>Login</button>
         <button className="nav-button" onClick={() => openModal('signup')}>Signup</button>
+        <button className="nav-button" onClick={handleDemo({email:'jac.lipera@gmail.com', password:'jackie'})}>Demo</button>
       </div>
     </nav>
   );
