@@ -8,10 +8,12 @@ const Navbar = ({ currentUser, logout, openModal, login}) => {
     };
   }
 
+  const image = window.bandalizelogo;
+
   const sessionLinks = () => (
     <nav className="login-signup">
       <div className="nav-logo" >
-        <img src="/assets/bandalizelogo.ico"/>
+        <img src={image} />
         <h1 className="app-title">bandalize</h1>
         <input className="search-bar" type="text" placeholder="Search for artists" value={''}/>
       </div>

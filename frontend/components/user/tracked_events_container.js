@@ -2,11 +2,11 @@
 // import TrackedEvents from './tracked_events';
 //
 // export const msp = (state) => ({
-//   events: state.entities
+//   trackedEvents: state.session.currentUser.trackedEvents
 // });
 //
-// export const mdp = (dispatch) => ({
+// // export const mdp = (dispatch) => ({
+// //
+// // });
 //
-// });
-//
-// export default connect(msp, mdp)(TrackedEvents);
+// export default connect(msp, null)(TrackedEvents);
