@@ -48,6 +48,12 @@
   font-size: 16px;
   width: 150px;
   margin: 20px 0px;
+  cursor: pointer;
+}
+
+.session-button:hover {
+  background-color: #109291;
+  transition: background-color .3s,color .3s;
 }
 
 .input-box {
@@ -62,6 +68,12 @@
   padding: 13px 10px;
   font-size: 16px;
   width: 300px;
+  cursor: pointer;
+}
+
+.other-form-button:hover {
+  background-color: #7aaf4df2;
+  transition: background-color .3s,color .3s;
 }
 
 .session-buttons {
@@ -74,5 +86,5 @@
 
 .session-errors {
   color: red;
-  
+
 }

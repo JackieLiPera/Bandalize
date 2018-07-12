@@ -8,7 +8,6 @@
   box-sizing: border-box;
   align-items: center;
   padding: 10px;
-  position: fixed;
 }
 
 .nav-button {
@@ -24,6 +23,7 @@
 
 .nav-button:hover {
   background-color: #109291;
+  transition: background-color .3s,color .3s;
 }
 
 .nav-buttons {
@@ -52,11 +52,14 @@
 }
 
 .search-bar {
-  width: 750px;
+  position: relative;
+  width: 700px;
   height: 47px;
-  border: 1px solid lightgrey;
+  border: 1px solid #cdcdcd;
   border-radius: 3px;
   font-size: 12px;
   font-weight: 500;
   font-size: 16px;
+  margin-left: 300px;
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,.08);
 }

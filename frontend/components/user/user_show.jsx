@@ -45,8 +45,9 @@ const UserShow = () => {
             <li>rsvp6</li>
           </ul>
         </div>
-        </div>
       </label>
     </div>
   );
 };
+
+export default UserShow;
