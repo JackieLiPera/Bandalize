@@ -6,6 +6,7 @@
   align-items: center;
   font-size: 24px;
   padding-top: 20px;
+  height: 900px;
 }
 
 .tracked-events-list, .tracked-artists-list, .rsvp-list {
@@ -15,8 +16,7 @@
   margin-top: 20px;
 }
 
-li {
-  border: 1px solid black;
+.tracked-events-list li {
   width: 151px;
   height: 200px;
   border-radius: 5px;
@@ -30,9 +30,26 @@ li {
 .tracked-artists li {
   border-radius: 80px;
   height: 40px;
+  width: 151px;
   background-color: white;
+  border: 1px solid #16b4b3;
+  box-shadow: 0 3px 15px 0 rgba(0,0,0,.09);
+  margin-right: 20px;
+  background-color: #16b4b3;
+  cursor: pointer;
+}
+.tracked-artists:hover li {
+  background-color: #109291;
+  transition: background-color .3s,color .3s;
 }
 
-.rsvp-container li{
+.rsvp-list li{
+  width: 151px;
   height: 151px;
+  border-radius: 5px;
+  border: 1px solid #cdcdcd;
+  margin-right: 20px;
+  box-shadow: 0 3px 15px 0 rgba(0,0,0,.09);
+  background-color: white;
+  cursor: pointer;
 }

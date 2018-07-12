@@ -2,7 +2,7 @@
   background-color: #ededed;
   display: flex;
   justify-content: center;
-
+  height: 900px;
 }
 
 .artist-show-container {
@@ -16,9 +16,28 @@
   text-align: initial;
   box-shadow: 0 3px 15px 0 rgba(0,0,0,.09);
   margin-top: 20px;
+  margin-right: 20px;
+}
+
+.artist-events-list li {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  width: 601px;
+  height: 63px;
+  margin-top: 2px;
+  box-shadow: 0 3px 15px 0 rgba(0,0,0,.09);
+}
+
+.artist-events-list:hover li {
+  background-color: #f3f3f3;
+  cursor: pointer;
 }
 
 .artist-events-list {
-  display: flex;
-  flex-direction: column;
+  margin-top: 20px;
+  font-family: 'Roboto', sans-serif;
+  color: #259998;
+  font-size: 13px;
+  font-weight: bold;
 }

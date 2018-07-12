@@ -13,8 +13,8 @@ const ArtistShow = () => {
 
         </div>
 
-        <div >
-          <ul className="artist-events-list">
+        <div>
+          <ul className="artist-events-list">Upcoming Events
             <li></li>
             <li></li>
             <li></li>

@@ -30,7 +30,7 @@ const Navbar = ({ currentUser, logout, openModal, login}) => {
       <div className="nav-logo" >
         <img src={image} />
         <h1 className="app-title">bandalize</h1>
-        <input className="search-bar" type="text" placeholder="Search for artists" value={''}/>
+        <input className="search-bar" type="text" placeholder="Search for your favorite artists" value={''}/>
       </div>
       <hgroup>
         <button className="nav-button" onClick={logout}>Log Out</button>
