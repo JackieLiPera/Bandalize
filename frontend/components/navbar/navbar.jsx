@@ -24,15 +24,21 @@ const Navbar = ({ currentUser, logout, openModal, login}) => {
       </div>
     </nav>
   );
-  const personalGreeting = () => (
-    <hgroup className="header-group">
-      <h2 className="header-name">Hi, {currentUser.email}!</h2>
-      <button className="header-button" onClick={logout}>Log Out</button>
-    </hgroup>
+  const nav = () => (
+    <nav className="login-signup">
+      <div className="nav-logo" >
+        <img src={image} />
+        <h1 className="app-title">bandalize</h1>
+        <input className="search-bar" type="text" placeholder="Search for artists" value={''}/>
+      </div>
+      <hgroup className="header-group">
+        <button className="nav-button" onClick={logout}>Log Out</button>
+      </hgroup>
+    </nav>
   );
   return (
     currentUser ?
-    personalGreeting(currentUser, logout) :
+    nav(logout) :
     sessionLinks()
   );
 
