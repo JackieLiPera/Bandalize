@@ -1,7 +1,7 @@
 class Api::ArtistsController < ApplicationController
 
   def show
-    @artist = Artist.find_by(params[:id])
+    @artist = Artist.find_by_id(params[:id])
   end
 
   def index
