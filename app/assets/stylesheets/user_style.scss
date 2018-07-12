@@ -8,8 +8,7 @@
   padding-top: 20px;
 }
 
-
-ul {
+.tracked-events-list, .tracked-artists-list, .rsvp-list {
   display: flex;
   justify-content: space-between;
   margin-bottom: 50px;

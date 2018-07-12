@@ -34,6 +34,7 @@ gem 'jbuilder', '~> 2.5'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
+gem "bcrypt"
 # gem 'rails_12factor'
 
 group :development, :test do
@@ -52,7 +53,7 @@ group :development do
   gem "binding_of_caller"
   gem "pry-rails"
   gem "annotate"
-  gem "bcrypt"
+
 
 end
 
