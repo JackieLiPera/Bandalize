@@ -1,4 +1,5 @@
 import React from 'react';
+import FaSearch from 'react-icons/lib/fa/search';
 
 const Navbar = ({ currentUser, logout, openModal, login}) => {
 
@@ -15,7 +16,7 @@ const Navbar = ({ currentUser, logout, openModal, login}) => {
       <div className="nav-logo" >
         <img src={image} />
         <h1 className="app-title">bandalize</h1>
-        <input className="search-bar" type="text" placeholder="Search for artists" value={''}/>
+        <input className="search-bar" type="text" placeholder={"Search for your favorite artists"} value={''}/>
       </div>
       <div className="nav-buttons">
         <button className="nav-button" onClick={() => openModal('login')}>Login</button>
@@ -31,7 +32,7 @@ const Navbar = ({ currentUser, logout, openModal, login}) => {
         <h1 className="app-title">bandalize</h1>
         <input className="search-bar" type="text" placeholder="Search for artists" value={''}/>
       </div>
-      <hgroup className="header-group">
+      <hgroup>
         <button className="nav-button" onClick={logout}>Log Out</button>
       </hgroup>
     </nav>

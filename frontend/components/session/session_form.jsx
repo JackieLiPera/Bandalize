@@ -49,6 +49,7 @@ class SessionForm extends React.Component {
           </div>
 
           <div className="session-buttons">
+            <span className="session-errors">{this.props.errors}</span>
             <button className="session-button">{this.props.formType}</button>
             <span>{this.props.otherForm}</span>
           </div>
