@@ -13,7 +13,7 @@ ul {
   display: flex;
   justify-content: space-between;
   margin-bottom: 50px;
-  margin-top: 10px;
+  margin-top: 20px;
 }
 
 li {
@@ -24,12 +24,14 @@ li {
   border: 1px solid #cdcdcd;
   margin-right: 20px;
   box-shadow: 0 3px 15px 0 rgba(0,0,0,.09);
+  background-color: white;
   cursor: pointer;
 }
 
 .tracked-artists li {
   border-radius: 80px;
   height: 40px;
+  background-color: white;
 }
 
 .rsvp-container li{

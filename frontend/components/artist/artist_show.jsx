@@ -7,14 +7,14 @@ const ArtistShow = () => {
   // }
 
     return (
-      <div>
+      <div className="artist-show-component">
         <div className="artist-show-container">
 
 
         </div>
 
-        <div className="artist-events-list">
-          <ul>
+        <div >
+          <ul className="artist-events-list">
             <li></li>
             <li></li>
             <li></li>

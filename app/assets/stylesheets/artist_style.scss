@@ -1,0 +1,24 @@
+.artist-show-component {
+  background-color: #ededed;
+  display: flex;
+  justify-content: center;
+
+}
+
+.artist-show-container {
+  width: 300px;
+  height: 404px;
+  border: 1px solid #cdcdcd;
+  background-color: white;
+  border-radius: 2px;
+  display: inline-block;
+  font-family: 'Roboto', sans-serif;
+  text-align: initial;
+  box-shadow: 0 3px 15px 0 rgba(0,0,0,.09);
+  margin-top: 20px;
+}
+
+.artist-events-list {
+  display: flex;
+  flex-direction: column;
+}

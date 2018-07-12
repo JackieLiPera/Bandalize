@@ -5,6 +5,7 @@ import NavbarContainer from './navbar/navbar_container';
 import { Provider } from 'react-redux';
 import { Route, Switch, Link, HashRouter } from 'react-router-dom';
 import UserShow from './user/user_show';
+import ArtistShow from './artist/artist_show';
 
 
 const App = () => (
@@ -15,7 +16,8 @@ const App = () => (
     </header>
 
     <Switch>
-      <Route path="/" component={UserShow} />
+      <Route exact path="/users/:id" component={UserShow} />
+      <Route exact path="/artists/:id" component={ArtistShow} />
     </Switch>
   </div>
 
