@@ -5,15 +5,15 @@
   flex-direction: column;
   align-items: center;
   font-size: 24px;
-  padding-top: 25px;
+  padding-top: 20px;
 }
 
-.tracked-events-container ul{
-}
 
 ul {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 50px;
+  margin-top: 10px;
 }
 
 li {
@@ -22,10 +22,14 @@ li {
   height: 200px;
   border-radius: 5px;
   border: 1px solid #cdcdcd;
+  margin-right: 20px;
+  box-shadow: 0 3px 15px 0 rgba(0,0,0,.09);
+  cursor: pointer;
 }
 
-.tracked-artists {
-
+.tracked-artists li {
+  border-radius: 80px;
+  height: 40px;
 }
 
 .rsvp-container li{
