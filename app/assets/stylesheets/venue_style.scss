@@ -1,11 +1,11 @@
-.artist-show-component {
+.venue-show-component {
   background-color: #ededed;
   display: flex;
   justify-content: center;
   height: 900px;
 }
 
-.artist-show-container {
+.venue-show-container {
   width: 300px;
   height: 404px;
   border: 1px solid #cdcdcd;
@@ -21,7 +21,23 @@
   padding: 20px 0;
 }
 
-.artist-events-list li {
+.venue-map {
+  height: 270px;
+  width: 270px;
+  display: block;
+  margin: auto;
+  padding-top: 15px;
+  border: 1px solid lightgrey;
+}
+
+.venue-info {
+  height: 50px;
+  width: 270px;
+  border: 1px solid #f3f3f3;
+  margin: auto;
+}
+
+.venue-events-list li {
   display: flex;
   flex-direction: column;
   background-color: white;
@@ -33,56 +49,15 @@
   justify-content: center;
 }
 
-.artist-events-list:hover li {
+.venue-events-list:hover li {
   background-color: #f3f3f3;
   cursor: pointer;
 }
 
-.artist-events-list {
+.venue-events-list {
   margin-top: 20px;
   font-family: 'Roboto', sans-serif;
   color: #259998;
   font-size: 13px;
   font-weight: bold;
-}
-
-.rsvp-button {
-  width: 145px;
-  height: 34px;
-  cursor: pointer;
-  font-size: 14px;
-  border: 1px solid #00b4b3;
-  color: #00b4b3;
-  background-color: white;
-  border-radius: 2px;
-  margin-right: 10px;
-}
-
-.artist-show-image {
-  height: 270px;
-  width: 270px;
-  display: block;
-  margin: auto;
-  padding-top: 15px;
-}
-
-.artist-show-info {
-  height: 50px;
-  width: 270px;
-  border: 1px solid #f3f3f3;
-  margin: auto;
-}
-
-.artist-track-button {
-  height: 34px;
-  width: 270px;
-  background: #00b4b3;
-  border: 1px solid #00b4b3;
-  border-radius: 2px;
-  color: white;
-  font-size: 14px;
-  text-align: center;
-  display: block;
-  margin: 10px 0;
-  margin: auto;
 }
