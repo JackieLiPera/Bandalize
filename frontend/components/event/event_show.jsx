@@ -1,13 +1,12 @@
 import React from 'react';
 
-const UserShow = () => {
+const EventShow = () => {
 
   return (
-    <div className="user-show-container">
-
-      <h2>Tracked Events
-        <div>
-          <ul className="tracked-events-list">
+    <div className="event-show-container">
+      <h2>Popular Events Near
+        <div className="events-container">
+          <ul className="events-list">
             <li></li>
             <li></li>
             <li></li>
@@ -18,9 +17,12 @@ const UserShow = () => {
         </div>
       </h2>
 
-      <h2>Tracked Artists
-        <div className="tracked-artists">
-          <ul className="tracked-artists-list">
+      <h2>Recent News
+        <div>
+          <ul className="recent-news-list">
+            <li></li>
+            <li></li>
+            <li></li>
             <li></li>
             <li></li>
             <li></li>
@@ -31,9 +33,9 @@ const UserShow = () => {
         </div>
       </h2>
 
-      <h2>RSVPs
+      <h2>Events by Genre
         <div>
-          <ul className="rsvp-list">
+          <ul className="genre-list">
             <li></li>
             <li></li>
             <li></li>
@@ -47,4 +49,4 @@ const UserShow = () => {
   );
 };
 
-export default UserShow;
+export default EventShow;

@@ -1,4 +1,5 @@
-.user-show-container {
+
+.event-show-container {
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
   display: flex;
@@ -11,16 +12,22 @@
   margin: auto;
 }
 
-.tracked-events-list, .tracked-artists-list, .rsvp-list {
+.events-container {
   display: flex;
   justify-content: space-between;
   margin-bottom: 50px;
   margin-top: 20px;
   box-shadow: 0 3px 15px 0 rgba(0,0,0,.09);
-
 }
 
-.tracked-events-list li {
+.events-list, .recent-news-list, .genre-list {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 50px;
+  margin-top: 20px;
+  box-shadow: 0 3px 15px 0 rgba(0,0,0,.09);
+}
+.events-list li {
   width: 151px;
   height: 200px;
   border-radius: 5px;
@@ -30,23 +37,24 @@
   cursor: pointer;
 }
 
-.tracked-artists li {
-  border-radius: 80px;
-  height: 40px;
-  width: 151px;
-  background-color: white;
-  border: 1px solid #16b4b3;
-  box-shadow: 0 3px 15px 0 rgba(0,0,0,.09);
-  margin-right: 20px;
-  background-color: #16b4b3;
-  cursor: pointer;
-}
-.tracked-artists:hover li {
-  background-color: #109291;
-  transition: background-color .3s,color .3s;
+
+.recent-news-list {
+  display: flex;
+  flex-wrap: wrap;
+  overflow: hidden;
 }
 
-.rsvp-list li{
+.recent-news-list li {
+  border-radius: 4px;
+  box-shadow: 0 3px 15px 0 rgba(0,0,0,.09);
+  font-size: 16px;
+  width: 252px;
+  height: 151px;
+  border: 1px solid #cdcdcd;
+}
+
+
+.genre-list li {
   width: 151px;
   height: 151px;
   border-radius: 5px;

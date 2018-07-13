@@ -6,6 +6,7 @@ import { Provider } from 'react-redux';
 import { Route, Switch, Link, HashRouter } from 'react-router-dom';
 import UserShow from './user/user_show';
 import ArtistShow from './artist/artist_show';
+import EventShow from './event/event_show';
 
 
 const App = () => (
@@ -18,6 +19,7 @@ const App = () => (
     <Switch>
       <Route exact path="/users/:id" component={UserShow} />
       <Route exact path="/artists/:id" component={ArtistShow} />
+      <Route expact path="/" component={EventShow}/>
     </Switch>
   </div>
 
