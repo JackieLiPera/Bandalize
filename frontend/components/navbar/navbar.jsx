@@ -1,5 +1,6 @@
 import React from 'react';
 import FaSearch from 'react-icons/lib/fa/search';
+import { Link } from 'react-router-dom';
 
 const Navbar = ({ currentUser, logout, openModal, login}) => {
 
@@ -15,7 +16,7 @@ const Navbar = ({ currentUser, logout, openModal, login}) => {
     <nav className="login-signup">
       <div className="nav-logo" >
         <img src={image} />
-        <h1 className="app-title">bandalize</h1>
+        <Link to='/' className="app-title"><h1>bandalize</h1></Link>
         <input className="search-bar" type="text" placeholder={"Search for your favorite artists"} value={''}/>
       </div>
       <div className="nav-buttons">
