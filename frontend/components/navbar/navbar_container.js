@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { logout, login } from '../../actions/session_actions';
 import { openModal } from '../../actions/modal_actions';
 import Navbar from './navbar';
-
+import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = ({ session }) => {
   return {
@@ -18,7 +18,7 @@ const mapDispatchToProps = dispatch => {
   }
 };
 
-export default connect(
+export default withRouter(connect(
   mapStateToProps,
   mapDispatchToProps
-)(Navbar);
+)(Navbar));

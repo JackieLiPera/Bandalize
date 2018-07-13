@@ -2,12 +2,17 @@ import React from 'react';
 import FaSearch from 'react-icons/lib/fa/search';
 import { Link } from 'react-router-dom';
 
-const Navbar = ({ currentUser, logout, openModal, login}) => {
+
+const Navbar = ({ currentUser, logout, openModal, login, history }) => {
 
   const handleDemo = (user) => {
     return () => {
       login(user)
     };
+  }
+
+  const handleLogout = () => {
+    logout().then( () => history.push('/'));
   }
 
   const image = window.bandalizelogo;
@@ -34,7 +39,7 @@ const Navbar = ({ currentUser, logout, openModal, login}) => {
         <input className="search-bar" type="text" placeholder="Search for your favorite artists" value={''}/>
       </div>
       <hgroup>
-        <button className="nav-button" onClick={logout}>Log Out</button>
+        <button className="nav-button" onClick={handleLogout}>Log Out</button>
       </hgroup>
     </nav>
   );

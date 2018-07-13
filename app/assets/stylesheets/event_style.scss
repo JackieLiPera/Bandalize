@@ -17,7 +17,6 @@
   justify-content: space-between;
   margin-bottom: 50px;
   margin-top: 20px;
-  box-shadow: 0 3px 15px 0 rgba(0,0,0,.09);
 }
 
 .events-list, .recent-news-list, .genre-list {
@@ -54,7 +53,6 @@
 
 .recent-news-list {
   display: flex;
-  flex-wrap: wrap;
   overflow: hidden;
 }
 
