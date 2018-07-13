@@ -11,7 +11,8 @@
   border: 1px solid #cdcdcd;
   background-color: white;
   border-radius: 2px;
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
   font-family: 'Roboto', sans-serif;
   text-align: initial;
   box-shadow: 0 3px 15px 0 rgba(0,0,0,.09);
@@ -27,6 +28,8 @@
   height: 63px;
   margin-top: 2px;
   box-shadow: 0 3px 15px 0 rgba(0,0,0,.09);
+  align-items: flex-end;
+  justify-content: center;
 }
 
 .artist-events-list:hover li {
@@ -40,4 +43,45 @@
   color: #259998;
   font-size: 13px;
   font-weight: bold;
+}
+
+.rsvp-button {
+  width: 145px;
+  height: 34px;
+  cursor: pointer;
+  font-size: 14px;
+  border: 1px solid #00b4b3;
+  color: #00b4b3;
+  background-color: white;
+  border-radius: 2px;
+  margin-right: 10px;
+}
+
+.artist-show-image {
+  height: 270px;
+  width: 270px;
+  display: block;
+  margin: auto;
+  padding-top: 15px;
+}
+
+.artist-show-info {
+  height: 50px;
+  width: 270px;
+  border: 1px solid #f3f3f3;
+  margin: auto;
+}
+
+.artist-track-button {
+  height: 34px;
+  width: 270px;
+  background: #00b4b3;
+  border: 1px solid #00b4b3;
+  border-radius: 2px;
+  color: white;
+  font-size: 14px;
+  text-align: center;
+  display: block;
+  margin: 10px 0;
+  margin: auto;
 }

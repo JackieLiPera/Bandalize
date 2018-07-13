@@ -9,13 +9,14 @@ const ArtistShow = () => {
     return (
       <div className="artist-show-component">
         <div className="artist-show-container">
-
-
+          <img className="artist-show-image"></img>
+          <div className= "artist-show-info"></div>
+          <button className="artist-track-button">Track</button>
         </div>
 
         <div>
           <ul className="artist-events-list">Upcoming Events
-            <li></li>
+            <li> <button className="rsvp-button" >RSVP</button></li>
             <li></li>
             <li></li>
             <li></li>
