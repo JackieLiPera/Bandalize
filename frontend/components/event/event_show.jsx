@@ -1,10 +1,12 @@
 import React from 'react';
 
 const EventShow = () => {
+  const image = window.tealx;
 
   return (
     <div className="event-show-container">
-      <h2>Popular Events Near
+      <h2>Popular Events Near <span className="location-selector">New York, NY
+        <img className="teal-x" src={image}/></span>
         <div className="events-container">
           <ul className="events-list">
             <li></li>
@@ -20,11 +22,6 @@ const EventShow = () => {
       <h2>Recent News
         <div>
           <ul className="recent-news-list">
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
             <li></li>
             <li></li>
             <li></li>

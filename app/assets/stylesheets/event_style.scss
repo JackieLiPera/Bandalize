@@ -27,6 +27,20 @@
   margin-top: 20px;
   box-shadow: 0 3px 15px 0 rgba(0,0,0,.09);
 }
+
+.location-selector {
+  color: #259998;
+  cursor: pointer;
+}
+
+.teal-x {
+  width: 18px;
+  height: 18px;
+  align-items: center;
+  margin-left: 5px;
+  cursor: pointer;
+}
+
 .events-list li {
   width: 151px;
   height: 200px;
