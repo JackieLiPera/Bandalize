@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resources :users, only: [:create, :show]
     resources :artists, only: [:show, :index]
     resources :events, only: [:show, :index]
+    resources :venues, only: [:show]
   end
 
 end

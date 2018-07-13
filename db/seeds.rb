@@ -20,11 +20,17 @@ artist4 = Artist.create!(name:"Maroon 5", image_url:"xxxxx", on_tour: true, genr
 artist5 = Artist.create!(name:"Taylor Swift", image_url:"xxxxx", on_tour: false, genre:"Pop")
 artist6 = Artist.create!(name:"Glass Animals", image_url:"xxxxx", on_tour: true, genre:"Alternative")
 
+Venue.destroy_all
+
+venue1 = Venue.create!(name: 'Madison Square Garden', address: '4 Pennsylvania Plaza', city: 'New York', state: 'NY', country: 'United States', latitude: 40.7505, longitude: 73.9934)
+venue2 = Venue.create!(name: 'Forrest Hills Stadium' , address: '1 Tennis Pl', city: 'Forrest Hills', state: 'NY', country: 'United States', latitude: 40.7196, longitude: 73.8498 )
+venue3 = Venue.create!(name: 'Bowery Ballroom', address: '6 Delancey St', city: 'New York', state: 'NY', country: 'United States', latitude: 40.7204, longitude: 73.9934)
+
 Event.destroy_all
 
-event1 = Event.create!(event_on: (DateTime.parse("Thu Nov 29 14:33:20 EST 2018")), artist_id: artist2.id, venue_id: 1)
-event2 = Event.create!(event_on: (DateTime.parse("Fri Dec 30 15:34:20 EST 2018")), artist_id: artist4.id, venue_id: 2)
-event3 = Event.create!(event_on: (DateTime.parse("Sat Jan 31 16:35:20 EST 2018")), artist_id: artist5.id, venue_id: 3)
-event4 = Event.create!(event_on: (DateTime.parse("Sun Feb 01 17:36:20 EST 2018")), artist_id: artist6.id, venue_id: 4)
-event5 = Event.create!(event_on: (DateTime.parse("Mon Mar 02 18:37:20 EST 2018")), artist_id: artist2.id, venue_id: 5)
-event6 = Event.create!(event_on: (DateTime.parse("Tue Apr 03 19:38:20 EST 2018")), artist_id: artist3.id, venue_id: 6)
+event1 = Event.create!(event_on: (DateTime.parse("Thu Nov 29 14:33:20 EST 2018")), artist_id: artist2.id, venue_id: venue1.id)
+event2 = Event.create!(event_on: (DateTime.parse("Fri Dec 30 15:34:20 EST 2018")), artist_id: artist4.id, venue_id: venue1.id)
+event3 = Event.create!(event_on: (DateTime.parse("Sat Jan 31 16:35:20 EST 2018")), artist_id: artist5.id, venue_id: venue2.id)
+event4 = Event.create!(event_on: (DateTime.parse("Sun Feb 01 17:36:20 EST 2018")), artist_id: artist6.id, venue_id: venue2.id)
+event5 = Event.create!(event_on: (DateTime.parse("Mon Mar 02 18:37:20 EST 2018")), artist_id: artist2.id, venue_id: venue3.id)
+event6 = Event.create!(event_on: (DateTime.parse("Tue Apr 03 19:38:20 EST 2018")), artist_id: artist3.id, venue_id: venue3.id)

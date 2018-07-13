@@ -19,5 +19,5 @@ export const fetchEvents = () => dispatch => (
 );
 
 export const fetchEvent = (id) => dispatch => (
-  ApiArtistUtil.fetchEvent(id).then((event) => dispatch(receiveEvent(event)))
+  ApiEventsUtil.fetchEvent(id).then((event) => dispatch(receiveEvent(event)))
 );

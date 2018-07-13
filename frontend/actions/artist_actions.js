@@ -1,6 +1,6 @@
+import * as ApiArtistUtil from '../util/artist_api_util'
 export const RECEIVE_ARTISTS = "RECEIVE_ARTISTS";
 export const RECEIVE_ARTIST = "RECEIVE_ARTIST";
-import * as ApiArtistUtil from '../util/artist_api_util'
 
 
 export const receiveArtists = (artists) => ({
