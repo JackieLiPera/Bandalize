@@ -1,7 +1,7 @@
 class Api::EventsController < ApplicationController
 
   def show
-    @event = Event.find_by_id(params[:id])
+    @event = Event.find(params[:id])
   end
 
   def index

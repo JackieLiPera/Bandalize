@@ -1,20 +1,31 @@
 import React from 'react';
 
-const EventShow = () => {
+class EventShow extends React.Component {
+  constructor(props) {
+    super(props);
+  }
 
+  componentDidMount() {
+    this.props.fetchEvent(this.props.match.params.id);
+    this.props.fetchArtists();
+  }
 
+  render() {
     return (
       <div className="event-show-component">
         <div className="event-show-container">
           <img className="artist-image"></img>
           <div className= "event-info"></div>
-          event show page
         </div>
 
-        <div className="event-info"></div>
+        <div className="event-description">
+          {this.props.artist_id}
+        </div>
 
       </div>
     );
+  }
 }
+
 
 export default EventShow;

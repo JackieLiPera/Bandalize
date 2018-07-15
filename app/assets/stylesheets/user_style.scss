@@ -16,8 +16,8 @@
   justify-content: space-between;
   margin-bottom: 50px;
   margin-top: 20px;
-  box-shadow: 0 3px 15px 0 rgba(0,0,0,.09);
-
+  padding-bottom: 20px;
+  overflow: scroll;
 }
 
 .tracked-events-list li {
@@ -41,7 +41,7 @@
   background-color: #16b4b3;
   cursor: pointer;
 }
-.tracked-artists:hover li {
+.tracked-artists li:hover {
   background-color: #109291;
   transition: background-color .3s,color .3s;
 }
@@ -55,4 +55,9 @@
   box-shadow: 0 3px 15px 0 rgba(0,0,0,.09);
   background-color: white;
   cursor: pointer;
+}
+
+.rsvp-event {
+  width: 151px;
+  height: 151px;
 }

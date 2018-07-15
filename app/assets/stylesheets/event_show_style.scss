@@ -1,0 +1,49 @@
+.event-show-component {
+  background-color: #ededed;
+  display: flex;
+  justify-content: center;
+  height: 900px;
+}
+
+.event-show-container {
+  width: 300px;
+  height: 404px;
+  border: 1px solid #cdcdcd;
+  background-color: white;
+  border-radius: 2px;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Roboto', sans-serif;
+  text-align: initial;
+  box-shadow: 0 3px 15px 0 rgba(0,0,0,.09);
+  margin-top: 20px;
+  margin-right: 20px;
+  padding: 20px 0;
+}
+
+.artist-image {
+  height: 270px;
+  width: 270px;
+  display: block;
+  margin: auto;
+  padding-top: 15px;
+  // border: 1px solid lightgrey;
+}
+
+.event-info {
+  height: 50px;
+  width: 270px;
+  border: 1px solid #f3f3f3;
+  margin: auto;
+}
+
+.event-description {
+  margin-top: 20px;
+  font-family: 'Roboto', sans-serif;
+  color: #259998;
+  font-size: 13px;
+  font-weight: bold;
+  height: 333px;
+  width: 602px;
+  background-color: white;
+}

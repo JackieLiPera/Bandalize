@@ -9,7 +9,7 @@ import UserShowContainer from './user/user_show_container';
 import ArtistShow from './artist/artist_show';
 import EventIndex from './event/event_index';
 import VenueShow from './venue/venue_show';
-import EventShow from './event/event_show';
+import EventShowContainer from './event/event_show_container.js';
 
 
 
@@ -24,7 +24,7 @@ const App = () => (
       <Route exact path="/users/:id" component={UserShowContainer} />
       <Route exact path="/artists/:id" component={ArtistShow} />
       <Route exact path="/venues/:id" component={VenueShow} />
-      <Route exact path="/events/:id" component={EventShow} />
+      <Route exact path="/events/:id" component={EventShowContainer} />
       <Route expact path="/" component={EventIndex}/>
     </Switch>
   </div>

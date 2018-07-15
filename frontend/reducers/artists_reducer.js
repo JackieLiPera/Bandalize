@@ -7,7 +7,7 @@ export default (state = {}, action) => {
 
   switch (action.type) {
     case RECEIVE_ARTIST:
-      return merge({}, state, {[action.artist.id]: action.artist});
+      return merge({}, state, action.artist);
     case RECEIVE_ARTISTS:
       return action.artists;
     default:

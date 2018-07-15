@@ -8,10 +8,9 @@ export const createRsvp = (userId) => {
   });
 }
 
-export const deleteRsvp = (userId, id) => {
+export const deleteRsvp = (id) => {
   return $.ajax({
     method: 'DELETE',
-    url: `/api/users/:${userId}/rsvp/${id}`
+    url: `/api/rsvp/${id}`
   });
 }
- // unnest the delete
