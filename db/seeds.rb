@@ -34,3 +34,12 @@ event3 = Event.create!(event_on: (DateTime.parse("Sat Jan 31 16:35:20 EST 2018")
 event4 = Event.create!(event_on: (DateTime.parse("Sun Feb 01 17:36:20 EST 2018")), artist_id: artist6.id, venue_id: venue2.id)
 event5 = Event.create!(event_on: (DateTime.parse("Mon Mar 02 18:37:20 EST 2018")), artist_id: artist2.id, venue_id: venue3.id)
 event6 = Event.create!(event_on: (DateTime.parse("Tue Apr 03 19:38:20 EST 2018")), artist_id: artist3.id, venue_id: venue3.id)
+
+Rsvp.destroy_all
+
+rsvp1 = Rsvp.create!(user_id: currentUser.id, event_id: event1.id)
+rsvp2 = Rsvp.create!(user_id: currentUser.id, event_id: event2.id)
+rsvp3 = Rsvp.create!(user_id: currentUser.id, event_id: event3.id)
+rsvp4 = Rsvp.create!(user_id: currentUser.id, event_id: event4.id)
+rsvp5 = Rsvp.create!(user_id: currentUser.id, event_id: event5.id)
+rsvp6 = Rsvp.create!(user_id: currentUser.id, event_id: event6.id)

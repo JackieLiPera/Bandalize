@@ -5,10 +5,11 @@ import NavbarContainer from './navbar/navbar_container';
 import { Provider } from 'react-redux';
 import { Route, Switch, Link, HashRouter } from 'react-router-dom';
 
-import UserShow from './user/user_show';
+import UserShowContainer from './user/user_show_container';
 import ArtistShow from './artist/artist_show';
-import EventShow from './event/event_show';
+import EventIndex from './event/event_index';
 import VenueShow from './venue/venue_show';
+import EventShow from './event/event_show';
 
 
 
@@ -20,10 +21,11 @@ const App = () => (
     </header>
 
     <Switch>
-      <Route exact path="/users/:id" component={UserShow} />
+      <Route exact path="/users/:id" component={UserShowContainer} />
       <Route exact path="/artists/:id" component={ArtistShow} />
       <Route exact path="/venues/:id" component={VenueShow} />
-      <Route expact path="/" component={EventShow}/>
+      <Route exact path="/events/:id" component={EventShow} />
+      <Route expact path="/" component={EventIndex}/>
     </Switch>
   </div>
 

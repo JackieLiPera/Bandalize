@@ -3,4 +3,5 @@ class Artist < ApplicationRecord
   validates :on_tour, inclusion: { in: [true, false] }
 
   has_many :events
+  has_many :trackers
 end
