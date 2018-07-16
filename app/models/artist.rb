@@ -4,4 +4,5 @@ class Artist < ApplicationRecord
 
   has_many :events
   has_many :trackers
+  has_one_attached :photo
 end
