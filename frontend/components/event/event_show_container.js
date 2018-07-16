@@ -5,6 +5,7 @@ import { fetchArtists } from '../../actions/artist_actions';
 import { fetchVenue } from '../../actions/venue_actions';
 
 const msp = (state) => {
+
   return {
     artistName: state.entities.artists.name,
     venueName: state.entities.venues.name,
