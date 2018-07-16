@@ -8,8 +8,8 @@ class RsvpIndexItem extends React.Component {
   }
 
   handleClick() {
-    const eventId = this.props.eventId;
-    this.props.history.push(`/events/${eventId}`);
+    const event = this.props.event;
+    this.props.history.push(`/events/${event.id}`);
   }
 
 
