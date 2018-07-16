@@ -8,9 +8,10 @@ export const receiveArtists = (artists) => ({
   artists
 });
 
-export const receiveArtist = (artist) => ({
+export const receiveArtist = ({artist, events}) => ({
   type: RECEIVE_ARTIST,
-  artist
+  artist,
+  events
 });
 
 

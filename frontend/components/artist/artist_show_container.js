@@ -2,12 +2,10 @@ import { connect } from 'react-redux';
 import ArtistShow from './artist_show';
 import { fetchArtist } from '../../actions/artist_actions';
 
-const msp = (state) => {
+
+const msp = (state, ownProps) => {
   return {
-    name: state.entities.artists.artist.name,
-    tour: state.entities.artists.artist.on_tour,
-    genre: state.entities.artists.artist.genre,
-    events: state.entities.artists.artist.artist_events
+    artist: state.entities.artists[ownProps.match.params.id]
   }
 };
 

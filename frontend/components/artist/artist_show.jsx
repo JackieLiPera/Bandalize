@@ -10,14 +10,17 @@ class ArtistShow extends React.Component {
   }
 
   render () {
+    let artist = this.props.artist;
+    if (!artist) {
+      return null;
+    }
+
     return (
       <div className="artist-show-component">
         <div className="artist-show-container">
           <img className="artist-show-image"></img>
           <div className= "artist-show-info">
-            <ul>
-              <li>{this.props.name}</li>
-            </ul>
+            {artist.name}
           </div>
           <button className="artist-track-button">Track</button>
         </div>
