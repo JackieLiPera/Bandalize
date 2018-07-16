@@ -3,14 +3,30 @@ import React from 'react';
 class EventShow extends React.Component {
   constructor(props) {
     super(props);
+    this.changeRSVPStatus = this.changeRSVPStatus.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchEvent(this.props.match.params.id)
   }
 
+  changeRSVPStatus(e) {
+    if (this.props.currentUser.rsvp_events.includes(this.props.eventId)) {
+      this.props.currentUser.rsvp_events.delete(this.props.eventId)
+    } else {
+      this.props.currentUser.rsvp_events.push(this.props.eventId)
+    }
+  }
+
 
   render() {
+    let rsvp_button;
+
+    if (this.props.currentUser.rsvp_events.includes(this.props.eventId)) {
+      rsvp_button = <button onClick={this.changeRSVPStatus} className="rsvp-button-checked">Going</button>
+    } else {
+      rsvp_button = <button onClick={this.changeRSVPStatus} className="rsvp-button">RSVP</button>
+    };
 
     return (
       <div className="event-show-component">
@@ -21,7 +37,7 @@ class EventShow extends React.Component {
             {this.props.date} @ {this.props.venueName}
             <br></br>
             {this.props.venueCity}, {this.props.venueState}
-            <button className="get-tickets">Get Tickets</button>
+            {rsvp_button}
           </div>
         </div>
 
