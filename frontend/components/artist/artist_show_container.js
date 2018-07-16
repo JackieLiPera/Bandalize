@@ -3,7 +3,6 @@ import ArtistShow from './artist_show';
 import { fetchArtist } from '../../actions/artist_actions';
 
 const msp = (state) => {
-  debugger
   return {
     name: state.entities.artists.artist.name,
     tour: state.entities.artists.artist.on_tour,
