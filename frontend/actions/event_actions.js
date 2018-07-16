@@ -8,9 +8,11 @@ export const receiveEvents = (events) => ({
   events
 });
 
-export const receiveEvent = (event) => ({
+export const receiveEvent = ({event, artist, venue}) => ({
   type: RECEIVE_EVENT,
-  event
+  event,
+  artist,
+  venue
 });
 
 

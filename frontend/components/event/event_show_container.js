@@ -2,21 +2,22 @@ import { connect } from 'react-redux';
 import EventShow from './event_show';
 import { fetchEvent } from '../../actions/event_actions';
 import { fetchArtists } from '../../actions/artist_actions';
+import { fetchVenue } from '../../actions/venue_actions';
 
 const msp = (state) => {
   return {
-    artist_name: state.entities.events.artist_id,
-    date: state.entities.events.event_on,
-    venue: state.entities.venues.venue_id,
-    name: state.entities.events.name
+    artistName: state.entities.artists.name,
+    venueName: state.entities.venues.name,
+    venueAddress: state.entities.venues.address,
+    venueCity: state.entities.venues.city,
+    venueState: state.entities.venues.state
   }
 };
 
 const mdp = (dispatch) => {
 
   return {
-    fetchEvent: (id) => dispatch(fetchEvent(id)),
-    fetchArtists: () => dispatch(fetchArtists())
+    fetchEvent: (id) => dispatch(fetchEvent(id))
   }
 };
 

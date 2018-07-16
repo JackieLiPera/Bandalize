@@ -3,15 +3,15 @@ import React from 'react';
 class EventShow extends React.Component {
   constructor(props) {
     super(props);
-    debugger
   }
 
   componentDidMount() {
-    this.props.fetchEvent(this.props.match.params.id);
-    this.props.fetchArtists();
+    this.props.fetchEvent(this.props.match.params.id)
   }
 
+
   render() {
+
     return (
       <div className="event-show-component">
         <div className="event-show-container">
@@ -20,7 +20,13 @@ class EventShow extends React.Component {
         </div>
 
         <div className="event-description">
-          {this.props.artist_id}
+          <ul>
+            {this.props.artistName}
+            {this.props.venueName}
+            {this.props.venueAddress}
+            {this.props.venueCity}
+            {this.props.venueState}
+          </ul>
         </div>
 
       </div>
