@@ -1,11 +1,9 @@
 import { connect } from 'react-redux';
 import EventShow from './event_show';
 import { fetchEvent } from '../../actions/event_actions';
-import { fetchArtists } from '../../actions/artist_actions';
-import { fetchVenue } from '../../actions/venue_actions';
+
 
 const msp = (state) => {
-
   return {
     artistName: state.entities.artists.name,
     venueName: state.entities.venues.name,
