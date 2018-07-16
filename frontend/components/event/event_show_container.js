@@ -10,7 +10,8 @@ const msp = (state) => {
     venueName: state.entities.venues.name,
     venueAddress: state.entities.venues.address,
     venueCity: state.entities.venues.city,
-    venueState: state.entities.venues.state
+    venueState: state.entities.venues.state,
+    date: state.entities.events.event_on
   }
 };
 
