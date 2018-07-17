@@ -3,9 +3,10 @@ export const RECEIVE_EVENTS = 'RECEIVE_EVENTS';
 export const RECEIVE_EVENT = 'RECEIVE_EVENT';
 
 
-export const receiveEvents = (events) => ({
+export const receiveEvents = ({ events, artist }) => ({
   type: RECEIVE_EVENTS,
-  events
+  events,
+  artist
 });
 
 export const receiveEvent = ({event, artist, venue}) => ({

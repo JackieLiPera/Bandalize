@@ -7,10 +7,3 @@ export const createRsvp = (userId) => {
     data: { rsvp }
   });
 }
-
-export const deleteRsvp = (id) => {
-  return $.ajax({
-    method: 'DELETE',
-    url: `/api/rsvp/${id}`
-  });
-}
