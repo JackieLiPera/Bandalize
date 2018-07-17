@@ -9,8 +9,8 @@ class EventIndex extends React.Component{
   render() {
     return (
       <ul className="artist-events-list">Upcoming Events
-        {this.props.events.map((eventId) => (
-          <EventIndexItem event={eventId} currentUser={this.props.currentUser}/>
+        {this.props.events.map((event) => (
+            <EventIndexItem event={event} venues={this.props.venues} currentUser={this.props.currentUser}/>
         ))}
       </ul>
     );

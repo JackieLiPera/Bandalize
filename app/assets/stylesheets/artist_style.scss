@@ -23,14 +23,23 @@
 
 .artist-events-list li {
   display: flex;
-  flex-direction: column;
   background-color: white;
   width: 601px;
   height: 63px;
   margin-top: 2px;
   box-shadow: 0 3px 15px 0 rgba(0,0,0,.09);
-  align-items: flex-end;
-  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 9;
+  color: black;
+}
+
+.event-index-text {
+  box-sizing: border-box;
+  padding-left: 50px;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 500;
 }
 
 .artist-events-list li:hover {
@@ -46,6 +55,18 @@
   font-weight: bold;
 }
 
+.event-date-icon {
+  padding-left: 10px;
+  color: #259998;
+  font-size: 25px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+.month {
+  font-size: 11px;
+}
+
 .artist-rsvp-button {
   width: 145px;
   height: 34px;
@@ -56,11 +77,26 @@
   background-color: white;
   border-radius: 2px;
   margin-right: 10px;
+  z-index: 10;
 }
 
 .artist-rsvp-button:hover {
   background-color: #00b4b3;
   color: white;
+}
+
+.artist-rsvp-button-going {
+  width: 145px;
+  height: 34px;
+  cursor: pointer;
+  font-size: 14px;
+  border: 1px solid #00b4b3;
+  background-color: white;
+  color: #00b4b3;
+  margin-right: 10px;
+  border-radius: 2px;
+  font-family: 'Roboto', sans-serif;
+
 }
 
 .artist-show-image {

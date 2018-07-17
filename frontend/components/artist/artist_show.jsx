@@ -40,7 +40,7 @@ class ArtistShow extends React.Component {
         </div>
 
         <div>
-          <EventIndex events={this.props.events} currentUser={this.props.currentUser}/>
+          <EventIndex events={this.props.events} venues={this.props.venues} currentUser={this.props.currentUser}/>
         </div>
 
       </div>
