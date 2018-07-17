@@ -36,13 +36,16 @@ class EventShow extends React.Component {
       rsvp_button = <button onClick={this.changeRSVPStatus} className="rsvp-button">RSVP</button>
     };
 
+    let dateString = new Date(this.props.date).toString().slice(0,15);
+    let timeString = new Date(this.props.date).toString().slice(16);
+
     return (
       <div className="event-show-component">
         <div className="event-show-container">
           <img className="artist-image"></img>
           <div className= "event-info">
             <h2>{this.props.artistName}</h2>
-            {this.props.date} @ {this.props.venueName}
+            {dateString} @ {this.props.venueName}
             <br></br>
             {this.props.venueCity}, {this.props.venueState}
             {rsvp_button}
@@ -52,6 +55,8 @@ class EventShow extends React.Component {
         <div className="event-description">
           <ul>
 
+            <li>{dateString}</li>
+            <li>{timeString}</li>
             <li>{this.props.venueName}</li>
             <li>{this.props.venueAddress}</li>
             <li>{this.props.venueCity}, {this.props.venueState}</li>
