@@ -11,11 +11,6 @@ class Api::RsvpController < ApplicationController
     end
   end
 
-  def destroy
-    @rsvp = current_user.rsvps.find(params[:id])
-    @rsvp.destroy
-    render json: @rsvp
-  end
 
   private
 
