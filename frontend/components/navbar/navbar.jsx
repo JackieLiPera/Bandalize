@@ -21,7 +21,7 @@ const Navbar = ({ currentUser, logout, openModal, login, history }) => {
     <nav className="login-signup">
       <div className="nav-logo" >
         <img src={image} />
-        <Link to='/' className="app-title"><h1>bandalize</h1></Link>
+        <h1><Link to={'/'} className="app-title">bandalize</Link></h1>
         <input className="search-bar" type="text" placeholder={"Search for your favorite artists"} value={''}/>
       </div>
       <div className="nav-buttons">

@@ -3,7 +3,7 @@ import React from 'react';
 class EventShow extends React.Component {
   constructor(props) {
     super(props);
-    debugger
+
     this.state = {
       rsvp_events: this.props.currentUser.rsvp_events,
       rsvpd: this.props.rsvpd

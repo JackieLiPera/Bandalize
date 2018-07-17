@@ -3,7 +3,7 @@ json.currentUser do
 end
 
 json.artists do
-  @currentUser.tracked_artists.each do |artist|
+  @user.tracked_artists.each do |artist|
     json.set! artist.id do
       json.partial! '/api/artists/artist', artist: artist
     end

@@ -4,7 +4,6 @@ import { fetchEvent } from '../../actions/event_actions';
 
 
 const msp = (state, ownProps) => {
-  debugger
   return {
     artistName: state.entities.artists.name,
     venueName: state.entities.venues.name,
