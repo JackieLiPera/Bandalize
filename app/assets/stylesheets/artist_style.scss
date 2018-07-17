@@ -69,8 +69,12 @@
 .artist-show-info {
   height: 50px;
   width: 270px;
-  border: 1px solid #f3f3f3;
   margin: auto;
+}
+
+.artist-show-info li h2 {
+  font-size: 20px;
+  font-weight: 700;
 }
 
 .artist-track-button {
@@ -85,4 +89,9 @@
   display: block;
   margin: 10px 0;
   margin: auto;
+}
+
+.tour-info {
+  font-size: 14px;
+  color: #66a71f;
 }

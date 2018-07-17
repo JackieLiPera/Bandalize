@@ -1,4 +1,5 @@
 import React from 'react';
+import EventIndex from './event_index';
 
 class ArtistShow extends React.Component {
   constructor(props) {
@@ -15,25 +16,31 @@ class ArtistShow extends React.Component {
       return null;
     }
 
+    let tour;
+    if (artist.on_tour === true) {
+      tour = "On Tour"
+    } else {
+      tour = ""
+    }
+
+    let bluecheck = window.bluecheck;
+
     return (
       <div className="artist-show-component">
         <div className="artist-show-container">
           <img className="artist-show-image"></img>
           <div className= "artist-show-info">
-            {artist.name}
+            <ul>
+              <li><h2>{artist.name } <img src={bluecheck}/></h2></li>
+              <li>{artist.genre}</li>
+              <li className="tour-info">{tour}</li>
+            </ul>
           </div>
           <button className="artist-track-button">Track</button>
         </div>
 
         <div>
-          <ul className="artist-events-list">Upcoming Events
-            <li> <button className="artist-rsvp-button">RSVP</button></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-          </ul>
+          <EventIndex events={this.props.events} currentUser={this.props.currentUser}/>
         </div>
 
       </div>

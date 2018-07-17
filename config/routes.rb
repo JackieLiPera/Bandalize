@@ -8,7 +8,6 @@ Rails.application.routes.draw do
     resources :users, only: [:create, :show] do
       resources :rsvp, only: [:create]
     end
-    resources :rsvp, only: [:destroy]
     resources :artists, only: [:show, :index]
     resources :events, only: [:show, :index]
     resources :venues, only: [:show]
