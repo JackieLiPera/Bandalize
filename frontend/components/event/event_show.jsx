@@ -3,17 +3,10 @@ import React from 'react';
 class EventShow extends React.Component {
   constructor(props) {
     super(props);
-
-    let rsvp_status;
-    if (this.props.currentUser.rsvp_events.includes(this.props.venueId)) {
-      rsvp_status = true
-    } else {
-      rsvp_status = false;
-    }
-
+    debugger
     this.state = {
       rsvp_events: this.props.currentUser.rsvp_events,
-      rsvpd: rsvp_status
+      rsvpd: this.props.rsvpd
     }
 
     this.changeRSVPStatus = this.changeRSVPStatus.bind(this);
@@ -24,7 +17,7 @@ class EventShow extends React.Component {
   }
 
   changeRSVPStatus(e) {
-    if (this.props.currentUser.rsvp_events.includes(this.props.eventId)) {
+    if (this.state.rsvpd === true) {
       let eventIdx = this.props.currentUser.rsvp_events.indexOf(this.props.eventId)
       let removedEvent = this.props.currentUser.rsvp_events.splice(eventIdx, 1)
       this.setState({

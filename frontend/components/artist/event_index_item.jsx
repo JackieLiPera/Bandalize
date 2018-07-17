@@ -5,18 +5,9 @@ class EventIndexItem extends React.Component {
   constructor(props) {
     super(props);
 
-    let rsvp_status;
-    this.props.venues.forEach ((venue) => {
-      if (this.props.currentUser.rsvp_events.includes(venue.id)) {
-        rsvp_status = true
-      } else {
-        rsvp_status = false;
-      }
-    });
-
     this.state = {
       rsvp_events: this.props.rsvp_events,
-      rsvpd: {rsvp_status}
+      rsvpd: this.props.tracking
     }
 
     this.handleClick = this.handleClick.bind(this);
@@ -35,7 +26,7 @@ class EventIndexItem extends React.Component {
       e.stopPropagation();
     } else {
       this.setState({
-        rsvp_events: this.props.currentUser.rsvp_events.push(e.target.value),
+        rsvp_events: this.props.currentUser.rsvp_events.push(this.props.event.id),
         rsvpd: true
       });
       e.stopPropagation();
