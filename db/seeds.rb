@@ -38,8 +38,14 @@ event6 = Event.create!(event_on: (DateTime.parse("Tue Apr 03 19:38:20 EST 2018")
 Rsvp.destroy_all
 
 rsvp1 = Rsvp.create!(user_id: currentUser.id, event_id: event1.id)
-rsvp2 = Rsvp.create!(user_id: currentUser.id, event_id: event2.id)
 rsvp3 = Rsvp.create!(user_id: currentUser.id, event_id: event3.id)
 rsvp4 = Rsvp.create!(user_id: currentUser.id, event_id: event4.id)
 rsvp5 = Rsvp.create!(user_id: currentUser.id, event_id: event5.id)
 rsvp6 = Rsvp.create!(user_id: currentUser.id, event_id: event6.id)
+
+Tracking.destroy_all
+
+tracking1 = Tracking.create!(user_id: currentUser.id , artist_id: artist1.id)
+tracking2 = Tracking.create!(user_id: currentUser.id , artist_id: artist2.id)
+tracking3 = Tracking.create!(user_id: currentUser.id , artist_id: artist3.id)
+tracking4 = Tracking.create!(user_id: currentUser.id , artist_id: artist4.id)

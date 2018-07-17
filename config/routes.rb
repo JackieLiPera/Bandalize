@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resource :session, only: [:create, :destroy]
     resources :users, only: [:create, :show] do
       resources :rsvp, only: [:create]
-      resources :trackedartist, only: [:create]
+      resources :trackings, only: [:create]
     end
     resources :artists, only: [:show, :index]
     resources :events, only: [:show, :index]

@@ -4,9 +4,10 @@ export const LOGOUT_CURRENT_USER = "LOGOUT_CURRENT_USER";
 export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
 
 
-export const receiveCurrentUser = (currentUser) => ({
+export const receiveCurrentUser = ({ currentUser, artists }) => ({
   type: RECEIVE_CURRENT_USER,
-  currentUser: currentUser
+  currentUser: currentUser,
+  artists
 });
 
 export const logoutCurrentUser = () => ({

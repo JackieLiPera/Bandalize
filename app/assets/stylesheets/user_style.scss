@@ -20,6 +20,7 @@
   overflow: scroll;
 }
 
+
 .tracked-events-list li {
   width: 151px;
   height: 200px;
@@ -32,14 +33,18 @@
 
 .tracked-artists li {
   border-radius: 80px;
+  box-sizing: content-box;
+  padding: 0 15px;
   height: 40px;
-  width: 151px;
-  background-color: white;
   border: 1px solid #16b4b3;
   box-shadow: 0 3px 15px 0 rgba(0,0,0,.09);
   margin-right: 20px;
   background-color: #16b4b3;
   cursor: pointer;
+  color: white;
+  text-align: center;
+  font-size: 20px;
+  padding-top: 16px;
 }
 .tracked-artists li:hover {
   background-color: #109291;

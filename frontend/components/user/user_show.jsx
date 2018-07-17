@@ -1,12 +1,16 @@
 import React from 'react';
 import RsvpIndex from './rsvp_index';
+import TrackedArtistIndex from './tracked_artist_index';
 
 class UserShow extends React.Component {
-  constructor(props) {
-    super(props);
+
+  componentDidMount() {
+    this.props.fetchArtists();
   }
 
+
   render() {
+
     return (
       <div className="user-show-container">
 
@@ -25,14 +29,7 @@ class UserShow extends React.Component {
 
         <h2>Tracked Artists
           <div className="tracked-artists">
-            <ul className="tracked-artists-list">
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-            </ul>
+            <TrackedArtistIndex artists={this.props.artists}/>
           </div>
         </h2>
 
