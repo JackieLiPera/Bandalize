@@ -8,9 +8,9 @@ export default (state = {}, action) => {
 
   switch (action.type) {
     case RECEIVE_ARTIST:
-      return merge({}, state, action.events)
+      return merge({}, state, action.events);
     case RECEIVE_EVENT:
-      return merge({}, state, action.event)
+      return merge({}, state, action.event);
     case RECEIVE_EVENTS:
       return action.events;
     default:

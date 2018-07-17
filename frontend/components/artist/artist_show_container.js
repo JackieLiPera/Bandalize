@@ -7,6 +7,7 @@ const msp = (state, ownProps) => {
   return {
     artist: state.entities.artists[ownProps.match.params.id],
     events: Object.keys(state.entities.events).map((id) => state.entities.events[id]),
+    venues: Object.keys(state.entities.venues).map((id) => state.entities.venues[id]),
     currentUser: state.session.currentUser
   }
 };
