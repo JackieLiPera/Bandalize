@@ -130,6 +130,21 @@
   display: block;
   margin: 10px 0;
   margin: auto;
+  cursor: pointer;
+}
+
+.artist-track-button-going {
+  height: 34px;
+  width: 270px;
+  border: 1px solid #00b4b3;
+  color: #00b4b3;
+  font-size: 14px;
+  text-align: center;
+  display: block;
+  margin: 10px 0;
+  margin: auto;
+  cursor: pointer;
+  background-color: white;
 }
 
 .tour-info {
