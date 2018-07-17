@@ -37,7 +37,7 @@ class EventShow extends React.Component {
     };
 
     let dateString = new Date(this.props.date).toString().slice(0,15);
-    let timeString = new Date(this.props.date).toString().slice(16);
+    let timeString = new Date(this.props.date).toLocaleTimeString('en-US');
 
     return (
       <div className="event-show-component">

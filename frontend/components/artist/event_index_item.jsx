@@ -4,9 +4,19 @@ import { withRouter } from 'react-router-dom';
 class EventIndexItem extends React.Component {
   constructor(props) {
     super(props);
+
+    let rsvp_status;
+    this.props.venues.forEach ((venue) => {
+      if (this.props.currentUser.rsvp_events.includes(venue.id)) {
+        rsvp_status = true
+      } else {
+        rsvp_status = false;
+      }
+    });
+
     this.state = {
       rsvp_events: this.props.rsvp_events,
-      rsvpd: false
+      rsvpd: {rsvp_status}
     }
 
     this.handleClick = this.handleClick.bind(this);
