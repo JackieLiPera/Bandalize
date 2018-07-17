@@ -12,7 +12,8 @@ const msp = (state) => {
     venueState: state.entities.venues.state,
     date: state.entities.events.event_on,
     eventId: state.entities.events.id,
-    currentUser: state.session.currentUser
+    currentUser: state.session.currentUser,
+    venueId: state.entities.venues.id
   }
 };
 

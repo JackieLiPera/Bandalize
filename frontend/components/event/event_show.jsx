@@ -3,9 +3,19 @@ import React from 'react';
 class EventShow extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      rsvp_events: this.props.currentUser.rsvp_events
+
+    let rsvp_status;
+    if (this.props.currentUser.rsvp_events.includes(this.props.venueId)) {
+      rsvp_status = true
+    } else {
+      rsvp_status = false;
     }
+
+    this.state = {
+      rsvp_events: this.props.currentUser.rsvp_events,
+      rsvpd: rsvp_status
+    }
+
     this.changeRSVPStatus = this.changeRSVPStatus.bind(this);
   }
 
@@ -18,19 +28,20 @@ class EventShow extends React.Component {
       let eventIdx = this.props.currentUser.rsvp_events.indexOf(this.props.eventId)
       let removedEvent = this.props.currentUser.rsvp_events.splice(eventIdx, 1)
       this.setState({
-        rsvp_events: this.props.currentUser.rsvp_events
+        rsvp_events: this.props.currentUser.rsvp_events,
+        rsvpd: false
       });
     } else {
       this.setState({
-        rsvp_events: this.props.currentUser.rsvp_events.push(this.props.eventId)
+        rsvp_events: this.props.currentUser.rsvp_events.push(this.props.eventId),
+        rsvpd: true
       });
     }
   }
 
   render() {
     let rsvp_button;
-
-    if (this.props.currentUser.rsvp_events.includes(this.props.eventId)) {
+    if (this.state.rsvpd === true) {
       rsvp_button = <button onClick={this.changeRSVPStatus} className="rsvp-button-checked">	&#10004; Going</button>
     } else {
       rsvp_button = <button onClick={this.changeRSVPStatus} className="rsvp-button">RSVP</button>
