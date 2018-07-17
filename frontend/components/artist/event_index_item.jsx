@@ -4,13 +4,21 @@ import { withRouter } from 'react-router-dom';
 class EventIndexItem extends React.Component {
   constructor(props) {
     super(props);
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+
+  handleClick() {
+    debugger
+    const eventId = this.props.event.id;
+    this.props.history.push(`/events/${eventId}`);
   }
 
   render() {
     return (
-      <div >
+      <li onClick={() => this.handleClick()} >
         {this.props.event.id}
-      </div>
+      </li>
     );
   }
 }
