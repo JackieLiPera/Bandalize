@@ -5,16 +5,13 @@ import { fetchEvent } from '../../actions/event_actions';
 
 const msp = (state, ownProps) => {
   return {
-    artistName: state.entities.artists.name,
-    venueName: state.entities.venues.name,
-    venueAddress: state.entities.venues.address,
-    venueCity: state.entities.venues.city,
-    venueState: state.entities.venues.state,
-    date: state.entities.events.event_on,
-    eventId: state.entities.events.id,
+    event: state.entities.events[ownProps.match.params.id],
+    artist: state.entities.artists,
+    venue: state.entities.venues,
     currentUser: state.session.currentUser,
-    venueId: state.entities.venues.id,
-    rsvpd: state.session.currentUser.rsvp_events.includes(ownProps.match.params.id)
+    rsvpd: state.session.currentUser.rsvp_events.includes(ownProps.match.params.id),
+    dateString: new Date(state.entities.events.event_on).toString().slice(0,15),
+    timeString: new Date(state.entities.events.event_on).toLocaleTimeString('en-US')
   }
 };
 

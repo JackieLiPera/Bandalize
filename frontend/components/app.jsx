@@ -21,14 +21,15 @@ const App = () => (
     </header>
 
     <Switch>
-      <Route exact path="/api/users/:id" component={UserShowContainer} />
-      <Route exact path="/api/artists/:id" component={ArtistShowContainer} />
-      <Route exact path="/api/venues/:id" component={VenueShow} />
-      <Route exact path="/api/events/:id" component={EventShowContainer} />
-      <Route expact path="/" component={EventIndexContainer}/>
+      <Route exact path="/events/:id" component={EventShowContainer} />
+      <Route exact path="/artists/:id" component={ArtistShowContainer} />
+      <Route exact path="/users/:id" component={UserShowContainer} />
+      <Route exact path="/" component={EventIndexContainer}/>
     </Switch>
   </div>
 
 );
 
+
+// <Route exact path="venues/:id" component={VenueShow} />
 export default App;

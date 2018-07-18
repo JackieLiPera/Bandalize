@@ -54,12 +54,8 @@ class EventIndexItem extends React.Component {
         >RSVP</button>
     }
 
-    let event_venue;
-    this.props.venues.forEach ((venue) => {
-      if (venue.id === this.props.event.venue_id) {
-         event_venue = venue;
-      }
-    });
+    let event_venue = this.props.venue || {};
+  
 
     let month = new Date(this.props.event.event_on).toString().slice(4,7);
     let date = new Date(this.props.event.event_on).toString().slice(8,10);

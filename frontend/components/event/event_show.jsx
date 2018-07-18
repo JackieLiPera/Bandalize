@@ -3,22 +3,20 @@ import React from 'react';
 class EventShow extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {
       rsvp_events: this.props.currentUser.rsvp_events,
       rsvpd: this.props.rsvpd
     }
-
     this.changeRSVPStatus = this.changeRSVPStatus.bind(this);
   }
 
   componentDidMount() {
-    this.props.fetchEvent(this.props.match.params.id)
+    this.props.fetchEvent(this.props.match.params.id);
   }
 
   changeRSVPStatus(e) {
     if (this.state.rsvpd === true) {
-      let eventIdx = this.props.currentUser.rsvp_events.indexOf(this.props.eventId)
+      let eventIdx = this.props.currentUser.rsvp_events.indexOf(this.props.event.id)
       let removedEvent = this.props.currentUser.rsvp_events.splice(eventIdx, 1)
       this.setState({
         rsvp_events: this.props.currentUser.rsvp_events,
@@ -26,7 +24,7 @@ class EventShow extends React.Component {
       });
     } else {
       this.setState({
-        rsvp_events: this.props.currentUser.rsvp_events.push(this.props.eventId),
+        rsvp_events: this.props.currentUser.rsvp_events.push(this.props.event.id),
         rsvpd: true
       });
     }
@@ -40,18 +38,15 @@ class EventShow extends React.Component {
       rsvp_button = <button onClick={this.changeRSVPStatus} className="rsvp-button">RSVP</button>
     };
 
-    let dateString = new Date(this.props.date).toString().slice(0,15);
-    let timeString = new Date(this.props.date).toLocaleTimeString('en-US');
-
     return (
       <div className="event-show-component">
         <div className="event-show-container">
           <img className="artist-image"></img>
           <div className= "event-info">
-            <h2>{this.props.artistName}</h2>
-            {dateString} @ {this.props.venueName}
+            <h2>{this.props.artist.name}</h2>
+            {this.props.dateString} @ {this.props.venue.name}
             <br></br>
-            {this.props.venueCity}, {this.props.venueState}
+            {this.props.venue.city}, {this.props.venue.state}
             {rsvp_button}
           </div>
         </div>
@@ -59,14 +54,14 @@ class EventShow extends React.Component {
         <div className="event-description">
           <ul>
 
-            <li>{dateString}</li>
-            <li>{timeString}</li>
-            <li>{this.props.venueName}</li>
-            <li>{this.props.venueAddress}</li>
-            <li>{this.props.venueCity}, {this.props.venueState}</li>
+            <li>{this.props.dateString}</li>
+            <li>{this.props.timeString}</li>
+            <li>{this.props.venue.name}</li>
+            <li>{this.props.venue.address}</li>
+            <li>{this.props.venue.city}, {this.props.venue.state}</li>
             <br></br>
             <br></br>
-            <li>{this.props.artistName}</li>
+            <li>{this.props.artist.name}</li>
           </ul>
         </div>
 

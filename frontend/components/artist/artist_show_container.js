@@ -8,7 +8,7 @@ const msp = (state, ownProps) => {
   return {
     artist: state.entities.artists[ownProps.match.params.id],
     events: Object.keys(state.entities.events).map((id) => state.entities.events[id]),
-    venues: Object.keys(state.entities.venues).map((id) => state.entities.venues[id]),
+    venues: state.entities.venues,
     currentUser: state.session.currentUser,
     tracked_artists: state.session.currentUser.tracked_artists,
     tracking: state.session.currentUser.tracked_artists.includes(parseInt(ownProps.match.params.id))

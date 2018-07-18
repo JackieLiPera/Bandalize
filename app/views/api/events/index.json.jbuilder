@@ -8,7 +8,7 @@ end
 
 json.artist do
   @events.each do |event|
-    json.set! event.artist do
+    json.set! event.artist.id do
       json.partial! '/api/artists/artist', artist: event.artist
     end
   end

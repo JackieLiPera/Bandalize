@@ -1,8 +1,13 @@
 import React from 'react';
 import RsvpIndex from './rsvp_index';
 import TrackedArtistIndex from './tracked_artist_index';
+import { withRouter } from 'react-router-dom';
+
 
 class UserShow extends React.Component {
+  constructor(props) {
+    super(props);
+  }
 
   componentDidMount() {
     this.props.fetchArtists();
@@ -10,7 +15,6 @@ class UserShow extends React.Component {
 
 
   render() {
-
     return (
       <div className="user-show-container">
 
@@ -43,4 +47,4 @@ class UserShow extends React.Component {
   }
 }
 
-export default UserShow;
+export default withRouter(UserShow);

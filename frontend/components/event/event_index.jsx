@@ -24,7 +24,10 @@ class EventIndex extends React.Component {
     let image = window.tealx;
     let shuffled_events = this.shuffle(this.props.events);
     let all_events = shuffled_events.map ((event) => {
-      return <li><PopularEventIndexItem event={event} artists={this.props.artists}/> </li>
+      return <li>
+        <div></div>
+        <PopularEventIndexItem event={event} artists={this.props.artists}/>
+      </li>
     });
 
 
