@@ -11,6 +11,7 @@ class UserShow extends React.Component {
 
   componentDidMount() {
     this.props.fetchArtists();
+    this.props.fetchEvents();
   }
 
   render() {
@@ -32,13 +33,17 @@ class UserShow extends React.Component {
 
         <h2>Tracked Artists
           <div className="tracked-artists">
-            <TrackedArtistIndex key={this.props.currentUser.id} artists={this.props.artists}/>
+            <TrackedArtistIndex key={this.props.currentUser.id} artists={this.props.trackedArtists}/>
           </div>
         </h2>
 
         <h2>RSVPs
           <div>
-            <RsvpIndex key={this.props.currentUser.id} rsvps={this.props.rsvps}/>
+            <RsvpIndex
+              key={this.props.currentUser.id}
+              rsvps={this.props.rsvps}
+              artists={this.props.artists}
+              />
           </div>
         </h2>
       </div>

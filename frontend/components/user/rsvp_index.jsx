@@ -1,11 +1,16 @@
 import React from 'react';
 import RsvpIndexItem from './rsvp_index_item';
 
-const RsvpIndex = ({ rsvps }) => {
+const RsvpIndex = ({ rsvps, artists }) => {
+  debugger
   return (
     <ul className="rsvp-list">
-      {rsvps.map((eventid) => (
-        <li key={Math.floor(Math.random() * 1000000000)}><RsvpIndexItem eventid={eventid}/></li>
+      {rsvps.map((rsvp) => (
+        <li key={Math.floor(Math.random() * 1000000000)}>
+          <RsvpIndexItem
+            rsvp={rsvp}
+            artists={artists}
+            /></li>
       ))}
     </ul>
   );
