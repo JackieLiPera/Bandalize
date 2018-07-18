@@ -7,6 +7,7 @@ class ArtistEventIndex extends React.Component{
   }
 
   render() {
+
     return (
       <ul className="artist-events-list">Upcoming Events
         {this.props.events.map((event) => (

@@ -1,34 +1,34 @@
 import React from 'react';
-
+import { withRouter } from 'react-router-dom';
 
 class EventIndexItem extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      rsvpd: this.props.currentUser.rsvp_events[this.props.event.id]
+      rsvpd: this.props.currentUser.rsvp_events.includes(this.props.event.id)
     }
+
     this.handleClick = this.handleClick.bind(this);
     this.changeRSVPstatus = this.changeRSVPstatus.bind(this);
   }
 
   changeRSVPstatus(e) {
-    let eventId = parseInt(e.target.value);
-    if (this.props.currentUser.rsvp_events.includes(eventId)) {
+    if (this.state.rsvpd) {
+      this.props.deleteRsvp(this.props.currentUser, this.props.event.id);
       this.setState({
-        rsvp_events: this.props.currentUser.rsvp_events,
         rsvpd: false
       });
       e.stopPropagation();
     } else {
+      this.props.createRsvp(this.props.currentUser, this.props.event.id);
       this.setState({
-        rsvp_events: this.props.currentUser.rsvp_events.push(this.props.event.id),
         rsvpd: true
       });
       e.stopPropagation();
     }
   }
 
-  handleClick(e) {
+  handleClick() {
     const eventId = this.props.event.id;
     this.props.history.push(`/events/${eventId}`);
   }
@@ -38,13 +38,11 @@ class EventIndexItem extends React.Component {
     if (this.state.rsvpd) {
       rsvpButton = <button
         onClick={(e) =>this.changeRSVPstatus(e)}
-        value={this.props.event.id}
         className="artist-rsvp-button-going"
         >&#10004; Going </button>
     } else {
       rsvpButton = <button
         onClick={(e) =>this.changeRSVPstatus(e)}
-        value={this.props.event.id}
         className="artist-rsvp-button"
         >RSVP</button>
     }
@@ -55,7 +53,7 @@ class EventIndexItem extends React.Component {
     let month = new Date(this.props.event.event_on).toString().slice(4,7);
     let date = new Date(this.props.event.event_on).toString().slice(8,10);
     return (
-      <li onClick={(e) => this.handleClick(e)} >
+      <li onClick={() => this.handleClick()} >
         <div className="event-date-icon">
           <span className='month'>{month}</span>
           {date}
@@ -69,4 +67,4 @@ class EventIndexItem extends React.Component {
   }
 }
 
-export default EventIndexItem;
+export default withRouter(EventIndexItem);

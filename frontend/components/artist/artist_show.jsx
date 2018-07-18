@@ -7,7 +7,7 @@ class ArtistShow extends React.Component {
     this.state = {
       tracking: this.props.tracking
     };
-    
+
     this.handleTracking = this.handleTracking.bind(this);
   }
 
@@ -70,7 +70,9 @@ class ArtistShow extends React.Component {
             events={this.props.events}
             venues={this.props.venues}
             currentUser={this.props.currentUser}
-            tracking={this.props.tracking}/>
+            tracking={this.props.tracking}
+            createRsvp={this.props.createRsvp}
+            deleteRsvp={this.props.deleteRsvp}/>
         </div>
 
       </div>

@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import ArtistShow from './artist_show';
 import { fetchArtist } from '../../actions/artist_actions';
 import { createTracking, deleteTracking } from '../../actions/tracking_actions';
+import { createRsvp, deleteRsvp } from '../../actions/rsvp_actions';
 
 
 const msp = (state, ownProps) => {
@@ -19,7 +20,9 @@ const mdp = (dispatch) => {
   return {
     fetchArtist: (id) => dispatch(fetchArtist(id)),
     createTracking: (userId, artistId) => dispatch(createTracking(userId, artistId)),
-    deleteTracking: (userId, artistId) => dispatch(deleteTracking(userId, artistId))
+    deleteTracking: (userId, artistId) => dispatch(deleteTracking(userId, artistId)),
+    createRsvp: (userId, eventId) => dispatch(createRsvp(userId, eventId)),
+    deleteRsvp: (userId, eventId) => dispatch(deleteRsvp(userId, eventId)) 
   }
 };
 
