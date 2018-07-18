@@ -9,16 +9,34 @@
   height: 900px;
   max-width: 70vw;
   margin: auto;
+  overflow: visible;
 }
 
-.tracked-events-list, .tracked-artists-list, .rsvp-list {
+.user-show-container h2 {
+  width: 100%;
+}
+
+.tracked-events-list, .rsvp-list {
   display: flex;
   justify-content: space-between;
   margin-bottom: 50px;
   margin-top: 20px;
   padding-bottom: 20px;
   overflow: scroll;
+  width: 100%;
 }
+
+.tracked-artists-list {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 50px;
+  margin-top: 20px;
+  padding-bottom: 20px;
+  overflow: scroll;
+  width: 100%;
+  display: -webkit-box;
+}
+
 
 
 .tracked-events-list li {
@@ -58,7 +76,6 @@
   border: 1px solid #cdcdcd;
   margin-right: 20px;
   box-shadow: 0 3px 15px 0 rgba(0,0,0,.09);
-  background-color: white;
   cursor: pointer;
 }
 

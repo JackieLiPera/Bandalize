@@ -14,3 +14,11 @@ json.artist do
     end
   end
 end
+
+json.venue do
+  @events.each do |event|
+    json.set! event.venue.id do
+      json.partial! '/api/venues/venue', venue: event.venue
+    end
+  end
+end

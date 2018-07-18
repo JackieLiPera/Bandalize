@@ -1,5 +1,5 @@
 import { RECEIVE_VENUE, RECEIVE_VENUES } from '../actions/venue_actions';
-import { RECEIVE_EVENT } from '../actions/event_actions';
+import { RECEIVE_EVENT, RECEIVE_EVENTS } from '../actions/event_actions';
 import { RECEIVE_ARTIST } from '../actions/artist_actions';
 import { merge } from 'lodash';
 
@@ -7,6 +7,8 @@ import { merge } from 'lodash';
 export default (state = {}, action) => {
   Object.freeze(state);
   switch (action.type) {
+    case RECEIVE_EVENTS:
+      return merge({}, state, action.venue);
     case RECEIVE_ARTIST:
       return merge({}, state, action.venues);
     case RECEIVE_VENUE:

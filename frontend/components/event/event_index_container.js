@@ -5,7 +5,8 @@ import { fetchEvents } from '../../actions/event_actions';
 const msp = (state) => {
   return {
     events: Object.values(state.entities.events),
-    artists: state.entities.artists
+    artists: state.entities.artists,
+    venues: state.entities.venues
   }
 };
 
