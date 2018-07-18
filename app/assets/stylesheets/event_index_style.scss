@@ -83,7 +83,45 @@
   cursor: pointer;
   text-align: center;
   box-sizing: border-box;
-  padding-top: 100px;
+  padding-top: 120px;
+  font-size: 14px;
+  color: white;
+}
+
+li.rock {
+  background-image: url('rock2.svg');
+  background-size: contain;
+  background-color: rgba(205,99,73,.83);
+}
+
+li.electronic {
+  background-image: url('electronic.svg');
+  background-size: contain;
+  background-color: rgba(245,153,35,.83);
+}
+
+li.pop {
+  background-image: url('pop.svg');
+  background-size: contain;
+  background-color: rgba(116,85,157,.83);
+}
+
+li.alternative {
+  background-image: url('alternative.svg');
+  background-size: contain;
+  background-color: rgba(73,184,232,.71);
+}
+
+li.folk {
+  background-image: url('folk.svg');
+  background-size: contain;
+  background-color: rgba(191,136,61,.83);
+}
+
+li.r-b {
+  background-image: url('hipHop.svg');
+  background-size: contain;
+  background-color: rgba(92,141,146,.83);
 }
 
 .event-link {

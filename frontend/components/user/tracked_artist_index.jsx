@@ -4,7 +4,7 @@ import TrackedArtistIndexItem from './tracked_artist_index_item';
 const TrackedArtistIndex = ({ artists }) => {
 
   const mappedArtists = artists.map((artist) => {
-    return <li><TrackedArtistIndexItem key={artist.id} artist={artist} /></li>
+    return <li key={Math.floor(Math.random() * 1000000000)}><TrackedArtistIndexItem artist={artist} /></li>
   });
 
   return (

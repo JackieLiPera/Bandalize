@@ -5,7 +5,7 @@ const RsvpIndex = ({ rsvps }) => {
   return (
     <ul className="rsvp-list">
       {rsvps.map((event) => (
-        <li><RsvpIndexItem key={event.id} event={event}/></li>
+        <li key={Math.floor(Math.random() * 1000000000)}><RsvpIndexItem  event={event}/></li>
       ))}
     </ul>
   );

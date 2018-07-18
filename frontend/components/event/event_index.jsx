@@ -24,9 +24,9 @@ class EventIndex extends React.Component {
     let image = window.tealx;
     let shuffled_events = this.shuffle(this.props.events);
     let all_events = shuffled_events.map ((event) => {
-      return <li>
+      return <li key={Math.floor(Math.random() * 1000000000)}>
         <div></div>
-        <PopularEventIndexItem key={event.id} event={event} artists={this.props.artists}/>
+        <PopularEventIndexItem event={event} artists={this.props.artists}/>
       </li>
     });
 
@@ -37,7 +37,7 @@ class EventIndex extends React.Component {
           <img className="teal-x" src={image}/></span>
           <div className="events-container">
             <ul className="events-list">
-              {all_events}
+              {all_events.slice(0, 6)}
             </ul>
           </div>
         </h2>
@@ -56,12 +56,12 @@ class EventIndex extends React.Component {
         <h2>Events by Genre
           <div>
             <ul className="genre-list">
-              <li>Rock</li>
-              <li>Electronic</li>
-              <li>Pop</li>
-              <li>Alternative</li>
-              <li>Hip Hop</li>
-              <li>Rap</li>
+              <li className="rock">Rock</li>
+              <li className="electronic">Electronic</li>
+              <li className="pop">Pop</li>
+              <li className="alternative">Alternative</li>
+              <li className="folk">Folk</li>
+              <li className="r-b">R&B</li>
             </ul>
           </div>
         </h2>

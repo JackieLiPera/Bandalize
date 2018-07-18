@@ -57,7 +57,7 @@ class ArtistShow extends React.Component {
     return (
       <div className="artist-show-component">
         <div className="artist-show-container">
-          <img className="artist-show-image"></img>
+          <img src={this.props.artist.image} className="artist-show-image"></img>
           <div className= "artist-show-info">
             <ul>
               <li><h2>{artist.name } <img src={bluecheck}/></h2></li>

@@ -41,7 +41,7 @@ class EventShow extends React.Component {
     return (
       <div className="event-show-component">
         <div className="event-show-container">
-          <img className="artist-image"></img>
+          <img src={this.props.artist.image} className="artist-image"></img>
           <div className= "event-info">
             <h2>{this.props.artist.name}</h2>
             {this.props.dateString} @ {this.props.venue.name}

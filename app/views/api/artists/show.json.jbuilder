@@ -1,5 +1,6 @@
 json.artist do
   json.partial! '/api/artists/artist', artist: @artist
+  json.image url_for(artist.photo)
 end
 
 json.events do
