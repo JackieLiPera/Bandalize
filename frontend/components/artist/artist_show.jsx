@@ -5,10 +5,9 @@ class ArtistShow extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      tracked_artists: this.props.tracked_artists,
       tracking: this.props.tracking
     };
-
+    
     this.handleTracking = this.handleTracking.bind(this);
   }
 
@@ -18,15 +17,13 @@ class ArtistShow extends React.Component {
 
   handleTracking() {
     if (this.state.tracking === true ) {
-      let artistIndex = this.props.currentUser.tracked_artists.indexOf(this.props.artist.id);
-      let removedArtist = this.props.currentUser.tracked_artists.splice(artistIndex, 1);
+      this.props.deleteTracking(this.props.currentUser.id, this.props.artist.id);
       this.setState({
-        tracked_artists: this.props.currentUser.tracked_artists,
         tracking: false
       });
     } else {
+      this.props.createTracking(this.props.currentUser.id, this.props.artist.id);
       this.setState({
-        tracked_artists: this.props.currentUser.tracked_artists.push(this.props.artist.id),
         tracking: true
       });
     };

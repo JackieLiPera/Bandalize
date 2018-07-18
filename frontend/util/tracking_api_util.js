@@ -2,7 +2,7 @@
 export const createTracking = (userId, artistId) => {
   return $.ajax({
     type: 'POST',
-    url: `/api/users/${userId}/tracking`,
+    url: `/api/users/${userId}/trackings`,
     data: {
       tracking: {
         user_id: userId,

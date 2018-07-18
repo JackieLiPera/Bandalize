@@ -1,15 +1,12 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+
 
 class EventIndexItem extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {
-      rsvp_events: this.props.rsvp_events,
-      rsvpd: this.props.tracking
+      rsvpd: this.props.currentUser.rsvp_events[this.props.event.id]
     }
-
     this.handleClick = this.handleClick.bind(this);
     this.changeRSVPstatus = this.changeRSVPstatus.bind(this);
   }
@@ -17,8 +14,6 @@ class EventIndexItem extends React.Component {
   changeRSVPstatus(e) {
     let eventId = parseInt(e.target.value);
     if (this.props.currentUser.rsvp_events.includes(eventId)) {
-      let eventIdx = this.props.currentUser.rsvp_events.indexOf(eventId);
-      let removedEvent = this.props.currentUser.rsvp_events.splice(eventIdx, 1)
       this.setState({
         rsvp_events: this.props.currentUser.rsvp_events,
         rsvpd: false
@@ -55,7 +50,7 @@ class EventIndexItem extends React.Component {
     }
 
     let event_venue = this.props.venue || {};
-  
+
 
     let month = new Date(this.props.event.event_on).toString().slice(4,7);
     let date = new Date(this.props.event.event_on).toString().slice(8,10);
@@ -74,4 +69,4 @@ class EventIndexItem extends React.Component {
   }
 }
 
-export default withRouter(EventIndexItem);
+export default EventIndexItem;

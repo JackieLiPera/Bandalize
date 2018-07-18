@@ -2,8 +2,7 @@ class Api::TrackingsController < ApplicationController
   before_action :require_logged_in
 
   def create
-    @tracking = current_user.tracked_artists.new(tracking_params)
-
+    @tracking = @current_user.trackings.new(tracking_params)
     if @tracking.save
       render json: @tracking
     else
@@ -13,7 +12,7 @@ class Api::TrackingsController < ApplicationController
 
   def destroy
     @tracking = @current_user.trackings.find_by(tracking_params)
-
+    
     if @tracking.destroy
       render json: @tracking.id
     else
