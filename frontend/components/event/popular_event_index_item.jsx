@@ -9,12 +9,12 @@ class PopularEventIndexItem extends React.Component {
 
   render() {
     let event = this.props.event;
-    let performer = this.props.artists[event.artist_id]
 
 
     return(
-      <div>
-        <Link className="event-link" to={`events/${event.id}`}>{performer.name}</Link>
+      <div className="popular-event-index-item">
+        <div><img className='imager'src={this.props.artist.image}></img></div>
+        <div className="event-link"><Link to={`events/${event.id}`}>{this.props.artist.name}</Link></div>
       </div>
     );
   }

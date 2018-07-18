@@ -44,7 +44,7 @@
 
 .events-list li {
   width: 151px;
-  height: 200px;
+  height: 252px;
   border-radius: 5px;
   border: 1px solid #cdcdcd;
   margin-right: 20px;
@@ -54,6 +54,7 @@
   box-sizing: border-box;
   padding-top: 120px;
   font-size: 16px;
+  position: relative;
 }
 
 
@@ -83,10 +84,11 @@
   cursor: pointer;
   text-align: center;
   box-sizing: border-box;
-  padding-top: 120px;
+  padding-top: 125px;
   font-size: 14px;
   color: white;
 }
+
 
 li.rock {
   background-image: url('rock2.svg');
@@ -124,10 +126,23 @@ li.r-b {
   background-color: rgba(92,141,146,.83);
 }
 
-.event-link {
+.popular-event-index-item a {
   font-family: helvetica;
   text-decoration: none;
   color: #259998;
   font-size: 16px;
   font-weight: 500;
+  position: relative;
+}
+
+.event-link {
+  margin-top: 50px;
+}
+
+.imager {
+  width: 149.011px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
 }
