@@ -5,7 +5,7 @@ const RsvpIndex = ({ rsvps }) => {
   return (
     <ul className="rsvp-list">
       {rsvps.map((event) => (
-        <li><RsvpIndexItem event={event}/></li>
+        <li><RsvpIndexItem key={event.id} event={event}/></li>
       ))}
     </ul>
   );

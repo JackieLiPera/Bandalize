@@ -33,13 +33,13 @@ class UserShow extends React.Component {
 
         <h2>Tracked Artists
           <div className="tracked-artists">
-            <TrackedArtistIndex artists={this.props.artists}/>
+            <TrackedArtistIndex key={this.props.currentUser.id} artists={this.props.artists}/>
           </div>
         </h2>
 
         <h2>RSVPs
           <div>
-            <RsvpIndex rsvps={this.props.rsvps}/>
+            <RsvpIndex key={this.props.currentUser.id} rsvps={this.props.rsvps}/>
           </div>
         </h2>
       </div>

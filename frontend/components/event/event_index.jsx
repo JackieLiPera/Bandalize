@@ -26,7 +26,7 @@ class EventIndex extends React.Component {
     let all_events = shuffled_events.map ((event) => {
       return <li>
         <div></div>
-        <PopularEventIndexItem event={event} artists={this.props.artists}/>
+        <PopularEventIndexItem key={event.id} event={event} artists={this.props.artists}/>
       </li>
     });
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import EventIndex from './event_index';
+import ArtistEventIndex from './artist_event_index';
 
 class ArtistShow extends React.Component {
   constructor(props) {
@@ -69,7 +69,11 @@ class ArtistShow extends React.Component {
         </div>
 
         <div>
-          <EventIndex events={this.props.events} venues={this.props.venues} currentUser={this.props.currentUser} tracking={this.props.tracking}/>
+          <ArtistEventIndex
+            events={this.props.events}
+            venues={this.props.venues}
+            currentUser={this.props.currentUser}
+            tracking={this.props.tracking}/>
         </div>
 
       </div>

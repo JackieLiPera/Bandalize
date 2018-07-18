@@ -1,7 +1,7 @@
 import React from 'react';
 import EventIndexItem from './event_index_item';
 
-class EventIndex extends React.Component{
+class ArtistEventIndex extends React.Component{
   constructor(props) {
     super(props)
   }
@@ -10,11 +10,11 @@ class EventIndex extends React.Component{
     return (
       <ul className="artist-events-list">Upcoming Events
         {this.props.events.map((event) => (
-            <EventIndexItem event={event} venue={this.props.venues[event.venue_id]} tracking={this.props.tracking} currentUser={this.props.currentUser}/>
+            <EventIndexItem key={event.id} event={event} venue={this.props.venues[event.venue_id]} tracking={this.props.tracking} currentUser={this.props.currentUser}/>
         ))}
       </ul>
     );
   }
 }
 
-export default EventIndex;
+export default ArtistEventIndex;
