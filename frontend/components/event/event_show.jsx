@@ -4,9 +4,9 @@ class EventShow extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      rsvp_events: this.props.currentUser.rsvp_events,
       rsvpd: this.props.rsvpd
     }
+
     this.changeRSVPStatus = this.changeRSVPStatus.bind(this);
   }
 
@@ -16,15 +16,13 @@ class EventShow extends React.Component {
 
   changeRSVPStatus(e) {
     if (this.state.rsvpd === true) {
-      let eventIdx = this.props.currentUser.rsvp_events.indexOf(this.props.event.id)
-      let removedEvent = this.props.currentUser.rsvp_events.splice(eventIdx, 1)
+      this.props.deleteRsvp(this.props.currentUser.id, this.props.event.id);
       this.setState({
-        rsvp_events: this.props.currentUser.rsvp_events,
         rsvpd: false
       });
     } else {
+      this.props.createRsvp(this.props.currentUser.id, this.props.event.id);
       this.setState({
-        rsvp_events: this.props.currentUser.rsvp_events.push(this.props.event.id),
         rsvpd: true
       });
     }
@@ -43,7 +41,7 @@ class EventShow extends React.Component {
         <div className="event-show-container">
           <img src={this.props.artist.image} className="artist-image"></img>
           <div className= "event-info">
-            <h2>{this.props.artist.name}</h2>
+            <h2>{this.props.artist.name} <img src={bluecheck}/></h2>
             {this.props.dateString} @ {this.props.venue.name}
             <br></br>
             {this.props.venue.city}, {this.props.venue.state}
@@ -55,8 +53,8 @@ class EventShow extends React.Component {
           <ul>
 
             <li>{this.props.dateString}</li>
-            <li>{this.props.timeString}</li>
-            <li>{this.props.venue.name}</li>
+            <li className="event-venue-timestring">{this.props.timeString}</li>
+            <li className="event-venue-name">{this.props.venue.name}</li>
             <li>{this.props.venue.address}</li>
             <li>{this.props.venue.city}, {this.props.venue.state}</li>
             <br></br>

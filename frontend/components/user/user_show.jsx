@@ -13,7 +13,6 @@ class UserShow extends React.Component {
     this.props.fetchArtists();
   }
 
-
   render() {
     return (
       <div className="user-show-container">

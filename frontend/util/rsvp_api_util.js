@@ -1,9 +1,27 @@
 
 
-export const createRsvp = (userId) => {
+export const createRsvp = (userId, eventId) => {
   return $.ajax({
-    method: 'POST',
+    type: 'POST',
     url: `/api/users/${userId}/rsvp`,
-    data: { rsvp }
+    data: {
+      rsvp: {
+        user_id: userId,
+        event_id: eventId
+      }
+    }
+  });
+}
+
+export const deleteRsvp = (userId, eventId) => {
+  return $.ajax({
+    type: 'DELETE',
+    url: `/api/users/${userId}/rsvp/${eventId}`,
+    data: {
+      rsvp: {
+        user_id: userId,
+        event_id: eventId
+      }
+    }
   });
 }

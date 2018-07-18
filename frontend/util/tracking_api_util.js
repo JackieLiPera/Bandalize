@@ -1,8 +1,26 @@
 
-export const createTracking = (userId) => {
+export const createTracking = (userId, artistId) => {
   return $.ajax({
-    method: 'POST',
-    url: `/api/users/${userId}/trackings`,
-    data: { tracking }
+    type: 'POST',
+    url: `/api/users/${userId}/tracking`,
+    data: {
+      tracking: {
+        user_id: userId,
+        artist_id: artistId
+      }
+    }
+  });
+}
+
+export const deleteTracking = (userId, artistId) => {
+  return $.ajax({
+    method: 'DELETE',
+    url: `/api/users/${userId}/trackings/${artistId}`,
+    data: {
+      tracking: {
+        user_id: userId,
+        artist_id: artistId
+      }
+    }
   });
 }

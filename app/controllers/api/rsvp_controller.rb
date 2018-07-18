@@ -3,7 +3,6 @@ class Api::RsvpController < ApplicationController
 
   def create
     @rsvp = current_user.rsvps.new(rsvp_params)
-
     if @rsvp.save
       render json: @rsvp
     else
@@ -11,6 +10,15 @@ class Api::RsvpController < ApplicationController
     end
   end
 
+  def destroy
+    @rsvp = @current_user.rsvps.find_by(rsvp_params)
+    
+    if @rsvp.destroy
+      render json: @rsvp.id
+    else
+      render json: @rsvp.errors.full_messages, status: 422
+    end
+  end
 
   private
 
