@@ -35,14 +35,15 @@
 }
 
 .app-title {
-  font-family: 'Roboto', sans-serif;
-  font-size: 27px;
+  font-family: helvetica;
+  font-size: 26px;
   align-items: center;
   margin-left: 10px;
   margin-right: 40px;
   text-decoration: none;
   color: black;
   cursor: pointer;
+  letter-spacing: .3px;
 }
 
 .nav-logo img{

@@ -169,8 +169,34 @@ li.r-b {
   border-top-left-radius: 5px;
 }
 
-.event-venue-name {
+.event-index-venue-name {
   color: black;
   font-size: 14px;
   font-weight: normal;
+  font-family: helvetica;
+}
+
+.date-box {
+  background: white;
+  border-radius: 3px;
+  box-shadow: 0 2px 7px 0 rgba(0,0,0,.31);
+  top: 94px;
+  right: 10px;
+  position: absolute;
+  padding: 5px 8px;
+  text-align: center;
+  align-items: center;
+  color: #259998;
+  font-size: 8px;
+}
+
+.large-date {
+  font-size: 20px;
+}
+
+.grey-date {
+  color: #8f8f8f;
+  font-size: 7px;
+  padding-bottom: 1px;
+  font-family: helvetica;
 }
