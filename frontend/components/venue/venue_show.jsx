@@ -1,5 +1,6 @@
 import React from 'react';
 import VenueEventIndex from './venue_event_index';
+import VenueMap from './venue_map';
 
 class VenueShow extends React.Component {
   constructor(props) {
@@ -16,7 +17,11 @@ class VenueShow extends React.Component {
     return (
       <div className="venue-info-component">
         <div className="venue-info-container">
-          <div className="venue-map"></div>
+
+          <div className="venue-map">
+            <VenueMap venue={this.props.venue} />
+            </div>
+
           <div className= "venue-info">
             <h2 className="venue-name">{this.props.venue.name}</h2>
             <br></br>
@@ -33,6 +38,8 @@ class VenueShow extends React.Component {
               artists={this.props.artists}
               venue={this.props.venue}
               currentUser={this.props.currentUser}
+              createRsvp={this.props.createRsvp}
+              deleteRsvp={this.props.deleteRsvp}
               />
         </div>
 

@@ -52,7 +52,8 @@ class VenueEventIndexItem extends React.Component {
     let month = new Date(this.props.event.event_on).toString().slice(4,7);
     let date = new Date(this.props.event.event_on).toString().slice(8,10);
     return (
-      <div className="venue-event-list-div">
+      <div className="venue-event-list-div" onClick={this.handleClick}>
+
         <div className="event-date-icon">
           <span className='month'>{month}</span>
           {date}

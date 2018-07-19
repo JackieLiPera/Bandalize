@@ -32,7 +32,7 @@ artist16 = Artist.create!(name:"Shakey Graves", image_url:"xxxxx", on_tour: fals
 artist17 = Artist.create!(name:"Childish Gambino", image_url:"xxxxx", on_tour: true, genre:"R&B")
 artist18 = Artist.create!(name:"Arctic Monkeys", image_url:"xxxxx", on_tour: true, genre:"Rock")
 artist19 = Artist.create!(name:"Sublime", image_url:"xxxxx", on_tour: false, genre:"Rock")
-artist20 = Artist.create!(name:"Odeza", image_url:"xxxxx", on_tour: true, genre:"Electronic")
+artist20 = Artist.create!(name:"Odesza", image_url:"xxxxx", on_tour: true, genre:"Electronic")
 
 artist1.photo.attach(io: File.open('./app/assets/images/artist_photos/rhcp.jpg'), filename: 'rhcp.jpg')
 artist2.photo.attach(io: File.open('./app/assets/images/artist_photos/rks.jpg'), filename: 'rks.jpg')
@@ -57,11 +57,11 @@ artist20.photo.attach(io: File.open('./app/assets/images/artist_photos/odeza.jpg
 
 Venue.destroy_all
 
-venue1 = Venue.create!(name: 'Madison Square Garden', address: '4 Pennsylvania Plaza', city: 'New York', state: 'NY', country: 'United States', latitude: 40.7505, longitude: 73.9934)
-venue2 = Venue.create!(name: 'Forrest Hills Stadium' , address: '1 Tennis Pl', city: 'Forrest Hills', state: 'NY', country: 'United States', latitude: 40.7196, longitude: 73.8498 )
-venue3 = Venue.create!(name: 'Bowery Ballroom', address: '6 Delancey St', city: 'New York', state: 'NY', country: 'United States', latitude: 40.7204, longitude: 73.9934)
-venue4 = Venue.create!(name: 'Barclays Center', address: '620 Atlantic Ave', city: 'Brooklyn', state: 'NY', country: 'United States', latitude: 40.6828, longitude: 73.9758)
-venue5 = Venue.create!(name: 'Hammerstein Ballroom', address: '311 W 34th St', city: 'New York', state: 'NY', country: 'United States', latitude: 40.7528, longitude: 73.9942)
+venue1 = Venue.create!(name: 'Madison Square Garden', address: '4 Pennsylvania Plaza', city: 'New York', state: 'NY', country: 'United States', latitude: 40.7505, longitude: -73.9934)
+venue2 = Venue.create!(name: 'Forrest Hills Stadium' , address: '1 Tennis Pl', city: 'Forrest Hills', state: 'NY', country: 'United States', latitude: 40.7196, longitude: -73.8498 )
+venue3 = Venue.create!(name: 'Bowery Ballroom', address: '6 Delancey St', city: 'New York', state: 'NY', country: 'United States', latitude: 40.7204, longitude: -73.9934)
+venue4 = Venue.create!(name: 'Barclays Center', address: '620 Atlantic Ave', city: 'Brooklyn', state: 'NY', country: 'United States', latitude: 40.6828, longitude: -73.9758)
+venue5 = Venue.create!(name: 'Hammerstein Ballroom', address: '311 W 34th St', city: 'New York', state: 'NY', country: 'United States', latitude: 40.7528, longitude: -73.9942)
 
 Event.destroy_all
 
