@@ -8,10 +8,11 @@ export const receiveVenues = (venues) => ({
   venues
 });
 
-export const receiveVenue = ({venue, events}) => ({
+export const receiveVenue = ({venue, events, artists}) => ({
   type: RECEIVE_VENUE,
   venue,
-  events
+  events,
+  artists
 });
 
 export const fetchVenues = () => dispatch => (

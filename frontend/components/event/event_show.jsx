@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class EventShow extends React.Component {
   constructor(props) {
@@ -11,8 +12,9 @@ class EventShow extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchEvent(this.props.match.params.id);
+    let event = this.props.fetchEvent(this.props.match.params.id);
   }
+
 
   changeRSVPStatus(e) {
     if (this.state.rsvpd === true) {
@@ -52,14 +54,11 @@ class EventShow extends React.Component {
         <div className="event-description">
           <ul>
 
-            <li>{this.props.dateString}</li>
+            <li className="bold-date-string">{this.props.dateString}</li>
             <li className="event-venue-timestring">{this.props.timeString}</li>
-            <li className="event-venue-name">{this.props.venue.name}</li>
-            <li>{this.props.venue.address}</li>
-            <li>{this.props.venue.city}, {this.props.venue.state}</li>
-            <br></br>
-            <br></br>
-            <li>{this.props.artist.name}</li>
+            <li className="event-venue-name"><Link to={`venues/${this.props.venue.id}`}></Link>
+              {this.props.venue.name}</li>
+            <li>{this.props.venue.address } {this.props.venue.city}, {this.props.venue.state}</li>
           </ul>
         </div>
 

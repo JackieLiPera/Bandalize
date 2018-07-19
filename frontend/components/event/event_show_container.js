@@ -5,14 +5,20 @@ import { createRsvp, deleteRsvp } from '../../actions/rsvp_actions';
 
 
 const msp = (state, ownProps) => {
+
+  const event = state.entities.events[ownProps.match.params.id];
+  let eventDate;
+  if (event) {
+    eventDate = new Date (event.event_on)
+  }
   return {
-    event: state.entities.events[ownProps.match.params.id],
+    event: event,
     artist: state.entities.artists,
     venue: state.entities.venues,
     currentUser: state.session.currentUser,
     rsvpd: state.session.currentUser.rsvp_events.includes(ownProps.match.params.id),
-    dateString: new Date(state.entities.events.event_on).toString().slice(0,15),
-    timeString: new Date(state.entities.events.event_on).toLocaleTimeString('en-US')
+    dateString: eventDate ? eventDate.toString().slice(0, 15) : "",
+    timeString: eventDate ? eventDate.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}) : ""
   }
 };
 

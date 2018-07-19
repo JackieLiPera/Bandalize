@@ -59,7 +59,7 @@
   display: flex;
   flex-direction: column;
   align-content: space-between;
-  padding: 15px 20px;
+  padding: 35px 35px;
   color: black;
   font-weight: bold;
   font-family: sans-serif;
@@ -70,6 +70,11 @@
 .event-description li {
   padding-bottom: 5px;
   font-size: 15px;
+  font-family: arial;
+}
+
+.bold-date-string {
+  font-weight: bold;
 }
 
 .event-info h2 {
