@@ -17,6 +17,8 @@ class RsvpIndexItem extends React.Component {
       <div className="rsvp-event" onClick={this.handleClick}>
         <img src={this.props.artist.image} className='rsvp-image'></img>
         <span className='rsvp-title'>{this.props.artist.name}</span>
+        <br></br>
+        <span className='rsvp-venue'>{this.props.venue.name}</span>
       </div>
     );
   }

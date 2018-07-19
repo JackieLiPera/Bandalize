@@ -23,4 +23,18 @@ json.rsvps do
       json.partial! '/api/events/event', event: event
     end
   end
+
+  @user.tracked_events.each do |event|
+    json.set! event.id do
+      json.partial! '/api/events/event', event: event
+    end
+  end
+end
+
+json.venues do
+  @user.rsvpd_venues.each do |venue|
+    json.set! venue.id do
+      json.partial! 'api/venues/venue', venue: venue
+    end
+  end
 end

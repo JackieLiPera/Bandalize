@@ -5,13 +5,14 @@ export const LOGOUT_CURRENT_USER = "LOGOUT_CURRENT_USER";
 export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
 
 
-export const receiveCurrentUser = ({ currentUser, artists, rsvps }) => {
-  
+export const receiveCurrentUser = ({ currentUser, artists, rsvps, venues }) => {
+
   return {
     type: RECEIVE_CURRENT_USER,
     currentUser: currentUser,
     artists,
-    events: rsvps
+    events: rsvps,
+    venues
   }
 }
 

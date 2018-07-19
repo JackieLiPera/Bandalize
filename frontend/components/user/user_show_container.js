@@ -25,7 +25,9 @@ const msp = (state) => {
     currentUser: state.session.currentUser,
     rsvps: rsvps,
     trackedArtists: trackedArtists,
-     artists: state.entities.artists
+    artists: state.entities.artists,
+    venues: state.entities.venues,
+    events: state.entities.events
   }
 };
 

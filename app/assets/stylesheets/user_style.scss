@@ -1,5 +1,5 @@
 .user-show-container {
-  font-family: 'Roboto', sans-serif;
+  font-family: helvetica;
   font-size: 16px;
   display: flex;
   flex-direction: column;
@@ -16,13 +16,23 @@
   width: 100%;
 }
 
-.tracked-events-list, .rsvp-list {
+.tracked-events-list {
   display: flex;
   justify-content: space-between;
   margin-bottom: 50px;
   margin-top: 20px;
-  padding-bottom: 20px;
   width: 100%;
+  overflow: scroll;
+}
+
+.rsvp-list {
+  padding-bottom: 80px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 50px;
+  margin-top: 20px;
+  width: 100%;
+  overflow: scroll;
 }
 
 .tracked-artists-list {
@@ -36,16 +46,32 @@
   display: -webkit-box;
 }
 
-
-
 .tracked-events-list li {
-  width: 151px;
-  height: 200px;
+  min-width: 151px;
+  min-height: 250px;
   border-radius: 5px;
   border: 1px solid #cdcdcd;
   margin-right: 20px;
   box-shadow: 0 3px 15px 0 rgba(0,0,0,.09);
   cursor: pointer;
+}
+
+.suggested-event {
+  max-width: 151px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.suggested-event-title {
+  background: white;
+  color: #16b4b3;
+  font-size: 20px;
+  // padding-left: 5px;
+}
+
+.suggested-event-venue {
+  font-size: 14px;
+  color: black;
 }
 
 .tracked-artists li {
@@ -72,21 +98,27 @@
   width: 151px;
   height: 151px;
   border-radius: 5px;
-
+  font-family: helvetica;
   margin-right: 20px;
   box-shadow: 0 3px 15px 0 rgba(0,0,0,.09);
   cursor: pointer;
+  text-align: center;
 
 }
 
 .rsvp-title {
   background: white;
-  font-family: helvetica;
-  font-size: 16px;
+  color: #16b4b3;
+  font-size: 20px;
   text-align: left;
 }
 
 .rsvp-image {
   max-width: 151px;
-  border-radius: 5px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.rsvp-venue {
+  font-size: 14px;
 }

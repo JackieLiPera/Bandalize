@@ -1,6 +1,7 @@
 import React from 'react';
 import RsvpIndex from './rsvp_index';
 import TrackedArtistIndex from './tracked_artist_index';
+import SuggestedEventIndex from './suggested_events_index';
 import { withRouter } from 'react-router-dom';
 
 class UserShow extends React.Component {
@@ -16,17 +17,12 @@ class UserShow extends React.Component {
     return (
       <div className="user-show-container">
 
-        <h2>Tracked Events
-          <div>
-            <ul className="tracked-events-list">
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-            </ul>
-          </div>
+        <h2> Your Suggested Events
+          <SuggestedEventIndex
+            key={this.props.currentUser.id}
+            events={this.props.events}
+            artists={this.props.trackedArtists}
+            venues={this.props.venues}/>
         </h2>
 
         <h2>Tracked Artists
@@ -37,13 +33,12 @@ class UserShow extends React.Component {
         </h2>
 
         <h2>RSVPs
-          <div>
-            <RsvpIndex
-              key={this.props.currentUser.id}
-              rsvps={this.props.rsvps}
-              artists={this.props.artists}
-              />
-          </div>
+          <RsvpIndex
+            key={this.props.currentUser.id}
+            rsvps={this.props.rsvps}
+            artists={this.props.artists}
+            venues={this.props.venues}
+            />
         </h2>
       </div>
     )
