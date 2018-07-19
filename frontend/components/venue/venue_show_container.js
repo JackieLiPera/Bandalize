@@ -4,7 +4,13 @@ import { fetchVenue } from '../../actions/venue_actions';
 import { createRsvp, deleteRsvp } from '../../actions/rsvp_actions';
 
 const msp = (state, ownProps) => {
+  const venue = state.entities.venues;
+  debugger
   return {
+    artists: state.entities.artists,
+    events: Object.values(state.entities.events),
+    currentUser: state.session.currentUser,
+    venue: venue
   }
 };
 

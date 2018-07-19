@@ -1,7 +1,7 @@
 import { RECEIVE_ARTIST, RECEIVE_ARTISTS } from '../actions/artist_actions';
 import { RECEIVE_EVENT, RECEIVE_EVENTS } from '../actions/event_actions';
 import { RECEIVE_CURRENT_USER } from '../actions/session_actions';
-import { RECEIVE_VENUE } from '../actions/venues_reducer';
+import { RECEIVE_VENUE } from '../actions/venue_actions';
 import { merge } from 'lodash';
 
 

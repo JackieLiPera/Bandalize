@@ -1,11 +1,11 @@
-.venue-show-component {
+.venue-info-component {
   background-color: #ededed;
   display: flex;
   justify-content: center;
   height: 900px;
 }
 
-.venue-show-container {
+.venue-info-container {
   width: 300px;
   height: 404px;
   border: 1px solid #cdcdcd;
@@ -31,22 +31,21 @@
 }
 
 .venue-info {
-  height: 50px;
   width: 270px;
-  border: 1px solid #f3f3f3;
   margin: auto;
 }
 
 .venue-events-list li {
   display: flex;
-  flex-direction: column;
   background-color: white;
   width: 601px;
   height: 63px;
   margin-top: 2px;
   box-shadow: 0 3px 15px 0 rgba(0,0,0,.09);
-  align-items: flex-end;
-  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 9;
+  color: black;
 }
 
 .venue-events-list li:hover {
@@ -60,4 +59,75 @@
   color: #259998;
   font-size: 13px;
   font-weight: bold;
+}
+
+.venue-event-list-div {
+  display: flex;
+  background-color: white;
+  width: 601px;
+  height: 63px;
+  margin-top: 2px;
+  box-shadow: 0 3px 15px 0 rgba(0,0,0,.09);
+  align-items: center;
+  justify-content: space-between;
+  z-index: 9;
+  color: black;
+}
+
+.venue-event-list-div img {
+  height: 40px;
+  width: 40px;
+  position: absolute;
+  margin-left: 60px;
+}
+
+.venue-name {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.venue-address {
+  height: 50px;
+  width: 270px;
+  margin: auto;
+}
+
+.venue-rsvp-button {
+  width: 145px;
+  height: 34px;
+  cursor: pointer;
+  font-size: 14px;
+  border: 1px solid #00b4b3;
+  color: #00b4b3;
+  background-color: white;
+  border-radius: 2px;
+  margin-right: 10px;
+  z-index: 10;
+}
+.venue-rsvp-button:hover {
+  background-color: #00b4b3;
+  color: white;
+}
+
+.venue-rsvp-button-going {
+  width: 145px;
+  height: 34px;
+  cursor: pointer;
+  font-size: 14px;
+  border: 1px solid #00b4b3;
+  background-color: white;
+  color: #00b4b3;
+  margin-right: 10px;
+  border-radius: 2px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.venue-event-index-text {
+  box-sizing: border-box;
+  padding-left: 50px;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 500;
+  position: absolute;
+  margin-left: 70px;
 }

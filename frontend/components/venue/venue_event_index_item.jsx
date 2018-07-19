@@ -1,10 +1,10 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import {withRouter} from 'react-router-dom';
 
-class EventIndexItem extends React.Component {
+class VenueEventIndexItem extends React.Component {
   constructor(props) {
     super(props);
-    
+
     this.state = {
       rsvpd: this.props.currentUser.rsvp_events.includes(this.props.event.id)
     }
@@ -35,37 +35,38 @@ class EventIndexItem extends React.Component {
   }
 
   render() {
+
     let rsvpButton;
     if (this.state.rsvpd) {
       rsvpButton = <button
         onClick={(e) =>this.changeRSVPstatus(e)}
-        className="artist-rsvp-button-going"
+        className="venue-rsvp-button-going"
         >&#10004; Going </button>
     } else {
       rsvpButton = <button
         onClick={(e) =>this.changeRSVPstatus(e)}
-        className="artist-rsvp-button"
+        className="venue-rsvp-button"
         >RSVP</button>
     }
-
-    let event_venue = this.props.venue || {};
-
 
     let month = new Date(this.props.event.event_on).toString().slice(4,7);
     let date = new Date(this.props.event.event_on).toString().slice(8,10);
     return (
-      <li onClick={() => this.handleClick()} >
+      <div className="venue-event-list-div">
         <div className="event-date-icon">
           <span className='month'>{month}</span>
           {date}
         </div>
-        <div className="event-index-text">
-          {event_venue.name}<span> </span>{event_venue.city}, {event_venue.state}
-        </div>
+
+
+        <img  src={this.props.artist.image}/>
+
+        <span className="venue-event-index-text">{this.props.artist.name}</span>
         {rsvpButton}
-      </li>
+      </div>
+
     );
   }
 }
 
-export default withRouter(EventIndexItem);
+export default withRouter(VenueEventIndexItem);
