@@ -3,10 +3,13 @@ export const RECEIVE_ARTISTS = "RECEIVE_ARTISTS";
 export const RECEIVE_ARTIST = "RECEIVE_ARTIST";
 
 
-export const receiveArtists = (artists) => ({
+export const receiveArtists = (artists) => {
+  console.log(artists)
+  return {
   type: RECEIVE_ARTISTS,
   artists
-});
+}
+};
 
 export const receiveArtist = ({artist, events, venues}) => ({
   type: RECEIVE_ARTIST,

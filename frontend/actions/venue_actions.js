@@ -8,11 +8,11 @@ export const receiveVenues = (venues) => ({
   venues
 });
 
-export const receiveVenue = (venue) => ({
+export const receiveVenue = ({venue, events}) => ({
   type: RECEIVE_VENUE,
-  venue
+  venue,
+  events
 });
-
 
 export const fetchVenues = () => dispatch => (
   ApiVenueUtil.fetchVenues().then((venues) => dispatch(receiveVenues(venues)))

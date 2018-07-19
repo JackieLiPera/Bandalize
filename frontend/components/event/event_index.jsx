@@ -49,10 +49,22 @@ class EventIndex extends React.Component {
         <h2>Recent News
           <div>
             <ul className="recent-news-list">
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
+              <li>
+                <img src={window.article1}/>
+                <a href="https://tinyurl.com/y8ahhwq5">Bandsintown Big Break: How Yungblud’s Hyper-Energetic Alt-Rock Rages Against The Machine</a>
+              </li>
+              <li>
+                <img src={window.article2}/>
+                <a href="https://tinyurl.com/y82evpzh">The Revolution's Tour Bus Playlist Featuring Guns N Roses, Public Enemy, Chromeo </a>
+              </li>
+              <li>
+                <img src={window.article3}/>
+                <a href="https://tinyurl.com/ybp35me3">Photo Gallery: Lettuce Brought The Funk To NYC's Blue Note Jazz Club</a>
+              </li>
+              <li>
+                <img src={window.article4}/>
+                <a href="https://tinyurl.com/yddulqok">Top 5 Live: The Acts Bay Ledges Want To See At Summerfest 2018</a>
+              </li>
             </ul>
           </div>
         </h2>

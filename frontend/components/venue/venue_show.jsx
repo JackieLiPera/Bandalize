@@ -1,11 +1,34 @@
 import React from 'react';
 
-const VenueShow = () => {
+class VenueShow extends React.Component {
+  constructor(props) {
+    super(props);
 
-  // componentDidMount() {
-  //   this.props.fetchVenue();
-  // }
+    this.state = {
+      rsvpd: this.props.rsvpd
+    }
+    this.changeRSVPStatus = this.changeRSVPStatus.bind(this);
+  }
 
+  componentDidMount() {
+    this.props.fetchVenue(this.props.match.params.id);
+  }
+
+  changeRSVPStatus(e) {
+    if (this.state.rsvpd === true) {
+      this.props.deleteRsvp(this.props.currentUser.id, this.props.event.id);
+      this.setState({
+        rsvpd: false
+      });
+    } else {
+      this.props.createRsvp(this.props.currentUser.id, this.props.event.id);
+      this.setState({
+        rsvpd: true
+      });
+    }
+  }
+
+  render () {
     return (
       <div className="venue-show-component">
         <div className="venue-show-container">
@@ -26,6 +49,7 @@ const VenueShow = () => {
 
       </div>
     );
+  }
 }
 
 export default VenueShow;

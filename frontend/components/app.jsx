@@ -8,7 +8,7 @@ import { Route, Switch, Link, HashRouter } from 'react-router-dom';
 import UserShowContainer from './user/user_show_container';
 import ArtistShowContainer from './artist/artist_show_container.js';
 import EventIndexContainer from './event/event_index_container.js';
-import VenueShow from './venue/venue_show';
+import VenueShowContainer from './venue/venue_show_container';
 import EventShowContainer from './event/event_show_container.js';
 
 
@@ -21,6 +21,7 @@ const App = () => (
     </header>
 
     <Switch>
+      <Route exact path="/venues/:id" component={VenueShowContainer} />
       <Route exact path="/events/:id" component={EventShowContainer} />
       <Route exact path="/artists/:id" component={ArtistShowContainer} />
       <Route exact path="/users/:id" component={UserShowContainer} />
@@ -31,5 +32,4 @@ const App = () => (
 );
 
 
-// <Route exact path="venues/:id" component={VenueShow} />
 export default App;

@@ -19,7 +19,6 @@ const msp = (state) => {
     trackedArtists: trackedArtists,
     artists: state.entities.artists
   }
-  debugger
 };
 
 const mdp = (dispatch) => {

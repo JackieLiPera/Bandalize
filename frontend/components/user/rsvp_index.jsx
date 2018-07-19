@@ -2,7 +2,6 @@ import React from 'react';
 import RsvpIndexItem from './rsvp_index_item';
 
 const RsvpIndex = ({ rsvps, artists }) => {
-  debugger
   return (
     <ul className="rsvp-list">
       {rsvps.map((rsvp) => (

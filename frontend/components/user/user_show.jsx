@@ -11,7 +11,6 @@ class UserShow extends React.Component {
 
   componentDidMount() {
     this.props.fetchArtists();
-    this.props.fetchEvents();
   }
 
   render() {
