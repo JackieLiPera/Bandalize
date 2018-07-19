@@ -4,7 +4,6 @@ export const RECEIVE_ARTIST = "RECEIVE_ARTIST";
 
 
 export const receiveArtists = (artists) => {
-  console.log(artists)
   return {
   type: RECEIVE_ARTISTS,
   artists

@@ -4,7 +4,6 @@ import { fetchVenue } from '../../actions/venue_actions';
 import { createRsvp, deleteRsvp } from '../../actions/rsvp_actions';
 
 const msp = (state, ownProps) => {
-  debugger
   return {
   }
 };

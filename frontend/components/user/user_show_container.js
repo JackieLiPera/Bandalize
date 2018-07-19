@@ -1,30 +1,37 @@
 import { connect } from 'react-redux';
 import UserShow from './user_show';
-import { fetchArtists } from '../../actions/artist_actions';
-import { fetchEvents } from '../../actions/event_actions';
+import { fetchUser } from '../../actions/session_actions';
 import { withRouter } from 'react-router-dom';
 
 const msp = (state) => {
-  let trackedArtists = state.session.currentUser.tracked_artists.map ((trackedId) => {
-    return state.entities.artists[trackedId] || {} ;
+
+  let rsvps = {};
+  state.session.currentUser.rsvp_events.map ((eventId) => {
+    const event = state.entities.events[eventId];
+    if (event) {
+      rsvps[eventId] = event;
+    }
   });
 
-  let rsvps = state.session.currentUser.rsvp_events.map((eventid) => {
-    return state.entities.events[eventid] || {} ;
+  let trackedArtists = {};
+  state.session.currentUser.tracked_artists.map ((artistId) => {
+    const artist = state.entities.artists[artistId];
+    if (artist) {
+      trackedArtists[artistId] = artist;
+    }
   });
 
   return {
     currentUser: state.session.currentUser,
     rsvps: rsvps,
     trackedArtists: trackedArtists,
-    artists: state.entities.artists
+     artists: state.entities.artists
   }
 };
 
 const mdp = (dispatch) => {
   return {
-    fetchArtists: () => dispatch(fetchArtists()),
-    fetchEvents: () => dispatch(fetchEvents())
+    fetchUser: (id) => dispatch(fetchUser(id))
   }
 }
 

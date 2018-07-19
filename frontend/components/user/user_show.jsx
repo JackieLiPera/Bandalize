@@ -3,14 +3,13 @@ import RsvpIndex from './rsvp_index';
 import TrackedArtistIndex from './tracked_artist_index';
 import { withRouter } from 'react-router-dom';
 
-
 class UserShow extends React.Component {
   constructor(props) {
     super(props);
   }
 
   componentDidMount() {
-    this.props.fetchArtists();
+    let currentUser = this.props.fetchUser(this.props.match.params.id);
   }
 
   render() {
@@ -32,7 +31,8 @@ class UserShow extends React.Component {
 
         <h2>Tracked Artists
           <div className="tracked-artists">
-            <TrackedArtistIndex key={this.props.currentUser.id} artists={this.props.trackedArtists}/>
+            <TrackedArtistIndex key={this.props.currentUser.id}
+              trackedArtists={this.props.trackedArtists}/>
           </div>
         </h2>
 

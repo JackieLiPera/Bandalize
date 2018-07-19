@@ -10,14 +10,12 @@ export default (state = {}, action) => {
     case RECEIVE_VENUE:
       return merge({}, state, action.events);
     case RECEIVE_CURRENT_USER:
-      return merge({}, state, {currentUser: {trackedEvents: action.events}});
+      return merge({}, state, action.events);
     case RECEIVE_ARTISTS:
-      console.log(action.events)
       return merge({}, state, action.events)
     case RECEIVE_ARTIST:
       return merge({}, state, action.events);
     case RECEIVE_EVENT:
-      // console.log(action.)
       return merge({}, state, {[action.event.id]: action.event});
     case RECEIVE_EVENTS:
       return action.events;

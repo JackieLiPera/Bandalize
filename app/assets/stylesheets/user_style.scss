@@ -22,7 +22,6 @@
   margin-bottom: 50px;
   margin-top: 20px;
   padding-bottom: 20px;
-  overflow: scroll;
   width: 100%;
 }
 
@@ -73,13 +72,21 @@
   width: 151px;
   height: 151px;
   border-radius: 5px;
-  border: 1px solid #cdcdcd;
+
   margin-right: 20px;
   box-shadow: 0 3px 15px 0 rgba(0,0,0,.09);
   cursor: pointer;
+
 }
 
-.rsvp-event {
-  width: 151px;
-  height: 151px;
+.rsvp-title {
+  background: white;
+  font-family: helvetica;
+  font-size: 16px;
+  text-align: left;
+}
+
+.rsvp-image {
+  max-width: 151px;
+  border-radius: 5px;
 }

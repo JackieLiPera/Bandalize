@@ -1,14 +1,19 @@
 import * as SessionAPIUtil from '../util/session_api_util';
+import * as UserAPIUtil from '../util/user_api_util';
 export const RECEIVE_CURRENT_USER = "RECEIVE_CURRENT_USER";
 export const LOGOUT_CURRENT_USER = "LOGOUT_CURRENT_USER";
 export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
 
 
-export const receiveCurrentUser = ({ currentUser, artists }) => ({
-  type: RECEIVE_CURRENT_USER,
-  currentUser: currentUser,
-  artists
-});
+export const receiveCurrentUser = ({ currentUser, artists, rsvps }) => {
+  
+  return {
+    type: RECEIVE_CURRENT_USER,
+    currentUser: currentUser,
+    artists,
+    events: rsvps
+  }
+}
 
 export const logoutCurrentUser = () => ({
   type: LOGOUT_CURRENT_USER
@@ -45,3 +50,11 @@ export const signup = (user) => {
     );
   };
 };
+
+export const fetchUser = (id) => {
+  return (dispatch) => {
+    return UserAPIUtil.fetchUser(id).then ((currentUser) => {
+      return dispatch(receiveCurrentUser(currentUser));
+    });
+  }
+}

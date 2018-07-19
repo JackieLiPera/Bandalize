@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :rsvp_events, through: :rsvps, source: :event
   has_many :trackings
   has_many :tracked_artists, through: :trackings, source: :artist
+  has_many :rsvpd_artists, through: :rsvp_events, source: :artist
 
   after_initialize :ensure_session_token
 
