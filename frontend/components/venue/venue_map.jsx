@@ -11,7 +11,6 @@ class VenueMap extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    debugger
     if (nextProps.venue.latitude !== this.props.venue.latitude
       || nextProps.venue.longitude !== this.props.venue.longitude) {
         this.map.setCenter({lat: parseFloat(nextProps.venue.latitude), lng: parseFloat(nextProps.venue.longitude)});

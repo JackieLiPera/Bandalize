@@ -21,5 +21,5 @@ export const createRsvp = (userId, eventId) => dispatch => (
 );
 
 export const deleteRsvp = (userId, eventId) => dispatch => (
-  ApiRsvpUtil.deleteRsvp(userId, eventId).then((rsvp) => dispatch(removeRsvp(rsvp.id)))
+  ApiRsvpUtil.deleteRsvp(userId, eventId).then((eventId) => dispatch(removeRsvp(eventId)))
 );

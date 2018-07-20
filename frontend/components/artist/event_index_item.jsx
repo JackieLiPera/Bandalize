@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom';
 class EventIndexItem extends React.Component {
   constructor(props) {
     super(props);
-    
+
     this.state = {
       rsvpd: this.props.currentUser.rsvp_events.includes(this.props.event.id)
     }
@@ -15,13 +15,13 @@ class EventIndexItem extends React.Component {
 
   changeRSVPstatus(e) {
     if (this.state.rsvpd) {
-      this.props.deleteRsvp(this.props.currentUser, this.props.event.id);
+      this.props.deleteRsvp(this.props.currentUser.id, this.props.event.id);
       this.setState({
         rsvpd: false
       });
       e.stopPropagation();
     } else {
-      this.props.createRsvp(this.props.currentUser, this.props.event.id);
+      this.props.createRsvp(this.props.currentUser.id, this.props.event.id);
       this.setState({
         rsvpd: true
       });

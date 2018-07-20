@@ -52,7 +52,7 @@
   height: 174px;
   width: 602px;
   background-color: white;
-  border-radius: 2px;
+  border-radius: 3px;
 }
 
 .event-description ul {
@@ -70,7 +70,7 @@
 .event-description li {
   padding-bottom: 5px;
   font-size: 15px;
-  font-family: arial;
+  font-family: helvetica;
 }
 
 .bold-date-string {
@@ -117,6 +117,10 @@
 
 .event-venue-name {
   color: #259998;
+  font-weight: bold;
+  letter-spacing: .2px;
+  cursor: pointer;
+  font-family: helvetica;
 }
 
 .event-venue-timestring {

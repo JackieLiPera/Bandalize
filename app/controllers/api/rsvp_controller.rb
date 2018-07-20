@@ -12,9 +12,9 @@ class Api::RsvpController < ApplicationController
 
   def destroy
     @rsvp = @current_user.rsvps.find_by(rsvp_params)
-    
+
     if @rsvp.destroy
-      render json: @rsvp.id
+      render json: @rsvp.event_id
     else
       render json: @rsvp.errors.full_messages, status: 422
     end

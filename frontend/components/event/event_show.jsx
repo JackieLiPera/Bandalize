@@ -8,26 +8,42 @@ class EventShow extends React.Component {
       rsvpd: this.props.rsvpd
     }
 
-    this.changeRSVPStatus = this.changeRSVPStatus.bind(this);
+    this.changeRSVPStatus = this.changeRSVPstatus.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount() {
-    let event = this.props.fetchEvent(this.props.match.params.id);
+    this.props.fetchEvent(this.props.match.params.id);
   }
 
+  // componentDidUpdate(prevProps) {
+  //   if (this.props.currentUser.rsvp_events !== prevProps.currentUser.rsvp_events) {
+  //     this.setState({
+  //       rsvpd: !this.props.rsvpd
+  //     });
+  //   }
+  // }
 
-  changeRSVPStatus(e) {
+
+  changeRSVPstatus(e) {
     if (this.state.rsvpd === true) {
       this.props.deleteRsvp(this.props.currentUser.id, this.props.event.id);
       this.setState({
-        rsvpd: false
-      });
+           rsvpd: false
+         });
+      e.stopPropagation();
     } else {
       this.props.createRsvp(this.props.currentUser.id, this.props.event.id);
       this.setState({
-        rsvpd: true
-      });
+           rsvpd: true
+         });
+      e.stopPropagation();
     }
+  }
+
+  handleClick() {
+    const venueId = this.props.venue.id;
+    this.props.history.push(`/venues/${venueId}`);
   }
 
   render() {
@@ -56,8 +72,8 @@ class EventShow extends React.Component {
 
             <li className="bold-date-string">{this.props.dateString}</li>
             <li className="event-venue-timestring">{this.props.timeString}</li>
-            <li className="event-venue-name"><Link to={`venues/${this.props.venue.id}`}></Link>
-              {this.props.venue.name}</li>
+            <br></br>
+            <li className="event-venue-name" onClick={this.handleClick}>{this.props.venue.name}</li>
             <li>{this.props.venue.address } {this.props.venue.city}, {this.props.venue.state}</li>
           </ul>
         </div>

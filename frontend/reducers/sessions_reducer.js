@@ -6,6 +6,7 @@ import { merge } from 'lodash';
 export default (state = {}, action)  => {
   Object.freeze(state);
   let newState;
+  let newRsvps;
   switch (action.type) {
     case RECEIVE_TRACKING:
       let newTrackings = state.currentUser.tracked_artists.slice();
@@ -16,13 +17,15 @@ export default (state = {}, action)  => {
       delete newState[action.artistId];
       return newState;
     case RECEIVE_RSVP:
-      let newRsvps = state.currentUser.rsvp_events.slice();
-      newRsvps.push(action.rsvp.event_id);
+      newRsvps = state.currentUser.rsvp_events.slice();
+      newRsvps.includes(action.rsvp.event_id) ? null : newRsvps.push(action.rsvp.event_id)
+      debugger
       return merge({}, state, {currentUser: {rsvp_events: newRsvps}});
     case REMOVE_RSVP:
-      newState = merge({}, state, action.eventId);
-      delete newState[action.eventId];
-      return newState;
+      let newRsvps = state.currentUser.rsvp_events.slice();
+      let index = state.currentUser.rsvp_events.indexOf(action.rsvpId);
+      newRsvps.splice(index, 1);
+      return merge({}, state, {currentUser: {rsvp_events: newRsvps}});
     case RECEIVE_CURRENT_USER:
       return merge({}, state, {currentUser: action.currentUser});
     case LOGOUT_CURRENT_USER:
