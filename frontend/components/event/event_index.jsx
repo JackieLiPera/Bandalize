@@ -26,6 +26,10 @@ class EventIndex extends React.Component {
   }
 
   render () {
+
+    if (this.state.loading === true) {
+      return <div>Loading...</div>
+    }
     let image = window.tealx;
     let shuffled_events = this.shuffle(this.props.events);
     let all_events = shuffled_events.map ((event) => {

@@ -17,8 +17,6 @@ class EventShow extends React.Component {
     this.props.fetchEvent(this.props.match.params.id);
   }
 
-
-
   changeRSVPstatus(e) {
     if (this.state.rsvpd === true) {
       this.props.deleteRsvp(this.props.currentUser.id, this.props.event.id);
@@ -47,12 +45,18 @@ class EventShow extends React.Component {
 
 
   render() {
-    let rsvp_button;
-    if (this.state.rsvpd === true) {
-      rsvp_button = <button onClick={this.changeRSVPStatus} className="rsvp-button-checked">	&#10004; Going</button>
-    } else {
-      rsvp_button = <button onClick={this.changeRSVPStatus} className="rsvp-button">RSVP</button>
-    };
+
+  let event = this.props.event;
+  if (!event) {
+    return null;
+  }
+
+  let rsvp_button;
+  if (this.state.rsvpd === true) {
+    rsvp_button = <button onClick={this.changeRSVPStatus} className="rsvp-button-checked">	&#10004; Going</button>
+  } else {
+    rsvp_button = <button onClick={this.changeRSVPStatus} className="rsvp-button">RSVP</button>
+  };
 
     return (
       <div className="event-show-component">
