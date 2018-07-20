@@ -75,6 +75,7 @@ class EventShow extends React.Component {
             <br></br>
             {this.props.venue.city}, {this.props.venue.state}
             {rsvp_button}
+            <button className="ticket-button"> <a href="https://www.stubhub.com/">Get Tickets</a></button>
           </div>
         </div>
 
