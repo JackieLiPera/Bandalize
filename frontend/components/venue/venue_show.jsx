@@ -5,13 +5,17 @@ import VenueMap from './venue_map';
 class VenueShow extends React.Component {
   constructor(props) {
     super(props);
+
   }
 
   componentDidMount() {
-    this.props.fetchVenue(this.props.match.params.id);
+    this.props.fetchVenue(this.props.match.params.id)
   }
 
   render () {
+
+
+
     return (
       <div className="venue-info-component">
         <div className="venue-info-container">
@@ -40,8 +44,7 @@ class VenueShow extends React.Component {
               deleteRsvp={this.props.deleteRsvp}
               />
         </div>
-
-      </div>
+        </div>
     );
   }
 }

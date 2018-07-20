@@ -5,8 +5,8 @@ class VenueMap extends React.Component {
     super(props);
 
     this.state = {
-      lat: 40.6782,
-      lng: -73.9442
+      lat: parseFloat(this.props.venue.latitude),
+      lng: parseFloat(this.props.venue.longitude)
     }
   }
 

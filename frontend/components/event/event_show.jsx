@@ -80,7 +80,6 @@ class EventShow extends React.Component {
 
         <div className="event-description">
           <ul>
-
             <li className="bold-date-string">{this.props.dateString}</li>
             <li className="event-venue-timestring">{this.props.timeString}</li>
             <br></br>

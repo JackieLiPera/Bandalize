@@ -31,7 +31,7 @@ class UserShow extends React.Component {
     return (
       <div className="user-show-container">
 
-        <h2> Your Suggested Events
+        <h2> Suggested Events
           <SuggestedEventIndex
             key={this.props.currentUser.id}
             events={this.props.events}

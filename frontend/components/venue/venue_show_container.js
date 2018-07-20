@@ -5,12 +5,21 @@ import { createRsvp, deleteRsvp } from '../../actions/rsvp_actions';
 
 const msp = (state, ownProps) => {
   const venue = state.entities.venues;
+  const allEvents = Object.values(state.entities.events);
+  const venueId = venue.id;
 
+  const specEvents = [];
+  allEvents.forEach ((event) => {
+    if (event.venue_id === venueId) {
+      return specEvents.push(event)
+    }
+  });
+  
   return {
     artists: state.entities.artists,
-    events: Object.values(state.entities.events),
     currentUser: state.session.currentUser,
-    venue: venue
+    venue: venue,
+    events: specEvents
   }
 };
 
