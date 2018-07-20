@@ -14,8 +14,6 @@ class VenueShow extends React.Component {
 
   render () {
 
-
-
     return (
       <div className="venue-info-component">
         <div className="venue-info-container">

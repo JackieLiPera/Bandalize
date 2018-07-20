@@ -6,9 +6,20 @@ import { createRsvp, deleteRsvp } from '../../actions/rsvp_actions';
 
 
 const msp = (state, ownProps) => {
+  const artist =  state.entities.artists;
+  const allEvents = Object.values(state.entities.events);
+  const artistId = artist.id;
+
+  const specEvents = [];
+  allEvents.forEach ((event) => {
+    if (event.artist_id === artistId) {
+      return specEvents.push(event)
+    }
+  });
+
   return {
-    artist: state.entities.artists[ownProps.match.params.id],
-    events: Object.keys(state.entities.events).map((id) => state.entities.events[id]),
+    artist: artist,
+    events: specEvents,
     venues: state.entities.venues,
     currentUser: state.session.currentUser,
     tracked_artists: state.session.currentUser.tracked_artists,
@@ -22,7 +33,7 @@ const mdp = (dispatch) => {
     createTracking: (userId, artistId) => dispatch(createTracking(userId, artistId)),
     deleteTracking: (userId, artistId) => dispatch(deleteTracking(userId, artistId)),
     createRsvp: (userId, eventId) => dispatch(createRsvp(userId, eventId)),
-    deleteRsvp: (userId, eventId) => dispatch(deleteRsvp(userId, eventId)) 
+    deleteRsvp: (userId, eventId) => dispatch(deleteRsvp(userId, eventId))
   }
 };
 
