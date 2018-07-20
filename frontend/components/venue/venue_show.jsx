@@ -5,7 +5,6 @@ import VenueMap from './venue_map';
 class VenueShow extends React.Component {
   constructor(props) {
     super(props);
-
   }
 
   componentDidMount() {
@@ -13,7 +12,6 @@ class VenueShow extends React.Component {
   }
 
   render () {
-
     return (
       <div className="venue-info-component">
         <div className="venue-info-container">

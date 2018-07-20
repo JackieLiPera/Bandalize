@@ -28,7 +28,6 @@ class VenueMap extends React.Component {
 
 
   render() {
-
     return (
       <div id='venue-map' ref={ map => this.mapNode = map }></div>
     )

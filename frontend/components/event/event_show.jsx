@@ -5,7 +5,8 @@ class EventShow extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      rsvpd: this.props.rsvpd
+      rsvpd: this.props.rsvpd,
+      loading: true
     }
 
     this.changeRSVPStatus = this.changeRSVPstatus.bind(this);
@@ -14,7 +15,9 @@ class EventShow extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchEvent(this.props.match.params.id);
+    this.props.fetchEvent(this.props.match.params.id).then(
+      success => this.setState({ loading: false })
+    );
   }
 
   changeRSVPstatus(e) {
@@ -46,17 +49,21 @@ class EventShow extends React.Component {
 
   render() {
 
-  let event = this.props.event;
-  if (!event) {
-    return null;
-  }
+    if (this.state.loading === true) {
+      return <div>Loading...</div>
+    }
 
-  let rsvp_button;
-  if (this.state.rsvpd === true) {
-    rsvp_button = <button onClick={this.changeRSVPStatus} className="rsvp-button-checked">	&#10004; Going</button>
-  } else {
-    rsvp_button = <button onClick={this.changeRSVPStatus} className="rsvp-button">RSVP</button>
-  };
+    let event = this.props.event;
+    if (!event) {
+      return null;
+    }
+
+    let rsvp_button;
+    if (this.state.rsvpd === true) {
+      rsvp_button = <button onClick={this.changeRSVPStatus} className="rsvp-button-checked">	&#10004; Going</button>
+    } else {
+      rsvp_button = <button onClick={this.changeRSVPStatus} className="rsvp-button">RSVP</button>
+    };
 
     return (
       <div className="event-show-component">

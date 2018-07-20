@@ -7,13 +7,27 @@ import { withRouter } from 'react-router-dom';
 class UserShow extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      loading: true
+    }
   }
 
   componentDidMount() {
-    let currentUser = this.props.fetchUser(this.props.match.params.id);
+    this.props.fetchUser(this.props.match.params.id).then(
+      success => this.setState({ loading: false })
+    );
   }
 
   render() {
+
+    if (!this.props.currentUser) {
+      return null;
+    }
+
+    if (this.state.loading === true) {
+      return <div>Loading...</div>
+    }
+
     return (
       <div className="user-show-container">
 
@@ -22,7 +36,8 @@ class UserShow extends React.Component {
             key={this.props.currentUser.id}
             events={this.props.events}
             artists={this.props.trackedArtists}
-            venues={this.props.venues}/>
+            venues={this.props.venues}
+            currentUser={this.props.currentUser}/>
         </h2>
 
         <h2>Tracked Artists

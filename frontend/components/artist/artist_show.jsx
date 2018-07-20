@@ -5,14 +5,17 @@ class ArtistShow extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      tracking: this.props.tracking
+      tracking: this.props.tracking,
+      loading: true
     };
 
     this.handleTracking = this.handleTracking.bind(this);
   }
 
   componentDidMount() {
-    this.props.fetchArtist(this.props.match.params.id);
+    this.props.fetchArtist(this.props.match.params.id).then(
+      success => this.setState({ loading: false })
+    );
   }
 
   handleTracking() {
@@ -40,6 +43,10 @@ class ArtistShow extends React.Component {
       tour = "On Tour"
     } else {
       tour = ""
+    }
+
+    if (this.state.loading === true) {
+      return <div>Loading...</div>
     }
 
     let bluecheck = window.bluecheck;

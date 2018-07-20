@@ -1,7 +1,7 @@
 import React from 'react';
 import SuggestedEventIndexItem from './suggested_events_index_item';
 
-const SuggestedEventIndex = ({ events, artists, venues }) => {
+const SuggestedEventIndex = ({ events, artists, venues, currentUser }) => {
 
   function shuffle(arr) {
     for (let i = arr.length - 1; i > 0; i--) {
@@ -12,7 +12,7 @@ const SuggestedEventIndex = ({ events, artists, venues }) => {
   };
 
   const mappedEvents = Object.values(events).map((event) => {
-    if (artists[event.artist_id]) {
+    if (artists[event.artist_id] && !currentUser.rsvp_events.includes(event.id) ) {
       return <li className="suggested-event" key={event.id}>
         <SuggestedEventIndexItem
           artist={artists[event.artist_id]}
