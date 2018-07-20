@@ -9,20 +9,14 @@ class EventShow extends React.Component {
     }
 
     this.changeRSVPStatus = this.changeRSVPstatus.bind(this);
-    this.handleClick = this.handleClick.bind(this);
+    this.handleVenueClick = this.handleVenueClick.bind(this);
+    this.handleArtistClick = this.handleArtistClick.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchEvent(this.props.match.params.id);
   }
 
-  // componentDidUpdate(prevProps) {
-  //   if (this.props.currentUser.rsvp_events !== prevProps.currentUser.rsvp_events) {
-  //     this.setState({
-  //       rsvpd: !this.props.rsvpd
-  //     });
-  //   }
-  // }
 
 
   changeRSVPstatus(e) {
@@ -41,10 +35,16 @@ class EventShow extends React.Component {
     }
   }
 
-  handleClick() {
+  handleVenueClick() {
     const venueId = this.props.venue.id;
     this.props.history.push(`/venues/${venueId}`);
   }
+
+  handleArtistClick() {
+    const artistId = this.props.artist.id;
+    this.props.history.push(`/artists/${artistId}`);
+  }
+
 
   render() {
     let rsvp_button;
@@ -59,7 +59,7 @@ class EventShow extends React.Component {
         <div className="event-show-container">
           <img src={this.props.artist.image} className="artist-image"></img>
           <div className= "event-info">
-            <h2>{this.props.artist.name} <img src={bluecheck}/></h2>
+            <h2 onClick={this.handleArtistClick}>{this.props.artist.name} <img src={bluecheck}/></h2>
             {this.props.dateString} @ {this.props.venue.name}
             <br></br>
             {this.props.venue.city}, {this.props.venue.state}
@@ -73,7 +73,7 @@ class EventShow extends React.Component {
             <li className="bold-date-string">{this.props.dateString}</li>
             <li className="event-venue-timestring">{this.props.timeString}</li>
             <br></br>
-            <li className="event-venue-name" onClick={this.handleClick}>{this.props.venue.name}</li>
+            <li className="event-venue-name" onClick={this.handleVenueClick}>{this.props.venue.name}</li>
             <li>{this.props.venue.address } {this.props.venue.city}, {this.props.venue.state}</li>
           </ul>
         </div>
