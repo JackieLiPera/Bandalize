@@ -19,7 +19,7 @@ class VenueMap extends React.Component {
 
   componentDidMount() {
     const mapOptions = {
-      center: { lat: this.state.lat , lng: this.state.long},
+      center: { lat: this.state.lat , lng: this.state.lng},
       zoom: 15
     }
     this.map = new google.maps.Map(this.mapNode, mapOptions);

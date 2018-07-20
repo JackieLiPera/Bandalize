@@ -5,6 +5,6 @@ class Api::EventsController < ApplicationController
   end
 
   def index
-    @events = Event.all
+    @events = Event.all.includes(:artist, :venue)
   end
 end
