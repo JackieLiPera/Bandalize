@@ -30,6 +30,7 @@ class UserShow extends React.Component {
 
     return (
       <div className="user-show-container">
+        <span>Welcome {this.props.currentUser.firstname} {this.props.currentUser.lastname}!</span>
 
         <h2> Suggested Events
           <SuggestedEventIndex
