@@ -17,8 +17,9 @@ export default (state = {}, action)  => {
       delete newState[action.artistId];
       return newState;
     case RECEIVE_RSVP:
-      state.currentUser.rsvp_events.includes(action.rsvp.event_id) ? null : state.currentUser.rsvp_events.push(action.rsvp.event_id)
-      return merge({}, state, {currentUser: {rsvp_events: state.currentUser.rsvp_events}});
+      newRsvps = state.currentUser.rsvp_events.slice();
+      newRsvps.includes(action.rsvp.event_id) ? newRsvps : state.currentUser.rsvp_events.push(action.rsvp.event_id)
+      return merge({}, state, {currentUser: {rsvp_events: newRsvps}});
     case REMOVE_RSVP:
       let index = state.currentUser.rsvp_events.indexOf(action.rsvpId);
       state.currentUser.rsvp_events.splice(index, 1);

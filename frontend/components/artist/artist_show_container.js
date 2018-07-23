@@ -6,16 +6,17 @@ import { createRsvp, deleteRsvp } from '../../actions/rsvp_actions';
 
 
 const msp = (state, ownProps) => {
-  const artist =  state.entities.artists;
+
+  const artist =  state.entities.artists[ownProps.match.params.id];
   const allEvents = Object.values(state.entities.events);
-  const artistId = artist.id;
 
   const specEvents = [];
   allEvents.forEach ((event) => {
-    if (event.artist_id === artistId) {
+    if (event.artist_id === artist.id) {
       return specEvents.push(event)
     }
   });
+
 
   return {
     artist: artist,

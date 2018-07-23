@@ -12,7 +12,7 @@ class Api::TrackingsController < ApplicationController
 
   def destroy
     @tracking = @current_user.trackings.find_by(tracking_params)
-    
+
     if @tracking.destroy
       render json: @tracking.id
     else

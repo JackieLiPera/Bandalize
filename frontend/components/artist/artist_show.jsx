@@ -19,6 +19,7 @@ class ArtistShow extends React.Component {
   }
 
   handleTracking() {
+    debugger
     if (this.state.tracking === true ) {
       this.props.deleteTracking(this.props.currentUser.id, this.props.artist.id);
       this.setState({
@@ -37,6 +38,7 @@ class ArtistShow extends React.Component {
     if (!artist) {
       return null;
     }
+
 
     let tour;
     if (artist.on_tour === true) {
@@ -58,6 +60,8 @@ class ArtistShow extends React.Component {
       track_button = <button onClick={this.handleTracking} className="artist-track-button">Track</button>
     };
 
+    let numTrackers = this.props.artist.trackers.length;
+
     return (
       <div className="artist-show-component">
         <div className="artist-show-container">
@@ -66,7 +70,7 @@ class ArtistShow extends React.Component {
             <ul>
               <li><h2>{artist.name } <img src={bluecheck}/></h2></li>
               <li>{artist.genre}</li>
-              <li className="tour-info">{tour}</li>
+              <li><span className="trackers-info">{numTrackers} Trackers</span> · <span className="tour-info">{tour}</span></li>
             </ul>
           </div>
           {track_button}
