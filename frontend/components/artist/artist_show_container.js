@@ -11,11 +11,13 @@ const msp = (state, ownProps) => {
   const allEvents = Object.values(state.entities.events);
 
   const specEvents = [];
-  allEvents.forEach ((event) => {
-    if (event.artist_id === artist.id) {
-      return specEvents.push(event)
-    }
-  });
+  if (artist) {
+    allEvents.forEach ((event) => {
+      if (event.artist_id === artist.id) {
+        return specEvents.push(event)
+      }
+    });
+  }
 
 
   return {

@@ -1,6 +1,7 @@
+
 json.event do
-  
   json.partial! '/api/events/event', event: @event
+  json.rsvpd @event.rsvps
 end
 
 json.artist do

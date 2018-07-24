@@ -6,7 +6,6 @@ export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
 
 
 export const receiveCurrentUser = ({ currentUser, artists, rsvps, venues }) => {
-
   return {
     type: RECEIVE_CURRENT_USER,
     currentUser: currentUser,
@@ -37,8 +36,11 @@ export const login = (user) => {
 };
 
 export const logout = () => {
+  debugger
   return (dispatch) => {
-    return SessionAPIUtil.logout().then( () => dispatch(logoutCurrentUser()));
+    return SessionAPIUtil.logout().then((user) => {
+      return dispatch(logoutCurrentUser())}
+    );
   };
 };
 

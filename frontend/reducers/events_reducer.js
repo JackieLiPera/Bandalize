@@ -1,12 +1,15 @@
 import { merge } from 'lodash';
 import { RECEIVE_EVENT, RECEIVE_EVENTS } from '../actions/event_actions';
 import { RECEIVE_ARTIST, RECEIVE_ARTISTS } from '../actions/artist_actions';
+import { RECEIVE_RSVP, REMOVE_RSVP } from '../actions/rsvp_actions';
 import { RECEIVE_CURRENT_USER } from '../actions/session_actions';
 import { RECEIVE_VENUE } from '../actions/venue_actions';
 
 export default (state = {}, action) => {
   Object.freeze(state);
   switch (action.type) {
+    case RECEIVE_RSVP:
+      newRsvpd = state[action.rsvpId].rsvpd.slice();
     case RECEIVE_VENUE:
       return merge({}, state, action.events);
     case RECEIVE_CURRENT_USER:

@@ -8,8 +8,14 @@ const msp = (state, ownProps) => {
 
   const event = state.entities.events[parseInt(ownProps.match.params.id)];
   let eventDate;
+  let eventHappened;
+  let numRsvps;
   if (event) {
-    eventDate = new Date (event.event_on)
+    numRsvps = event.rsvpd.length;
+    eventDate = new Date (event.event_on);
+    if (new Date(eventDate).getTime() < new Date(Date.now()).getTime()) {
+      eventHappened = true;
+    }
   }
 
   return {
@@ -19,7 +25,9 @@ const msp = (state, ownProps) => {
     currentUser: state.session.currentUser,
     rsvpd: state.session.currentUser.rsvp_events.includes(parseInt(ownProps.match.params.id)),
     dateString: eventDate ? eventDate.toString().slice(0, 15) : "",
-    timeString: eventDate ? eventDate.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}) : ""
+    timeString: eventDate ? eventDate.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}) : "",
+    happened: eventHappened,
+    numRsvps: numRsvps
   }
 };
 

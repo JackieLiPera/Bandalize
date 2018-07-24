@@ -13,7 +13,10 @@ const Navbar = ({ currentUser, logout, openModal, login, history }) => {
   }
 
   const handleLogout = () => {
-    logout().then(() => history.push('/'));
+    
+    return () => {
+      logout().then(() => history.push('/'));
+    }
   }
 
   const handleUserAccount = () => {
@@ -32,7 +35,7 @@ const Navbar = ({ currentUser, logout, openModal, login, history }) => {
       <div className="nav-buttons">
         <button className="nav-button" onClick={() => openModal('login')}>Login</button>
         <button className="nav-button" onClick={() => openModal('signup')}>Signup</button>
-        <button className="nav-button" onClick={handleDemo({email:'jac.lipera@gmail.com', password:'jackie'})}>Demo</button>
+        <button className="nav-button" onClick={handleDemo({email:'jac.lipera@gmail.com', password:'jackie', firstname: 'jackie', lastname: 'lipera'})}>Demo</button>
       </div>
     </nav>
   );
@@ -45,7 +48,7 @@ const Navbar = ({ currentUser, logout, openModal, login, history }) => {
         <input className="search-bar" type="text" placeholder="Search for your favorite artists" value={''}/>
       </div>
       <hgroup>
-        <button className="nav-button" onClick={handleLogout}>Log Out</button>
+        <button className="nav-button" onClick={() => handleLogout()}>Log Out</button>
       </hgroup>
     </nav>
   );

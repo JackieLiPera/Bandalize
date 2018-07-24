@@ -22,17 +22,15 @@ class EventShow extends React.Component {
 
   changeRSVPstatus(e) {
     if (this.state.rsvpd === true) {
-      this.props.deleteRsvp(this.props.currentUser.id, this.props.event.id);
-      this.setState({
-           rsvpd: false
-         });
-      e.stopPropagation();
+        this.props.deleteRsvp(this.props.currentUser.id, this.props.event.id);
+        this.setState({
+          rsvpd: false
+        });
     } else {
-      this.props.createRsvp(this.props.currentUser.id, this.props.event.id);
-      this.setState({
-           rsvpd: true
-         });
-      e.stopPropagation();
+        this.props.createRsvp(this.props.currentUser.id, this.props.event.id);
+        this.setState({
+          rsvpd: true
+        });
     }
   }
 
@@ -58,12 +56,24 @@ class EventShow extends React.Component {
       return null;
     }
 
+
     let rsvp_button;
-    if (this.state.rsvpd === true) {
-      rsvp_button = <button onClick={this.changeRSVPStatus} className="rsvp-button-checked">	&#10004; Going</button>
-    } else {
-      rsvp_button = <button onClick={this.changeRSVPStatus} className="rsvp-button">RSVP</button>
-    };
+    let stubHub_button;
+    if ((this.props.happened) && this.state.rsvpd === true) {
+      rsvp_button = <button onClick={this.changeRSVPStatus} className="rsvp-button-checked">	&#10004; I Was There</button>;
+      stubHub_button = null;
+    } else if (!(this.props.happened) && (this.state.rsvpd === true)) {
+      rsvp_button = <button onClick={this.changeRSVPStatus} className="rsvp-button-checked">	&#10004; Going</button>;
+      stubHub_button = <button className="ticket-button"> <a href="https://www.stubhub.com/">Get Tickets</a></button>;
+    }
+    if ((this.props.happened) && this.state.rsvpd === false) {
+      rsvp_button = <button onClick={this.handleArtistClick} className="rsvp-button">See More Events</button>;
+      stubHub_button = null;
+    } else if ((!this.props.happened) && this.state.rsvpd === false) {
+      rsvp_button = <button onClick={this.changeRSVPStatus} className="rsvp-button">RSVP</button>;
+      stubHub_button = <button className="ticket-button"> <a href="https://www.stubhub.com/">Get Tickets</a></button>;
+    }
+
 
     return (
       <div className="event-show-component">
@@ -75,7 +85,7 @@ class EventShow extends React.Component {
             <br></br>
             {this.props.venue.city}, {this.props.venue.state}
             {rsvp_button}
-            <button className="ticket-button"> <a href="https://www.stubhub.com/">Get Tickets</a></button>
+            {stubHub_button}
           </div>
         </div>
 
@@ -86,6 +96,8 @@ class EventShow extends React.Component {
             <br></br>
             <li className="event-venue-name" onClick={this.handleVenueClick}>{this.props.venue.name}</li>
             <li>{this.props.venue.address } {this.props.venue.city}, {this.props.venue.state}</li>
+            <br></br>
+            <li className='rsvp-display'>{this.props.event.rsvpd.length} RSVPs</li>
           </ul>
         </div>
 

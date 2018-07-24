@@ -53,7 +53,7 @@
   color: #259998;
   font-size: 13px;
   font-weight: bold;
-  height: 174px;
+  height: 200px;
   width: 602px;
   background-color: white;
   border-radius: 3px;
@@ -93,8 +93,8 @@
   border-radius: 2px;
   color: white;
   font-family: helvetica;
-  background-color: #50b137;
-  border: 1px solid #50b137;
+  background-color: #00b4b3;
+  border: 1px solid #00b4b3;
   font-size: 13px;
   font-weight: lighter;
   letter-spacing: 0.8px;
@@ -151,4 +151,9 @@
 
 .event-venue-timestring {
   color: #9b9b9b;
+}
+
+.rsvp-display {
+  font-size: 14px;
+  color: #8f8f8f;
 }
