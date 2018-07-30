@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resources :users, only: [:create, :show] do
       resources :rsvp, only: [:create, :destroy]
       resources :trackings, only: [:create, :destroy]
+      resources :comments, only: [:create, :destroy]
     end
     resources :artists, only: [:show, :index]
     resources :events, only: [:show, :index]
