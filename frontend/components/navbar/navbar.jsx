@@ -1,10 +1,9 @@
 import React from 'react';
 import FaSearch from 'react-icons/lib/fa/search';
 import { Link, withRouter } from 'react-router-dom';
+import SearchDropdown from './search_dropdown';
 
-
-
-const Navbar = ({ currentUser, logout, openModal, login, history }) => {
+const Navbar = ({ currentUser, logout, openModal, login, history, fetchSearchedArtists }) => {
 
   const handleDemo = (user) => {
     return () => {
@@ -13,7 +12,7 @@ const Navbar = ({ currentUser, logout, openModal, login, history }) => {
   }
 
   const handleLogout = () => {
-    
+
     return () => {
       logout().then(() => history.push('/'));
     }
@@ -30,7 +29,7 @@ const Navbar = ({ currentUser, logout, openModal, login, history }) => {
       <div className="nav-logo" >
         <img src={image} />
         <Link to='/' className="app-title">bandalize</Link>
-        <input className="search-bar" type="text" placeholder={"Search for your favorite artists"} value={''}/>
+        <input className="search-bar" type="text" placeholder="Search for your favorite artists" value={''}/>
       </div>
       <div className="nav-buttons">
         <button className="nav-button" onClick={() => openModal('login')}>Login</button>
@@ -45,7 +44,8 @@ const Navbar = ({ currentUser, logout, openModal, login, history }) => {
         <img src={image} />
         <Link to='/' className="app-title">bandalize</Link>
         <button onClick={() => handleUserAccount()} className="nav-button">Account</button>
-        <input className="search-bar" type="text" placeholder="Search for your favorite artists" value={''}/>
+          <SearchDropdown className="search-bar"
+            searchArtists={fetchSearchedArtists}/>
       </div>
       <hgroup>
         <button className="nav-button" onClick={() => handleLogout()}>Log Out</button>

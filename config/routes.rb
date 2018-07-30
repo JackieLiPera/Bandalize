@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     resources :artists, only: [:show, :index]
     resources :events, only: [:show, :index]
     resources :venues, only: [:show]
+    resources :search, only: [:index]
   end
 
 end

@@ -26,6 +26,7 @@ export const receiveErrors = (errors) => {
   }
 };
 
+
 export const login = (user) => {
   return (dispatch) => {
     return SessionAPIUtil.login(user).then( (user) => {
@@ -36,7 +37,7 @@ export const login = (user) => {
 };
 
 export const logout = () => {
-  debugger
+
   return (dispatch) => {
     return SessionAPIUtil.logout().then((user) => {
       return dispatch(logoutCurrentUser())}

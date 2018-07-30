@@ -8,4 +8,13 @@ class Api::ArtistsController < ApplicationController
     @artists = Artist.all
   end
 
+  def search
+    if params[:query].present?
+      @artist = Artist.search_by_full_name(params[:query].downcase)
+      render :show
+    else
+      @artist = Artist.none
+    end
+end
+
 end

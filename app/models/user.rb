@@ -10,6 +10,7 @@ class User < ApplicationRecord
   has_many :rsvpd_artists, through: :rsvp_events, source: :artist
   has_many :rsvpd_venues, through: :rsvp_events, source: :venue
   has_many :tracked_events, through: :tracked_artists, source: :events
+  has_many :comments
 
   after_initialize :ensure_session_token
 
