@@ -6,12 +6,16 @@ class EventShow extends React.Component {
     super(props);
     this.state = {
       rsvpd: this.props.rsvpd,
-      loading: true
+      loading: true,
+      comment: ""
     }
 
     this.changeRSVPStatus = this.changeRSVPstatus.bind(this);
     this.handleVenueClick = this.handleVenueClick.bind(this);
     this.handleArtistClick = this.handleArtistClick.bind(this);
+    this.handleCommentSubmit = this.handleCommentSubmit.bind(this);
+    this.handleCommentChange = this.handleCommentChange.bind(this);
+    this.handlePictureUpload = this.handlePictureUpload.bind(this);
   }
 
   componentDidMount() {
@@ -44,6 +48,19 @@ class EventShow extends React.Component {
     this.props.history.push(`/artists/${artistId}`);
   }
 
+  handleCommentChange(e) {
+    this.setState({
+      comment: e.target.value
+    });
+  }
+
+  handleCommentSubmit(e) {
+    e.preventDefault();
+    this.props.processForm(this.state.comment, this.props.currentUser.id, this.props.event.id);
+  }
+
+  handlePictureUpload() {}
+
 
   render() {
 
@@ -56,10 +73,10 @@ class EventShow extends React.Component {
       return null;
     }
 
-    let comment;
-    this.props.comments.forEach ((comment) => {
-      comment = comment.body
+    let comments = this.props.comments.map ((comment) => {
+        return <li key={comment.id}>{comment.body} </li>
     });
+
 
     let rsvp_button;
     let stubHub_button;
@@ -81,12 +98,13 @@ class EventShow extends React.Component {
 
     return (
       <div className="event-show-component">
+
         <div className="event-show-container">
           <img src={this.props.artist.image} className="artist-image"></img>
           <div className= "event-info">
             <h2 onClick={this.handleArtistClick}>{this.props.artist.name} <img src={bluecheck}/></h2>
             {this.props.dateString} @ {this.props.venue.name}
-            <br></br>
+              <br></br>
             {this.props.venue.city}, {this.props.venue.state}
             {rsvp_button}
             {stubHub_button}
@@ -98,23 +116,32 @@ class EventShow extends React.Component {
             <ul>
               <li className="bold-date-string">{this.props.dateString}</li>
               <li className="event-venue-timestring">{this.props.timeString}</li>
-              <br></br>
+                <br></br>
               <li className="event-venue-name" onClick={this.handleVenueClick}>{this.props.venue.name}</li>
               <li>{this.props.venue.address } {this.props.venue.city}, {this.props.venue.state}</li>
-              <br></br>
+                <br></br>
               <li className='rsvp-display'>{this.props.event.rsvpd.length} RSVPs</li>
             </ul>
           </div>
 
+          <br></br>
+
           <div className="comments">
+            <form  className="comment-form" onSubmit={this.handleCommentSubmit}>
+              <label className="comment-form-title">Share your experience:</label>
+              <input className="comment-box" type="text" onChange={this.handleCommentChange} value={this.state.comment} />
+
+              <div className="comment-form-buttons">
+                <button onClick={this.handlePictureUpload}><i className="fas fa-camera"></i>  Add Photo</button>
+                <button>Submit</button>
+              </div>
+            </form>
             <ul className="comments-index">
-              {comment}
+              {comments}
             </ul>
           </div>
+
         </div>
-
-
-
       </div>
     );
   }

@@ -16,8 +16,8 @@ export const removeComment = (commentId) => ({
 });
 
 
-export const createComment = (userId, eventId) => dispatch => (
-  ApiCommentUtil.createComment(userId, eventId).then((comment) => dispatch(receiveComment(comment)))
+export const createComment = (body, userId, eventId) => dispatch => (
+  ApiCommentUtil.createComment(body, userId, eventId).then((comment) => dispatch(receiveComment(comment)))
 );
 
 export const deleteComment = (userId, eventId) => dispatch => (

@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import EventShow from './event_show';
 import { fetchEvent } from '../../actions/event_actions';
 import { createRsvp, deleteRsvp } from '../../actions/rsvp_actions';
+import { createComment } from '../../actions/comment_actions';
 
 
 const msp = (state, ownProps) => {
@@ -11,6 +12,7 @@ const msp = (state, ownProps) => {
   let eventHappened;
   let numRsvps;
   let comments;
+
   if (event) {
     numRsvps = event.rsvpd.length;
     comments = event.comments;
@@ -39,7 +41,8 @@ const mdp = (dispatch) => {
   return {
     fetchEvent: (id) => dispatch(fetchEvent(id)),
     createRsvp: (userId, eventId) => dispatch(createRsvp(userId, eventId)),
-    deleteRsvp: (userId, eventId) => dispatch(deleteRsvp(userId, eventId))
+    deleteRsvp: (userId, eventId) => dispatch(deleteRsvp(userId, eventId)),
+    processForm: (body, userId, eventId) => dispatch(createComment(body, userId, eventId))
   }
 };
 
