@@ -1,6 +1,7 @@
 class Api::EventsController < ApplicationController
 
   def show
+    Event.includes(:comments)
     @event = Event.find(params[:id])
   end
 

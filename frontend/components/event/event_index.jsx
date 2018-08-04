@@ -76,12 +76,12 @@ class EventIndex extends React.Component {
         <h2>Events by Genre
           <div>
             <ul className="genre-list">
-              <li className="rock">Rock</li>
-              <li className="electronic">Electronic</li>
-              <li className="pop">Pop</li>
-              <li className="alternative">Alternative</li>
-              <li className="folk">Folk</li>
-              <li className="r-b">R&B</li>
+              <li className="rock"><Link to="/api/artists"></Link>Rock</li>
+              <li className="electronic"><Link to="/api/artists"></Link>Electronic</li>
+              <li className="pop"><Link to="/api/artists"></Link>Pop</li>
+              <li className="alternative"><Link to="/api/artists"></Link>Alternative</li>
+              <li className="folk"><Link to="/api/artists"></Link>Folk</li>
+              <li className="r-b"><Link to="/api/artists"></Link>R&B</li>
             </ul>
           </div>
         </h2>

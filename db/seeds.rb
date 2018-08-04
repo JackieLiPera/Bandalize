@@ -122,3 +122,8 @@ tracking8 = Tracking.create!(user_id: currentUser.id , artist_id: artist18.id)
 tracking9 = Tracking.create!(user_id: currentUser.id , artist_id: artist4.id)
 tracking10 = Tracking.create!(user_id: currentUser.id , artist_id: artist12.id)
 tracking11 = Tracking.create!(user_id: currentUser.id , artist_id: artist19.id)
+
+Comment.destroy_all
+
+comment1 = Comment.create!(body: "This show was so fun!", user_id: currentUser.id, event_id: event1.id)
+comment2 = Comment.create!(body: "I would definitely see them again", user_id: currentUser.id, event_id: event1.id)

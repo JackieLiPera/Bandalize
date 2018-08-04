@@ -10,8 +10,10 @@ const msp = (state, ownProps) => {
   let eventDate;
   let eventHappened;
   let numRsvps;
+  let comments;
   if (event) {
     numRsvps = event.rsvpd.length;
+    comments = event.comments;
     eventDate = new Date (event.event_on);
     if (new Date(eventDate).getTime() < new Date(Date.now()).getTime()) {
       eventHappened = true;
@@ -27,7 +29,8 @@ const msp = (state, ownProps) => {
     dateString: eventDate ? eventDate.toString().slice(0, 15) : "",
     timeString: eventDate ? eventDate.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}) : "",
     happened: eventHappened,
-    numRsvps: numRsvps
+    numRsvps: numRsvps,
+    comments: comments
   }
 };
 

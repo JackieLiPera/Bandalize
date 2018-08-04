@@ -56,6 +56,10 @@ class EventShow extends React.Component {
       return null;
     }
 
+    let comment;
+    this.props.comments.forEach ((comment) => {
+      comment = comment.body
+    });
 
     let rsvp_button;
     let stubHub_button;
@@ -90,16 +94,26 @@ class EventShow extends React.Component {
         </div>
 
         <div className="event-description">
-          <ul>
-            <li className="bold-date-string">{this.props.dateString}</li>
-            <li className="event-venue-timestring">{this.props.timeString}</li>
-            <br></br>
-            <li className="event-venue-name" onClick={this.handleVenueClick}>{this.props.venue.name}</li>
-            <li>{this.props.venue.address } {this.props.venue.city}, {this.props.venue.state}</li>
-            <br></br>
-            <li className='rsvp-display'>{this.props.event.rsvpd.length} RSVPs</li>
-          </ul>
+          <div>
+            <ul>
+              <li className="bold-date-string">{this.props.dateString}</li>
+              <li className="event-venue-timestring">{this.props.timeString}</li>
+              <br></br>
+              <li className="event-venue-name" onClick={this.handleVenueClick}>{this.props.venue.name}</li>
+              <li>{this.props.venue.address } {this.props.venue.city}, {this.props.venue.state}</li>
+              <br></br>
+              <li className='rsvp-display'>{this.props.event.rsvpd.length} RSVPs</li>
+            </ul>
+          </div>
+
+          <div className="comments">
+            <ul className="comments-index">
+              {comment}
+            </ul>
+          </div>
         </div>
+
+
 
       </div>
     );
