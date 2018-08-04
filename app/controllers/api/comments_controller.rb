@@ -5,6 +5,7 @@ class Api::CommentsController < ApplicationController
     @comment = @current_user.comments.new(comment_params)
 
     if @comment.save
+      @event = @comment.event
       render 'api/events/show'
     else
       render json: @comment.errors.full_messages, status: 422
@@ -24,6 +25,6 @@ class Api::CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:body, :user_id, :event_id)
+    params.require(:comment).permit(:photo, :body, :user_id, :event_id)
   end
 end

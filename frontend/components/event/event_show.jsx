@@ -7,7 +7,8 @@ class EventShow extends React.Component {
     this.state = {
       rsvpd: this.props.rsvpd,
       loading: true,
-      comment: ""
+      comment: "",
+      photoFile: null
     }
 
     this.changeRSVPStatus = this.changeRSVPstatus.bind(this);
@@ -56,14 +57,22 @@ class EventShow extends React.Component {
 
   handleCommentSubmit(e) {
     e.preventDefault();
-    this.props.processForm(this.state.comment, this.props.currentUser.id, this.props.event.id);
+    const formData = new FormData();
+    formData.append('comment[photo]', this.state.photoFile);
+    formData.append('comment[body]', this.state.comment);
+    // formData.append('comment[user_id]', this.props.currentUser.id);
+    // formData.append('comment[event_id]', this.props.event.id);
+    debugger
+    this.props.processForm(formData);
   }
 
-  handlePictureUpload() {}
-
+  handlePictureUpload(e) {
+    this.setState({
+      photoFile: e.currentTarget.files[0]
+    });
+  }
 
   render() {
-
     if (this.state.loading === true) {
       return <div>Loading...</div>
     }
@@ -73,26 +82,41 @@ class EventShow extends React.Component {
       return null;
     }
 
-    let comments = this.props.comments.map ((comment) => {
-        return <li key={comment.id}>{comment.body} </li>
-    });
-
+    let comments;
+    if (this.props.comments.length > 0) {
+      comments = this.props.comments.map ((comment) => {
+          return <li key={comment.id}>{comment.body} </li>
+      });
+    }
 
     let rsvp_button;
     let stubHub_button;
+    let commentForm;
     if ((this.props.happened) && this.state.rsvpd === true) {
       rsvp_button = <button onClick={this.changeRSVPStatus} className="rsvp-button-checked">	&#10004; I Was There</button>;
       stubHub_button = null;
+      commentForm =
+        <form  className="comment-form" onSubmit={this.handleCommentSubmit}>
+          <label className="comment-form-title">Share your experience:</label>
+          <textarea className="comment-box" onChange={this.handleCommentChange} value={this.state.comment} />
+          <div className="comment-form-buttons">
+            <input type='file' onChange={this.handlePictureUpload} />
+            <button>Submit</button>
+          </div>
+        </form>
     } else if (!(this.props.happened) && (this.state.rsvpd === true)) {
       rsvp_button = <button onClick={this.changeRSVPStatus} className="rsvp-button-checked">	&#10004; Going</button>;
       stubHub_button = <button className="ticket-button"> <a href="https://www.stubhub.com/">Get Tickets</a></button>;
+      commentForm = null;
     }
     if ((this.props.happened) && this.state.rsvpd === false) {
       rsvp_button = <button onClick={this.handleArtistClick} className="rsvp-button">See More Events</button>;
       stubHub_button = null;
+      commentForm = null;
     } else if ((!this.props.happened) && this.state.rsvpd === false) {
       rsvp_button = <button onClick={this.changeRSVPStatus} className="rsvp-button">RSVP</button>;
       stubHub_button = <button className="ticket-button"> <a href="https://www.stubhub.com/">Get Tickets</a></button>;
+      commentForm = null;
     }
 
 
@@ -127,18 +151,12 @@ class EventShow extends React.Component {
           <br></br>
 
           <div className="comments">
-            <form  className="comment-form" onSubmit={this.handleCommentSubmit}>
-              <label className="comment-form-title">Share your experience:</label>
-              <input className="comment-box" type="text" onChange={this.handleCommentChange} value={this.state.comment} />
+            {commentForm}
 
-              <div className="comment-form-buttons">
-                <button onClick={this.handlePictureUpload}><i className="fas fa-camera"></i>  Add Photo</button>
-                <button>Submit</button>
-              </div>
-            </form>
             <ul className="comments-index">
               {comments}
             </ul>
+
           </div>
 
         </div>

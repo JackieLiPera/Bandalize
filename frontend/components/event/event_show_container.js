@@ -17,9 +17,7 @@ const msp = (state, ownProps) => {
     numRsvps = event.rsvpd.length;
     comments = event.comments;
     eventDate = new Date (event.event_on);
-    if (new Date(eventDate).getTime() < new Date(Date.now()).getTime()) {
-      eventHappened = true;
-    }
+    (Date.parse(eventDate) < Date.now()) ? eventHappened = true : eventHappened = false;
   }
 
   return {
@@ -42,7 +40,7 @@ const mdp = (dispatch) => {
     fetchEvent: (id) => dispatch(fetchEvent(id)),
     createRsvp: (userId, eventId) => dispatch(createRsvp(userId, eventId)),
     deleteRsvp: (userId, eventId) => dispatch(deleteRsvp(userId, eventId)),
-    processForm: (body, userId, eventId) => dispatch(createComment(body, userId, eventId))
+    processForm: (formData) => dispatch(createComment(formData))
   }
 };
 

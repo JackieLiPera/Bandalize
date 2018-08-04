@@ -1,14 +1,10 @@
-export const createComment = (body, userId, eventId) => {
-  return $.ajax({
+export const createComment = (formData, userId, eventId) => {
+  $.ajax({
+    url: `/api/events/eventId/comments`,
     type: 'POST',
-    url: `/api/events/${eventId}/comments`,
-    data: {
-      comment: {
-        body: body,
-        user_id: userId,
-        event_id: eventId
-      }
-    }
+    data: formData,
+    contentType: false,
+    processData: false
   });
 }
 

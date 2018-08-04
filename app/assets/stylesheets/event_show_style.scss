@@ -160,18 +160,20 @@
 
 .comments-index {
   display: flex;
-  background-color: white;
-  height: 63px;
-  margin-top: 2px;
-  box-shadow: 0 3px 15px 0 rgba(0,0,0,.09);
   justify-content: space-between;
-  color: black;
+  margin-left: -33px;
 }
 
 .comments-index li {
+  background-color: white;
   border-bottom: 1px solid #d8d8d8;
   padding: 20px;
   margin-top: 20px;
+  box-shadow: 0 3px 15px 0 rgba(0,0,0,.09);
+  color: black;
+  height: 30px;
+  margin-top: 2px;
+  width: 100%;
 }
 
 .comment-form {
