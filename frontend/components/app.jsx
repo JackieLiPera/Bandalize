@@ -1,17 +1,15 @@
 import React from 'react';
 import Root from './root';
-import Modal from './modal';
-import NavbarContainer from './navbar/navbar_container';
 import { Provider } from 'react-redux';
 import { Route, Switch, Link, HashRouter } from 'react-router-dom';
 
+import Modal from './modal';
+import NavbarContainer from './navbar/navbar_container.js';
 import UserShowContainer from './user/user_show_container';
 import ArtistShowContainer from './artist/artist_show_container.js';
 import EventIndexContainer from './event/event_index_container.js';
 import VenueShowContainer from './venue/venue_show_container';
 import EventShowContainer from './event/event_show_container.js';
-
-
 
 const App = () => (
   <div>

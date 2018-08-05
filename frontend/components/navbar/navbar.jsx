@@ -6,16 +6,11 @@ import SearchDropdown from './search_dropdown';
 const Navbar = ({ currentUser, logout, openModal, login, history, fetchSearchedArtists }) => {
 
   const handleDemo = (user) => {
-    return () => {
-      login(user)
-    };
+    login(user)
   }
 
   const handleLogout = () => {
-
-    return () => {
-      logout().then(() => history.push('/'));
-    }
+    logout().then(() => history.push('/'));
   }
 
   const handleUserAccount = () => {
@@ -43,15 +38,16 @@ const Navbar = ({ currentUser, logout, openModal, login, history, fetchSearchedA
       <div className="nav-logo" >
         <img src={image} />
         <Link to='/' className="app-title">bandalize</Link>
-        <button onClick={() => handleUserAccount()} className="nav-button">Account</button>
+        <button onClick={handleUserAccount} className="nav-button">Account</button>
           <SearchDropdown className="search-bar"
             searchArtists={fetchSearchedArtists}/>
       </div>
       <hgroup>
-        <button className="nav-button" onClick={() => handleLogout()}>Log Out</button>
+        <button className="nav-button" onClick={handleLogout}>Log Out</button>
       </hgroup>
     </nav>
   );
+
   return (
     currentUser ?
     nav(logout) :

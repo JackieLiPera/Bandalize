@@ -15,9 +15,11 @@ export const receiveCurrentUser = ({ currentUser, artists, rsvps, venues }) => {
   }
 }
 
-export const logoutCurrentUser = () => ({
-  type: LOGOUT_CURRENT_USER
-});
+export const logoutCurrentUser = () => {
+  return {
+    type: LOGOUT_CURRENT_USER
+  }
+};
 
 export const receiveErrors = (errors) => {
   return {
@@ -37,7 +39,6 @@ export const login = (user) => {
 };
 
 export const logout = () => {
-
   return (dispatch) => {
     return SessionAPIUtil.logout().then((user) => {
       return dispatch(logoutCurrentUser())}

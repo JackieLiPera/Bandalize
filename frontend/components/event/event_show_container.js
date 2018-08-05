@@ -6,7 +6,6 @@ import { createComment } from '../../actions/comment_actions';
 
 
 const msp = (state, ownProps) => {
-
   const event = state.entities.events[parseInt(ownProps.match.params.id)];
   let eventDate;
   let eventHappened;
@@ -19,6 +18,7 @@ const msp = (state, ownProps) => {
     eventDate = new Date (event.event_on);
     (Date.parse(eventDate) < Date.now()) ? eventHappened = true : eventHappened = false;
   }
+
 
   return {
     event: event,

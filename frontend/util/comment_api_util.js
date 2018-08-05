@@ -1,5 +1,5 @@
-export const createComment = (formData, userId, eventId) => {
-  $.ajax({
+export const createComment = (formData) => {
+  return $.ajax({
     url: `/api/events/eventId/comments`,
     type: 'POST',
     data: formData,

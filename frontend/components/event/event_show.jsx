@@ -60,9 +60,8 @@ class EventShow extends React.Component {
     const formData = new FormData();
     formData.append('comment[photo]', this.state.photoFile);
     formData.append('comment[body]', this.state.comment);
-    // formData.append('comment[user_id]', this.props.currentUser.id);
-    // formData.append('comment[event_id]', this.props.event.id);
-    debugger
+    formData.append('comment[user_id]', this.props.currentUser.id);
+    formData.append('comment[event_id]', this.props.event.id);
     this.props.processForm(formData);
   }
 
@@ -85,7 +84,11 @@ class EventShow extends React.Component {
     let comments;
     if (this.props.comments.length > 0) {
       comments = this.props.comments.map ((comment) => {
-          return <li key={comment.id}>{comment.body} </li>
+        if (comment.photo) {
+          return <li key={comment.id}>{comment.body}{comment.photo}</li>
+        } else {
+          return <li key={comment.id}>{comment.body}</li>
+        }
       });
     }
 
@@ -122,7 +125,6 @@ class EventShow extends React.Component {
 
     return (
       <div className="event-show-component">
-
         <div className="event-show-container">
           <img src={this.props.artist.image} className="artist-image"></img>
           <div className= "event-info">
