@@ -17,6 +17,9 @@ const Navbar = ({ currentUser, logout, openModal, login, history, fetchSearchRes
     history.push(`/users/${currentUser.id}`)
   }
 
+  const searchResults = (query) => {
+    fetchSearchResults(query);
+  }
 
   const image = window.bandalizelogo;
 
@@ -25,7 +28,7 @@ const Navbar = ({ currentUser, logout, openModal, login, history, fetchSearchRes
       <div className="nav-logo" >
         <img src={image} />
         <Link to='/' className="app-title">bandalize</Link>
-        <input className="search-bar" type="text" placeholder="Search for your favorite artists" value={''}/>
+        <SearchDropdown className="search-dropdown" searchResults={searchResults} value={''} placeholder="Search for your favorite artists"/>
       </div>
       <div className="nav-buttons">
         <button className="nav-button" onClick={() => openModal('login')}>Login</button>
@@ -40,7 +43,7 @@ const Navbar = ({ currentUser, logout, openModal, login, history, fetchSearchRes
         <img src={image} />
         <Link to='/' className="app-title">bandalize</Link>
         <button onClick={handleUserAccount} className="nav-button">Account</button>
-        <SearchDropdown className="search-dropdown" searchResults={fetchSearchResults}/>
+        <SearchDropdown className="search-dropdown" searchResults={fetchSearchResults} value={''} placeholder="Search for your favorite artists"/>
       </div>
       <hgroup>
         <button className="nav-button" onClick={handleLogout}>Log Out</button>

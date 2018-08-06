@@ -4,8 +4,8 @@ class Api::SearchController < ApplicationController
     if params[:query].present?
       @results = PgSearch.multisearch(params[:query]).includes(:searchable)
 
-      @artists = @results.where(searchable_type: "Artist")
-      @venues = @results.where(searchable_type: "Venue")
+      @artists = @results.where(searchable_type: "Artist").map(&:searchable)
+      @venues = @results.where(searchable_type: "Venue").map(&:searchable)
 
       render :index
     end

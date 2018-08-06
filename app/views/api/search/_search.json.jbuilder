@@ -1,1 +1,1 @@
-json.extract! result, :searchable_id, :content
+json.extract! result, :id, :name, :searchable_id
