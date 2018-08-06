@@ -2,15 +2,19 @@
 
 Bandalize is full-stack, single-page application built with React.js and Ruby on Rails inspired by the popular live-music site BandsInTown.
 
-Check out the live link here [](https://jackielipera.github.io/Bandalize/)
+Check out the live link [here](https://jackielipera.github.io/Bandalize/)
+
+
+**Event Homepage with Geolocation**
+![Imgur](https://i.imgur.com/OTvxXAd.png)
+
+The app homepage allows users to see events in their area using browser location. Event images are handled with Rails Active Storage and the AWS s3 cloud.
+
 
 **User Auth**
 
 Users can sign up and log in using the app modal. Click the demo button to start exploring!
 
-**Event Home Page with Geolocation**
-
-The app homepage allows users to see events in their area using browser location. Event images are handled with Rails Active Storage and the AWS s3 cloud.
 
 **User Account Page**
 ![Imgur](https://i.imgur.com/QfXryqw.png)
