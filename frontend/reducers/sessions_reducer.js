@@ -5,6 +5,7 @@ import { merge } from 'lodash';
 
 export default (state = {}, action)  => {
   Object.freeze(state);
+  
   let newState;
   let newRsvps;
   switch (action.type) {

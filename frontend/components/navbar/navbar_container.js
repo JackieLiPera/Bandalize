@@ -3,7 +3,7 @@ import Navbar from './navbar';
 import { logout, login } from '../../actions/session_actions';
 import { openModal } from '../../actions/modal_actions';
 import { withRouter } from 'react-router-dom';
-import { fetchSearchedArtists } from '../../actions/artist_actions';
+import { fetchSearchResults } from '../../actions/search_actions';
 
 const msp = ({ session }) => {
   return {
@@ -16,7 +16,7 @@ const mdp = dispatch => {
     logout: () => dispatch(logout()),
     openModal: modal => dispatch(openModal(modal)),
     login: (user) => dispatch(login(user)),
-    fetchSearchedArtists: (query) => dispatch(fetchSearchedArtists(query))
+    fetchSearchResults: (query) => dispatch(fetchSearchResults(query))
   }
 };
 

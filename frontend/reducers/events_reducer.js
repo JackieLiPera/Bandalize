@@ -7,6 +7,7 @@ import { RECEIVE_VENUE } from '../actions/venue_actions';
 
 export default (state = {}, action) => {
   Object.freeze(state);
+  
   switch (action.type) {
     case RECEIVE_RSVP:
       newRsvpd = state[action.rsvpId].rsvpd.slice();

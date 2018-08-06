@@ -12,12 +12,3 @@ export const fetchArtist = (id) => {
     url: `api/artists/${id}`
   });
 }
-
-export const searchArtists = query => {
-  return $.ajax({
-    method: 'GET',
-    url: '/api/search_artists',
-    dataType: 'json',
-    data: { query }
-  });
-};

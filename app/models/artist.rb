@@ -1,6 +1,6 @@
 class Artist < ApplicationRecord
   include PgSearch
-  multisearchable :against => [:name]
+  multisearchable :against => :name, :using => [:tsearch, :trigram]
   validates :name, :genre, presence: true
   validates :on_tour, inclusion: { in: [true, false] }
 

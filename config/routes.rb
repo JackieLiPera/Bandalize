@@ -16,5 +16,4 @@ Rails.application.routes.draw do
     resources :venues, only: [:show]
     resources :search, only: [:index]
   end
-
 end

@@ -13,6 +13,7 @@ class SearchDropdown extends React.Component {
   }
 
   clearInput() {
+    debugger
     this.setState(
       { query: "" },
       () => this.props.searchArtists(this.state.query)
@@ -22,7 +23,7 @@ class SearchDropdown extends React.Component {
   handleChange(e) {
     this.setState(
       { query: e.target.value },
-      () => this.props.searchArtists(this.state.query)
+      () => this.props.searchResults(this.state.query)
     );
   }
 

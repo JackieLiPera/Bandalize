@@ -3,7 +3,7 @@ import FaSearch from 'react-icons/lib/fa/search';
 import { Link, withRouter } from 'react-router-dom';
 import SearchDropdown from './search_dropdown';
 
-const Navbar = ({ currentUser, logout, openModal, login, history, fetchSearchedArtists }) => {
+const Navbar = ({ currentUser, logout, openModal, login, history, fetchSearchResults }) => {
 
   const handleDemo = (user) => {
     login(user)
@@ -16,6 +16,7 @@ const Navbar = ({ currentUser, logout, openModal, login, history, fetchSearchedA
   const handleUserAccount = () => {
     history.push(`/users/${currentUser.id}`)
   }
+
 
   const image = window.bandalizelogo;
 
@@ -39,8 +40,7 @@ const Navbar = ({ currentUser, logout, openModal, login, history, fetchSearchedA
         <img src={image} />
         <Link to='/' className="app-title">bandalize</Link>
         <button onClick={handleUserAccount} className="nav-button">Account</button>
-          <SearchDropdown className="search-bar"
-            searchArtists={fetchSearchedArtists}/>
+        <SearchDropdown className="search-dropdown" searchResults={fetchSearchResults}/>
       </div>
       <hgroup>
         <button className="nav-button" onClick={handleLogout}>Log Out</button>
