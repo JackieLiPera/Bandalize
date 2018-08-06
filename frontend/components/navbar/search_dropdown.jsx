@@ -27,7 +27,7 @@ class SearchDropdown extends React.Component {
   }
 
   render() {
-    debugger
+
     let artists;
     if (this.props.artists) {
       artists = this.props.artists.map(user => {
@@ -60,5 +60,7 @@ class SearchDropdown extends React.Component {
     );
   }
 }
+
+
 
 export default SearchDropdown;
