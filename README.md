@@ -4,8 +4,6 @@ Bandalize is full-stack, single-page application built with React.js and Ruby on
 
 Check out the live link here [](https://jackielipera.github.io/Bandalize/)
 
-**Features**
-
 **User Auth**
 
 Users can sign up and log in using the app modal. Click the demo button to start exploring!
