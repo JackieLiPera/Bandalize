@@ -51,12 +51,14 @@ class SearchDropdown extends React.Component {
             onChange={this.handleChange}
             type="text"
             value={this.state.query}
+            placeholder="Search for your favorite artists"
           />
           <ul className="search-results">
             { artists }
           </ul>
         </div>
       </div>
+
     );
   }
 }
