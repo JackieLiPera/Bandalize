@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :tracked_artists, through: :trackings, source: :artist
   has_many :rsvpd_artists, through: :rsvp_events, source: :artist
   has_many :rsvpd_venues, through: :rsvp_events, source: :venue
+  has_many :tracked_venues, through: :tracked_artists, source: :venues
   has_many :tracked_events, through: :tracked_artists, source: :events
   has_many :comments
 

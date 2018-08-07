@@ -9,6 +9,7 @@ json.artists do
       json.image url_for(artist.photo)
     end
   end
+
   @user.rsvpd_artists.each do |artist|
     json.set! artist.id do
       json.partial! '/api/artists/artist', artist: artist
@@ -33,6 +34,12 @@ end
 
 json.venues do
   @user.rsvpd_venues.each do |venue|
+    json.set! venue.id do
+      json.partial! 'api/venues/venue', venue: venue
+    end
+  end
+
+  @user.tracked_venues.each do |venue|
     json.set! venue.id do
       json.partial! 'api/venues/venue', venue: venue
     end
