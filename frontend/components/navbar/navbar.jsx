@@ -3,7 +3,7 @@ import FaSearch from 'react-icons/lib/fa/search';
 import { Link, withRouter } from 'react-router-dom';
 import SearchDropdown from './search_dropdown';
 
-const Navbar = ({ currentUser, logout, openModal, login, history, fetchSearchResults }) => {
+const Navbar = ({ currentUser, logout, openModal, login, history, fetchSearchResults, searchResults }) => {
 
   const handleDemo = (user) => {
     login(user)
@@ -17,7 +17,7 @@ const Navbar = ({ currentUser, logout, openModal, login, history, fetchSearchRes
     history.push(`/users/${currentUser.id}`)
   }
 
-  const searchResults = (query) => {
+  const getSearchResults = (query) => {
     fetchSearchResults(query);
   }
 
@@ -28,7 +28,11 @@ const Navbar = ({ currentUser, logout, openModal, login, history, fetchSearchRes
       <div className="nav-logo" >
         <img src={image} />
         <Link to='/' className="app-title">bandalize</Link>
-        <SearchDropdown className="search-dropdown" searchResults={fetchSearchResults} value={''} placeholder="Search for your favorite artists"/>
+        <SearchDropdown
+          results={searchResults}
+          getSearchResults={getSearchResults}
+          value={''}
+          placeholder="Search for your favorite artists"/>
 
       </div>
       <div className="nav-buttons">
@@ -44,7 +48,11 @@ const Navbar = ({ currentUser, logout, openModal, login, history, fetchSearchRes
         <img src={image} />
         <Link to='/' className="app-title">bandalize</Link>
         <button onClick={handleUserAccount} className="nav-button">Account</button>
-        <SearchDropdown className="search-dropdown" searchResults={fetchSearchResults} value={''} placeholder="Search for your favorite artists"/>
+          <SearchDropdown
+            results={searchResults}
+            getSearchResults={getSearchResults}
+            value={''}
+            placeholder="Search for your favorite artists"/>
 
       </div>
       <hgroup>

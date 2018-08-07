@@ -5,9 +5,10 @@ import { openModal } from '../../actions/modal_actions';
 import { withRouter } from 'react-router-dom';
 import { fetchSearchResults } from '../../actions/search_actions';
 
-const msp = ({ session }) => {
-  return {
-    currentUser: session.currentUser
+const msp = ({ session, ui }) => {
+ return {
+    currentUser: session.currentUser,
+    searchResults: Object.values(ui.SearchReducer)
   };
 }
 

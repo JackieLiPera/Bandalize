@@ -15,50 +15,60 @@ class SearchDropdown extends React.Component {
   clearInput() {
     this.setState(
       { query: "" },
-      () => this.props.searchArtists(this.state.query)
+      () => this.props.getSearchResults(this.state.query),
     );
   }
 
   handleChange(e) {
     this.setState(
       { query: e.target.value },
-      () => this.props.searchResults(this.state.query)
+      () => this.props.getSearchResults(this.state.query)
     );
   }
 
+
+
   render() {
 
-    let artists;
-    if (this.props.artists) {
-      artists = this.props.artists.map(user => {
+    let results;
+    if (this.props.results) {
+      results = this.props.results.map(result => {
+        let image;
+        if (result.image) {
+          image = <img className="result-image" src={result.image}></img>
+        }
+
         return (
-          <li className="search-item" key={artist.id}>
+          <li className="search-item" key={result.id}>
+            { image }
             <Link onClick={this.clearInput}
-              to={`/artists/${artist.id}`}>
+              to={`/artists/${result.id}`}>
               <div className="search-name">
-                {`${artist.name}`}
+                {`${result.name}`}
               </div>
             </Link>
           </li>
         );
       });
+    } else {
+      return null;
     }
 
-    return (
-      <div className="search-bar">
-        <div className="search-results-container">
-          <input
-            onChange={this.handleChange}
-            type="text"
-            value={this.state.query}
-            placeholder="Search for your favorite artists"
-          />
-          <ul className="search-results">
-            { artists }
-          </ul>
-        </div>
-      </div>
 
+    return (
+      <div className="search-results-container">
+        <i className="fas fa-search"></i>
+        <input
+          className="search-bar"
+          onChange={this.handleChange}
+          type="text"
+          value={this.state.query}
+          placeholder="Search for artists and venues"
+        />
+        <ul className="search-results">
+          { results }
+        </ul>
+      </div>
     );
   }
 }
