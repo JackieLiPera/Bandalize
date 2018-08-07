@@ -1,7 +1,7 @@
 import React from 'react';
 import FaSearch from 'react-icons/lib/fa/search';
 import { Link, withRouter } from 'react-router-dom';
-// import SearchDropdown from './search_dropdown';
+import SearchDropdown from './search_dropdown';
 
 const Navbar = ({ currentUser, logout, openModal, login, history, fetchSearchResults }) => {
 
