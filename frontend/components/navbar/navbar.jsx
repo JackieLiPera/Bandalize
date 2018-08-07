@@ -38,7 +38,7 @@ const Navbar = ({ currentUser, logout, openModal, login, history, fetchSearchRes
       <div className="nav-buttons">
         <button className="nav-button" onClick={() => openModal('login')}>Login</button>
         <button className="nav-button" onClick={() => openModal('signup')}>Signup</button>
-        <button className="nav-button" onClick={handleDemo({email:'jac.lipera@gmail.com', password:'jackie', firstname: 'jackie', lastname: 'lipera'})}>Demo</button>
+        <button className="nav-button" onClick={() => handleDemo({email:'jac.lipera@gmail.com', password:'jackie', firstname: 'jackie', lastname: 'lipera'})}>Demo</button>
       </div>
     </nav>
   );
