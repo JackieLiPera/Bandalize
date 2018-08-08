@@ -6,7 +6,6 @@ import { withRouter } from 'react-router-dom';
 import { fetchSearchResults, removeSearchResults} from '../../actions/search_actions';
 
 const msp = ({ session, ui }) => {
-
  return {
     currentUser: session.currentUser,
     searchResults: Object.values(ui.search)
