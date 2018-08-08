@@ -33,6 +33,16 @@ artist17 = Artist.create!(name:"Childish Gambino", on_tour: true, genre:"R&B")
 artist18 = Artist.create!(name:"Arctic Monkeys", on_tour: true, genre:"Rock")
 artist19 = Artist.create!(name:"Sublime", on_tour: false, genre:"Rock")
 artist20 = Artist.create!(name:"Odesza", on_tour: true, genre:"Electronic")
+artist21 = Artist.create!(name:"Florence and The Machine", on_tour: true, genre:"Alternative")
+artist22 = Artist.create!(name:"J.Cole", on_tour: true, genre:"R&B")
+artist23 = Artist.create!(name:"Gorillaz", on_tour: false, genre:"Alternative")
+artist24 = Artist.create!(name:"Panic! At The Disco", on_tour: true, genre:"Rock")
+artist25 = Artist.create!(name:"Fall Out Boy", on_tour: false, genre:"Alternative")
+artist26 = Artist.create!(name:"P!nk", on_tour: true, genre:"Pop")
+artist27 = Artist.create!(name:"Gary Clark Jr.", on_tour: false, genre:"Rock")
+artist28 = Artist.create!(name:"Tyler, The Creator", on_tour: true, genre:"R&B")
+artist29 = Artist.create!(name:"Deadmau5", on_tour: true, genre:"Electronic")
+artist30 = Artist.create!(name:"BØRNS", on_tour: true, genre:"Electronic")
 
 artist1.photo.attach(io: File.open('./app/assets/images/artist_photos/rhcp.jpg'), filename: 'rhcp.jpg')
 artist2.photo.attach(io: File.open('./app/assets/images/artist_photos/rks.jpg'), filename: 'rks.jpg')
@@ -54,6 +64,16 @@ artist17.photo.attach(io: File.open('./app/assets/images/artist_photos/childish.
 artist18.photo.attach(io: File.open('./app/assets/images/artist_photos/arctic.jpg'), filename: 'arctic.jpg')
 artist19.photo.attach(io: File.open('./app/assets/images/artist_photos/sublime.jpg'), filename: 'sublime.jpg')
 artist20.photo.attach(io: File.open('./app/assets/images/artist_photos/odeza.jpg'), filename: 'odeza.jpg')
+artist21.photo.attach(io: File.open('./app/assets/images/artist_photos/fam.jpg'), filename: 'fam.jpg')
+artist22.photo.attach(io: File.open('./app/assets/images/artist_photos/jcole.jpg'), filename: 'jcole.jpg')
+artist23.photo.attach(io: File.open('./app/assets/images/artist_photos/gorillaz.jpg'), filename: 'gorillaz.jpg')
+artist24.photo.attach(io: File.open('./app/assets/images/artist_photos/panic.png'), filename: 'panic.png')
+artist25.photo.attach(io: File.open('./app/assets/images/artist_photos/fob.jpg'), filename: 'fob.jpg')
+artist26.photo.attach(io: File.open('./app/assets/images/artist_photos/pink.jpg'), filename: 'pink.jpg')
+artist27.photo.attach(io: File.open('./app/assets/images/artist_photos/GaryClark.jpg'), filename: 'GaryClark.jpg')
+artist28.photo.attach(io: File.open('./app/assets/images/artist_photos/tyler.png'), filename: 'tyler.png')
+artist29.photo.attach(io: File.open('./app/assets/images/artist_photos/Deadmau.jpg'), filename: 'Deadmau.jpg')
+artist30.photo.attach(io: File.open('./app/assets/images/artist_photos/borns.png'), filename: 'borns.png')
 
 Venue.destroy_all
 
@@ -62,6 +82,8 @@ venue2 = Venue.create!(name: 'Forrest Hills Stadium' , address: '1 Tennis Pl', c
 venue3 = Venue.create!(name: 'Bowery Ballroom', address: '6 Delancey St', city: 'New York', state: 'NY', country: 'United States', latitude: 40.7204, longitude: -73.9934)
 venue4 = Venue.create!(name: 'Barclays Center', address: '620 Atlantic Ave', city: 'Brooklyn', state: 'NY', country: 'United States', latitude: 40.6828, longitude: -73.9758)
 venue5 = Venue.create!(name: 'Hammerstein Ballroom', address: '311 W 34th St', city: 'New York', state: 'NY', country: 'United States', latitude: 40.7528, longitude: -73.9942)
+venue6 = Venue.create!(name: 'Irving Plaza', address: '17 Irving Plaza', city: 'New York', state: 'NY', country: 'United States', latitude: 40.7349, longitude: -73.9884)
+venue7 = Venue.create!(name: 'MetLife Stadium', address: '1 MetLife Stadium Dr', city: 'East Rutherford', state: 'NY', country: 'United States', latitude: 40.8128, longitude: -74.0742)
 
 Event.destroy_all
 
@@ -100,6 +122,16 @@ event27 = Event.create!(event_on: (DateTime.parse("Fri Jul 28 21:00:00 EST 2018"
 event28 = Event.create!(event_on: (DateTime.parse("Fri Mar 27 21:00:00 EST 2018")), artist_id: artist20.id, venue_id: venue3.id)
 event29 = Event.create!(event_on: (DateTime.parse("Fri Mar 26 21:00:00 EST 2018")), artist_id: artist20.id, venue_id: venue1.id)
 event30 = Event.create!(event_on: (DateTime.parse("Fri Feb 25 21:00:00 EST 2018")), artist_id: artist20.id, venue_id: venue2.id)
+event31 = Event.create!(event_on: (DateTime.parse("Fri Nov 04 17:30:00 EST 2018")), artist_id: artist21.id, venue_id: venue4.id)
+event32 = Event.create!(event_on: (DateTime.parse("Thu Sep 03 19:00:00 EST 2018")), artist_id: artist21.id, venue_id: venue5.id)
+event33 = Event.create!(event_on: (DateTime.parse("Sat Nov 02 20:00:00 EST 2018")), artist_id: artist22.id, venue_id: venue1.id)
+event34 = Event.create!(event_on: (DateTime.parse("Fri Nov 01 21:00:00 EST 2018")), artist_id: artist22.id, venue_id: venue3.id)
+event35 = Event.create!(event_on: (DateTime.parse("Fri Sep 30 21:00:00 EST 2018")), artist_id: artist28.id, venue_id: venue5.id)
+event36 = Event.create!(event_on: (DateTime.parse("Fri Oct 29 21:00:00 EST 2018")), artist_id: artist28.id, venue_id: venue4.id)
+event37 = Event.create!(event_on: (DateTime.parse("Fri Jul 28 21:00:00 EST 2018")), artist_id: artist30.id, venue_id: venue2.id)
+event38 = Event.create!(event_on: (DateTime.parse("Fri Nov 27 21:00:00 EST 2018")), artist_id: artist30.id, venue_id: venue3.id)
+event39 = Event.create!(event_on: (DateTime.parse("Thu Nov 26 21:00:00 EST 2018")), artist_id: artist30.id, venue_id: venue1.id)
+event40 = Event.create!(event_on: (DateTime.parse("Fri Feb 25 21:00:00 EST 2018")), artist_id: artist29.id, venue_id: venue2.id)
 
 Rsvp.destroy_all
 
