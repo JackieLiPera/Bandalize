@@ -8,16 +8,12 @@ import { RECEIVE_VENUE } from '../actions/venue_actions';
 export default (state = {}, action) => {
   Object.freeze(state);
 
-  debugger
   switch (action.type) {
     case RECEIVE_RSVP:
       return merge({}, state, action.rsvp)
     case RECEIVE_VENUE:
-      return merge({}, state, action.events);
     case RECEIVE_CURRENT_USER:
-      return merge({}, state, action.events);
     case RECEIVE_ARTISTS:
-      return merge({}, state, action.events)
     case RECEIVE_ARTIST:
       return merge({}, state, action.events);
     case RECEIVE_EVENT:

@@ -5,5 +5,5 @@ import SearchReducer from './search_reducer';
 
 export default combineReducers({
   modal: ModalReducer,
-  SearchReducer
+  search: SearchReducer
 });

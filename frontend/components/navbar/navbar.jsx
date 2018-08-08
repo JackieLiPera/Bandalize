@@ -3,7 +3,7 @@ import FaSearch from 'react-icons/lib/fa/search';
 import { Link, withRouter } from 'react-router-dom';
 import SearchDropdown from './search_dropdown';
 
-const Navbar = ({ currentUser, logout, openModal, login, history, fetchSearchResults, searchResults }) => {
+const Navbar = ({ currentUser, logout, openModal, login, history, fetchSearchResults, searchResults, removeSearchResults }) => {
 
   const handleDemo = (user) => {
     login(user)
@@ -31,6 +31,7 @@ const Navbar = ({ currentUser, logout, openModal, login, history, fetchSearchRes
         <SearchDropdown
           results={searchResults}
           getSearchResults={getSearchResults}
+          clearUiSearchResults={removeSearchResults}
           value={''}
           />
 
@@ -51,6 +52,7 @@ const Navbar = ({ currentUser, logout, openModal, login, history, fetchSearchRes
           <SearchDropdown
             results={searchResults}
             getSearchResults={getSearchResults}
+            clearUiSearchResults={removeSearchResults}
             value={''}
             />
 

@@ -15,7 +15,7 @@ class SearchDropdown extends React.Component {
   clearInput() {
     this.setState(
       { query: "" },
-      () => this.props.getSearchResults(this.state.query),
+      () => this.props.clearUiSearchResults(),
     );
   }
 
@@ -29,7 +29,7 @@ class SearchDropdown extends React.Component {
 
 
   render() {
-
+    
     let results;
     if (this.props.results) {
       results = this.props.results.map(result => {
@@ -41,7 +41,8 @@ class SearchDropdown extends React.Component {
         return (
           <li className="search-item" key={result.id}>
             { image }
-            <Link onClick={this.clearInput}
+            <Link
+              onClick={this.clearInput}
               to={`/artists/${result.id}`}>
               <div className="search-name">
                 {`${result.name}`}

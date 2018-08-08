@@ -2,13 +2,16 @@ import { RECEIVE_ARTIST, RECEIVE_ARTISTS } from '../actions/artist_actions';
 import { RECEIVE_EVENT, RECEIVE_EVENTS } from '../actions/event_actions';
 import { RECEIVE_CURRENT_USER } from '../actions/session_actions';
 import { RECEIVE_VENUE } from '../actions/venue_actions';
+import { RECEIVE_SEARCH_RESULTS } from '../actions/search_actions';
 import { merge } from 'lodash';
 
 
 export default (state = {}, action) => {
   Object.freeze(state);
-
+  
   switch (action.type) {
+    case RECEIVE_SEARCH_RESULTS:
+      return merge({}, state, action.results)
     case RECEIVE_VENUE:
       return merge({}, state, action.artists)
     case RECEIVE_CURRENT_USER:
