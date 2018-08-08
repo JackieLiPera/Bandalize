@@ -4,10 +4,12 @@ import { connect } from 'react-redux';
 import LoginFormContainer from './session/login_form_container';
 import SignupFormContainer from './session/signup_form_container';
 
-function Modal({modal, closeModal}) {
+function Modal({ modal, closeModal }) {
+  debugger
   if (!modal) {
     return null;
   }
+
   let component;
   switch (modal) {
     case 'login':

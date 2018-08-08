@@ -3,6 +3,7 @@ export const RECEIVE_ARTISTS = "RECEIVE_ARTISTS";
 export const RECEIVE_ARTIST = "RECEIVE_ARTIST";
 
 export const receiveArtists = (artists) => {
+  debugger
   return {
     type: RECEIVE_ARTISTS,
     artists

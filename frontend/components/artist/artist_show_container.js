@@ -19,13 +19,20 @@ const msp = (state, ownProps) => {
     });
   }
 
+  let trackedArtists;
+  if (!state.session.currentUser) {
+    trackedArtists = null;
+  } else {
+    trackedArtists = state.session.currentUser.tracked_artists;
+  }
+
 
   return {
     artist: artist,
     events: specEvents,
     venues: state.entities.venues,
     currentUser: state.session.currentUser,
-    tracked_artists: state.session.currentUser.tracked_artists,
+    tracked_artists: trackedArtists,
     tracking: state.session.currentUser.tracked_artists.includes(parseInt(ownProps.match.params.id))
   }
 };

@@ -32,7 +32,7 @@ const Navbar = ({ currentUser, logout, openModal, login, history, fetchSearchRes
           results={searchResults}
           getSearchResults={getSearchResults}
           value={''}
-          placeholder="Search for your favorite artists"/>
+          />
 
       </div>
       <div className="nav-buttons">
@@ -52,7 +52,7 @@ const Navbar = ({ currentUser, logout, openModal, login, history, fetchSearchRes
             results={searchResults}
             getSearchResults={getSearchResults}
             value={''}
-            placeholder="Search for your favorite artists"/>
+            />
 
       </div>
       <hgroup>
