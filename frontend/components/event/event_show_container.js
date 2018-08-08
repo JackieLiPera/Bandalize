@@ -19,13 +19,19 @@ const msp = (state, ownProps) => {
     (Date.parse(eventDate) < Date.now()) ? eventHappened = true : eventHappened = false;
   }
 
-
+  let rsvpd;
+  if (state.session.currentUser) {
+    rsvpd = state.session.currentUser.rsvp_events.includes(parseInt(ownProps.match.params.id));
+  } else {
+    rsvpd = null;
+  }
+  
   return {
     event: event,
     artist: state.entities.artists,
     venue: state.entities.venues,
     currentUser: state.session.currentUser,
-    rsvpd: state.session.currentUser.rsvp_events.includes(parseInt(ownProps.match.params.id)),
+    rsvpd: rsvpd,
     dateString: eventDate ? eventDate.toString().slice(0, 15) : "",
     timeString: eventDate ? eventDate.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}) : "",
     happened: eventHappened,
