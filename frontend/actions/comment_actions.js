@@ -1,12 +1,14 @@
 import * as ApiCommentUtil from '../util/comment_api_util';
-export const REMOVE_COMMENT = "REMOVE_COMMENT";
 import { receiveEvent } from '../actions/event_actions';
+export const REMOVE_COMMENT = "REMOVE_COMMENT";
 
 
-export const removeComment = (commentId) => ({
-  type: REMOVE_COMMENT,
-  commentId
-});
+export const removeComment = ({ comment }) => {
+  return {
+    type: REMOVE_COMMENT,
+    comment
+  }
+};
 
 export const createComment = (formData) => dispatch => (
   ApiCommentUtil.createComment(formData).then((event) => dispatch(receiveEvent(event)))

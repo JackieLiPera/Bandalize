@@ -17,6 +17,7 @@ class EventShow extends React.Component {
     this.handleCommentSubmit = this.handleCommentSubmit.bind(this);
     this.handleCommentChange = this.handleCommentChange.bind(this);
     this.handlePictureUpload = this.handlePictureUpload.bind(this);
+    this.handleDeleteComment = this.handleDeleteComment.bind(this);
   }
 
   componentDidMount() {
@@ -58,10 +59,14 @@ class EventShow extends React.Component {
   handleCommentSubmit(e) {
     e.preventDefault();
     const formData = new FormData();
-    formData.append('comment[photo]', this.state.photoFile);
     formData.append('comment[body]', this.state.comment);
     formData.append('comment[user_id]', this.props.currentUser.id);
     formData.append('comment[event_id]', this.props.event.id);
+
+    this.setState({
+      comment: ""
+    });
+
     this.props.processForm(formData);
   }
 
@@ -69,6 +74,10 @@ class EventShow extends React.Component {
     this.setState({
       photoFile: e.currentTarget.files[0]
     });
+  }
+
+  handleDeleteComment() {
+    this.props.deleteComment(this.props.currentUser.id, this.props.event.id)
   }
 
   render() {
@@ -81,13 +90,13 @@ class EventShow extends React.Component {
       return null;
     }
 
-    let comments;
+    let comments = null;
     if (this.props.comments.length > 0) {
       comments = this.props.comments.map ((comment) => {
         if (comment.photo) {
-          return <li key={comment.id}>{comment.body}{comment.photo}</li>
+          return <li key={comment.id}>{comment.body}{comment.photo}<button onClick={this.handleDeleteComment}>Delete</button></li>
         } else {
-          return <li key={comment.id}>{comment.body}</li>
+          return <li key={comment.id}>{comment.body} <button onClick={this.handleDeleteComment}>Delete</button></li>
         }
       });
     }

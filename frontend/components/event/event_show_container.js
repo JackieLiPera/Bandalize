@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import EventShow from './event_show';
 import { fetchEvent } from '../../actions/event_actions';
 import { createRsvp, deleteRsvp } from '../../actions/rsvp_actions';
-import { createComment } from '../../actions/comment_actions';
+import { createComment, deleteComment } from '../../actions/comment_actions';
 
 
 const msp = (state, ownProps) => {
@@ -25,7 +25,7 @@ const msp = (state, ownProps) => {
   } else {
     rsvpd = null;
   }
-  
+
   return {
     event: event,
     artist: state.entities.artists,
@@ -46,7 +46,8 @@ const mdp = (dispatch) => {
     fetchEvent: (id) => dispatch(fetchEvent(id)),
     createRsvp: (userId, eventId) => dispatch(createRsvp(userId, eventId)),
     deleteRsvp: (userId, eventId) => dispatch(deleteRsvp(userId, eventId)),
-    processForm: (formData) => dispatch(createComment(formData))
+    processForm: (formData) => dispatch(createComment(formData)),
+    deleteComment: (userId, eventId) => dispatch(deleteComment(userId, eventId))
   }
 };
 

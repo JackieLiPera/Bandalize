@@ -16,7 +16,6 @@ json.comments do
   @event.comments.each do |comment|
     json.set! comment.id do
       json.partial! 'api/comments/comment', comment: comment
-      # json.image url_for(comment.photo) unless comment.photo.nil?
     end
   end
 end
