@@ -29,10 +29,17 @@ class SearchDropdown extends React.Component {
 
 
   render() {
-    
+
     let results;
+    let type;
     if (this.props.results) {
       results = this.props.results.map(result => {
+        if (result.address) {
+          type = "venues"
+        } else {
+          type = "artists"
+        }
+
         let image;
         if (result.image) {
           image = <img className="result-image" src={result.image}></img>
@@ -43,7 +50,7 @@ class SearchDropdown extends React.Component {
             { image }
             <Link
               onClick={this.clearInput}
-              to={`/artists/${result.id}`}>
+              to={`/${type}/${result.id}`}>
               <div className="search-name">
                 {`${result.name}`}
               </div>
