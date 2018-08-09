@@ -35,12 +35,25 @@ class EventIndexItem extends React.Component {
   }
 
   render() {
+    let eventHappened;
+    if (Date.parse(this.props.event.event_on) < Date.now()) {
+      eventHappened = true
+    } else {
+      eventHappened = false;
+    }
+
+    
     let rsvpButton;
-    if (this.state.rsvpd) {
+    if (this.state.rsvpd && !eventHappened) {
       rsvpButton = <button
         onClick={(e) =>this.changeRSVPstatus(e)}
         className="artist-rsvp-button-going"
         >&#10004; Going </button>
+    } else if (this.state.rsvpd && eventHappened) {
+      rsvpButton = <button
+        onClick={(e) =>this.changeRSVPstatus(e)}
+        className="artist-rsvp-button-going"
+        >&#10004; I Was There </button>
     } else {
       rsvpButton = <button
         onClick={(e) =>this.changeRSVPstatus(e)}
