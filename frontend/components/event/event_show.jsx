@@ -118,7 +118,7 @@ class EventShow extends React.Component {
         </form>
     } else if (!(this.props.happened) && (this.state.rsvpd === true)) {
       rsvp_button = <button onClick={this.changeRSVPStatus} className="rsvp-button-checked">	&#10004; Going</button>;
-      stubHub_button = <button className="ticket-button"> <a href="https://www.stubhub.com/">Get Tickets</a></button>;
+      stubHub_button = <button className="ticket-button"> <a href="https://www.stubhub.com/">Get Tickets on Stubhub</a></button>;
       commentForm = null;
     }
     if ((this.props.happened) && this.state.rsvpd === false) {
@@ -127,7 +127,7 @@ class EventShow extends React.Component {
       commentForm = null;
     } else if ((!this.props.happened) && this.state.rsvpd === false) {
       rsvp_button = <button onClick={this.changeRSVPStatus} className="rsvp-button">RSVP</button>;
-      stubHub_button = <button className="ticket-button"> <a href="https://www.stubhub.com/">Get Tickets</a></button>;
+      stubHub_button = <button className="ticket-button"> <a href="https://www.stubhub.com/">Get Tickets on Stubhub</a></button>;
       commentForm = null;
     }
 
