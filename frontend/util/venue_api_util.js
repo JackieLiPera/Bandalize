@@ -1,5 +1,3 @@
-
-
 export const fetchVenues = () => {
   return $.ajax({
     method: 'GET',

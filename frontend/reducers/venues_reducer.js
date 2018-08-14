@@ -7,7 +7,6 @@ import { merge } from 'lodash';
 
 export default (state = {}, action) => {
   Object.freeze(state);
-  
   switch (action.type) {
     case RECEIVE_CURRENT_USER:
       return merge({}, state, action.venues);
@@ -16,7 +15,7 @@ export default (state = {}, action) => {
     case RECEIVE_ARTIST:
       return merge({}, state, action.venues);
     case RECEIVE_VENUE:
-      return merge({}, state, action.venue);
+      return merge({}, state, {[action.venue.id]: action.venue});
     case RECEIVE_EVENT:
       return merge({}, state, action.venue);
     case RECEIVE_VENUES:

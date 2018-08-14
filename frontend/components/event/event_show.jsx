@@ -91,6 +91,7 @@ class EventShow extends React.Component {
     }
 
     let comments;
+    debugger
     if (this.props.comments.length > 0) {
       comments = this.props.comments.map ((comment) => {
         if (comment.photo) {

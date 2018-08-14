@@ -5,7 +5,6 @@ import VenueMap from './venue_map';
 class VenueShow extends React.Component {
   constructor(props) {
     super(props);
-
   }
 
   componentDidMount() {
@@ -13,6 +12,10 @@ class VenueShow extends React.Component {
   }
 
   render () {
+    let venue = this.props.venue;
+    if (!venue) {
+      return null;
+    }
 
     return (
       <div className="venue-info-component">

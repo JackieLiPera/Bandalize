@@ -4,22 +4,11 @@ import { fetchVenue } from '../../actions/venue_actions';
 import { createRsvp, deleteRsvp } from '../../actions/rsvp_actions';
 
 const msp = (state, ownProps) => {
-  const venue = state.entities.venues;
-  const allEvents = Object.values(state.entities.events);
-  const venueId = venue.id;
-
-  const specEvents = [];
-  allEvents.forEach ((event) => {
-    if (event.venue_id === venueId) {
-      return specEvents.push(event)
-    }
-  });
-  
   return {
+    venue: state.entities.venues[Number(ownProps.match.params.id)],
     artists: state.entities.artists,
     currentUser: state.session.currentUser,
-    venue: venue,
-    events: specEvents
+    events: Object.values(state.entities.events)
   }
 };
 

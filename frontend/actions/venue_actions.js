@@ -8,19 +8,19 @@ export const receiveVenues = (venues) => ({
   venues
 });
 
-export const receiveVenue = ({venue, events, artists}) => ({
-  type: RECEIVE_VENUE,
-  venue,
-  events,
-  artists
-});
+export const receiveVenue = ({venue, events, artists}) => {
+  return {
+    type: RECEIVE_VENUE,
+    venue,
+    events,
+    artists
+  }
+};
 
 export const fetchVenues = () => dispatch => (
   ApiVenueUtil.fetchVenues().then((venues) => dispatch(receiveVenues(venues)))
 );
 
-export const fetchVenue = (id) => {
-  return (dispatch) => {
-    ApiVenueUtil.fetchVenue(id).then((venue) => dispatch(receiveVenue(venue)))
-  }
+export const fetchVenue = (id) => dispatch => {
+  ApiVenueUtil.fetchVenue(id).then((venue) => dispatch(receiveVenue(venue)))
 };
