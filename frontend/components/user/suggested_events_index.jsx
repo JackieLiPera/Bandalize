@@ -14,7 +14,7 @@ const SuggestedEventIndex = ({ events, artists, venues, currentUser }) => {
   const mappedEvents = Object.values(events).map((event) => {
     let eventHappened;
     (Date.parse(event.event_on) < Date.now()) ? eventHappened = true : eventHappened = false;
-
+    
     if (artists[event.artist_id] && !currentUser.rsvp_events.includes(event.id) && !eventHappened) {
       return <li className="suggested-event" key={event.id}>
         <SuggestedEventIndexItem

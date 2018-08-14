@@ -4,7 +4,6 @@ import { fetchUser } from '../../actions/session_actions';
 import { withRouter } from 'react-router-dom';
 
 const msp = (state) => {
-
   let rsvps = {};
   state.session.currentUser.rsvp_events.map ((eventId) => {
     const event = state.entities.events[eventId];
