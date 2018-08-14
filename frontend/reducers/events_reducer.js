@@ -8,7 +8,6 @@ import { REMOVE_COMMENT } from '../actions/comment_actions';
 
 export default (state = {}, action) => {
   Object.freeze(state);
-
   let newState;
   switch (action.type) {
     case RECEIVE_RSVP:

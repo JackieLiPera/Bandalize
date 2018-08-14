@@ -38,16 +38,15 @@ class ArtistShow extends React.Component {
       return null;
     }
 
+    if (this.state.loading === true) {
+      return <div>Loading...</div>
+    }
 
     let tour;
     if (artist.on_tour === true) {
       tour = "On Tour"
     } else {
       tour = ""
-    }
-
-    if (this.state.loading === true) {
-      return <div>Loading...</div>
     }
 
     let bluecheck = window.bluecheck;

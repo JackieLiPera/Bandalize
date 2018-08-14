@@ -13,6 +13,7 @@ const msp = (state, ownProps) => {
   let comments;
 
   if (event) {
+    debugger
     numRsvps = event.rsvpd.length;
     comments = event.comments;
     eventDate = new Date (event.event_on);

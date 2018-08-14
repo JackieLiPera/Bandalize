@@ -1,7 +1,14 @@
 import * as ApiCommentUtil from '../util/comment_api_util';
-import { receiveEvent } from '../actions/event_actions';
 export const REMOVE_COMMENT = "REMOVE_COMMENT";
+export const RECEIVE_COMMENT = 'RECEIVE_COMMENT';
 
+
+export const receiveComment = (comment) => {
+  return {
+    type: RECEIVE_COMMENT,
+    comment
+  }
+}
 
 export const removeComment = ({ comment }) => {
   return {
@@ -10,8 +17,9 @@ export const removeComment = ({ comment }) => {
   }
 };
 
+
 export const createComment = (formData) => dispatch => (
-  ApiCommentUtil.createComment(formData).then((event) => dispatch(receiveEvent(event)))
+  ApiCommentUtil.createComment(formData).then((comment) => dispatch(receiveComment(comment)))
 );
 
 export const deleteComment = (userId, eventId) => dispatch => (

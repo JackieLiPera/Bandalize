@@ -1,11 +1,10 @@
 class Api::EventsController < ApplicationController
 
   def show
-    Event.includes(:comments)
-    @event = Event.find(params[:id])
+    @event = Event.includes(:comments, :rsvps, :artist, :venue).find(params[:id])
   end
 
   def index
-    @events = Event.all.includes(:artist, :venue)
+    @events = Event.all.includes(:venue, :artist)
   end
 end

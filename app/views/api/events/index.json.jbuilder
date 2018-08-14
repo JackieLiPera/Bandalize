@@ -1,7 +1,7 @@
 json.events do
   @events.each do |event|
     json.set! event.id do
-      json.partial! 'event', event: event
+      json.extract! event, :id, :event_on, :artist_id, :venue_id
     end
   end
 end
@@ -9,7 +9,7 @@ end
 json.artist do
   @events.each do |event|
     json.set! event.artist.id do
-      json.partial! '/api/artists/artist', artist: event.artist
+      json.extract! event.artist, :id, :name
       json.image url_for(event.artist.photo)
     end
   end
@@ -18,7 +18,7 @@ end
 json.venue do
   @events.each do |event|
     json.set! event.venue.id do
-      json.partial! '/api/venues/venue', venue: event.venue
+      json.extract! event.venue, :id, :name
     end
   end
 end

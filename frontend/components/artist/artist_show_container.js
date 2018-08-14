@@ -7,29 +7,16 @@ import { createRsvp, deleteRsvp } from '../../actions/rsvp_actions';
 
 const msp = (state, ownProps) => {
 
-  const artist =  state.entities.artists[ownProps.match.params.id];
-  const allEvents = Object.values(state.entities.events);
-
-  const specEvents = [];
-  if (artist) {
-    allEvents.forEach ((event) => {
-      if (event.artist_id === artist.id) {
-        return specEvents.push(event)
-      }
-    });
-  }
-
   let trackedArtists;
   if (!state.session.currentUser) {
     trackedArtists = null;
   } else {
     trackedArtists = state.session.currentUser.tracked_artists;
   }
-
-
+  
   return {
-    artist: artist,
-    events: specEvents,
+    artist: state.entities.artists[ownProps.match.params.id],
+    events: Object.values(state.entities.events) ,
     venues: state.entities.venues,
     currentUser: state.session.currentUser,
     tracked_artists: trackedArtists,

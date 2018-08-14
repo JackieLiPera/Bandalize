@@ -16,7 +16,7 @@ class Api::CommentsController < ApplicationController
     @comment = @current_user.comments.find_by(comment_params)
 
     if @comment.destroy
-      
+
       render json: @comment
     else
       render json: @comment.errors.full_messages, status: 422
