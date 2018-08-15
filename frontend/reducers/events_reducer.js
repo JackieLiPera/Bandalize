@@ -4,14 +4,15 @@ import { RECEIVE_ARTIST, RECEIVE_ARTISTS } from '../actions/artist_actions';
 import { RECEIVE_RSVP, REMOVE_RSVP } from '../actions/rsvp_actions';
 import { RECEIVE_CURRENT_USER } from '../actions/session_actions';
 import { RECEIVE_VENUE } from '../actions/venue_actions';
-import { REMOVE_COMMENT } from '../actions/comment_actions';
+import { REMOVE_COMMENT, RECEIVE_COMMENT } from '../actions/comment_actions';
 
 export default (state = {}, action) => {
   Object.freeze(state);
+
   let newState;
   switch (action.type) {
     case RECEIVE_RSVP:
-      return merge({}, state, action.rsvp)
+      return merge(newState, action.rsvp)
     case RECEIVE_VENUE:
     case RECEIVE_CURRENT_USER:
     case RECEIVE_ARTISTS:
@@ -21,6 +22,9 @@ export default (state = {}, action) => {
       return merge({}, state, {[action.event.id]: action.event});
     case RECEIVE_EVENTS:
       return action.events;
+    case RECEIVE_COMMENT:
+      newState = merge({}, state);
+      return newState[action.comment.event_id].comments.unshift(action.comment.id);
     case REMOVE_COMMENT:
       newState = merge({}, state, action.commentId);
       delete newState[action.commentId];

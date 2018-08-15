@@ -7,16 +7,14 @@ import { createComment, deleteComment } from '../../actions/comment_actions';
 
 const msp = (state, ownProps) => {
   const event = state.entities.events[Number(ownProps.match.params.id)];
-  let eventDate;
-  let eventHappened;
+  let happened;
   let numRsvps;
-  let comments;
-  
+  let eventDate;
+
   if (event) {
     numRsvps = event.rsvpd.length;
-    comments = event.comments;
     eventDate = new Date (event.event_on);
-    (Date.parse(eventDate) < Date.now()) ? eventHappened = true : eventHappened = false;
+    (Date.parse(eventDate) < Date.now()) ? happened = true : happened = false;
   }
 
   let rsvpd;
@@ -27,16 +25,16 @@ const msp = (state, ownProps) => {
   }
 
   return {
-    event: state.entities.events[parseInt(ownProps.match.params.id)],
+    event: state.entities.events[Number(ownProps.match.params.id)],
     artist: state.entities.artists,
     venue: state.entities.venues,
+    comments: state.entities.comments,
     currentUser: state.session.currentUser,
     rsvpd: rsvpd,
     dateString: eventDate ? eventDate.toString().slice(0, 15) : "",
     timeString: eventDate ? eventDate.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}) : "",
-    happened: eventHappened,
-    numRsvps: numRsvps,
-    comments: comments
+    happened: happened,
+    numRsvps: numRsvps
   }
 };
 

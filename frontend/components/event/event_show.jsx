@@ -91,14 +91,10 @@ class EventShow extends React.Component {
     }
 
     let comments;
-    debugger
-    if (this.props.comments.length > 0) {
-      comments = this.props.comments.map ((comment) => {
-        if (comment.photo) {
-          return <li key={comment.id}>{comment.body}{comment.photo}<button onClick={this.handleDeleteComment}>Delete</button></li>
-        } else {
-          return <li key={comment.id}>{comment.body} <button onClick={this.handleDeleteComment}>Delete</button></li>
-        }
+    if (this.props.comments) {
+      comments = this.props.event.comments.map ((commentId) => {
+        let comment = this.props.comments[commentId];
+        return <li key={comment.id}>{comment.body}<button onClick={this.handleDeleteComment}>Delete</button></li>
       });
     }
 
@@ -131,7 +127,6 @@ class EventShow extends React.Component {
       stubHub_button = <button className="ticket-button"> <a href="https://www.stubhub.com/">Get Tickets on Stubhub</a></button>;
       commentForm = null;
     }
-
 
     return (
       <div className="event-show-component">

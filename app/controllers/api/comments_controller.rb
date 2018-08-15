@@ -5,18 +5,16 @@ class Api::CommentsController < ApplicationController
     @comment = @current_user.comments.new(comment_params)
 
     if @comment.save
-      @event = @comment.event
-      render 'api/events/show'
+      render json: @comment
     else
       render json: @comment.errors.full_messages, status: 422
     end
   end
 
   def destroy
-    @comment = @current_user.comments.find_by(comment_params)
+    @comment = @current_user.comments.find_by_id(params[:id])
 
     if @comment.destroy
-
       render json: @comment
     else
       render json: @comment.errors.full_messages, status: 422
