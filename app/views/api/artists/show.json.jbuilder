@@ -19,14 +19,6 @@ json.venues do
   end
 end
 
-# json.trackers do
-#   @artist.trackers.each do |user|
-#     json.set! user.id do
-#       json.partial! 'api/users/user', user: user
-#     end
-#   end
-# end
-
 json.comments do
   @artist.comments.each do |comment|
     json.set! comment.id do

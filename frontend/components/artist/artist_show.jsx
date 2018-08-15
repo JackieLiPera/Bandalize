@@ -127,16 +127,26 @@ class ArtistShow extends React.Component {
     return (
       <div className="artist-show-component">
         <div className="artist-show-container">
-          <img src={this.props.artist.image} className="artist-show-image"></img>
-          <div className= "artist-show-info">
-            <ul>
-              <li><h2>{artist.name} <img src={bluecheck}/></h2></li>
-              <li><span className="trackers-info">{numTrackers} Trackers</span> · <span className="tour-info">{tour}</span></li>
-            </ul>
+          <div >
+            <img src={this.props.artist.image} className="artist-show-image"></img>
+            <div className= "artist-show-info">
+              <ul>
+                <li><h2>{artist.name} <img src={bluecheck}/></h2></li>
+                <li><span className="trackers-info">{numTrackers} Trackers</span> · <span className="tour-info">{tour}</span></li>
+              </ul>
+            </div>
+            {track_button}
           </div>
-          {track_button}
+          <div className="genre">
+            <span>Genre: {this.props.artist.genre}</span>
+            <br></br>
+            <span>Hometown: N/a</span>
+            <br></br>
+            <span><i className="fab fa-facebook-square"></i> <a href='facebook.com'></a>Facebook</span>
+            <div>
+            </div>
+          </div>
         </div>
-
         <div>
           <ArtistEventIndex
             events={this.props.events}
@@ -145,13 +155,11 @@ class ArtistShow extends React.Component {
             tracking={this.props.tracking}
             createRsvp={this.props.createRsvp}
             deleteRsvp={this.props.deleteRsvp}/>
-
           <div className="comments">
             {commentForm}
-
-            <ul className="comments-index">
-              {comments}
-            </ul>
+              <ul className="comments-index">
+                {comments}
+              </ul>
           </div>
         </div>
 

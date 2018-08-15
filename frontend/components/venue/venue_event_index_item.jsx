@@ -4,7 +4,6 @@ import {withRouter} from 'react-router-dom';
 class VenueEventIndexItem extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {
       rsvpd: this.props.currentUser.rsvp_events.includes(this.props.event.id)
     }
@@ -35,7 +34,6 @@ class VenueEventIndexItem extends React.Component {
   }
 
   render() {
-
     let rsvpButton;
     if (this.state.rsvpd) {
       rsvpButton = <button

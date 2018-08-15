@@ -107,10 +107,15 @@
   padding-top: 15px;
 }
 
-.artist-show-info {
+.artist-show-info ul{
   height: 50px;
   width: 270px;
   margin: auto;
+  margin-top: 5px;
+}
+
+.artist-show-info ul li{
+  padding-top: 5px;
 }
 
 .artist-show-info li h2 {
@@ -221,4 +226,15 @@
   cursor: pointer;
   text-align: center;
   margin: 10px;
+}
+
+.genre {
+  background: white;
+  color: black;
+  font-family: helvetica;
+  width: 100%;
+  margin-top: 75px;
+  box-shadow: 0 3px 15px 0 rgba(0,0,0,.09);
+  box-sizing: border-box;
+  padding: 20px;
 }
