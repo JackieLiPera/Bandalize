@@ -10,10 +10,10 @@ export const receiveComment = (comment) => {
   }
 }
 
-export const removeComment = ({ comment }) => {
+export const removeComment = (commentId) => {
   return {
     type: REMOVE_COMMENT,
-    comment
+    commentId
   }
 };
 
@@ -22,6 +22,6 @@ export const createComment = (formData) => dispatch => (
   ApiCommentUtil.createComment(formData).then((comment) => dispatch(receiveComment(comment)))
 );
 
-export const deleteComment = (userId, artistId) => dispatch => (
-  ApiCommentUtil.deleteComment(userId, artistId).then((commentId) => dispatch(removeComment(commentId)))
+export const deleteComment = (commentId, artistId) => dispatch => (
+  ApiCommentUtil.deleteComment(commentId, artistId).then((commentId) => dispatch(removeComment(commentId)))
 );

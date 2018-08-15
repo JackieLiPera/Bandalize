@@ -12,10 +12,10 @@ class ArtistShow extends React.Component {
     };
 
     this.handleTracking = this.handleTracking.bind(this);
-    this.handleDeleteComment = this.handleDeleteComment.bind(this);
     this.handleCommentSubmit = this.handleCommentSubmit.bind(this);
     this.handleCommentChange = this.handleCommentChange.bind(this);
     this.handlePictureUpload = this.handlePictureUpload.bind(this);
+    this.handleDeleteComment = this.handleDeleteComment.bind(this);
   }
 
   componentDidMount() {
@@ -64,8 +64,8 @@ class ArtistShow extends React.Component {
     this.props.processForm(formData);
   }
 
-  handleDeleteComment() {
-    this.props.deleteComment(this.props.currentUser.id, this.props.artist.id)
+  handleDeleteComment(commentId) {
+    this.props.deleteComment(commentId, this.props.artist.id);
   }
 
   render () {
@@ -86,13 +86,22 @@ class ArtistShow extends React.Component {
     }
 
 
-    let comments;
-    if (this.props.comments) {
-      comments = this.props.artist.comments.map ((commentId) => {
-        let comment = this.props.comments[commentId];
-        return <li key={comment.id}>{comment.body}<button onClick={this.handleDeleteComment}>Delete</button></li>
-      });
-    }
+    let comments = Object.values(this.props.comments).map ((comment) => {
+      let currentUser = this.props.currentUser;
+      let deleteButton;
+      if (comment.user_id === currentUser.id) {
+        deleteButton = <button onClick={() => this.handleDeleteComment(comment.id)}>Delete</button>
+      } else {
+        deleteButton = null;
+      }
+
+      return <li key={comment.id}>
+        {comment.createdAt}
+        <br></br>
+        {comment.body}
+        {deleteButton}
+      </li>
+    });
 
     const commentForm =
     <form  className="comment-form" onSubmit={this.handleCommentSubmit}>
@@ -136,15 +145,16 @@ class ArtistShow extends React.Component {
             tracking={this.props.tracking}
             createRsvp={this.props.createRsvp}
             deleteRsvp={this.props.deleteRsvp}/>
+
+          <div className="comments">
+            {commentForm}
+
+            <ul className="comments-index">
+              {comments}
+            </ul>
+          </div>
         </div>
 
-        <div className="comments">
-          {commentForm}
-
-          <ul className="comments-index">
-            {comments}
-          </ul>
-        </div>
       </div>
     );
   }

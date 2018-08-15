@@ -13,8 +13,11 @@ export default (state = {}, action) => {
     case RECEIVE_RSVP:
       return merge(newState, action.rsvp)
     case RECEIVE_VENUE:
+      return merge({}, state, action.events);
     case RECEIVE_CURRENT_USER:
+      return merge({}, state, action.events);
     case RECEIVE_ARTISTS:
+      return merge({}, state, action.events);
     case RECEIVE_ARTIST:
       return merge({}, state, action.events);
     case RECEIVE_EVENT:

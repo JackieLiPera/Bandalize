@@ -8,13 +8,13 @@ export const createComment = (formData) => {
   });
 }
 
-export const deleteComment = (userId, artistId) => {
+export const deleteComment = (commentId, artistId) => {
   return $.ajax({
     type: 'DELETE',
-    url: `/api/events/${artistId}/comments/${userId}`,
+    url: `/api/artists/${artistId}/comments/${commentId}`,
     data: {
       comment: {
-        user_id: userId,
+        comment_id: commentId,
         artist_id: artistId
       }
     }

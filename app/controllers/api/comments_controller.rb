@@ -12,17 +12,12 @@ class Api::CommentsController < ApplicationController
   end
 
   def destroy
-    @comment = @current_user.comments.find_by_id(params[:id])
-
-    if @comment.destroy
-      render json: @comment
-    else
-      render json: @comment.errors.full_messages, status: 422
-    end
+    comment = Comment.find(params[:id])
+    comment.destroy
+    render json: { commentId: comment.id }
   end
 
   private
-
   def comment_params
     params.require(:comment).permit(:body, :user_id, :artist_id)
   end

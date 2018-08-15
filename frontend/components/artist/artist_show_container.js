@@ -17,7 +17,7 @@ const msp = (state, ownProps) => {
 
   return {
     artist: state.entities.artists[ownProps.match.params.id],
-    events: Object.values(state.entities.events) ,
+    events: Object.values(state.entities.events),
     venues: state.entities.venues,
     currentUser: state.session.currentUser,
     tracked_artists: trackedArtists,
@@ -34,7 +34,7 @@ const mdp = (dispatch) => {
     createRsvp: (userId, eventId) => dispatch(createRsvp(userId, eventId)),
     deleteRsvp: (userId, eventId) => dispatch(deleteRsvp(userId, eventId)),
     processForm: (formData) => dispatch(createComment(formData)),
-    deleteComment: (userId, artistId) => dispatch(deleteComment(userId, artistId))
+    deleteComment: (commentId, artistId) => dispatch(deleteComment(commentId, artistId))
   }
 };
 

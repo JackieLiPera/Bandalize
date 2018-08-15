@@ -9,7 +9,8 @@ const CommentsReducer = (state = {}, action) => {
     case RECEIVE_ARTIST:
       return merge({}, state, action.comments);
     case RECEIVE_COMMENT:
-      let newState =  merge({}, state, {[action.comment.id]: action.comment});
+      let newState = merge({}, state, {[action.comment.id]: action.comment});
+      return newState;
     case REMOVE_COMMENT:
       return {}
     default:

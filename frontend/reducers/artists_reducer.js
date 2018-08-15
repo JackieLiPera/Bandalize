@@ -10,6 +10,7 @@ import { merge } from 'lodash';
 export default (state = {}, action) => {
   Object.freeze(state);
 
+  let newState;
   switch (action.type) {
     case RECEIVE_SEARCH_RESULTS:
       return merge({}, state, action.results)
@@ -19,13 +20,15 @@ export default (state = {}, action) => {
     case RECEIVE_ARTIST:
       return merge({}, state, {[action.artist.id]: action.artist});
     case RECEIVE_EVENT:
+      return merge({}, state, action.artist);
     case RECEIVE_EVENTS:
       return merge({}, state, action.artist);
     case RECEIVE_ARTISTS:
       return action.artists;
     case RECEIVE_COMMENT:
       newState = merge({}, state);
-      return newState[action.comment.artist_id].comments.unshift(action.comment.id);
+      newState[action.comment.artist_id].comments.unshift(action.comment.id);
+      return newState;
     case REMOVE_COMMENT:
       newState = merge({}, state, action.commentId);
       delete newState[action.commentId];
