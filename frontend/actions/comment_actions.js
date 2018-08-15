@@ -22,6 +22,6 @@ export const createComment = (formData) => dispatch => (
   ApiCommentUtil.createComment(formData).then((comment) => dispatch(receiveComment(comment)))
 );
 
-export const deleteComment = (userId, eventId) => dispatch => (
-  ApiCommentUtil.deleteComment(userId, eventId).then((commentId) => dispatch(removeComment(commentId)))
+export const deleteComment = (userId, artistId) => dispatch => (
+  ApiCommentUtil.deleteComment(userId, artistId).then((commentId) => dispatch(removeComment(commentId)))
 );

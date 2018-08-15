@@ -3,6 +3,7 @@ import ArtistShow from './artist_show';
 import { fetchArtist } from '../../actions/artist_actions';
 import { createTracking, deleteTracking } from '../../actions/tracking_actions';
 import { createRsvp, deleteRsvp } from '../../actions/rsvp_actions';
+import { createComment, deleteComment } from '../../actions/comment_actions';
 
 
 const msp = (state, ownProps) => {
@@ -20,7 +21,8 @@ const msp = (state, ownProps) => {
     venues: state.entities.venues,
     currentUser: state.session.currentUser,
     tracked_artists: trackedArtists,
-    tracking: state.session.currentUser.tracked_artists.includes(Number(ownProps.match.params.id))
+    tracking: state.session.currentUser.tracked_artists.includes(Number(ownProps.match.params.id)),
+    comments: state.entities.comments
   }
 };
 
@@ -30,7 +32,9 @@ const mdp = (dispatch) => {
     createTracking: (userId, artistId) => dispatch(createTracking(userId, artistId)),
     deleteTracking: (userId, artistId) => dispatch(deleteTracking(userId, artistId)),
     createRsvp: (userId, eventId) => dispatch(createRsvp(userId, eventId)),
-    deleteRsvp: (userId, eventId) => dispatch(deleteRsvp(userId, eventId))
+    deleteRsvp: (userId, eventId) => dispatch(deleteRsvp(userId, eventId)),
+    processForm: (formData) => dispatch(createComment(formData)),
+    deleteComment: (userId, artistId) => dispatch(deleteComment(userId, artistId))
   }
 };
 

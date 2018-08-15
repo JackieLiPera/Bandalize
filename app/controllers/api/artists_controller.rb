@@ -1,7 +1,7 @@
 class Api::ArtistsController < ApplicationController
 
   def show
-    @artist = Artist.with_attached_photo.includes(:events, :venues, :trackers).find_by_id(params[:id])
+    @artist = Artist.with_attached_photo.includes(:comments, :events, :venues, :trackers).find_by_id(params[:id])
 
     if @artist
       render :show

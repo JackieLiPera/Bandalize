@@ -8,5 +8,6 @@ class Artist < ApplicationRecord
   has_many :venues, through: :events, source: :venue
   has_many :trackings
   has_many :trackers, through: :trackings, source: :user
+  has_many :comments
   has_one_attached :photo
 end

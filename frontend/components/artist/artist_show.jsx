@@ -6,10 +6,16 @@ class ArtistShow extends React.Component {
     super(props);
     this.state = {
       tracking: this.props.tracking,
-      loading: true
+      loading: true,
+      comment: "",
+      photoFile: null
     };
 
     this.handleTracking = this.handleTracking.bind(this);
+    this.handleDeleteComment = this.handleDeleteComment.bind(this);
+    this.handleCommentSubmit = this.handleCommentSubmit.bind(this);
+    this.handleCommentChange = this.handleCommentChange.bind(this);
+    this.handlePictureUpload = this.handlePictureUpload.bind(this);
   }
 
   componentDidMount() {
@@ -32,6 +38,36 @@ class ArtistShow extends React.Component {
     };
   }
 
+  handleCommentChange(e) {
+    this.setState({
+      comment: e.target.value
+    });
+  }
+
+  handlePictureUpload(e) {
+    this.setState({
+      photoFile: e.currentTarget.files[0]
+    });
+  }
+
+  handleCommentSubmit(e) {
+    e.preventDefault();
+    const formData = new FormData();
+    formData.append('comment[body]', this.state.comment);
+    formData.append('comment[user_id]', this.props.currentUser.id);
+    formData.append('comment[artist_id]', this.props.artist.id);
+
+    this.setState({
+      comment: ""
+    });
+
+    this.props.processForm(formData);
+  }
+
+  handleDeleteComment() {
+    this.props.deleteComment(this.props.currentUser.id, this.props.artist.id)
+  }
+
   render () {
     let artist = this.props.artist;
     if (!artist) {
@@ -48,6 +84,25 @@ class ArtistShow extends React.Component {
     } else {
       tour = ""
     }
+
+
+    let comments;
+    if (this.props.comments) {
+      comments = this.props.artist.comments.map ((commentId) => {
+        let comment = this.props.comments[commentId];
+        return <li key={comment.id}>{comment.body}<button onClick={this.handleDeleteComment}>Delete</button></li>
+      });
+    }
+
+    const commentForm =
+    <form  className="comment-form" onSubmit={this.handleCommentSubmit}>
+      <label className="comment-form-title">Share your experience:</label>
+      <textarea className="comment-box" onChange={this.handleCommentChange} value={this.state.comment} />
+      <div className="comment-form-buttons">
+        <input type='file' onChange={this.handlePictureUpload} />
+        <button>Submit</button>
+      </div>
+    </form>;
 
     let bluecheck = window.bluecheck;
 
@@ -66,8 +121,7 @@ class ArtistShow extends React.Component {
           <img src={this.props.artist.image} className="artist-show-image"></img>
           <div className= "artist-show-info">
             <ul>
-              <li><h2>{artist.name } <img src={bluecheck}/></h2></li>
-              <li>{artist.genre}</li>
+              <li><h2>{artist.name} <img src={bluecheck}/></h2></li>
               <li><span className="trackers-info">{numTrackers} Trackers</span> · <span className="tour-info">{tour}</span></li>
             </ul>
           </div>
@@ -84,6 +138,13 @@ class ArtistShow extends React.Component {
             deleteRsvp={this.props.deleteRsvp}/>
         </div>
 
+        <div className="comments">
+          {commentForm}
+
+          <ul className="comments-index">
+            {comments}
+          </ul>
+        </div>
       </div>
     );
   }

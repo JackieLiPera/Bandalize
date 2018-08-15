@@ -6,18 +6,12 @@ class EventShow extends React.Component {
     super(props);
     this.state = {
       rsvpd: this.props.rsvpd,
-      loading: true,
-      comment: "",
-      photoFile: null
+      loading: true
     }
 
     this.changeRSVPStatus = this.changeRSVPstatus.bind(this);
     this.handleVenueClick = this.handleVenueClick.bind(this);
     this.handleArtistClick = this.handleArtistClick.bind(this);
-    this.handleCommentSubmit = this.handleCommentSubmit.bind(this);
-    this.handleCommentChange = this.handleCommentChange.bind(this);
-    this.handlePictureUpload = this.handlePictureUpload.bind(this);
-    this.handleDeleteComment = this.handleDeleteComment.bind(this);
   }
 
   componentDidMount() {
@@ -50,35 +44,6 @@ class EventShow extends React.Component {
     this.props.history.push(`/artists/${artistId}`);
   }
 
-  handleCommentChange(e) {
-    this.setState({
-      comment: e.target.value
-    });
-  }
-
-  handleCommentSubmit(e) {
-    e.preventDefault();
-    const formData = new FormData();
-    formData.append('comment[body]', this.state.comment);
-    formData.append('comment[user_id]', this.props.currentUser.id);
-    formData.append('comment[event_id]', this.props.event.id);
-
-    this.setState({
-      comment: ""
-    });
-
-    this.props.processForm(formData);
-  }
-
-  handlePictureUpload(e) {
-    this.setState({
-      photoFile: e.currentTarget.files[0]
-    });
-  }
-
-  handleDeleteComment() {
-    this.props.deleteComment(this.props.currentUser.id, this.props.event.id)
-  }
 
   render() {
     if (this.state.loading === true) {
