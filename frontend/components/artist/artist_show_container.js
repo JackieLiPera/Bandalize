@@ -13,14 +13,14 @@ const msp = (state, ownProps) => {
   } else {
     trackedArtists = state.session.currentUser.tracked_artists;
   }
-  
+
   return {
     artist: state.entities.artists[ownProps.match.params.id],
     events: Object.values(state.entities.events) ,
     venues: state.entities.venues,
     currentUser: state.session.currentUser,
     tracked_artists: trackedArtists,
-    tracking: state.session.currentUser.tracked_artists.includes(parseInt(ownProps.match.params.id))
+    tracking: state.session.currentUser.tracked_artists.includes(Number(ownProps.match.params.id))
   }
 };
 

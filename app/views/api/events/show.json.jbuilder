@@ -8,7 +8,7 @@ json.artist do
 end
 
 json.venue do
-  json.extract! @event.venue, :id, :name, :address, :city, :state, :country
+  json.extract! @event.venue, :id, :address, :name, :city, :state, :country
 end
 
 json.comments do

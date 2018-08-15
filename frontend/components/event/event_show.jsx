@@ -33,10 +33,10 @@ class EventShow extends React.Component {
           rsvpd: false
         });
     } else {
-        this.props.createRsvp(this.props.currentUser.id, this.props.event.id);
-        this.setState({
-          rsvpd: true
-        });
+      this.props.createRsvp(this.props.currentUser.id, this.props.event.id);
+      this.setState({
+        rsvpd: true
+      });
     }
   }
 
@@ -90,42 +90,28 @@ class EventShow extends React.Component {
       return null;
     }
 
-    let comments;
-    if (this.props.comments) {
-      comments = this.props.event.comments.map ((commentId) => {
-        let comment = this.props.comments[commentId];
-        return <li key={comment.id}>{comment.body}<button onClick={this.handleDeleteComment}>Delete</button></li>
-      });
-    }
+    const eventDate = new Date (this.props.event.event_on);
+    let eventHappened;
+    (Date.parse(eventDate) < Date.now()) ? eventHappened = true : eventHappened = false;
+    let dateString = eventDate.toString().slice(0, 15);
+    let timeString = eventDate.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+
 
     let rsvp_button;
     let stubHub_button;
-    let commentForm;
-    if ((this.props.happened) && this.state.rsvpd === true) {
+    if (eventHappened && this.state.rsvpd === true) {
       rsvp_button = <button onClick={this.changeRSVPStatus} className="rsvp-button-checked">	&#10004; I Was There</button>;
       stubHub_button = null;
-      commentForm =
-        <form  className="comment-form" onSubmit={this.handleCommentSubmit}>
-          <label className="comment-form-title">Share your experience:</label>
-          <textarea className="comment-box" onChange={this.handleCommentChange} value={this.state.comment} />
-          <div className="comment-form-buttons">
-            <input type='file' onChange={this.handlePictureUpload} />
-            <button>Submit</button>
-          </div>
-        </form>
-    } else if (!(this.props.happened) && (this.state.rsvpd === true)) {
+    } else if (!eventHappened && (this.state.rsvpd === true)) {
       rsvp_button = <button onClick={this.changeRSVPStatus} className="rsvp-button-checked">	&#10004; Going</button>;
       stubHub_button = <button className="ticket-button"> <a href="https://www.stubhub.com/">Get Tickets on Stubhub</a></button>;
-      commentForm = null;
     }
-    if ((this.props.happened) && this.state.rsvpd === false) {
+    if (eventHappened && this.state.rsvpd === false) {
       rsvp_button = <button onClick={this.handleArtistClick} className="rsvp-button">See More Events</button>;
       stubHub_button = null;
-      commentForm = null;
-    } else if ((!this.props.happened) && this.state.rsvpd === false) {
+    } else if (!eventHappened && this.state.rsvpd === false) {
       rsvp_button = <button onClick={this.changeRSVPStatus} className="rsvp-button">RSVP</button>;
       stubHub_button = <button className="ticket-button"> <a href="https://www.stubhub.com/">Get Tickets on Stubhub</a></button>;
-      commentForm = null;
     }
 
     return (
@@ -134,7 +120,7 @@ class EventShow extends React.Component {
           <img src={this.props.artist.image} className="artist-image"></img>
           <div className= "event-info">
             <h2 onClick={this.handleArtistClick}>{this.props.artist.name} <img src={bluecheck}/></h2>
-            {this.props.dateString} @ {this.props.venue.name}
+            {dateString} @ {this.props.venue.name}
               <br></br>
             {this.props.venue.city}, {this.props.venue.state}
             {rsvp_button}
@@ -145,27 +131,15 @@ class EventShow extends React.Component {
         <div className="event-description">
           <div>
             <ul>
-              <li className="bold-date-string">{this.props.dateString}</li>
-              <li className="event-venue-timestring">{this.props.timeString}</li>
+              <li className="bold-date-string">{dateString}</li>
+              <li className="event-venue-timestring">{timeString}</li>
                 <br></br>
               <li className="event-venue-name" onClick={this.handleVenueClick}>{this.props.venue.name}</li>
               <li>{this.props.venue.address } {this.props.venue.city}, {this.props.venue.state}</li>
                 <br></br>
-              <li className='rsvp-display'>{this.props.event.rsvpd.length} RSVPs</li>
+              <li className='rsvp-display'>{this.props.event.event_rsvps.length} RSVPs</li>
             </ul>
           </div>
-
-          <br></br>
-
-          <div className="comments">
-            {commentForm}
-
-            <ul className="comments-index">
-              {comments}
-            </ul>
-
-          </div>
-
         </div>
       </div>
     );

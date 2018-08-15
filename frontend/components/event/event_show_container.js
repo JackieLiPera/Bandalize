@@ -6,22 +6,10 @@ import { createComment, deleteComment } from '../../actions/comment_actions';
 
 
 const msp = (state, ownProps) => {
-  const event = state.entities.events[Number(ownProps.match.params.id)];
-  let happened;
-  let numRsvps;
-  let eventDate;
-
-  if (event) {
-    numRsvps = event.rsvpd.length;
-    eventDate = new Date (event.event_on);
-    (Date.parse(eventDate) < Date.now()) ? happened = true : happened = false;
-  }
 
   let rsvpd;
   if (state.session.currentUser) {
-    rsvpd = state.session.currentUser.rsvp_events.includes(Number(ownProps.match.params.id));
-  } else {
-    rsvpd = null;
+    rsvpd = state.session.currentUser.rsvp_events.includes(Number(ownProps.match.params.id))
   }
 
   return {
@@ -30,11 +18,7 @@ const msp = (state, ownProps) => {
     venue: state.entities.venues,
     comments: state.entities.comments,
     currentUser: state.session.currentUser,
-    rsvpd: rsvpd,
-    dateString: eventDate ? eventDate.toString().slice(0, 15) : "",
-    timeString: eventDate ? eventDate.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}) : "",
-    happened: happened,
-    numRsvps: numRsvps
+    rsvpd: rsvpd
   }
 };
 
