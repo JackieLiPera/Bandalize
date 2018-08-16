@@ -1,5 +1,6 @@
 import React from 'react';
 import ArtistEventIndex from './artist_event_index';
+import CommentIndex from './comment_index';
 
 class ArtistShow extends React.Component {
   constructor(props) {
@@ -15,7 +16,6 @@ class ArtistShow extends React.Component {
     this.handleCommentSubmit = this.handleCommentSubmit.bind(this);
     this.handleCommentChange = this.handleCommentChange.bind(this);
     this.handlePictureUpload = this.handlePictureUpload.bind(this);
-    this.handleDeleteComment = this.handleDeleteComment.bind(this);
   }
 
   componentDidMount() {
@@ -64,9 +64,6 @@ class ArtistShow extends React.Component {
     this.props.processForm(formData);
   }
 
-  handleDeleteComment(commentId) {
-    this.props.deleteComment(commentId, this.props.artist.id);
-  }
 
   render () {
     let artist = this.props.artist;
@@ -85,23 +82,6 @@ class ArtistShow extends React.Component {
       tour = ""
     }
 
-
-    let comments = Object.values(this.props.comments).map ((comment) => {
-      let currentUser = this.props.currentUser;
-      let deleteButton;
-      if (comment.user_id === currentUser.id) {
-        deleteButton = <button onClick={() => this.handleDeleteComment(comment.id)}>Delete</button>
-      } else {
-        deleteButton = null;
-      }
-
-      return <li key={comment.id}>
-        {comment.createdAt}
-        <br></br>
-        {comment.body}
-        {deleteButton}
-      </li>
-    });
 
     const commentForm =
     <form  className="comment-form" onSubmit={this.handleCommentSubmit}>
@@ -139,12 +119,10 @@ class ArtistShow extends React.Component {
           </div>
           <div className="genre">
             <span>Genre: {this.props.artist.genre}</span>
-            <br></br>
-            <span>Hometown: N/a</span>
-            <br></br>
+              <br></br>
+                <span>Hometown: N/a</span>
+              <br></br>
             <span><i className="fab fa-facebook-square"></i> <a href='facebook.com'></a>Facebook</span>
-            <div>
-            </div>
           </div>
         </div>
         <div>
@@ -157,9 +135,11 @@ class ArtistShow extends React.Component {
             deleteRsvp={this.props.deleteRsvp}/>
           <div className="comments">
             {commentForm}
-              <ul className="comments-index">
-                {comments}
-              </ul>
+            <CommentIndex
+              comments={this.props.comments}
+              currentUser={this.props.currentUser}
+              deleteComment={this.props.deleteComment}
+            />
           </div>
         </div>
 
