@@ -13,7 +13,6 @@ Rails.application.routes.draw do
     resources :artists, only: [:show, :index] do
       resources :comments, only: [:create, :destroy]
     end
-    
     resources :events, only: [:show, :index]
     resources :venues, only: [:show]
     resources :search, only: [:index]

@@ -13,7 +13,6 @@ class CommentIndexItem extends React.Component {
 
 
   render() {
-
     const comment = this.props.comment;
     const currentUser = this.props.currentUser;
     let deleteButton;
@@ -25,9 +24,9 @@ class CommentIndexItem extends React.Component {
 
     return (
       <li key={comment.id}>
-        {comment.createdAt}
+        <span className="comment-created-at">{comment.createdAt}</span>
           <br></br>
-        {comment.body}
+        <span className="comment-body">{comment.body}</span>
         {deleteButton}
     </li>
     );
