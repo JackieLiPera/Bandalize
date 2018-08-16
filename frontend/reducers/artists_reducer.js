@@ -25,11 +25,8 @@ export default (state = {}, action) => {
     case RECEIVE_ARTISTS:
       return action.artists;
     case RECEIVE_TRACKING:
+      debugger
       newState[action.tracking.artist_id].trackers.push(action.tracking.user_id);
-      return newState;
-    case REMOVE_TRACKING:
-      newState = merge({}, state, action.trackingId);
-      delete newState[action.trackingId];
       return newState;
     case RECEIVE_COMMENT:
       newState[action.comment.artist_id].comments.unshift(action.comment.id);

@@ -14,7 +14,7 @@ class Api::TrackingsController < ApplicationController
   def destroy
     tracking = Tracking.find(params[:id])
     tracking.destroy
-    render json: { trackingId: tracking.id }
+    render json: tracking
   end
 
   private

@@ -8,10 +8,11 @@ export const receiveTracking = (tracking) => ({
   tracking
 });
 
-export const removeTracking = (trackingId) => {
+export const removeTracking = (tracking) => {
   return {
     type: REMOVE_TRACKING,
-    trackingId
+    trackingId: tracking.id,
+    userId: tracking.user_id
   }
 };
 

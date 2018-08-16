@@ -13,7 +13,9 @@ const TrackingsReducer = (state = {}, action) => {
       newState = merge({}, state, {[action.tracking.id]: action.tracking});
       return newState;
     case REMOVE_TRACKING:
-      return {}
+      newState = merge({}, state);
+      delete newState[action.userId];
+      return newState;
     default:
       return state;
   }
