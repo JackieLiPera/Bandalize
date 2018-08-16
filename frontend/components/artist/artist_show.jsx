@@ -141,6 +141,7 @@ class ArtistShow extends React.Component {
               comments={this.props.comments}
               currentUser={this.props.currentUser}
               deleteComment={this.props.deleteComment}
+              artist={this.props.artist}
             />
           </div>
         </div>

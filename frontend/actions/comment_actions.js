@@ -10,10 +10,11 @@ export const receiveComment = (comment) => {
   }
 }
 
-export const removeComment = (commentId) => {
+export const removeComment = (comment) => {
   return {
     type: REMOVE_COMMENT,
-    commentId
+    commentId: comment.id,
+    artistId: comment.artist_id
   }
 };
 
