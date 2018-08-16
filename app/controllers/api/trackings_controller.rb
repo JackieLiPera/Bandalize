@@ -3,6 +3,7 @@ class Api::TrackingsController < ApplicationController
 
   def create
     @tracking = @current_user.trackings.new(tracking_params)
+
     if @tracking.save
       render json: @tracking
     else
@@ -11,13 +12,9 @@ class Api::TrackingsController < ApplicationController
   end
 
   def destroy
-    @tracking = @current_user.trackings.find_by(tracking_params)
-
-    if @tracking.destroy
-      render json: @tracking.id
-    else
-      render json: @tracking.errors.full_messages, status: 422
-    end
+    tracking = Tracking.find(params[:id])
+    tracking.destroy
+    render json: { trackingId: tracking.id }
   end
 
   private

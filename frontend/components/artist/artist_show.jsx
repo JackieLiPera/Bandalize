@@ -26,7 +26,9 @@ class ArtistShow extends React.Component {
 
   handleTracking() {
     if (this.state.tracking === true ) {
-      this.props.deleteTracking(this.props.currentUser.id, this.props.artist.id);
+      const currentUser = this.props.currentUser;
+      const tracking = this.props.trackings[currentUser.id];
+      this.props.deleteTracking(tracking.id, this.props.artist.id);
       this.setState({
         tracking: false
       });

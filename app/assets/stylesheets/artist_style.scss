@@ -171,12 +171,10 @@
   font-family: helvetica;
 }
 
-
 .comments-index li {
   background-color: white;
   border-bottom: 1px solid #d8d8d8;
   padding: 20px;
-  margin-top: 20px;
   box-shadow: 0 3px 15px 0 rgba(0,0,0,.09);
   color: black;
   height: 30px;
@@ -236,6 +234,27 @@
 .comment-created-at {
   color: #8f8f8f;
   font-size: 12px;
+  margin-bottom: 10px;
+}
+
+.comment-body {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.comment-delete {
+  height: 34px;
+  width: 70px;
+  background: #00b4b3;
+  border: 1px solid #00b4b3;
+  border-radius: 2px;
+  color: white;
+  font-size: 14px;
+  text-align: center;
+  margin-bottom: 10px;
+  cursor: pointer;
 }
 
 .genre {

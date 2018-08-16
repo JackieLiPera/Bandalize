@@ -26,3 +26,11 @@ json.comments do
     end
   end
 end
+
+json.trackings do
+  @artist.trackings.each do |tracking|
+    json.set! tracking.user_id do
+      json.extract! tracking, :id, :user_id
+    end
+  end
+end

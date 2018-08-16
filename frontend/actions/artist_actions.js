@@ -9,12 +9,13 @@ export const receiveArtists = (artists) => {
   }
 };
 
-export const receiveArtist = ({ artist, events, venues, comments }) => ({
+export const receiveArtist = ({ artist, events, venues, comments, trackings }) => ({
   type: RECEIVE_ARTIST,
   artist,
   events,
   venues,
-  comments
+  comments,
+  trackings
 });
 
 export const fetchArtists = () => dispatch => (

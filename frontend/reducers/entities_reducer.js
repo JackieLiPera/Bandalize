@@ -3,7 +3,7 @@ import ArtistsReducer from './artists_reducer';
 import EventsReducer from './events_reducer';
 import VenuesReducer from './venues_reducer';
 import CommentsReducer from './comments_reducer';
-import UsersReducer from './users_reducer'
+import TrackingsReducer from './trackings_reducer';
 
 
 export default combineReducers({
@@ -11,5 +11,5 @@ export default combineReducers({
   artists: ArtistsReducer,
   venues: VenuesReducer,
   comments: CommentsReducer,
-  users: UsersReducer
+  trackings: TrackingsReducer
 });

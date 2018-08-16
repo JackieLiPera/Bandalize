@@ -17,7 +17,7 @@ class CommentIndexItem extends React.Component {
     const currentUser = this.props.currentUser;
     let deleteButton;
     if (comment.user_id === currentUser.id) {
-      deleteButton = <button onClick={() => this.handleDeleteComment(comment.id)}>Delete</button>
+      deleteButton = <button className="comment-delete" onClick={() => this.handleDeleteComment(comment.id)}>Delete</button>
     } else {
       deleteButton = null;
     }
@@ -26,8 +26,10 @@ class CommentIndexItem extends React.Component {
       <li key={comment.id}>
         <span className="comment-created-at">{comment.createdAt}</span>
           <br></br>
-        <span className="comment-body">{comment.body}</span>
-        {deleteButton}
+        <div className="comment-body">
+          <span>{comment.body}</span>
+          {deleteButton}
+        </div>
     </li>
     );
   }

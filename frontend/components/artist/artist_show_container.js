@@ -8,21 +8,14 @@ import { createComment, deleteComment } from '../../actions/comment_actions';
 
 const msp = (state, ownProps) => {
 
-  let trackedArtists;
-  if (!state.session.currentUser) {
-    trackedArtists = null;
-  } else {
-    trackedArtists = state.session.currentUser.tracked_artists;
-  }
-
   return {
     artist: state.entities.artists[ownProps.match.params.id],
     events: Object.values(state.entities.events),
     venues: state.entities.venues,
     currentUser: state.session.currentUser,
-    tracked_artists: trackedArtists,
     tracking: state.session.currentUser.tracked_artists.includes(Number(ownProps.match.params.id)),
-    comments: state.entities.comments
+    comments: state.entities.comments,
+    trackings: state.entities.trackings
   }
 };
 
@@ -30,7 +23,7 @@ const mdp = (dispatch) => {
   return {
     fetchArtist: (id) => dispatch(fetchArtist(id)),
     createTracking: (userId, artistId) => dispatch(createTracking(userId, artistId)),
-    deleteTracking: (userId, artistId) => dispatch(deleteTracking(userId, artistId)),
+    deleteTracking: (trackingId, artistId) => dispatch(deleteTracking(trackingId, artistId)),
     createRsvp: (userId, eventId) => dispatch(createRsvp(userId, eventId)),
     deleteRsvp: (userId, eventId) => dispatch(deleteRsvp(userId, eventId)),
     processForm: (formData) => dispatch(createComment(formData)),

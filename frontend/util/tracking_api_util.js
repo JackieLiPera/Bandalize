@@ -12,13 +12,13 @@ export const createTracking = (userId, artistId) => {
   });
 }
 
-export const deleteTracking = (userId, artistId) => {
+export const deleteTracking = (trackingId, artistId) => {
   return $.ajax({
     method: 'DELETE',
-    url: `/api/users/${userId}/trackings/${artistId}`,
+    url: `/api/artists/${artistId}/trackings/${trackingId}`,
     data: {
       tracking: {
-        user_id: userId,
+        tracking_id: trackingId,
         artist_id: artistId
       }
     }
