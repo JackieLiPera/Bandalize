@@ -8,7 +8,6 @@ class CommentIndexItem extends React.Component {
   }
 
   handleDeleteComment(commentId) {
-    debugger
     this.props.deleteComment(commentId, this.props.artist.id);
   }
 

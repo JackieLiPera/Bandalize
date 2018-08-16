@@ -10,7 +10,7 @@ const TrackingsReducer = (state = {}, action) => {
     case RECEIVE_ARTIST:
       return merge({}, state, action.trackings);
     case RECEIVE_TRACKING:
-      newState = merge({}, state, {[action.tracking.id]: action.tracking});
+      newState = merge({}, state, {[action.tracking.user_id]: action.tracking});
       return newState;
     case REMOVE_TRACKING:
       newState = merge({}, state);

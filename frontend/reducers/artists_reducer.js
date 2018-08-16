@@ -27,11 +27,14 @@ export default (state = {}, action) => {
     case RECEIVE_TRACKING:
       newState[action.tracking.artist_id].trackers.push(action.tracking.user_id);
       return newState;
+    case REMOVE_TRACKING:
+      let newTrackers = newState[action.artistId].trackers.slice(action.userId, 1);
+      newState[action.artistId].trackers = newTrackers;
+      return newState;
     case RECEIVE_COMMENT:
       newState[action.comment.artist_id].comments.unshift(action.comment.id);
       return newState;
     case REMOVE_COMMENT:
-      debugger
       newState[action.artistId].comments.slice(action.commentId, 1);
       return newState;
     case RECEIVE_SEARCH_RESULTS:

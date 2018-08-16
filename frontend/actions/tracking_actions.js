@@ -12,7 +12,8 @@ export const removeTracking = (tracking) => {
   return {
     type: REMOVE_TRACKING,
     trackingId: tracking.id,
-    userId: tracking.user_id
+    userId: tracking.user_id,
+    artistId: tracking.artist_id
   }
 };
 
