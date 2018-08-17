@@ -14,16 +14,16 @@ export default (state = {}, action) => {
 
   let newState = merge({}, state);;
   switch (action.type) {
-    case RECEIVE_VENUE:
-    case RECEIVE_CURRENT_USER:
-      return merge({}, state, action.artists)
     case RECEIVE_ARTIST:
       return merge({}, state, {[action.artist.id]: action.artist});
+    case RECEIVE_ARTISTS:
+      return action.artists;
+    case RECEIVE_VENUE:
+    case RECEIVE_CURRENT_USER:
+      return merge({}, state, action.artists);
     case RECEIVE_EVENT:
     case RECEIVE_EVENTS:
       return merge({}, state, action.artist);
-    case RECEIVE_ARTISTS:
-      return action.artists;
     case RECEIVE_TRACKING:
       newState[action.tracking.artist_id].trackers.push(action.tracking.user_id);
       return newState;

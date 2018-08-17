@@ -18,7 +18,9 @@ class ArtistEventIndex extends React.Component{
               tracking={this.props.tracking}
               currentUser={this.props.currentUser}
               createRsvp={this.props.createRsvp}
-              deleteRsvp={this.props.deleteRsvp}/>
+              deleteRsvp={this.props.deleteRsvp}
+              rsvps={this.props.rsvps}
+              />
         ))}
       </ul>
     );

@@ -134,7 +134,9 @@ class ArtistShow extends React.Component {
             currentUser={this.props.currentUser}
             tracking={this.props.tracking}
             createRsvp={this.props.createRsvp}
-            deleteRsvp={this.props.deleteRsvp}/>
+            deleteRsvp={this.props.deleteRsvp}
+            rsvps={this.props.rsvps}
+            />
           <div className="comments">
             {commentForm}
             <CommentIndex

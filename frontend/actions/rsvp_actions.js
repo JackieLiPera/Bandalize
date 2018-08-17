@@ -10,9 +10,11 @@ export const receiveRsvp = (rsvp) => {
   }
 };
 
-export const removeRsvp = (rsvpId) => ({
+export const removeRsvp = (rsvp) => ({
   type: REMOVE_RSVP,
-  rsvpId
+  rsvpId: rsvp.id,
+  eventId: rsvp.event_id,
+  userId: rsvp.user_id
 });
 
 
@@ -20,6 +22,6 @@ export const createRsvp = (userId, eventId) => dispatch => (
   ApiRsvpUtil.createRsvp(userId, eventId).then((rsvp) => dispatch(receiveRsvp(rsvp)))
 );
 
-export const deleteRsvp = (userId, eventId) => dispatch => (
-  ApiRsvpUtil.deleteRsvp(userId, eventId).then((eventId) => dispatch(removeRsvp(eventId)))
+export const deleteRsvp = (rsvpId, eventId) => dispatch => (
+  ApiRsvpUtil.deleteRsvp(rsvpId, eventId).then((rsvp) => dispatch(removeRsvp(rsvp)))
 );

@@ -22,7 +22,16 @@ class EventShow extends React.Component {
 
   changeRSVPstatus(e) {
     if (this.state.rsvpd === true) {
-        this.props.deleteRsvp(this.props.currentUser.id, this.props.event.id);
+      
+      const rsvps = this.props.rsvps;
+      let rsvpId;
+      rsvps.forEach ((rsvp) => {
+        if (rsvp.user_id === this.props.currentUser.id) {
+          rsvpId = rsvp.id;
+        }
+      });
+
+      this.props.deleteRsvp(rsvpId, this.props.artist.id);
         this.setState({
           rsvpd: false
         });
@@ -102,7 +111,7 @@ class EventShow extends React.Component {
               <li className="event-venue-name" onClick={this.handleVenueClick}>{this.props.venue.name}</li>
               <li>{this.props.venue.address } {this.props.venue.city}, {this.props.venue.state}</li>
                 <br></br>
-              <li className='rsvp-display'>{this.props.event.event_rsvps.length} RSVPs</li>
+              <li className='rsvp-display'>{this.props.event.rsvps.length} RSVPs</li>
             </ul>
           </div>
         </div>

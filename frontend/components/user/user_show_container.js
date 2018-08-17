@@ -22,8 +22,8 @@ const msp = (state) => {
 
   return {
     currentUser: state.session.currentUser,
-    rsvps: rsvps,
-    trackedArtists: trackedArtists,
+    rsvps,
+    trackedArtists,
     artists: state.entities.artists,
     venues: state.entities.venues,
     events: state.entities.events

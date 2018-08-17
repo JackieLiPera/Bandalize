@@ -10,20 +10,24 @@ export default (state = {}, action) => {
 
   let newState;
   switch (action.type) {
-    case RECEIVE_RSVP:
-      return merge(newState, action.rsvp)
-    case RECEIVE_VENUE:
-      return merge({}, state, action.events);
-    case RECEIVE_CURRENT_USER:
-      return merge({}, state, action.events);
-    case RECEIVE_ARTISTS:
-      return merge({}, state, action.events);
-    case RECEIVE_ARTIST:
-      return merge({}, state, action.events);
     case RECEIVE_EVENT:
       return merge({}, state, {[action.event.id]: action.event});
     case RECEIVE_EVENTS:
       return action.events;
+    case RECEIVE_VENUE:
+    case RECEIVE_CURRENT_USER:
+    case RECEIVE_ARTISTS:
+    case RECEIVE_ARTIST:
+      return merge({}, state, action.events);
+    case RECEIVE_RSVP:
+      newState = merge({}, state);
+      newState[action.rsvp.event_id].rsvps.push(action.rsvp.user_id);
+      return newState;
+    case REMOVE_RSVP:
+      newState = merge({}, state);
+      let newRsvps = newState[action.eventId].rsvps.slice(action.userId, 1);
+      newState[action.eventId].rsvps = newRsvps;
+      return newState;
     default:
       return state;
   }

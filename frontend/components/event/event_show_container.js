@@ -5,17 +5,20 @@ import { createRsvp, deleteRsvp } from '../../actions/rsvp_actions';
 
 const msp = (state, ownProps) => {
 
+  const event = state.entities.events[Number(ownProps.match.params.id)];
+
   let rsvpd;
   if (state.session.currentUser) {
     rsvpd = state.session.currentUser.rsvp_events.includes(Number(ownProps.match.params.id))
   }
 
   return {
-    event: state.entities.events[Number(ownProps.match.params.id)],
+    event,
     artist: state.entities.artists,
     venue: state.entities.venues,
     currentUser: state.session.currentUser,
-    rsvpd: rsvpd
+    rsvps: Object.values(state.entities.rsvps),
+    rsvpd
   }
 };
 

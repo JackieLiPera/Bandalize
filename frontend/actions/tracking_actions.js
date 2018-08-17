@@ -23,7 +23,7 @@ export const createTracking = (userId, artistId) => dispatch => (
 );
 
 export const deleteTracking = (trackingId, artistId) => dispatch => {
-  return ApiTrackingUtil.deleteTracking(trackingId, artistId).then((trackingId) =>  {
-    dispatch(removeTracking(trackingId));
+  return ApiTrackingUtil.deleteTracking(trackingId, artistId).then((tracking) =>  {
+    dispatch(removeTracking(tracking));
   });
 };

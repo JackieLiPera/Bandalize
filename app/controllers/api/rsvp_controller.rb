@@ -2,7 +2,8 @@ class Api::RsvpController < ApplicationController
   before_action :require_logged_in
 
   def create
-    @rsvp = current_user.rsvps.new(rsvp_params)
+    @rsvp = @current_user.rsvps.new(rsvp_params)
+
     if @rsvp.save
       render json: @rsvp
     else
@@ -11,13 +12,9 @@ class Api::RsvpController < ApplicationController
   end
 
   def destroy
-    @rsvp = @current_user.rsvps.find_by(rsvp_params)
-
-    if @rsvp.destroy
-      render json: @rsvp.event_id
-    else
-      render json: @rsvp.errors.full_messages, status: 422
-    end
+    rsvp = Rsvp.find(params[:id])
+    rsvp.destroy
+    render json: rsvp
   end
 
   private
