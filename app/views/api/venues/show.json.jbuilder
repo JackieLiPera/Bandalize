@@ -6,6 +6,7 @@ json.events do
   @venue.events.each do |event|
     json.set! event.id do
       json.extract! event, :id, :event_on, :artist_id, :venue_id
+      json.rsvps event.rsvp_ids
     end
   end
 end

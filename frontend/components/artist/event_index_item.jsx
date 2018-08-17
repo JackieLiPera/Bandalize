@@ -22,8 +22,8 @@ class EventIndexItem extends React.Component {
           rsvpId = rsvp.id;
         }
       });
-      
-      this.props.deleteRsvp(rsvp.id, this.props.artist.id);
+
+      this.props.deleteRsvp(rsvpId, this.props.artist.id);
       this.setState({
         rsvpd: false
       });

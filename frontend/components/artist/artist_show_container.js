@@ -16,7 +16,7 @@ const msp = (state, ownProps) => {
     tracking: state.session.currentUser.tracked_artists.includes(Number(ownProps.match.params.id)),
     comments: state.entities.comments,
     trackings: state.entities.trackings,
-    rsvps: state.entities.rsvps
+    rsvps: Object.values(state.entities.rsvps)
   }
 };
 

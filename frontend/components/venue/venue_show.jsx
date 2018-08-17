@@ -43,6 +43,7 @@ class VenueShow extends React.Component {
               currentUser={this.props.currentUser}
               createRsvp={this.props.createRsvp}
               deleteRsvp={this.props.deleteRsvp}
+              rsvps={this.props.rsvps}
               />
         </div>
         </div>

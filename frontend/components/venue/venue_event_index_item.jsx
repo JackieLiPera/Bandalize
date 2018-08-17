@@ -14,7 +14,16 @@ class VenueEventIndexItem extends React.Component {
 
   changeRSVPstatus(e) {
     if (this.state.rsvpd) {
-      this.props.deleteRsvp(this.props.currentUser.id, this.props.event.id);
+
+      const rsvps = this.props.rsvps;
+      let rsvpId;
+      rsvps.forEach ((rsvp) => {
+        if (rsvp.user_id === this.props.currentUser.id) {
+          rsvpId = rsvp.id;
+        }
+      });
+
+      this.props.deleteRsvp(rsvpId, this.props.event.id);
       this.setState({
         rsvpd: false
       });

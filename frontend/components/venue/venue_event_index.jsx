@@ -1,7 +1,7 @@
 import React from 'react';
 import VenueEventIndexItem from './venue_event_index_item';
 
-const VenueEventIndex = ({ events, artists, venue, currentUser, createRsvp, deleteRsvp }) => {
+const VenueEventIndex = ({ events, artists, venue, currentUser, createRsvp, deleteRsvp, rsvps }) => {
 
   const venueEvents = events.map((event) => {
 
@@ -14,6 +14,7 @@ const VenueEventIndex = ({ events, artists, venue, currentUser, createRsvp, dele
            venue={venue}
            createRsvp={createRsvp}
            deleteRsvp={deleteRsvp}
+           rsvps={rsvps}
            />
        </li>
      )

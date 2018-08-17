@@ -8,7 +8,8 @@ const msp = (state, ownProps) => {
     venue: state.entities.venues[Number(ownProps.match.params.id)],
     artists: state.entities.artists,
     currentUser: state.session.currentUser,
-    events: Object.values(state.entities.events)
+    events: Object.values(state.entities.events),
+    rsvps: Object.values(state.entities.rsvps)
   }
 };
 
