@@ -14,26 +14,27 @@ class EventIndexItem extends React.Component {
   }
 
   changeRSVPstatus(e) {
+    e.stopPropagation();
+
     if (this.state.rsvpd) {
       const rsvps = this.props.rsvps;
       let rsvpId;
+      
       rsvps.forEach ((rsvp) => {
         if (rsvp.user_id === this.props.currentUser.id) {
           rsvpId = rsvp.id;
         }
       });
 
-      this.props.deleteRsvp(rsvpId, this.props.artist.id);
+      this.props.deleteRsvp(rsvpId, this.props.event.id);
       this.setState({
         rsvpd: false
       });
-      e.stopPropagation();
     } else {
       this.props.createRsvp(this.props.currentUser.id, this.props.event.id);
       this.setState({
         rsvpd: true
       });
-      e.stopPropagation();
     }
   }
 
@@ -54,17 +55,17 @@ class EventIndexItem extends React.Component {
     let rsvpButton;
     if (this.state.rsvpd && !eventHappened) {
       rsvpButton = <button
-        onClick={(e) =>this.changeRSVPstatus(e)}
+        onClick={this.changeRSVPstatus}
         className="artist-rsvp-button-going"
         >&#10004; Going </button>
     } else if (this.state.rsvpd && eventHappened) {
       rsvpButton = <button
-        onClick={(e) =>this.changeRSVPstatus(e)}
+        onClick={this.changeRSVPstatus}
         className="artist-rsvp-button-going"
         >&#10004; I Was There </button>
     } else {
       rsvpButton = <button
-        onClick={(e) =>this.changeRSVPstatus(e)}
+        onClick={this.changeRSVPstatus}
         className="artist-rsvp-button"
         >RSVP</button>
     }

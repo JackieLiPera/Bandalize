@@ -7,9 +7,10 @@ import { createComment, deleteComment } from '../../actions/comment_actions';
 
 
 const msp = (state, ownProps) => {
+  const artist = state.entities.artists[ownProps.match.params.id];
 
   return {
-    artist: state.entities.artists[ownProps.match.params.id],
+    artist,
     events: Object.values(state.entities.events),
     venues: state.entities.venues,
     currentUser: state.session.currentUser,
@@ -26,7 +27,7 @@ const mdp = (dispatch) => {
     createTracking: (userId, artistId) => dispatch(createTracking(userId, artistId)),
     deleteTracking: (trackingId, artistId) => dispatch(deleteTracking(trackingId, artistId)),
     createRsvp: (userId, eventId) => dispatch(createRsvp(userId, eventId)),
-    deleteRsvp: (userId, eventId) => dispatch(deleteRsvp(userId, eventId)),
+    deleteRsvp: (rsvpId, eventId) => dispatch(deleteRsvp(rsvpId, eventId)),
     processForm: (formData) => dispatch(createComment(formData)),
     deleteComment: (commentId, artistId) => dispatch(deleteComment(commentId, artistId))
   }

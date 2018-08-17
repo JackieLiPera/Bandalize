@@ -13,6 +13,7 @@ class VenueEventIndexItem extends React.Component {
   }
 
   changeRSVPstatus(e) {
+    e.stopPropagation();
     if (this.state.rsvpd) {
 
       const rsvps = this.props.rsvps;
@@ -27,13 +28,11 @@ class VenueEventIndexItem extends React.Component {
       this.setState({
         rsvpd: false
       });
-      e.stopPropagation();
     } else {
       this.props.createRsvp(this.props.currentUser.id, this.props.event.id);
       this.setState({
         rsvpd: true
       });
-      e.stopPropagation();
     }
   }
 
@@ -46,12 +45,12 @@ class VenueEventIndexItem extends React.Component {
     let rsvpButton;
     if (this.state.rsvpd) {
       rsvpButton = <button
-        onClick={(e) =>this.changeRSVPstatus(e)}
+        onClick={this.changeRSVPstatus}
         className="venue-rsvp-button-going"
         >&#10004; Going </button>
     } else {
       rsvpButton = <button
-        onClick={(e) =>this.changeRSVPstatus(e)}
+        onClick={this.changeRSVPstatus}
         className="venue-rsvp-button"
         >RSVP</button>
     }

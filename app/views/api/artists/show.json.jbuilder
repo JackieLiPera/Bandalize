@@ -35,3 +35,11 @@ json.trackings do
     end
   end
 end
+
+json.rsvps do
+  @artist.rsvps.each do |rsvp|
+    json.set! rsvp.id do
+      json.extract! rsvp, :id, :user_id
+    end
+  end
+end

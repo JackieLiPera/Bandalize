@@ -4,9 +4,17 @@ import { fetchVenue } from '../../actions/venue_actions';
 import { createRsvp, deleteRsvp } from '../../actions/rsvp_actions';
 
 const msp = (state, ownProps) => {
+
+  const venue = state.entities.venues[Number(ownProps.match.params.id)];
+  let artists;
+
+  if (venue) {
+    artists = state.entities.artists;
+  }
+  
   return {
-    venue: state.entities.venues[Number(ownProps.match.params.id)],
-    artists: state.entities.artists,
+    venue,
+    artists,
     currentUser: state.session.currentUser,
     events: Object.values(state.entities.events),
     rsvps: Object.values(state.entities.rsvps)

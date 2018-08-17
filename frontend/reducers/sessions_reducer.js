@@ -22,7 +22,7 @@ export default (state = {}, action)  => {
       newRsvps.includes(action.rsvp.event_id) ? newRsvps : state.currentUser.rsvp_events.push(action.rsvp.event_id)
       return merge({}, state, {currentUser: {rsvp_events: newRsvps}});
     case REMOVE_RSVP:
-      let index = state.currentUser.rsvp_events.indexOf(action.rsvpId);
+      let index = state.currentUser.rsvp_events.indexOf(action.eventId);
       state.currentUser.rsvp_events.splice(index, 1);
       return merge({}, state, {currentUser: {rsvp_events: state.currentUser.rsvp_events}});
     case RECEIVE_CURRENT_USER:

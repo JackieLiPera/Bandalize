@@ -124,7 +124,7 @@ class ArtistShow extends React.Component {
               <br></br>
                 <span>Hometown: N/a</span>
               <br></br>
-            <span><i className="fab fa-facebook-square"></i> <a href={`facebook.com/${this.props.artist.name}`}></a>Facebook</span>
+            <span><i className="fab fa-facebook-square"></i> <a href={`https://facebook.com/${this.props.artist.name}`}>Facebook</a></span>
           </div>
         </div>
         <div>
