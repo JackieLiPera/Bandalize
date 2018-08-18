@@ -7,17 +7,23 @@ import { createComment, deleteComment } from '../../actions/comment_actions';
 
 
 const msp = (state, ownProps) => {
-  const artist = state.entities.artists[ownProps.match.params.id];
+  const currentUser = state.session.currentUser;
+  let tracking;
+  if (currentUser) {
+    tracking = currentUser.tracked_artists.includes(Number(ownProps.match.params.id))
+  } else {
+    tracking = false;
+  }
 
   return {
-    artist,
+    artist: state.entities.artists[ownProps.match.params.id],
     events: Object.values(state.entities.events),
     venues: state.entities.venues,
     currentUser: state.session.currentUser,
-    tracking: state.session.currentUser.tracked_artists.includes(Number(ownProps.match.params.id)),
     comments: state.entities.comments,
     trackings: state.entities.trackings,
-    rsvps: Object.values(state.entities.rsvps)
+    rsvps: Object.values(state.entities.rsvps),
+    tracking
   }
 };
 

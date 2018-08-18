@@ -3,4 +3,5 @@ class Comment < ApplicationRecord
 
   belongs_to :user
   belongs_to :artist
+  has_one_attached :photo
 end

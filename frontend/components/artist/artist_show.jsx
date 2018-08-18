@@ -58,6 +58,7 @@ class ArtistShow extends React.Component {
     formData.append('comment[body]', this.state.comment);
     formData.append('comment[user_id]', this.props.currentUser.id);
     formData.append('comment[artist_id]', this.props.artist.id);
+    formData.append('comment[photo]', this.state.photoFile);
 
     this.setState({
       comment: ""
@@ -88,11 +89,11 @@ class ArtistShow extends React.Component {
     const commentForm =
     <form  className="comment-form" onSubmit={this.handleCommentSubmit}>
       <label className="comment-form-title">Share your experience:</label>
-      <textarea className="comment-box" onChange={this.handleCommentChange} value={this.state.comment} />
-      <div className="comment-form-buttons">
-        <input type='file' onChange={this.handlePictureUpload} />
-        <button>Submit</button>
-      </div>
+        <textarea className="comment-box" onChange={this.handleCommentChange} value={this.state.comment} />
+          <div className="comment-form-buttons">
+            <input type='file' onChange={this.handlePictureUpload} />
+            <button>Submit</button>
+          </div>
     </form>;
 
     let bluecheck = window.bluecheck;
@@ -147,7 +148,6 @@ class ArtistShow extends React.Component {
             />
           </div>
         </div>
-
       </div>
     );
   }
