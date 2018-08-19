@@ -10,39 +10,49 @@
 User.destroy_all
 
 currentUser = User.create!(email: 'jac.lipera@gmail.com', password: 'jackie', firstname: 'Jackie', lastname: 'LiPera')
+user1 = User.create!(email: 'fakeuser1@gmail.com', password: '123456', firstname: 'Fake', lastname: 'User')
+user2 = User.create!(email: 'fakeuser2@gmail.com', password: '123456', firstname: 'Fake', lastname: 'User')
+user3 = User.create!(email: 'fakeuser3@gmail.com', password: '123456', firstname: 'Fake', lastname: 'User')
+user4 = User.create!(email: 'fakeuser4@gmail.com', password: '123456', firstname: 'Fake', lastname: 'User')
+user5 = User.create!(email: 'fakeuser5@gmail.com', password: '123456', firstname: 'Fake', lastname: 'User')
+user6 = User.create!(email: 'fakeuser6@gmail.com', password: '123456', firstname: 'Fake', lastname: 'User')
+user7 = User.create!(email: 'fakeuser7@gmail.com', password: '123456', firstname: 'Fake', lastname: 'User')
+user8 = User.create!(email: 'fakeuser8@gmail.com', password: '123456', firstname: 'Fake', lastname: 'User')
+user9 = User.create!(email: 'fakeuser9@gmail.com', password: '123456', firstname: 'Fake', lastname: 'User')
+user10 = User.create!(email: 'fakeuser10@gmail.com', password: '123456', firstname: 'Fake', lastname: 'User')
 
 Artist.destroy_all
 
-artist1 = Artist.create!(name:"Red Hot Chili Peppers", on_tour: false, genre:"Rock")
-artist2 = Artist.create!(name:"Rainbow Kitten Surprise", on_tour: true, genre:"Alternative")
-artist3 = Artist.create!(name:"Kendrick Lamar", on_tour: false, genre:"R&B")
-artist4 = Artist.create!(name:"Maroon 5", on_tour: true, genre:"Pop")
-artist5 = Artist.create!(name:"Taylor Swift", on_tour: false, genre:"Pop")
-artist6 = Artist.create!(name:"Glass Animals", on_tour: true, genre:"Alternative")
-artist7 = Artist.create!(name:"Shakira", on_tour: true, genre:"Pop")
-artist8 = Artist.create!(name:"The Weeknd", on_tour: true, genre:"R&B")
-artist9 = Artist.create!(name:"Drake", on_tour: true, genre:"R&B")
-artist10 = Artist.create!(name:"Kings of Leon", on_tour: true, genre:"Rock")
-artist11 = Artist.create!(name:"Ed Sheeran", on_tour: true, genre:"Pop")
-artist12 = Artist.create!(name:"Milky Chance", on_tour: false, genre:"Alternative")
-artist13 = Artist.create!(name:"Weezer", on_tour: true, genre:"Rock")
-artist14 = Artist.create!(name:"Alt-J", on_tour: false, genre:"Alternative")
-artist15 = Artist.create!(name:"The xx", on_tour: true, genre:"Electronic")
-artist16 = Artist.create!(name:"Shakey Graves", on_tour: false, genre:"Folk")
-artist17 = Artist.create!(name:"Childish Gambino", on_tour: true, genre:"R&B")
-artist18 = Artist.create!(name:"Arctic Monkeys", on_tour: true, genre:"Rock")
-artist19 = Artist.create!(name:"Sublime", on_tour: false, genre:"Rock")
-artist20 = Artist.create!(name:"Odesza", on_tour: true, genre:"Electronic")
-artist21 = Artist.create!(name:"Florence and The Machine", on_tour: true, genre:"Alternative")
-artist22 = Artist.create!(name:"J.Cole", on_tour: true, genre:"R&B")
-artist23 = Artist.create!(name:"Gorillaz", on_tour: false, genre:"Alternative")
-artist24 = Artist.create!(name:"Panic! At The Disco", on_tour: true, genre:"Rock")
-artist25 = Artist.create!(name:"Fall Out Boy", on_tour: false, genre:"Alternative")
-artist26 = Artist.create!(name:"P!nk", on_tour: true, genre:"Pop")
-artist27 = Artist.create!(name:"Gary Clark Jr.", on_tour: false, genre:"Rock")
-artist28 = Artist.create!(name:"Tyler, The Creator", on_tour: true, genre:"R&B")
-artist29 = Artist.create!(name:"Deadmau5", on_tour: true, genre:"Electronic")
-artist30 = Artist.create!(name:"BØRNS", on_tour: true, genre:"Electronic")
+artist1 = Artist.create!(name:"Red Hot Chili Peppers", on_tour: false, genre:"Rock", bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.")
+artist2 = Artist.create!(name:"Rainbow Kitten Surprise", on_tour: true, genre:"Alternative", bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.")
+artist3 = Artist.create!(name:"Kendrick Lamar", on_tour: false, genre:"R&B", bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.")
+artist4 = Artist.create!(name:"Maroon 5", on_tour: true, genre:"Pop", bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.")
+artist5 = Artist.create!(name:"Taylor Swift", on_tour: false, genre:"Pop", bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.")
+artist6 = Artist.create!(name:"Glass Animals", on_tour: true, genre:"Alternative", bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.")
+artist7 = Artist.create!(name:"Shakira", on_tour: true, genre:"Pop", bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.")
+artist8 = Artist.create!(name:"The Weeknd", on_tour: true, genre:"R&B", bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.")
+artist9 = Artist.create!(name:"Drake", on_tour: true, genre:"R&B", bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.")
+artist10 = Artist.create!(name:"Kings of Leon", on_tour: true, genre:"Rock", bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.")
+artist11 = Artist.create!(name:"Ed Sheeran", on_tour: true, genre:"Pop", bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.")
+artist12 = Artist.create!(name:"Milky Chance", on_tour: false, genre:"Alternative", bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.")
+artist13 = Artist.create!(name:"Weezer", on_tour: true, genre:"Rock", bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.")
+artist14 = Artist.create!(name:"Alt-J", on_tour: false, genre:"Alternative", bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.")
+artist15 = Artist.create!(name:"The xx", on_tour: true, genre:"Electronic", bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.")
+artist16 = Artist.create!(name:"Shakey Graves", on_tour: false, genre:"Folk", bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.")
+artist17 = Artist.create!(name:"Childish Gambino", on_tour: true, genre:"R&B", bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.")
+artist18 = Artist.create!(name:"Arctic Monkeys", on_tour: true, genre:"Rock", bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.")
+artist19 = Artist.create!(name:"Sublime", on_tour: false, genre:"Rock", bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.")
+artist20 = Artist.create!(name:"Odesza", on_tour: true, genre:"Electronic", bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.")
+artist21 = Artist.create!(name:"Florence and The Machine", on_tour: true, genre:"Alternative", bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.")
+artist22 = Artist.create!(name:"J.Cole", on_tour: true, genre:"R&B", bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.")
+artist23 = Artist.create!(name:"Gorillaz", on_tour: false, genre:"Alternative", bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.")
+artist24 = Artist.create!(name:"Panic! At The Disco", on_tour: true, genre:"Rock", bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.")
+artist25 = Artist.create!(name:"Fall Out Boy", on_tour: false, genre:"Alternative", bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.")
+artist26 = Artist.create!(name:"P!nk", on_tour: true, genre:"Pop", bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.")
+artist27 = Artist.create!(name:"Gary Clark Jr.", on_tour: false, genre:"Rock", bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.")
+artist28 = Artist.create!(name:"Tyler, The Creator", on_tour: true, genre:"R&B", bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.")
+artist29 = Artist.create!(name:"Deadmau5", on_tour: true, genre:"Electronic", bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.")
+artist30 = Artist.create!(name:"BØRNS", on_tour: true, genre:"Electronic", bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.")
 
 artist1.photo.attach(io: File.open('./app/assets/images/artist_photos/rhcp.jpg'), filename: 'rhcp.jpg')
 artist2.photo.attach(io: File.open('./app/assets/images/artist_photos/rks.jpg'), filename: 'rks.jpg')
@@ -135,17 +145,31 @@ event40 = Event.create!(event_on: (DateTime.parse("Fri Feb 25 21:00:00 EST 2018"
 
 Rsvp.destroy_all
 
+100.times do |n|
+  user_id = User.ids.sample
+  event_id = Event.ids.sample
+
+  Rsvp.create!(user_id: user_id, event_id: event_id);
+end
+
 
 Tracking.destroy_all
 
-tracking1 = Tracking.create!(user_id: currentUser.id , artist_id: artist1.id)
-tracking2 = Tracking.create!(user_id: currentUser.id , artist_id: artist2.id)
-tracking3 = Tracking.create!(user_id: currentUser.id , artist_id: artist13.id)
-tracking4 = Tracking.create!(user_id: currentUser.id , artist_id: artist14.id)
-tracking5 = Tracking.create!(user_id: currentUser.id , artist_id: artist20.id)
-tracking6 = Tracking.create!(user_id: currentUser.id , artist_id: artist6.id)
-tracking7 = Tracking.create!(user_id: currentUser.id , artist_id: artist15.id)
-tracking8 = Tracking.create!(user_id: currentUser.id , artist_id: artist18.id)
-tracking9 = Tracking.create!(user_id: currentUser.id , artist_id: artist4.id)
-tracking10 = Tracking.create!(user_id: currentUser.id , artist_id: artist12.id)
-tracking11 = Tracking.create!(user_id: currentUser.id , artist_id: artist19.id)
+100.times do |n|
+  user_id = User.ids.sample
+  artist_id = Artist.ids.sample
+
+  Tracking.create!(user_id: user_id, artist_id: artist_id);
+end
+
+# tracking1 = Tracking.create!(user_id: currentUser.id , artist_id: artist1.id)
+# tracking2 = Tracking.create!(user_id: currentUser.id , artist_id: artist2.id)
+# tracking3 = Tracking.create!(user_id: currentUser.id , artist_id: artist13.id)
+# tracking4 = Tracking.create!(user_id: currentUser.id , artist_id: artist14.id)
+# tracking5 = Tracking.create!(user_id: currentUser.id , artist_id: artist20.id)
+# tracking6 = Tracking.create!(user_id: currentUser.id , artist_id: artist6.id)
+# tracking7 = Tracking.create!(user_id: currentUser.id , artist_id: artist15.id)
+# tracking8 = Tracking.create!(user_id: currentUser.id , artist_id: artist18.id)
+# tracking9 = Tracking.create!(user_id: currentUser.id , artist_id: artist4.id)
+# tracking10 = Tracking.create!(user_id: currentUser.id , artist_id: artist12.id)
+# tracking11 = Tracking.create!(user_id: currentUser.id , artist_id: artist19.id)

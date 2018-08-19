@@ -3,12 +3,14 @@ export const RECEIVE_EVENTS = 'RECEIVE_EVENTS';
 export const RECEIVE_EVENT = 'RECEIVE_EVENT';
 
 
-export const receiveEvents = ({ events, artist, venue }) => ({
-  type: RECEIVE_EVENTS,
-  events,
-  artist,
-  venue
-});
+export const receiveEvents = ({ events, artist, venue }) => {
+  return {
+    type: RECEIVE_EVENTS,
+    events,
+    artist,
+    venue
+  }
+};
 
 export const receiveEvent = ({ event, artist, venue }) => {
   return {

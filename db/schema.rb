@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_15_174955) do
+ActiveRecord::Schema.define(version: 2018_08_19_140550) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_trgm"
@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 2018_08_15_174955) do
     t.string "genre", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "bio"
     t.index ["name"], name: "index_artists_on_name"
   end
 
@@ -58,7 +59,6 @@ ActiveRecord::Schema.define(version: 2018_08_15_174955) do
     t.datetime "event_on", null: false
     t.integer "venue_id", null: false
     t.integer "artist_id", null: false
-    t.string "name"
   end
 
   create_table "pg_search_documents", force: :cascade do |t|
