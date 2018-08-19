@@ -17,7 +17,6 @@ class ArtistShow extends React.Component {
     this.handleCommentChange = this.handleCommentChange.bind(this);
     this.handlePictureUpload = this.handlePictureUpload.bind(this);
     this.trackButton = this.generateTrackButton();
-    // this.commentForm = this.generateCommentForm();
   }
 
   componentDidMount() {
@@ -79,19 +78,6 @@ class ArtistShow extends React.Component {
     };
   }
 
-  // generateCommentForm() {
-  //   return (
-  //   <form  className="comment-form" onSubmit={this.handleCommentSubmit}>
-  //     <label className="comment-form-title">Share your experience:</label>
-  //       <textarea className="comment-box" onChange={this.handleCommentChange} value={this.state.comment} />
-  //         <div className="comment-form-buttons">
-  //           <input type='file' onChange={this.handlePictureUpload} />
-  //           <button>Submit</button>
-  //         </div>
-  //   </form>);
-  // }
-
-
   render () {
     let artist = this.props.artist;
     if (!artist) {
@@ -106,7 +92,7 @@ class ArtistShow extends React.Component {
     let numTrackers = this.props.artist.trackers.length;
 
 
-    let commentForm =
+    const commentForm =
     <form  className="comment-form" onSubmit={this.handleCommentSubmit}>
       <label className="comment-form-title">Share your experience:</label>
         <textarea className="comment-box" onChange={this.handleCommentChange} value={this.state.comment} />
@@ -154,6 +140,7 @@ class ArtistShow extends React.Component {
             {commentForm}
             <CommentIndex
               comments={this.props.comments}
+              artistComments={artist.comments}
               currentUser={this.props.currentUser}
               deleteComment={this.props.deleteComment}
               artist={artist}

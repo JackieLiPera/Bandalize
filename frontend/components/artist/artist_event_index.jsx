@@ -11,7 +11,7 @@ class ArtistEventIndex extends React.Component{
       <ul className="artist-events-list">Upcoming Events
         {this.props.artistEvents.map((eventId) => (
           <EventIndexItem
-            key={this.props.events[eventId].id}
+            key={eventId}
             event={this.props.events[eventId]}
             venue={this.props.venues[this.props.events[eventId].venue_id]}
             tracking={this.props.tracking}

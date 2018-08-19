@@ -10,10 +10,10 @@ class CommentIndex extends React.Component{
   render() {
     return (
       <ul className="comments-index"> <h2 className='artist-show-headers'>Fan Reviews</h2>
-        {Object.values(this.props.comments).map((comment) => (
+        {this.props.artistComments.map((commentId) => (
           <CommentIndexItem
-            key={comment.id}
-            comment={comment}
+            key={commentId}
+            comment={this.props.comments[commentId]}
             currentUser={this.props.currentUser}
             deleteComment={this.props.deleteComment}
             artist={this.props.artist.id}

@@ -6,7 +6,7 @@ const VenueEventIndex = ({ events, artists, venue, currentUser, createRsvp, dele
   const EventIndexItems = venueEvents.map((eventId) => {
 
     return (
-      <li key={events[eventId].id}>
+      <li key={eventId}>
          <VenueEventIndexItem
            currentUser={currentUser}
            event={events[eventId]}
