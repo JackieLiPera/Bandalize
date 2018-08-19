@@ -11,7 +11,7 @@ const msp = (state, ownProps) => {
   if (venue) {
     artists = state.entities.artists;
   }
-  
+
   return {
     venue,
     artists,

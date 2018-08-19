@@ -10,16 +10,12 @@
 User.destroy_all
 
 currentUser = User.create!(email: 'jac.lipera@gmail.com', password: 'jackie', firstname: 'Jackie', lastname: 'LiPera')
-user1 = User.create!(email: 'fakeuser1@gmail.com', password: '123456', firstname: 'Fake', lastname: 'User')
-user2 = User.create!(email: 'fakeuser2@gmail.com', password: '123456', firstname: 'Fake', lastname: 'User')
-user3 = User.create!(email: 'fakeuser3@gmail.com', password: '123456', firstname: 'Fake', lastname: 'User')
-user4 = User.create!(email: 'fakeuser4@gmail.com', password: '123456', firstname: 'Fake', lastname: 'User')
-user5 = User.create!(email: 'fakeuser5@gmail.com', password: '123456', firstname: 'Fake', lastname: 'User')
-user6 = User.create!(email: 'fakeuser6@gmail.com', password: '123456', firstname: 'Fake', lastname: 'User')
-user7 = User.create!(email: 'fakeuser7@gmail.com', password: '123456', firstname: 'Fake', lastname: 'User')
-user8 = User.create!(email: 'fakeuser8@gmail.com', password: '123456', firstname: 'Fake', lastname: 'User')
-user9 = User.create!(email: 'fakeuser9@gmail.com', password: '123456', firstname: 'Fake', lastname: 'User')
-user10 = User.create!(email: 'fakeuser10@gmail.com', password: '123456', firstname: 'Fake', lastname: 'User')
+100.times do |n|
+  randomNum = rand(20000)
+  email = "fakeuser#{randomNum}@gmail.com"
+
+  User.create!(email: email, password: "123456", firstname: "Fake", lastname: "User");
+end
 
 Artist.destroy_all
 
@@ -145,31 +141,34 @@ event40 = Event.create!(event_on: (DateTime.parse("Fri Feb 25 21:00:00 EST 2018"
 
 Rsvp.destroy_all
 
-100.times do |n|
+rsvp1 = Rsvp.create!(user_id: currentUser.id, event_id: event5.id)
+rsvp2 = Rsvp.create!(user_id: currentUser.id, event_id: event10.id)
+rsvp3 = Rsvp.create!(user_id: currentUser.id, event_id: event15.id)
+rsvp4 = Rsvp.create!(user_id: currentUser.id, event_id: event20.id)
+rsvp5 = Rsvp.create!(user_id: currentUser.id, event_id: event25.id)
+rsvp6 = Rsvp.create!(user_id: currentUser.id, event_id: event30.id)
+
+
+400.times do |n|
   user_id = User.ids.sample
   event_id = Event.ids.sample
 
-  Rsvp.create!(user_id: user_id, event_id: event_id);
+  Rsvp.create!(user_id: user_id, event_id: event_id)
 end
 
 
 Tracking.destroy_all
 
-100.times do |n|
+tracking1 = Tracking.create!(user_id: currentUser.id, artist_id: artist2.id)
+tracking2 = Tracking.create!(user_id: currentUser.id, artist_id: artist6.id)
+tracking3 = Tracking.create!(user_id: currentUser.id, artist_id: artist10.id)
+tracking4 = Tracking.create!(user_id: currentUser.id, artist_id: artist14.id)
+tracking5 = Tracking.create!(user_id: currentUser.id, artist_id: artist15.id)
+tracking6 = Tracking.create!(user_id: currentUser.id, artist_id: artist22.id)
+
+400.times do |n|
   user_id = User.ids.sample
   artist_id = Artist.ids.sample
 
-  Tracking.create!(user_id: user_id, artist_id: artist_id);
+  Tracking.create!(user_id: user_id, artist_id: artist_id)
 end
-
-# tracking1 = Tracking.create!(user_id: currentUser.id , artist_id: artist1.id)
-# tracking2 = Tracking.create!(user_id: currentUser.id , artist_id: artist2.id)
-# tracking3 = Tracking.create!(user_id: currentUser.id , artist_id: artist13.id)
-# tracking4 = Tracking.create!(user_id: currentUser.id , artist_id: artist14.id)
-# tracking5 = Tracking.create!(user_id: currentUser.id , artist_id: artist20.id)
-# tracking6 = Tracking.create!(user_id: currentUser.id , artist_id: artist6.id)
-# tracking7 = Tracking.create!(user_id: currentUser.id , artist_id: artist15.id)
-# tracking8 = Tracking.create!(user_id: currentUser.id , artist_id: artist18.id)
-# tracking9 = Tracking.create!(user_id: currentUser.id , artist_id: artist4.id)
-# tracking10 = Tracking.create!(user_id: currentUser.id , artist_id: artist12.id)
-# tracking11 = Tracking.create!(user_id: currentUser.id , artist_id: artist19.id)

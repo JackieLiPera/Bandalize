@@ -12,7 +12,7 @@ class VenueEventIndexItem extends React.Component {
     } else {
       rsvpd = false;
     }
-    
+
     this.state = {
       rsvpd: rsvpd
     }
@@ -51,6 +51,14 @@ class VenueEventIndexItem extends React.Component {
   }
 
   render() {
+
+    let image;
+    if (this.props.artist) {
+      image = <img  src={this.props.artist.image}/>
+    } else {
+      return null;
+    }
+
     let rsvpButton;
     if (this.state.rsvpd) {
       rsvpButton = <button
@@ -73,12 +81,9 @@ class VenueEventIndexItem extends React.Component {
           <span className='month'>{month}</span>
           {date}
         </div>
-
-
-        <img  src={this.props.artist.image}/>
-
+          {image}
         <span className="venue-event-index-text">{this.props.artist.name}</span>
-        {rsvpButton}
+          {rsvpButton}
       </div>
 
     );
