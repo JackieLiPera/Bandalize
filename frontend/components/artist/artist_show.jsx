@@ -6,7 +6,7 @@ class ArtistShow extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      tracking: this.props.tracking,
+      isTracking: this.props.tracking,
       loading: true,
       comment: "",
       photoFile: null
@@ -27,17 +27,19 @@ class ArtistShow extends React.Component {
   }
 
   handleTracking() {
-    if (this.state.tracking === true ) {
-      const currentUser = this.props.currentUser;
-      const tracking = this.props.trackings[currentUser.id];
-      this.props.deleteTracking(tracking.id, this.props.artist.id).then(this.generateTrackButton());
+    const currentUser = this.props.currentUser;
+    const artist = this.props.artist;
+    const track = this.props.trackings[currentUser.id];
+
+    if (this.state.isTracking === true ) {
+      this.props.deleteTracking(track.id, artist.id).then(this.generateTrackButton());
       this.setState({
-        tracking: false
+        isTracking: false
       });
     } else {
-      this.props.createTracking(this.props.currentUser.id, this.props.artist.id);
+      this.props.createTracking(currentUser.id, artist.id).then(this.generateTrackButton());
       this.setState({
-        tracking: true
+        isTracking: true
       });
     };
   }
@@ -70,8 +72,7 @@ class ArtistShow extends React.Component {
   }
 
   generateTrackButton() {
-    debugger
-    if (this.state.tracking === true) {
+    if (this.state.isTracking === true) {
       return <button onClick={this.handleTracking} className="artist-track-button-going">	&#10004; Tracked</button>
     } else {
       return <button onClick={this.handleTracking} className="artist-track-button">Track</button>
@@ -104,12 +105,6 @@ class ArtistShow extends React.Component {
     let bluecheck = window.bluecheck;
     let numTrackers = this.props.artist.trackers.length;
 
-    let trackButton;
-    if (this.state.tracking === true) {
-      trackButton = <button onClick={this.handleTracking} className="artist-track-button-going">	&#10004; Tracked</button>
-    } else {
-      trackButton = <button onClick={this.handleTracking} className="artist-track-button">Track</button>
-    };
 
     let commentForm =
     <form  className="comment-form" onSubmit={this.handleCommentSubmit}>

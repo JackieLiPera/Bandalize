@@ -8,11 +8,12 @@ import { createComment, deleteComment } from '../../actions/comment_actions';
 
 const msp = (state, ownProps) => {
   const currentUser = state.session.currentUser;
-  const artist = state.entities.artists[ownProps.match.params.id];
+  const artistId = ownProps.match.params.id;
+  const artist = state.entities.artists[artistId];
 
   let tracking;
   let tour;
-  (currentUser) ? tracking = currentUser.tracked_artists.includes(Number(ownProps.match.params.id)) : tracking = false;
+  (currentUser) ? tracking = currentUser.tracked_artists.includes(Number(artistId)) : tracking = false;
   (artist && artist.on_tour === true) ? tour = "On Tour" : tour = "";
 
   return {
