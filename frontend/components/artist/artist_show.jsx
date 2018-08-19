@@ -17,7 +17,7 @@ class ArtistShow extends React.Component {
     this.handleCommentChange = this.handleCommentChange.bind(this);
     this.handlePictureUpload = this.handlePictureUpload.bind(this);
     this.trackButton = this.generateTrackButton();
-    this.commentForm = this.generateCommentForm();
+    // this.commentForm = this.generateCommentForm();
   }
 
   componentDidMount() {
@@ -30,8 +30,7 @@ class ArtistShow extends React.Component {
     if (this.state.tracking === true ) {
       const currentUser = this.props.currentUser;
       const tracking = this.props.trackings[currentUser.id];
-      this.props.deleteTracking(tracking.id, this.props.artist.id);
-      this.generateTrackButton();
+      this.props.deleteTracking(tracking.id, this.props.artist.id).then(this.generateTrackButton());
       this.setState({
         tracking: false
       });
@@ -71,6 +70,7 @@ class ArtistShow extends React.Component {
   }
 
   generateTrackButton() {
+    debugger
     if (this.state.tracking === true) {
       return <button onClick={this.handleTracking} className="artist-track-button-going">	&#10004; Tracked</button>
     } else {
@@ -78,17 +78,17 @@ class ArtistShow extends React.Component {
     };
   }
 
-  generateCommentForm() {
-    return (
-    <form  className="comment-form" onSubmit={this.handleCommentSubmit}>
-      <label className="comment-form-title">Share your experience:</label>
-        <textarea className="comment-box" onChange={this.handleCommentChange} value={this.state.comment} />
-          <div className="comment-form-buttons">
-            <input type='file' onChange={this.handlePictureUpload} />
-            <button>Submit</button>
-          </div>
-    </form>);
-  }
+  // generateCommentForm() {
+  //   return (
+  //   <form  className="comment-form" onSubmit={this.handleCommentSubmit}>
+  //     <label className="comment-form-title">Share your experience:</label>
+  //       <textarea className="comment-box" onChange={this.handleCommentChange} value={this.state.comment} />
+  //         <div className="comment-form-buttons">
+  //           <input type='file' onChange={this.handlePictureUpload} />
+  //           <button>Submit</button>
+  //         </div>
+  //   </form>);
+  // }
 
 
   render () {
@@ -103,6 +103,23 @@ class ArtistShow extends React.Component {
 
     let bluecheck = window.bluecheck;
     let numTrackers = this.props.artist.trackers.length;
+
+    let trackButton;
+    if (this.state.tracking === true) {
+      trackButton = <button onClick={this.handleTracking} className="artist-track-button-going">	&#10004; Tracked</button>
+    } else {
+      trackButton = <button onClick={this.handleTracking} className="artist-track-button">Track</button>
+    };
+
+    let commentForm =
+    <form  className="comment-form" onSubmit={this.handleCommentSubmit}>
+      <label className="comment-form-title">Share your experience:</label>
+        <textarea className="comment-box" onChange={this.handleCommentChange} value={this.state.comment} />
+          <div className="comment-form-buttons">
+            <input type='file' onChange={this.handlePictureUpload} />
+            <button>Submit</button>
+          </div>
+    </form>;
 
     return (
       <div className="artist-show-component">
@@ -138,7 +155,7 @@ class ArtistShow extends React.Component {
             rsvps={this.props.rsvps}
             />
           <div className="comments">
-            {this.commentForm}
+            {commentForm}
             <CommentIndex
               comments={this.props.comments}
               currentUser={this.props.currentUser}

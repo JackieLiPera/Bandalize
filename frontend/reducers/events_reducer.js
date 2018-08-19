@@ -25,7 +25,7 @@ export default (state = {}, action) => {
     case REMOVE_RSVP:
       let rsvps = newState[action.eventId].rsvps;
       let userIdx = rsvps.indexOf(action.userId);
-      rsvps.splice(userIdx);
+      rsvps.splice(userIdx, 1);
       newState[action.eventId].rsvps = rsvps;
       return newState;
     default:

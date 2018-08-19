@@ -8,7 +8,7 @@ const CommentsReducer = (state = {}, action) => {
   let newState;
   switch (action.type) {
     case RECEIVE_ARTIST:
-      return merge({}, state, action.comments);
+      return action.comments;
     case RECEIVE_COMMENT:
       newState = merge({}, state, {[action.comment.id]: action.comment});
       return newState;
