@@ -21,22 +21,25 @@ class EventShow extends React.Component {
   }
 
   changeRSVPstatus(e) {
-    if (this.state.rsvpd === true) {
-      
-      const rsvps = this.props.rsvps;
+    const rsvps = this.props.rsvps;
+    const currentUser = this.props.currentUser;
+    const event = this.props.event;
+
+    if (this.state.rsvpd) {
       let rsvpId;
       rsvps.forEach ((rsvp) => {
-        if (rsvp.user_id === this.props.currentUser.id) {
+        if (rsvp.user_id === currentUser.id) {
           rsvpId = rsvp.id;
         }
       });
 
-      this.props.deleteRsvp(rsvpId, this.props.artist.id);
+      
+      this.props.deleteRsvp(rsvpId, event.id);
         this.setState({
           rsvpd: false
         });
     } else {
-      this.props.createRsvp(this.props.currentUser.id, this.props.event.id);
+      this.props.createRsvp(currentUser.id, event.id);
       this.setState({
         rsvpd: true
       });

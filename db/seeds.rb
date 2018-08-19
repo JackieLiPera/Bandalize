@@ -153,7 +153,7 @@ rsvp6 = Rsvp.create!(user_id: currentUser.id, event_id: event30.id)
   user_id = User.ids.sample
   event_id = Event.ids.sample
 
-  Rsvp.create!(user_id: user_id, event_id: event_id)
+  Rsvp.create!(user_id: user_id, event_id: event_id) unless Rsvp.exists?(:user_id => user_id, :event_id => event_id)
 end
 
 
@@ -170,5 +170,5 @@ tracking6 = Tracking.create!(user_id: currentUser.id, artist_id: artist22.id)
   user_id = User.ids.sample
   artist_id = Artist.ids.sample
 
-  Tracking.create!(user_id: user_id, artist_id: artist_id)
+  Tracking.create!(user_id: user_id, artist_id: artist_id) unless Tracking.exists?(:user_id => user_id, :artist_id => artist_id) 
 end
