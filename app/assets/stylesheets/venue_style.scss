@@ -36,16 +36,13 @@
 }
 
 .venue-events-list li {
-  display: flex;
-  background-color: white;
-  width: 601px;
-  height: 63px;
-  margin-top: 2px;
-  box-shadow: 0 3px 15px 0 rgba(0,0,0,.09);
-  align-items: center;
-  justify-content: space-between;
-  z-index: 9;
-  color: black;
+  font-family: 'Roboto', sans-serif;
+  color: #259998;
+  font-size: 13px;
+  font-weight: bold;
+  height: 75px;
+  background: white;
+  box-shadow: 0 3px 15px 0 rgba(0, 0, 0, 0.09);
 }
 
 .venue-events-list li:hover {
@@ -63,15 +60,13 @@
 
 .venue-event-list-div {
   display: flex;
-  background-color: white;
   width: 601px;
   height: 63px;
   margin-top: 2px;
-  box-shadow: 0 3px 15px 0 rgba(0,0,0,.09);
   align-items: center;
   justify-content: space-between;
-  z-index: 9;
   color: black;
+  padding-top: 10px;
 }
 
 .venue-event-list-div img {
@@ -95,8 +90,8 @@
 }
 
 .venue-rsvp-button {
-  width: 145px;
-  height: 34px;
+  width: 130px;
+  height: 40px;
   cursor: pointer;
   font-size: 14px;
   border: 1px solid #00b4b3;
@@ -112,8 +107,8 @@
 }
 
 .venue-rsvp-button-going {
-  width: 145px;
-  height: 34px;
+  width: 130px;
+  height: 40px;
   cursor: pointer;
   font-size: 14px;
   border: 1px solid #00b4b3;

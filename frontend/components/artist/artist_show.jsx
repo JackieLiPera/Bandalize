@@ -16,6 +16,8 @@ class ArtistShow extends React.Component {
     this.handleCommentSubmit = this.handleCommentSubmit.bind(this);
     this.handleCommentChange = this.handleCommentChange.bind(this);
     this.handlePictureUpload = this.handlePictureUpload.bind(this);
+    this.trackButton = this.generateTrackButton();
+    this.commentForm = this.generateCommentForm();
   }
 
   componentDidMount() {
@@ -29,6 +31,7 @@ class ArtistShow extends React.Component {
       const currentUser = this.props.currentUser;
       const tracking = this.props.trackings[currentUser.id];
       this.props.deleteTracking(tracking.id, this.props.artist.id);
+      this.generateTrackButton();
       this.setState({
         tracking: false
       });
@@ -67,6 +70,26 @@ class ArtistShow extends React.Component {
     this.props.processForm(formData);
   }
 
+  generateTrackButton() {
+    if (this.state.tracking === true) {
+      return <button onClick={this.handleTracking} className="artist-track-button-going">	&#10004; Tracked</button>
+    } else {
+      return <button onClick={this.handleTracking} className="artist-track-button">Track</button>
+    };
+  }
+
+  generateCommentForm() {
+    return (
+    <form  className="comment-form" onSubmit={this.handleCommentSubmit}>
+      <label className="comment-form-title">Share your experience:</label>
+        <textarea className="comment-box" onChange={this.handleCommentChange} value={this.state.comment} />
+          <div className="comment-form-buttons">
+            <input type='file' onChange={this.handlePictureUpload} />
+            <button>Submit</button>
+          </div>
+    </form>);
+  }
+
 
   render () {
     let artist = this.props.artist;
@@ -78,54 +101,30 @@ class ArtistShow extends React.Component {
       return <div>Loading...</div>
     }
 
-    let tour;
-    if (artist.on_tour === true) {
-      tour = "On Tour"
-    } else {
-      tour = ""
-    }
-
-
-    const commentForm =
-    <form  className="comment-form" onSubmit={this.handleCommentSubmit}>
-      <label className="comment-form-title">Share your experience:</label>
-        <textarea className="comment-box" onChange={this.handleCommentChange} value={this.state.comment} />
-          <div className="comment-form-buttons">
-            <input type='file' onChange={this.handlePictureUpload} />
-            <button>Submit</button>
-          </div>
-    </form>;
-
     let bluecheck = window.bluecheck;
-
-    let track_button;
-    if (this.state.tracking === true) {
-      track_button = <button onClick={this.handleTracking} className="artist-track-button-going">	&#10004; Tracked</button>
-    } else {
-      track_button = <button onClick={this.handleTracking} className="artist-track-button">Track</button>
-    };
-
     let numTrackers = this.props.artist.trackers.length;
 
     return (
       <div className="artist-show-component">
         <div className="artist-show-container">
           <div >
-            <img src={this.props.artist.image} className="artist-show-image"></img>
+            <img src={artist.image} className="artist-show-image"></img>
             <div className= "artist-show-info">
               <ul>
                 <li><h2>{artist.name} <img src={bluecheck}/></h2></li>
-                <li><span className="trackers-info">{numTrackers} Trackers</span> · <span className="tour-info">{tour}</span></li>
+                <li><span className="trackers-info">{numTrackers} Trackers</span> · <span className="tour-info">{this.props.tour}</span></li>
               </ul>
             </div>
-            {track_button}
+            {this.trackButton}
           </div>
-          <div className="genre">
-            <span>Genre: {this.props.artist.genre}</span>
+          <span className="artist-show-headers">About {`${artist.name}`}</span>
+          <div className="artist-bio">
+            <span className="genre"> <h3>Genre:</h3> <span></span>{artist.genre}</span>
               <br></br>
-                <span>Hometown: N/a</span>
               <br></br>
-            <span><i className="fab fa-facebook-square"></i> <a href={`https://facebook.com/${this.props.artist.name}`}>Facebook</a></span>
+            <span><i className="fab fa-facebook-square"></i> <a href={`https://facebook.com/${artist.name}`}>Facebook</a></span>
+              <br></br>
+            <p className="artist-bio-paragraph">{artist.bio}</p>
           </div>
         </div>
         <div>
@@ -139,12 +138,12 @@ class ArtistShow extends React.Component {
             rsvps={this.props.rsvps}
             />
           <div className="comments">
-            {commentForm}
+            {this.commentForm}
             <CommentIndex
               comments={this.props.comments}
               currentUser={this.props.currentUser}
               deleteComment={this.props.deleteComment}
-              artist={this.props.artist}
+              artist={artist}
             />
           </div>
         </div>

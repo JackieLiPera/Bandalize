@@ -9,7 +9,7 @@ class CommentIndex extends React.Component{
 
   render() {
     return (
-      <ul className="comments-index"> <h2 className='comments-header'>Fan Reviews</h2>
+      <ul className="comments-index"> <h2 className='artist-show-headers'>Fan Reviews</h2>
         {Object.values(this.props.comments).map((comment) => (
           <CommentIndexItem
             key={comment.id}

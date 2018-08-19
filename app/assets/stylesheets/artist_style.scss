@@ -8,7 +8,6 @@
 .artist-show-container {
   width: 300px;
   height: 404px;
-  border: 1px solid #cdcdcd;
   background-color: white;
   border-radius: 2px;
   display: flex;
@@ -25,12 +24,11 @@
   display: flex;
   background-color: white;
   width: 601px;
-  height: 63px;
+  height: 75px;
   margin-top: 2px;
   box-shadow: 0 3px 15px 0 rgba(0,0,0,.09);
   align-items: center;
   justify-content: space-between;
-  z-index: 9;
   color: black;
 }
 
@@ -69,8 +67,8 @@
 }
 
 .artist-rsvp-button {
-  width: 145px;
-  height: 34px;
+  width: 130px;
+  height: 40px;
   cursor: pointer;
   font-size: 14px;
   border: 1px solid #00b4b3;
@@ -86,8 +84,8 @@
 }
 
 .artist-rsvp-button-going {
-  width: 145px;
-  height: 34px;
+  width: 130px;
+  height: 40px;
   cursor: pointer;
   font-size: 14px;
   border: 1px solid #00b4b3;
@@ -158,13 +156,15 @@
 }
 
 .tour-info {
-  font-size: 14px;
+  font-size: 16px;
   color: #66a71f;
+  margin-bottom: 10px;
 }
 
 .trackers-info {
-  font-size: 14px;
+  font-size: 16px;
   color: #8f8f8f;
+  margin-bottom: 10px;
 }
 
 .comments {
@@ -227,9 +227,12 @@
   margin: 10px;
 }
 
-.comments-header {
+.artist-show-headers {
   color: #8f8f8f;
   font-size: 14px;
+  margin-top: 75px;
+  margin-bottom: 10px;
+  letter-spacing: 0.6px;
 }
 
 .comment-created-at {
@@ -258,13 +261,28 @@
   cursor: pointer;
 }
 
-.genre {
+.artist-bio {
   background: white;
   color: black;
   font-family: helvetica;
   width: 100%;
-  margin-top: 75px;
   box-shadow: 0 3px 15px 0 rgba(0,0,0,.09);
   box-sizing: border-box;
   padding: 20px;
+}
+
+.artist-bio-paragraph {
+  margin-top: 20px;
+  line-height: 26px;
+  border-top: 1px solid #cdcdcd;
+  padding-top: 15px;
+}
+
+.genre {
+  display: flex;
+  flex-direction: row;
+}
+
+.genre h3 {
+  font-weight: bold;
 }
