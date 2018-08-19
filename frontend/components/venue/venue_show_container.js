@@ -16,7 +16,7 @@ const msp = (state, ownProps) => {
     venue,
     artists,
     currentUser: state.session.currentUser,
-    events: Object.values(state.entities.events),
+    events: state.entities.events,
     rsvps: Object.values(state.entities.rsvps)
   }
 };

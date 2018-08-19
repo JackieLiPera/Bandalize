@@ -148,6 +148,7 @@ class ArtistShow extends React.Component {
             createRsvp={this.props.createRsvp}
             deleteRsvp={this.props.deleteRsvp}
             rsvps={this.props.rsvps}
+            artistEvents={artist.artist_events}
             />
           <div className="comments">
             {commentForm}

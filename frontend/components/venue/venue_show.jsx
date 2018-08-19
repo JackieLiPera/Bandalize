@@ -20,20 +20,17 @@ class VenueShow extends React.Component {
     return (
       <div className="venue-info-component">
         <div className="venue-info-container">
-
           <div className="venue-map">
-            <VenueMap venue={this.props.venue} />
-            </div>
-
+            <VenueMap venue={venue} />
+          </div>
           <div className= "venue-info">
-            <h2 className="venue-name">{this.props.venue.name}</h2>
-            <br></br>
-            {this.props.venue.address}
-            <br></br>
-            <span className="venue-address">{this.props.venue.city}, {this.props.venue.state}</span>
+            <h2 className="venue-name">{venue.name}</h2>
+              <br></br>
+                {venue.address}
+              <br></br>
+            <span className="venue-address">{venue.city}, {venue.state}</span>
           </div>
         </div>
-
         <div>
             <VenueEventIndex
               key={this.props.venue.id}
@@ -44,6 +41,7 @@ class VenueShow extends React.Component {
               createRsvp={this.props.createRsvp}
               deleteRsvp={this.props.deleteRsvp}
               rsvps={this.props.rsvps}
+              venueEvents={venue.venue_events}
               />
         </div>
         </div>

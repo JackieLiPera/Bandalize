@@ -59,7 +59,6 @@ class EventIndexItem extends React.Component {
       eventHappened = false;
     }
 
-
     let rsvpButton;
     if (this.state.rsvpd && !eventHappened) {
       rsvpButton = <button
