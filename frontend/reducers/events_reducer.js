@@ -11,7 +11,7 @@ export default (state = {}, action) => {
   let newState = merge({}, state);
   switch (action.type) {
     case RECEIVE_EVENT:
-      return merge({}, state, {[action.event.id]: action.event});
+      return {[action.event.id]: action.event};
     case RECEIVE_EVENTS:
     case RECEIVE_VENUE:
     case RECEIVE_ARTIST:

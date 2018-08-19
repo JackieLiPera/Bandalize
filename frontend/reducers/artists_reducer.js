@@ -15,7 +15,7 @@ export default (state = {}, action) => {
   let newState = merge({}, state);;
   switch (action.type) {
     case RECEIVE_ARTIST:
-      return merge({}, state, {[action.artist.id]: action.artist});
+      return {[action.artist.id]: action.artist};
     case RECEIVE_ARTISTS:
       return action.artists;
     case RECEIVE_VENUE:
@@ -30,6 +30,7 @@ export default (state = {}, action) => {
     case REMOVE_TRACKING:
       let trackers = newState[action.artistId].trackers;
       let userIdx = trackers.indexOf(action.userId);
+      debugger
       trackers.splice(userIdx);
       newState[action.artistId].trackers = trackers;
       return newState;
