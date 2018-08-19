@@ -10,12 +10,14 @@ export const receiveRsvp = (rsvp) => {
   }
 };
 
-export const removeRsvp = (rsvp) => ({
-  type: REMOVE_RSVP,
-  rsvpId: rsvp.id,
-  eventId: rsvp.event_id,
-  userId: rsvp.user_id
-});
+export const removeRsvp = (rsvp) => (
+  return {
+    type: REMOVE_RSVP,
+    rsvpId: rsvp.id,
+    eventId: rsvp.event_id,
+    userId: rsvp.user_id
+  }
+);
 
 
 export const createRsvp = (userId, eventId) => dispatch => (

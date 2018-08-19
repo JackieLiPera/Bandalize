@@ -1,5 +1,3 @@
-
-
 export const createRsvp = (userId, eventId) => {
   return $.ajax({
     type: 'POST',

@@ -9,15 +9,13 @@ export default (state = {}, action) => {
   Object.freeze(state);
   switch (action.type) {
     case RECEIVE_CURRENT_USER:
-      return merge({}, state, action.venues);
-    case RECEIVE_EVENTS:
-      return merge({}, state, action.venue);
     case RECEIVE_ARTIST:
       return merge({}, state, action.venues);
-    case RECEIVE_VENUE:
-      return merge({}, state, {[action.venue.id]: action.venue});
+    case RECEIVE_EVENTS:
     case RECEIVE_EVENT:
       return merge({}, state, action.venue);
+    case RECEIVE_VENUE:
+      return merge({}, state, {[action.venue.id]: action.venue});
     case RECEIVE_VENUES:
       return action.venues;
     default:

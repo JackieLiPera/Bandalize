@@ -1,4 +1,3 @@
-
 export const fetchArtists = () => {
   return $.ajax({
     method: "GET",

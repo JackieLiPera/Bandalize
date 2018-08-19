@@ -16,7 +16,6 @@ const RsvpsReducer = (state = {}, action) => {
       delete newState[action.rsvpId];
       return newState;
     case RECEIVE_EVENT:
-      return merge({}, state, action.rsvps);
     case RECEIVE_ARTIST:
       return merge({}, state, action.rsvps);
     default:

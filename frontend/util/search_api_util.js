@@ -1,4 +1,3 @@
-
 export const searchResults = (query) => {
   return $.ajax({
     method: 'GET',

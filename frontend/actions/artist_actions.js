@@ -9,14 +9,16 @@ export const receiveArtists = (artists) => {
   }
 };
 
-export const receiveArtist = ({ artist, events, venues, comments, trackings }) => ({
-  type: RECEIVE_ARTIST,
-  artist,
-  events,
-  venues,
-  comments,
-  trackings
-});
+export const receiveArtist = ({ artist, events, venues, comments, trackings }) => (
+  return {
+    type: RECEIVE_ARTIST,
+    artist,
+    events,
+    venues,
+    comments,
+    trackings
+  }
+);
 
 export const fetchArtists = () => dispatch => (
   ArtistApiUtil.fetchArtists().then((artists) => dispatch(receiveArtists(artists)))
