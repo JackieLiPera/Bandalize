@@ -28,8 +28,10 @@ export default (state = {}, action) => {
       newState[action.tracking.artist_id].trackers.push(action.tracking.user_id);
       return newState;
     case REMOVE_TRACKING:
-      let newTrackers = newState[action.artistId].trackers.slice(action.userId, 1);
-      newState[action.artistId].trackers = newTrackers;
+      let trackers = newState[action.artistId].trackers;
+      let userIdx = trackers.indexOf(action.userId);
+      trackers.splice(userIdx);
+      newState[action.artistId].trackers = trackers;
       return newState;
     case RECEIVE_COMMENT:
       newState[action.comment.artist_id].comments.unshift(action.comment.id);
