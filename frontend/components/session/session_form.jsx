@@ -48,7 +48,6 @@ class SessionForm extends React.Component {
   }
 
   render() {
-
     if (this.props.formType === 'Sign Up') {
       return (
         <div>
@@ -67,13 +66,10 @@ class SessionForm extends React.Component {
                 <label>Email</label>
                 <input className="input-box" type="text" onChange={this.handleEmailChange} value={this.state.email} />
               </li>
-
-
               <li className="session-input">
                 <label>Password</label>
                 <input className="input-box" type="password" onChange={this.handlePasswordChange} value={this.state.password} />
               </li>
-
               <li className="session-buttons">
                 <span className="session-errors">{this.props.errors}</span>
                 <button className="session-button">{this.props.formType}</button>
@@ -93,13 +89,10 @@ class SessionForm extends React.Component {
                 <label>Email</label>
                 <input className="input-box" type="text" onChange={this.handleEmailChange} value={this.state.email} />
               </li>
-
-
               <li className="session-input">
                 <label>Password</label>
                 <input className="input-box" type="password" onChange={this.handlePasswordChange} value={this.state.password} />
               </li>
-
               <li className="session-buttons">
                 <span className="session-errors">{this.props.errors}</span>
                 <button className="session-button">{this.props.formType}</button>

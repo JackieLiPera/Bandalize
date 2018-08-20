@@ -83,18 +83,11 @@ class ArtistShow extends React.Component {
 
   render () {
     const bluecheck = window.bluecheck;
-    
-    let artist = this.props.artist;
-    if (!artist) {
-      return null;
-    }
+    const artist = this.props.artist || {};
 
     if (this.state.loading === true) {
       return <div>Loading...</div>
     }
-
-    let numTrackers = this.props.artist.trackers.length;
-    let trackButton = this.generateTrackButton();
 
     const commentForm =
     <form  className="comment-form" onSubmit={this.handleCommentSubmit}>
@@ -114,10 +107,10 @@ class ArtistShow extends React.Component {
             <div className= "artist-show-info">
               <ul>
                 <li><h2>{artist.name} <img src={bluecheck}/></h2></li>
-                <li><span className="trackers-info">{numTrackers} Trackers</span> · <span className="tour-info">{this.props.tour}</span></li>
+                <li><span className="trackers-info">{artist.trackers.length} Trackers</span> · <span className="tour-info">{this.props.tour}</span></li>
               </ul>
             </div>
-            {trackButton}
+            {this.generateTrackButton()}
           </div>
           <span className="artist-show-headers">About {`${artist.name}`}</span>
           <div className="artist-bio">

@@ -19,6 +19,8 @@ class VenueEventIndexItem extends React.Component {
 
     this.handleClick = this.handleClick.bind(this);
     this.changeRSVPstatus = this.changeRSVPstatus.bind(this);
+    this.generateRsvpButton = this.generateRsvpButton.bind(this);
+    this.generateArtistImage = this.generateArtistImage.bind(this);
   }
 
   changeRSVPstatus(e) {
@@ -50,30 +52,28 @@ class VenueEventIndexItem extends React.Component {
     this.props.history.push(`/events/${eventId}`);
   }
 
-  render() {
-
-    let image;
-    if (this.props.artist) {
-      image = <img  src={this.props.artist.image}/>
-    } else {
-      return null;
-    }
-
-    let rsvpButton;
+  generateRsvpButton() {
     if (this.state.rsvpd) {
-      rsvpButton = <button
+      return <button
         onClick={this.changeRSVPstatus}
         className="venue-rsvp-button-going"
         >&#10004; Going </button>
     } else {
-      rsvpButton = <button
+      return <button
         onClick={this.changeRSVPstatus}
         className="venue-rsvp-button"
         >RSVP</button>
     }
+  }
 
+  generateArtistImage() {
+    return this.props.artist ? <img src={this.props.artist.image}/> : null;
+  }
+
+  render() {
     let month = new Date(this.props.event.event_on).toString().slice(4,7);
     let date = new Date(this.props.event.event_on).toString().slice(8,10);
+
     return (
       <div className="venue-event-list-div" onClick={this.handleClick}>
 
@@ -81,9 +81,9 @@ class VenueEventIndexItem extends React.Component {
           <span className='month'>{month}</span>
           {date}
         </div>
-          {image}
+          { this.generateArtistImage() }
         <span className="venue-event-index-text">{this.props.artist.name}</span>
-          {rsvpButton}
+          { this.generateRsvpButton() }
       </div>
 
     );

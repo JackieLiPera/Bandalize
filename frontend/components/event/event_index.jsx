@@ -8,7 +8,7 @@ class EventIndex extends React.Component {
     this.state = {
       loading: true
     }
-    this.shuffle = this.shuffle.bind(this);
+    this.generateLocalEvents = this.generateLocalEvents.bind(this);
   }
 
   componentDidMount() {
@@ -25,19 +25,25 @@ class EventIndex extends React.Component {
     return arr
   }
 
+  generateLocalEvents() {
+    const venues = this.props.venues;
+    const artists = this.props.artists;
+    const shuffled_events = this.shuffle(this.props.events);
+
+    return shuffled_events.map ((event) => {
+      return <li key={event.id}>
+        <PopularEventIndexItem event={event} venue={venues[event.venue_id]} artist={artists[event.artist_id]}/>
+      </li>
+    });
+  }
+
   render () {
     if (this.state.loading === true) {
       return <div>Loading...</div>
     }
 
     const image = window.tealx;
-    let shuffled_events = this.shuffle(this.props.events);
-    let all_events = shuffled_events.map ((event) => {
-      return <li key={event.id}>
-        <PopularEventIndexItem event={event} venue={this.props.venues[event.venue_id]} artist={this.props.artists[event.artist_id]}/>
-      </li>
-    });
-
+    let localEvents = this.generateLocalEvents();
 
     return (
       <div className="event-index-container">
@@ -45,7 +51,7 @@ class EventIndex extends React.Component {
           <img className="teal-x" src={image}/></span>
           <div className="events-container">
             <ul className="events-list">
-              {all_events.slice(0, 6)}
+              {localEvents.slice(0, 6)}
             </ul>
           </div>
         </h2>

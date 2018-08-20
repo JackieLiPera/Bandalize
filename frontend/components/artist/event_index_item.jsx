@@ -79,9 +79,8 @@ class EventIndexItem extends React.Component {
 
   render() {
     const event_venue = this.props.venue || {};
-    let rsvpButton = this.generateRsvpButton();
-    let month = new Date(this.props.event.event_on).toString().slice(4,7);
-    let date = new Date(this.props.event.event_on).toString().slice(8,10);
+    const month = new Date(this.props.event.event_on).toString().slice(4,7);
+    const date = new Date(this.props.event.event_on).toString().slice(8,10);
 
     return (
       <li onClick={() => this.handleClick()} >
@@ -92,7 +91,7 @@ class EventIndexItem extends React.Component {
         <div className="event-index-text">
           {event_venue.name}<span> </span>{event_venue.city}, {event_venue.state}
         </div>
-        {rsvpButton}
+        {this.generateRsvpButton()}
       </li>
     );
   }

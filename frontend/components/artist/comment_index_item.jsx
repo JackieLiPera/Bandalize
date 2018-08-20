@@ -35,17 +35,15 @@ class CommentIndexItem extends React.Component {
   render() {
     const comment = this.props.comment;
     const currentUser = this.props.currentUser;
-    let deleteButton = this.generateDeleteButton();
-    let author = this.generateAuthorName();
 
     return (
       <li key={comment.id}>
-        <span className="comment-author">{author}</span>
+        <span className="comment-author">{this.generateAuthorName()}</span>
         <br></br>
         <span className="comment-created-at">{comment.createdAt}</span>
         <div className="comment-body">
           <span>{comment.body}</span>
-          {deleteButton}
+          {this.generateDeleteButton()}
         </div>
     </li>
     );

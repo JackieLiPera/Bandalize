@@ -19,10 +19,7 @@ class UserShow extends React.Component {
   }
 
   render() {
-
-    if (!this.props.currentUser) {
-      return null;
-    }
+    const currentUser = this.props.currentUser || {};
 
     if (this.state.loading === true) {
       return <div>Loading...</div>
@@ -30,7 +27,7 @@ class UserShow extends React.Component {
 
     return (
       <div className="user-show-container">
-        <span>Welcome {this.props.currentUser.firstname} {this.props.currentUser.lastname}!</span>
+        <span>Welcome {currentUser.firstname} {currentUser.lastname}!</span>
 
         <h2> Suggested Upcoming Events
           <SuggestedEventIndex

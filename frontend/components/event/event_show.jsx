@@ -12,6 +12,8 @@ class EventShow extends React.Component {
     this.changeRSVPStatus = this.changeRSVPstatus.bind(this);
     this.handleVenueClick = this.handleVenueClick.bind(this);
     this.handleArtistClick = this.handleArtistClick.bind(this);
+    this.generateRsvpButton = this.generateRsvpButton.bind(this);
+    this.generateTicketButton = this.generateTicketButton.bind(this);
   }
 
   componentDidMount() {
@@ -56,38 +58,49 @@ class EventShow extends React.Component {
     this.props.history.push(`/artists/${artistId}`);
   }
 
+  didEventHappen() {
+    const eventDate = new Date (this.props.event.event_on);
+    return (Date.parse(eventDate) < Date.now()) ? true : false;
+  }
+
+  generateTicketButton() {
+    const eventHappened = this.didEventHappen();
+
+    if (eventHappened === false) {
+      return <button className="ticket-button"> <a href="https://www.stubhub.com/">Get Tickets on Stubhub</a></button>;
+    }
+  }
+
+
+  generateRsvpButton() {
+    const eventHappened = this.didEventHappen();
+    const rsvpd = this.state.rsvpd;
+
+    if (eventHappened && rsvpd) {
+      return <button onClick={this.changeRSVPStatus} className="rsvp-button-checked">	&#10004; I Was There</button>;
+    } else if (!eventHappened && rsvpd) {
+      return <button onClick={this.changeRSVPStatus} className="rsvp-button-checked">	&#10004; Going</button>;
+    }
+
+    if (eventHappened && !rsvpd) {
+      return <button onClick={this.handleArtistClick} className="rsvp-button">See More Events</button>;
+    } else if (!eventHappened && !rsvpd) {
+      return <button onClick={this.changeRSVPStatus} className="rsvp-button">RSVP</button>;
+    }
+  }
+
 
   render() {
+    const event = this.props.event;
+    const venue = this.props.venue;
+
     if (this.state.loading === true) {
       return <div>Loading...</div>
     }
 
-    let event = this.props.event;
-    if (!event) {
-      return null;
-    }
-
-    const eventDate = new Date (this.props.event.event_on);
-    let eventHappened;
-    (Date.parse(eventDate) < Date.now()) ? eventHappened = true : eventHappened = false;
+    const eventDate = new Date (event.event_on)
     let dateString = eventDate.toString().slice(0, 15);
     let timeString = eventDate.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
-
-    let rsvp_button, stubHub_button;
-    if (eventHappened && this.state.rsvpd === true) {
-      rsvp_button = <button onClick={this.changeRSVPStatus} className="rsvp-button-checked">	&#10004; I Was There</button>;
-      stubHub_button = null;
-    } else if (!eventHappened && (this.state.rsvpd === true)) {
-      rsvp_button = <button onClick={this.changeRSVPStatus} className="rsvp-button-checked">	&#10004; Going</button>;
-      stubHub_button = <button className="ticket-button"> <a href="https://www.stubhub.com/">Get Tickets on Stubhub</a></button>;
-    }
-    if (eventHappened && this.state.rsvpd === false) {
-      rsvp_button = <button onClick={this.handleArtistClick} className="rsvp-button">See More Events</button>;
-      stubHub_button = null;
-    } else if (!eventHappened && this.state.rsvpd === false) {
-      rsvp_button = <button onClick={this.changeRSVPStatus} className="rsvp-button">RSVP</button>;
-      stubHub_button = <button className="ticket-button"> <a href="https://www.stubhub.com/">Get Tickets on Stubhub</a></button>;
-    }
 
     return (
       <div className="event-show-component">
@@ -95,11 +108,11 @@ class EventShow extends React.Component {
           <img src={this.props.artist.image} className="artist-image"></img>
           <div className= "event-info">
             <h2 onClick={this.handleArtistClick}>{this.props.artist.name} <img src={bluecheck}/></h2>
-            {dateString} @ {this.props.venue.name}
+            {dateString} @ {venue.name}
               <br></br>
-            {this.props.venue.city}, {this.props.venue.state}
-            {rsvp_button}
-            {stubHub_button}
+            {venue.city}, {venue.state}
+            {this.generateRsvpButton()}
+            {this.generateTicketButton()}
           </div>
         </div>
 
@@ -109,10 +122,10 @@ class EventShow extends React.Component {
               <li className="bold-date-string">{dateString}</li>
               <li className="event-venue-timestring">{timeString}</li>
                 <br></br>
-              <li className="event-venue-name" onClick={this.handleVenueClick}>{this.props.venue.name}</li>
-              <li>{this.props.venue.address } {this.props.venue.city}, {this.props.venue.state}</li>
+              <li className="event-venue-name" onClick={this.handleVenueClick}>{venue.name}</li>
+              <li>{venue.address } {venue.city}, {venue.state}</li>
                 <br></br>
-              <li className='rsvp-display'>{this.props.event.rsvps.length} RSVPs</li>
+              <li className='rsvp-display'>{event.rsvps.length} RSVPs</li>
             </ul>
           </div>
         </div>

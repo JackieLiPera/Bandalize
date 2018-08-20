@@ -10,6 +10,7 @@ class SearchDropdown extends React.Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.clearInput = this.clearInput.bind(this);
+    this.generateResults = this.generateResults.bind(this);
   }
 
   clearInput() {
@@ -26,14 +27,10 @@ class SearchDropdown extends React.Component {
     );
   }
 
-
-
-  render() {
-
-    let results;
+  generateResults() {
     let type;
     if (this.props.results) {
-      results = this.props.results.map(result => {
+      return this.props.results.map((result) => {
         if (result.address) {
           type = "venues"
         } else {
@@ -48,9 +45,7 @@ class SearchDropdown extends React.Component {
         return (
           <li className="search-item" key={result.id}>
             { image }
-            <Link
-              onClick={this.clearInput}
-              to={`/${type}/${result.id}`}>
+            <Link onClick={this.clearInput} to={`/${type}/${result.id}`}>
               <div className="search-name">
                 {`${result.name}`}
               </div>
@@ -61,20 +56,21 @@ class SearchDropdown extends React.Component {
     } else {
       return null;
     }
+  }
 
-
+  render() {
     return (
       <div className="search-results-container">
         <i className="fas fa-search"></i>
-        <input
-          className="search-bar"
-          onChange={this.handleChange}
-          type="text"
-          value={this.state.query}
-          placeholder="Search for artists and venues"
-        />
+          <input
+            className="search-bar"
+            onChange={this.handleChange}
+            type="text"
+            value={this.state.query}
+            placeholder="Search for artists and venues"
+          />
         <ul className="search-results">
-          { results }
+          {this.generateResults()}
         </ul>
       </div>
     );
