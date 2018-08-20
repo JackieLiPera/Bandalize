@@ -24,7 +24,7 @@ class CommentIndexItem extends React.Component {
   }
 
   generateAuthorName() {
-    if (this.comment.user_id === this.currentUser.id) {
+    if (this.currentUser && this.comment.user_id === this.currentUser.id) {
       return this.currentUser.firstname + " " + this.currentUser.lastname;
     } else {
       return this.props.user.firstname + " " +this.props.user.lastname;

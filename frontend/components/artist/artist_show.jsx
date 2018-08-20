@@ -83,7 +83,7 @@ class ArtistShow extends React.Component {
 
   render () {
     const bluecheck = window.bluecheck;
-    const artist = this.props.artist || {};
+    const artist = this.props.artist || null;
 
     if (this.state.loading === true) {
       return <div>Loading...</div>

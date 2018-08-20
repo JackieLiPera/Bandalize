@@ -12,10 +12,7 @@ class VenueShow extends React.Component {
   }
 
   render () {
-    let venue = this.props.venue;
-    if (!venue) {
-      return null;
-    }
+    const venue = this.props.venue;
 
     return (
       <div className="venue-info-component">
@@ -35,7 +32,7 @@ class VenueShow extends React.Component {
             <VenueEventIndex
               key={this.props.venue.id}
               events={this.props.events}
-              artists={this.props.artists}
+              artist={this.props.artists}
               venue={this.props.venue}
               currentUser={this.props.currentUser}
               createRsvp={this.props.createRsvp}

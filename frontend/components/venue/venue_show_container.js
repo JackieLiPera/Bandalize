@@ -4,12 +4,12 @@ import { fetchVenue } from '../../actions/venue_actions';
 import { createRsvp, deleteRsvp } from '../../actions/rsvp_actions';
 
 const msp = (state, ownProps) => {
-  const venue = state.entities.venues[Number(ownProps.match.params.id)];
+  const venue = state.entities.venues[Number(ownProps.match.params.id)] || {};
 
   let artists, events;
   if (venue) {
     artists = state.entities.artists;
-    events = state.entities.events
+    events = state.entities.events;
   }
 
   return {
