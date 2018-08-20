@@ -82,6 +82,8 @@ class ArtistShow extends React.Component {
 
 
   render () {
+    const bluecheck = window.bluecheck;
+    
     let artist = this.props.artist;
     if (!artist) {
       return null;
@@ -91,9 +93,7 @@ class ArtistShow extends React.Component {
       return <div>Loading...</div>
     }
 
-    let bluecheck = window.bluecheck;
     let numTrackers = this.props.artist.trackers.length;
-
     let trackButton = this.generateTrackButton();
 
     const commentForm =

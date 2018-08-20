@@ -73,7 +73,6 @@ class EventShow extends React.Component {
     let dateString = eventDate.toString().slice(0, 15);
     let timeString = eventDate.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
 
-
     let rsvp_button, stubHub_button;
     if (eventHappened && this.state.rsvpd === true) {
       rsvp_button = <button onClick={this.changeRSVPStatus} className="rsvp-button-checked">	&#10004; I Was There</button>;

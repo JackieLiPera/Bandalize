@@ -51,7 +51,7 @@ class EventIndexItem extends React.Component {
     this.props.history.push(`/events/${eventId}`);
   }
 
-  render() {
+  generateRsvpButton() {
     let eventHappened;
     if (Date.parse(this.props.event.event_on) < Date.now()) {
       eventHappened = true
@@ -59,29 +59,30 @@ class EventIndexItem extends React.Component {
       eventHappened = false;
     }
 
-    let rsvpButton;
     if (this.state.rsvpd && !eventHappened) {
-      rsvpButton = <button
+      return <button
         onClick={this.changeRSVPstatus}
         className="artist-rsvp-button-going"
         >&#10004; Going </button>
     } else if (this.state.rsvpd && eventHappened) {
-      rsvpButton = <button
+      return <button
         onClick={this.changeRSVPstatus}
         className="artist-rsvp-button-going"
         >&#10004; I Was There </button>
     } else {
-      rsvpButton = <button
+      return <button
         onClick={this.changeRSVPstatus}
         className="artist-rsvp-button"
         >RSVP</button>
     }
+  }
 
-    let event_venue = this.props.venue || {};
-
-
+  render() {
+    const event_venue = this.props.venue || {};
+    let rsvpButton = this.generateRsvpButton();
     let month = new Date(this.props.event.event_on).toString().slice(4,7);
     let date = new Date(this.props.event.event_on).toString().slice(8,10);
+
     return (
       <li onClick={() => this.handleClick()} >
         <div className="event-date-icon">
