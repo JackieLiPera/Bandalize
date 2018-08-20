@@ -1,7 +1,7 @@
 class Api::UsersController < ApplicationController
 
   def show
-    @user = User.includes(:rsvps, :tracked_artists, :comments).find_by_id(params[:id])
+    @user = User.includes(:rsvps, :comments, :tracked_artists).find_by_id(params[:id])
   end
 
   def create

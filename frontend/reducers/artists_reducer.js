@@ -37,7 +37,9 @@ export default (state = {}, action) => {
       newState[action.comment.artist_id].comments.unshift(action.comment.id);
       return newState;
     case REMOVE_COMMENT:
-      newState[action.artistId].comments.slice(action.commentId, 1);
+      let comments = newState[action.artistId].comments;
+      let commentIdx = comments.indexOf(action.commentId);
+      comments.splice(commentIdx, 1);
       return newState;
     case RECEIVE_SEARCH_RESULTS:
       return merge(newState, action.results);

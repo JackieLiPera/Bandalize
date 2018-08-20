@@ -17,7 +17,7 @@ class CommentIndexItem extends React.Component {
 
   generateDeleteButton() {
     if (this.props.currentUser && this.comment && this.comment.user_id === this.currentUser.id) {
-      return <button className="comment-delete" onClick={() => this.handleDeleteComment(comment.id)}>Delete</button>
+      return <button className="comment-delete" onClick={() => this.handleDeleteComment(this.comment.id)}>Delete</button>
     } else {
       return null;
     }

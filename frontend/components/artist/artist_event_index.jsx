@@ -32,17 +32,17 @@ const ArtistEventIndex = ({ artistEvents = [], venues, events, tracking, current
     const event = events[eventId] || {};
 
     return (
-      <li key={eventId}>
-         <EventIndexItem
-           event={event}
-           venue={venues[event.venue_id]}
-           tracking={tracking}
-           currentUser={currentUser}
-           createRsvp={createRsvp}
-           deleteRsvp={deleteRsvp}
-           rsvps={rsvps}
-          />
-      </li>
+     <EventIndexItem
+       key={eventId}
+       event={event}
+       venue={venues[event.venue_id]}
+       tracking={tracking}
+       currentUser={currentUser}
+       createRsvp={createRsvp}
+       deleteRsvp={deleteRsvp}
+       rsvps={rsvps}
+      />
+
      )
     });
 
