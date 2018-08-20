@@ -2,7 +2,7 @@ class Api::CommentsController < ApplicationController
   before_action :require_logged_in
 
   def create
-    @comment = @current_user.comments.new(comment_params)
+    @comment = @current_user.comments.includes(:user).new(comment_params)
 
     if @comment.save
       render :show

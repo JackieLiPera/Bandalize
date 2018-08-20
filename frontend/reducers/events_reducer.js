@@ -15,7 +15,7 @@ export default (state = {}, action) => {
     case RECEIVE_EVENTS:
     case RECEIVE_VENUE:
     case RECEIVE_ARTIST:
-      return action.events;
+      return merge(newState, action.events);
     case RECEIVE_CURRENT_USER:
     case RECEIVE_ARTISTS:
       return merge({}, state, action.events);

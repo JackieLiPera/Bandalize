@@ -16,7 +16,7 @@ class CommentIndexItem extends React.Component {
   }
 
   generateDeleteButton() {
-    if (this.currentUser && this.comment.user_id === this.currentUser.id) {
+    if (this.props.currentUser && this.comment && this.comment.user_id === this.currentUser.id) {
       return <button className="comment-delete" onClick={() => this.handleDeleteComment(comment.id)}>Delete</button>
     } else {
       return null;
@@ -24,10 +24,10 @@ class CommentIndexItem extends React.Component {
   }
 
   generateAuthorName() {
-    if (this.currentUser && this.comment.user_id === this.currentUser.id) {
+    if (this.props.currentUser && this.comment.user_id === this.currentUser.id) {
       return this.currentUser.firstname + " " + this.currentUser.lastname;
-    } else {
-      return this.props.user.firstname + " " +this.props.user.lastname;
+    } else if (this.props.user) {
+      return this.props.user.firstname + " " + this.props.user.lastname;
     }
   }
 
@@ -38,15 +38,15 @@ class CommentIndexItem extends React.Component {
 
     return (
       <li key={comment.id}>
-        <span className="comment-author">{this.generateAuthorName()}</span>
+        <span className="comment-author">{ this.generateAuthorName() }</span>
         <br></br>
         <span className="comment-created-at">{comment.createdAt}</span>
         <div className="comment-body">
           <span>{comment.body}</span>
-          {this.generateDeleteButton()}
+          { this.generateDeleteButton() }
         </div>
-    </li>
-    );
+      </li>
+    )
   }
 }
 

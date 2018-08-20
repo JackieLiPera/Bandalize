@@ -25,6 +25,12 @@ class ArtistShow extends React.Component {
     );
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.match.params.id !== this.props.match.params.id) {
+      this.props.fetchArtist(nextProps.match.params.id);
+    }
+  }
+
   handleTracking() {
     const currentUser = this.props.currentUser;
     const artist = this.props.artist;
@@ -83,7 +89,7 @@ class ArtistShow extends React.Component {
 
   render () {
     const bluecheck = window.bluecheck;
-    const artist = this.props.artist || null;
+    const artist = this.props.artist || {};
 
     if (this.state.loading === true) {
       return <div>Loading...</div>
@@ -98,6 +104,7 @@ class ArtistShow extends React.Component {
             <button>Submit</button>
           </div>
     </form>;
+
 
     return (
       <div className="artist-show-component">

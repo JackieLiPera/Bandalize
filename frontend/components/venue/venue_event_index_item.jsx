@@ -76,7 +76,6 @@ class VenueEventIndexItem extends React.Component {
 
     return (
       <div className="venue-event-list-div" onClick={this.handleClick}>
-
         <div className="event-date-icon">
           <span className='month'>{month}</span>
           {date}
@@ -85,7 +84,6 @@ class VenueEventIndexItem extends React.Component {
         <span className="venue-event-index-text">{this.props.artist.name}</span>
           { this.generateRsvpButton() }
       </div>
-
     );
   }
 }

@@ -78,7 +78,7 @@ class EventIndexItem extends React.Component {
   }
 
   render() {
-    const event_venue = this.props.venue || {};
+    const eventVenue = this.props.venue || {};
     const month = new Date(this.props.event.event_on).toString().slice(4,7);
     const date = new Date(this.props.event.event_on).toString().slice(8,10);
 
@@ -89,7 +89,7 @@ class EventIndexItem extends React.Component {
           {date}
         </div>
         <div className="event-index-text">
-          {event_venue.name}<span> </span>{event_venue.city}, {event_venue.state}
+          {eventVenue.name}<span> </span>{eventVenue.city}, {eventVenue.state}
         </div>
         {this.generateRsvpButton()}
       </li>

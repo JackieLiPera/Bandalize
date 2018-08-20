@@ -9,12 +9,11 @@ import { createComment, deleteComment } from '../../actions/comment_actions';
 const msp = (state, ownProps) => {
   const currentUser = state.session.currentUser;
   const artistId = ownProps.match.params.id;
-  const artist = state.entities.artists[artistId];
+  const artist = state.entities.artists[artistId] || {};
 
   let tracking, tour;
   (currentUser) ? tracking = currentUser.tracked_artists.includes(Number(artistId)) : tracking = false;
   (artist && artist.on_tour === true) ? tour = "On Tour" : tour = "";
-
 
   return {
     artist,

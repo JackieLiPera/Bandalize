@@ -1,7 +1,7 @@
 class Api::EventsController < ApplicationController
 
   def show
-    @event = Event.includes(:rsvps, :artist, :venue).find(params[:id])
+    @event = Event.includes(:rsvps, :venue, artist: [photo_attachment: :blob]).find(params[:id])
     if @event
       render :show
     else
@@ -10,6 +10,6 @@ class Api::EventsController < ApplicationController
   end
 
   def index
-    @events = Event.all.includes(:venue, :artist)
+    @events = Event.all.includes(:venue, artist: [photo_attachment: :blob])
   end
 end
