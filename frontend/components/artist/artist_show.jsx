@@ -102,7 +102,7 @@ class ArtistShow extends React.Component {
     const artist = this.props.artist || {};
 
     if (this.state.loading === true) {
-      return <div>Loading...</div>
+      return <img className="loading" src={window.loadingGif}></img>
     }
 
     const commentForm =

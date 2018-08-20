@@ -20,9 +20,9 @@ class UserShow extends React.Component {
 
   render() {
     const currentUser = this.props.currentUser || {};
-
+    
     if (this.state.loading === true) {
-      return <div>Loading...</div>
+      return <img className="loading" src={window.loadingGif}></img>
     }
 
     return (

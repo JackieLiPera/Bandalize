@@ -97,9 +97,9 @@ class EventShow extends React.Component {
   render() {
     const event = this.props.event;
     const venue = this.props.venue;
-
+    
     if (this.state.loading === true) {
-      return <div>Loading...</div>
+      return <img className="loading" src={window.loadingGif}></img>
     }
 
     const eventDate = new Date (event.event_on)

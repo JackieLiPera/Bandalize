@@ -5,6 +5,10 @@ import VenueMap from './venue_map';
 class VenueShow extends React.Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      loading : false
+    }
   }
 
   componentDidMount() {
@@ -13,6 +17,10 @@ class VenueShow extends React.Component {
 
   render () {
     const venue = this.props.venue;
+
+    if (this.state.loading === true) {
+      return <img className="loading" src={window.loadingGif}></img>
+    }
 
     return (
       <div className="venue-info-component">
