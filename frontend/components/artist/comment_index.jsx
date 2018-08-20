@@ -17,6 +17,7 @@ class CommentIndex extends React.Component{
             currentUser={this.props.currentUser}
             deleteComment={this.props.deleteComment}
             artist={this.props.artist.id}
+            user={this.props.users[this.props.comments[commentId].user_id]}
             />
         ))}
       </ul>

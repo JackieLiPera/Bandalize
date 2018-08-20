@@ -40,7 +40,7 @@ export default (state = {}, action) => {
       newState[action.artistId].comments.slice(action.commentId, 1);
       return newState;
     case RECEIVE_SEARCH_RESULTS:
-      return merge({}, state, action.results)
+      return merge(newState, action.results);
     default:
       return state;
   }

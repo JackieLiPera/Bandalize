@@ -22,8 +22,17 @@ class CommentIndexItem extends React.Component {
       deleteButton = null;
     }
 
+    let author;
+    if (comment.user_id === currentUser.id) {
+      author = currentUser.firstname + " " + currentUser.lastname;
+    } else {
+      author = this.props.user.firstname + " " +this.props.user.lastname;
+    }
+
     return (
       <li key={comment.id}>
+        <span className="comment-author">{author}</span>
+        <br></br>
         <span className="comment-created-at">{comment.createdAt}</span>
         <div className="comment-body">
           <span>{comment.body}</span>

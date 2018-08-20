@@ -176,7 +176,6 @@
   border-bottom: 1px solid #d8d8d8;
   box-shadow: 0 3px 15px 0 rgba(0,0,0,.09);
   color: black;
-  margin-top: 2px;
   padding: 20px 20px;
   box-sizing: border-box;
 }
@@ -236,7 +235,7 @@
 }
 
 .comment-created-at {
-  color: #8f8f8f;
+  color: #bdbaba;
   font-size: 12px;
   margin-bottom: 10px;
 }
@@ -252,6 +251,10 @@
   font-family: helvetica;
   font-size: 18px;
   letter-spacing: .6px;
+}
+
+.comment-author {
+  font-weight: bold;
 }
 
 .comment-delete {

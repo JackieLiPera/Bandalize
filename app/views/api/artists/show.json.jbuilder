@@ -43,3 +43,11 @@ json.rsvps do
     end
   end
 end
+
+json.users do
+  @artist.comments.each do |comment|
+    json.set! comment.user_id do
+      json.extract! comment.user, :firstname, :lastname
+    end
+  end
+end

@@ -11,8 +11,7 @@ const msp = (state, ownProps) => {
   const artistId = ownProps.match.params.id;
   const artist = state.entities.artists[artistId];
 
-  let tracking;
-  let tour;
+  let tracking, tour;
   (currentUser) ? tracking = currentUser.tracked_artists.includes(Number(artistId)) : tracking = false;
   (artist && artist.on_tour === true) ? tour = "On Tour" : tour = "";
 
@@ -25,6 +24,7 @@ const msp = (state, ownProps) => {
     comments: state.entities.comments,
     trackings: state.entities.trackings,
     rsvps: Object.values(state.entities.rsvps),
+    users: state.entities.users,
     tracking,
     tour
   }

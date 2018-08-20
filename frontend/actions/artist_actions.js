@@ -9,14 +9,15 @@ export const receiveArtists = (artists) => {
   }
 };
 
-export const receiveArtist = ({ artist, events = [], venues= [], comments = [], trackings = [] }) => {
+export const receiveArtist = ({ artist, events = [], venues= [], comments = [], trackings = [], users= [] }) => {
   return {
     type: RECEIVE_ARTIST,
     artist,
     events,
     venues,
     comments,
-    trackings
+    trackings,
+    users
   }
 };
 

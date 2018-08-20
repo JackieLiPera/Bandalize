@@ -15,13 +15,13 @@ class PopularEventIndexItem extends React.Component {
     }
 
 
-    let day = new Date(this.props.event.event_on).toString().slice(0,3).toUpperCase();
-    let date = new Date(this.props.event.event_on).toString().slice(8,10);
-    let month = new Date(this.props.event.event_on).toString().slice(4,7).toUpperCase();
+    let day = new Date(event.event_on).toString().slice(0,3).toUpperCase();
+    let date = new Date(event.event_on).toString().slice(8,10);
+    let month = new Date(event.event_on).toString().slice(4,7).toUpperCase();
     return(
       <Link className="link" to={`events/${event.id}`}>
         <div className="popular-event-index-item">
-          <div><img className='imager'src={this.props.artist.image}></img></div>
+          <div><img className='imager'src={artist.image}></img></div>
           <div className="date-box">
             <span className="grey-date">{day}</span>
             <br></br>
@@ -31,7 +31,7 @@ class PopularEventIndexItem extends React.Component {
           </div>
           <div className="event-link">
 
-              {this.props.artist.name}
+              {artist.name}
               <br></br>
               <span className="event-index-venue-name">{this.props.venue.name}</span>
 

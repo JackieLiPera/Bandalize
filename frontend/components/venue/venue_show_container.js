@@ -6,16 +6,17 @@ import { createRsvp, deleteRsvp } from '../../actions/rsvp_actions';
 const msp = (state, ownProps) => {
   const venue = state.entities.venues[Number(ownProps.match.params.id)];
 
-  let artists;
+  let artists, events;
   if (venue) {
     artists = state.entities.artists;
+    events = state.entities.events
   }
 
   return {
     venue,
     artists,
+    events,
     currentUser: state.session.currentUser,
-    events: state.entities.events,
     rsvps: Object.values(state.entities.rsvps)
   }
 };
