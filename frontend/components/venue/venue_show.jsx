@@ -32,7 +32,7 @@ class VenueShow extends React.Component {
             <VenueEventIndex
               key={this.props.venue.id}
               events={this.props.events}
-              artist={this.props.artists}
+              artists={this.props.artists}
               venue={this.props.venue}
               currentUser={this.props.currentUser}
               createRsvp={this.props.createRsvp}
