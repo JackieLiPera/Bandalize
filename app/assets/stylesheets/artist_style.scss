@@ -248,6 +248,12 @@
   margin: 10px 0px;
 }
 
+.comment-body span {
+  font-family: helvetica;
+  font-size: 18px;
+  letter-spacing: .6px;
+}
+
 .comment-delete {
   height: 34px;
   width: 70px;
@@ -285,4 +291,9 @@
 
 .genre h3 {
   font-weight: bold;
+}
+
+a {
+  text-decoration: none;
+  color: black;
 }

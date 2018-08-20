@@ -16,7 +16,7 @@ class ArtistShow extends React.Component {
     this.handleCommentSubmit = this.handleCommentSubmit.bind(this);
     this.handleCommentChange = this.handleCommentChange.bind(this);
     this.handlePictureUpload = this.handlePictureUpload.bind(this);
-    this.trackButton = this.generateTrackButton();
+    this.generateTrackButton = this.generateTrackButton.bind(this);
   }
 
   componentDidMount() {
@@ -30,16 +30,26 @@ class ArtistShow extends React.Component {
     const artist = this.props.artist;
     const track = this.props.trackings[currentUser.id];
 
-    if (this.state.isTracking === true ) {
-      this.props.deleteTracking(track.id, artist.id).then(this.generateTrackButton());
-      this.setState({
-        isTracking: false
-      });
+    if (this.state.isTracking) {
+        this.props.deleteTracking(track.id, artist.id).then(
+          this.setState({ isTracking: false }
+        )).then(
+            this.generateTrackButton.bind(this)
+          );
     } else {
-      this.props.createTracking(currentUser.id, artist.id).then(this.generateTrackButton());
-      this.setState({
-        isTracking: true
-      });
+      this.props.createTracking(currentUser.id, artist.id).then(
+        this.setState({ isTracking: true }
+        )).then(
+          this.generateTrackButton.bind(this)
+        );
+    };
+  }
+
+  generateTrackButton() {
+    if (this.state.isTracking) {
+      return <button onClick={this.handleTracking} className="artist-track-button-going">	&#10004; Tracked</button>
+    } else {
+      return <button onClick={this.handleTracking} className="artist-track-button">Track</button>
     };
   }
 
@@ -70,13 +80,6 @@ class ArtistShow extends React.Component {
     this.props.processForm(formData);
   }
 
-  generateTrackButton() {
-    if (this.state.isTracking === true) {
-      return <button onClick={this.handleTracking} className="artist-track-button-going">	&#10004; Tracked</button>
-    } else {
-      return <button onClick={this.handleTracking} className="artist-track-button">Track</button>
-    };
-  }
 
   render () {
     let artist = this.props.artist;
@@ -91,6 +94,7 @@ class ArtistShow extends React.Component {
     let bluecheck = window.bluecheck;
     let numTrackers = this.props.artist.trackers.length;
 
+    let trackButton = this.generateTrackButton();
 
     const commentForm =
     <form  className="comment-form" onSubmit={this.handleCommentSubmit}>
@@ -113,7 +117,7 @@ class ArtistShow extends React.Component {
                 <li><span className="trackers-info">{numTrackers} Trackers</span> · <span className="tour-info">{this.props.tour}</span></li>
               </ul>
             </div>
-            {this.trackButton}
+            {trackButton}
           </div>
           <span className="artist-show-headers">About {`${artist.name}`}</span>
           <div className="artist-bio">

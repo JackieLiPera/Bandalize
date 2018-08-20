@@ -10,12 +10,14 @@ export default (state = {}, action)  => {
   let newRsvps;
   switch (action.type) {
     case RECEIVE_TRACKING:
-      let newTrackings = state.currentUser.tracked_artists.slice();
-      newTrackings.push(action.tracking.artist_id);
-      return merge({}, state, {currentUser: {tracked_events: newTrackings}});
+      let newTrackedArtist = state.currentUser.tracked_artists.slice();
+      newTrackedArtist.push(action.tracking.artist_id);
+      return merge({}, state, {currentUser: {tracked_events: newTrackedArtist}});
     case REMOVE_TRACKING:
-      newState = merge({}, state, action.artistId);
-      delete newState[action.artistId];
+      let trackedArtists = newState["currentUser"].tracked_artists;
+      let artistIdx = trackedArtists.indexOf(action.artistId);
+      trackedArtists.splice(artistIdx, 1);
+      newState["currentUser"].tracked_artists = trackedArtists;
       return newState;
     case RECEIVE_RSVP:
       newRsvps = state.currentUser.rsvp_events.slice();
