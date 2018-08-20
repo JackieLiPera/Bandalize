@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import EventShow from './event_show';
 import { fetchEvent } from '../../actions/event_actions';
 import { createRsvp, deleteRsvp } from '../../actions/rsvp_actions';
+import { openModal } from '../../actions/modal_actions';
 
 const msp = (state, ownProps) => {
 
@@ -27,7 +28,8 @@ const mdp = (dispatch) => {
   return {
     fetchEvent: (id) => dispatch(fetchEvent(id)),
     createRsvp: (userId, eventId) => dispatch(createRsvp(userId, eventId)),
-    deleteRsvp: (userId, eventId) => dispatch(deleteRsvp(userId, eventId))
+    deleteRsvp: (userId, eventId) => dispatch(deleteRsvp(userId, eventId)),
+    openModal: (modal) => dispatch(openModal(modal))
   }
 };
 

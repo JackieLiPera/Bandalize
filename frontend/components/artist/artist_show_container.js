@@ -4,7 +4,7 @@ import { fetchArtist } from '../../actions/artist_actions';
 import { createTracking, deleteTracking } from '../../actions/tracking_actions';
 import { createRsvp, deleteRsvp } from '../../actions/rsvp_actions';
 import { createComment, deleteComment } from '../../actions/comment_actions';
-
+import { openModal } from '../../actions/modal_actions';
 
 const msp = (state, ownProps) => {
   const currentUser = state.session.currentUser;
@@ -37,7 +37,8 @@ const mdp = (dispatch) => {
     createRsvp: (userId, eventId) => dispatch(createRsvp(userId, eventId)),
     deleteRsvp: (rsvpId, eventId) => dispatch(deleteRsvp(rsvpId, eventId)),
     processForm: (formData) => dispatch(createComment(formData)),
-    deleteComment: (commentId, artistId) => dispatch(deleteComment(commentId, artistId))
+    deleteComment: (commentId, artistId) => dispatch(deleteComment(commentId, artistId)),
+    openModal: (modal) => dispatch(openModal(modal))
   }
 };
 

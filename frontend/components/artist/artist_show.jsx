@@ -33,9 +33,13 @@ class ArtistShow extends React.Component {
 
   handleTracking() {
     const currentUser = this.props.currentUser;
+    if (!currentUser) {
+      this.props.openModal('login');
+      return;
+    }
+
     const artist = this.props.artist;
     const track = this.props.trackings[currentUser.id];
-
     if (this.state.isTracking) {
         this.props.deleteTracking(track.id, artist.id).then(
           this.setState({ isTracking: false }
@@ -73,6 +77,12 @@ class ArtistShow extends React.Component {
 
   handleCommentSubmit(e) {
     e.preventDefault();
+
+    if (!this.props.currentUser) {
+      this.props.openModal('login');
+      return;
+    }
+
     const formData = new FormData();
     formData.append('comment[body]', this.state.comment);
     formData.append('comment[user_id]', this.props.currentUser.id);
@@ -139,6 +149,7 @@ class ArtistShow extends React.Component {
             deleteRsvp={this.props.deleteRsvp}
             rsvps={this.props.rsvps}
             artistEvents={artist.artist_events}
+            openModal={this.props.openModal}
             />
           <div className="comments">
             {commentForm}

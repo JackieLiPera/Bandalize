@@ -27,6 +27,11 @@ class EventShow extends React.Component {
     const currentUser = this.props.currentUser;
     const event = this.props.event;
 
+    if (!currentUser) {
+      this.props.openModal('login');
+      return;
+    }
+
     if (this.state.rsvpd) {
       let rsvpId;
       rsvps.forEach ((rsvp) => {
@@ -34,7 +39,6 @@ class EventShow extends React.Component {
           rsvpId = rsvp.id;
         }
       });
-
 
       this.props.deleteRsvp(rsvpId, event.id);
         this.setState({

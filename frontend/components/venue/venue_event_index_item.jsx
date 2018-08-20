@@ -25,6 +25,12 @@ class VenueEventIndexItem extends React.Component {
 
   changeRSVPstatus(e) {
     e.stopPropagation();
+
+    if (!this.props.currentUser) {
+      this.props.openModal('login');
+      return;
+    }
+
     if (this.state.rsvpd) {
 
       const rsvps = this.props.rsvps;

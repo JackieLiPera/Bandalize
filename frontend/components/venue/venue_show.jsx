@@ -39,6 +39,7 @@ class VenueShow extends React.Component {
               deleteRsvp={this.props.deleteRsvp}
               rsvps={this.props.rsvps}
               venueEvents={venue.venue_events}
+              openModal={this.props.openModal}
               />
         </div>
         </div>
