@@ -9,6 +9,8 @@
     "lodash": "^4.17.10",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
+    "react-geolocated": "^2.4.0",
+    "react-geolocation": "^1.0.4",
     "react-icons": "^2.2.7",
     "react-modal": "^3.5.1",
     "react-redux": "^5.0.7",

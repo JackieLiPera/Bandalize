@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PopularEventIndexItem from './popular_event_index_item';
+import { geolocated } from 'react-geolocated';
+
 
 class EventIndex extends React.Component {
   constructor (props) {
@@ -8,13 +10,23 @@ class EventIndex extends React.Component {
     this.state = {
       loading: true
     }
+
     this.generateLocalEvents = this.generateLocalEvents.bind(this);
+    this.getUserLocation = this.getUserLocation.bind(this);
   }
+
 
   componentDidMount() {
     this.props.fetchEvents().then(
       success => this.setState({ loading: false })
     )
+  }
+
+  componentWillReceiveProps(nextProps) {
+    debugger
+    if (this.props.coords !== nextProps.coords) {
+
+    }
   }
 
   shuffle(arr) {
@@ -36,6 +48,15 @@ class EventIndex extends React.Component {
       </li>
     });
   }
+
+  getUserLocation() {
+    // !this.props.isGeolocationAvailable
+    // ? <div>Your browser does not support Geolocation</div>
+    // : !this.props.isGeolocationEnabled
+    // ? <div>Geolocation is not enabled</div>
+    // : this.props.coords
+}
+
 
   render () {
     if (this.state.loading === true) {
@@ -97,4 +118,9 @@ class EventIndex extends React.Component {
   }
 };
 
-export default EventIndex;
+export default geolocated({
+  positionOptions: {
+    enableHighAccuracy: false,
+  },
+  userDecisionTimeout: 5000
+})(EventIndex);
