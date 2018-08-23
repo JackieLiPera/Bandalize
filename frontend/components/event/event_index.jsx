@@ -12,7 +12,7 @@ class EventIndex extends React.Component {
     }
 
     this.generateLocalEvents = this.generateLocalEvents.bind(this);
-    this.getUserLocation = this.getUserLocation.bind(this);
+    // this.getUserLocation = this.getUserLocation.bind(this);
   }
 
 
@@ -22,12 +22,11 @@ class EventIndex extends React.Component {
     )
   }
 
-  componentWillReceiveProps(nextProps) {
-    debugger
-    if (this.props.coords !== nextProps.coords) {
-
-    }
-  }
+  // componentWillReceiveProps(nextProps) {
+  //   if (this.props.coords !== nextProps.coords) {
+  //
+  //   }
+  // }
 
   shuffle(arr) {
     for (let i = arr.length - 1; i > 0; i--) {
@@ -49,13 +48,13 @@ class EventIndex extends React.Component {
     });
   }
 
-  getUserLocation() {
-    // !this.props.isGeolocationAvailable
-    // ? <div>Your browser does not support Geolocation</div>
-    // : !this.props.isGeolocationEnabled
-    // ? <div>Geolocation is not enabled</div>
-    // : this.props.coords
-}
+  // getUserLocation() {
+  //   !this.props.isGeolocationAvailable
+  //   ? <div>Your browser does not support Geolocation</div>
+  //   : !this.props.isGeolocationEnabled
+  //   ? <div>Geolocation is not enabled</div>
+  //   : this.props.coords
+  // }
 
 
   render () {
@@ -118,9 +117,11 @@ class EventIndex extends React.Component {
   }
 };
 
-export default geolocated({
-  positionOptions: {
-    enableHighAccuracy: false,
-  },
-  userDecisionTimeout: 5000
-})(EventIndex);
+// export default geolocated({
+//   positionOptions: {
+//     enableHighAccuracy: false,
+//   },
+//   userDecisionTimeout: 5000
+// })(EventIndex);
+
+export default EventIndex;

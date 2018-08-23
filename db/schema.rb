@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_19_140550) do
+ActiveRecord::Schema.define(version: 2018_08_23_013708) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_trgm"
@@ -44,7 +44,6 @@ ActiveRecord::Schema.define(version: 2018_08_19_140550) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "bio"
-    t.index ["name"], name: "index_artists_on_name"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -53,6 +52,8 @@ ActiveRecord::Schema.define(version: 2018_08_19_140550) do
     t.integer "artist_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["artist_id"], name: "index_comments_on_artist_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "events", force: :cascade do |t|
@@ -73,6 +74,8 @@ ActiveRecord::Schema.define(version: 2018_08_19_140550) do
   create_table "rsvps", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "event_id", null: false
+    t.index ["event_id"], name: "index_rsvps_on_event_id"
+    t.index ["user_id"], name: "index_rsvps_on_user_id"
   end
 
   create_table "trackings", force: :cascade do |t|
@@ -80,6 +83,8 @@ ActiveRecord::Schema.define(version: 2018_08_19_140550) do
     t.integer "artist_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["artist_id"], name: "index_trackings_on_artist_id"
+    t.index ["user_id"], name: "index_trackings_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -90,7 +95,6 @@ ActiveRecord::Schema.define(version: 2018_08_19_140550) do
     t.datetime "updated_at", null: false
     t.string "firstname", null: false
     t.string "lastname", null: false
-    t.index ["email"], name: "index_users_on_email", unique: true
   end
 
   create_table "venues", force: :cascade do |t|
