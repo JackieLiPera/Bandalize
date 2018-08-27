@@ -20,12 +20,12 @@ export default (state = {}, action) => {
     case RECEIVE_ARTISTS:
       return merge({}, state, action.events);
     case RECEIVE_RSVP:
-      newState[action.rsvp.event_id].rsvps.push(action.rsvp.user_id);
+      newState[action.rsvp.event_id].rsvps.push(action.rsvp.id);
       return newState;
     case REMOVE_RSVP:
       let rsvps = newState[action.eventId].rsvps;
-      let userIdx = rsvps.indexOf(action.userId);
-      rsvps.splice(userIdx, 1);
+      let rsvpIdx = rsvps.indexOf(action.rsvpId);
+      rsvps.splice(rsvpIdx, 1);
       newState[action.eventId].rsvps = rsvps;
       return newState;
     default:

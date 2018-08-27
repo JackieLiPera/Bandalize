@@ -32,7 +32,6 @@ class EventIndexItem extends React.Component {
     if (this.state.rsvpd) {
       const rsvps = this.props.rsvps;
       let rsvpId;
-
       rsvps.forEach ((rsvp) => {
         if (rsvp.user_id === this.props.currentUser.id) {
           rsvpId = rsvp.id;

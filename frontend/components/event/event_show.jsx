@@ -34,12 +34,14 @@ class EventShow extends React.Component {
 
     if (this.state.rsvpd) {
       let rsvpId;
+      debugger
       rsvps.forEach ((rsvp) => {
         if (rsvp.user_id === currentUser.id) {
           rsvpId = rsvp.id;
         }
       });
 
+      debugger
       this.props.deleteRsvp(rsvpId, event.id);
         this.setState({
           rsvpd: false
@@ -97,7 +99,7 @@ class EventShow extends React.Component {
   render() {
     const event = this.props.event;
     const venue = this.props.venue;
-    
+
     if (this.state.loading === true) {
       return <img className="loading" src={window.loadingGif}></img>
     }

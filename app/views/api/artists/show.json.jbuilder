@@ -4,15 +4,15 @@ json.artist do
 end
 
 json.events do
-  @events.each do |event|
+  @artist.events.each do |event|
     json.set! event.id do
-      json.extract! event, :id, :event_on, :venue_id
+      json.extract! event, :id, :event_on, :venue_id, :rsvp_ids
     end
   end
 end
 
 json.venues do
-  @venues.each do |venue|
+  @artist.venues.each do |venue|
     json.set! venue.id do
       json.extract! venue, :id, :name, :address, :city, :state, :country
     end
@@ -28,7 +28,7 @@ json.comments do
 end
 
 json.trackings do
-  @trackings.each do |tracking|
+  @artist.trackings.each do |tracking|
     json.set! tracking.user_id do
       json.extract! tracking, :id, :user_id
     end
@@ -36,7 +36,7 @@ json.trackings do
 end
 
 json.rsvps do
-  @rsvps.each do |rsvp|
+  @artist.rsvps.each do |rsvp|
     json.set! rsvp.id do
       json.extract! rsvp, :id, :user_id
     end
