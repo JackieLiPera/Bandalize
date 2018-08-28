@@ -14,7 +14,7 @@ const msp = (state, ownProps) => {
   let tracking, tour;
   (currentUser) ? tracking = currentUser.tracked_artists.includes(Number(artistId)) : tracking = false;
   (artist && artist.on_tour === true) ? tour = "On Tour" : tour = "";
-  
+
   return {
     artist,
     events: state.entities.events,

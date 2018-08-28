@@ -4,7 +4,7 @@ json.artist do
 end
 
 json.events do
-  @artist.events.each do |event|
+  @events.each do |event|
     json.set! event.id do
       json.extract! event, :id, :event_on, :venue_id, :rsvp_ids
     end
@@ -20,7 +20,7 @@ json.venues do
 end
 
 json.comments do
-  @comments.each do |comment|
+  @artist.comments.each do |comment|
     json.set! comment.id do
       json.partial! '/api/comments/comment', comment: comment
     end

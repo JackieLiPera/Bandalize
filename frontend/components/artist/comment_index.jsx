@@ -2,15 +2,15 @@ import React from 'react';
 import CommentIndexItem from './comment_index_item';
 
 
-const CommentIndex = ({ artistComments = [], comments, currentUser, deleteComment, artist, users }) => {
+const CommentIndex = ({ comments, currentUser, deleteComment, artist, users }) => {
   let CommentIndexItems;
 
-  if (artistComments.length === 0) {
+  if (artist.comments.length === 0) {
     CommentIndexItems = <div> There are no reviews yet! </div>
   } else {
-    CommentIndexItems = artistComments.map((commentId) => {
+    CommentIndexItems = artist.comments.map((commentId) => {
       const comment = comments[commentId] || {};
-      
+
       return (
         <CommentIndexItem
           key={commentId}

@@ -1,14 +1,13 @@
 class Api::ArtistsController < ApplicationController
 
   def show
-    @artist = Artist.find_by_id(params[:id])
+    @artist = Artist.includes(:comments).order("comments.created_at DESC").find_by_id(params[:id])
     @trackings = @artist.trackings
     @events = @artist.events.order("events.event_on ASC")
     @venues = @artist.venues
     @rsvps = @artist.rsvps
-    @comments = @artist.comments.order("comments.created_at DESC")
 
-    user_ids = @comments.map do |comment|
+    user_ids = @artist.comments.map do |comment|
       comment.user_id
     end
 

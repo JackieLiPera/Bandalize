@@ -3,8 +3,9 @@ class Api::CommentsController < ApplicationController
 
   def create
     @comment = Comment.with_attached_photo.includes(:user).new(comment_params)
+    optional_photo = params[:comment][:photo]
 
-    unless params[:comment][:photo] == "null" || params[:comment][:photo] == "undefined"
+    unless optional_photo == "undefined" || optional_photo == "null"
       @comment.photo.attach(params[:comment][:photo]) if params[:comment][:photo]
     end
 
