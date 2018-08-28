@@ -8,11 +8,15 @@ class EventIndex extends React.Component {
   constructor (props) {
     super(props);
     this.state = {
-      loading: true
+      latitude: null,
+      longitude: null,
+      city: null,
+      state: null,
+      loading: true,
+      error: null
     }
 
     this.generateLocalEvents = this.generateLocalEvents.bind(this);
-    // this.getUserLocation = this.getUserLocation.bind(this);
   }
 
 
@@ -22,11 +26,35 @@ class EventIndex extends React.Component {
     )
   }
 
-  // componentWillReceiveProps(nextProps) {
-  //   if (this.props.coords !== nextProps.coords) {
-  //
-  //   }
-  // }
+  componentWillMount() {
+    navigator.geolocation.getCurrentPosition( (position) => {
+      this.setState( {
+        latitude: position.coords.latitude,
+        longitude: position.coords.longitude,
+        error: null,
+      }, () => this.getGeocode());
+    },
+     (error) => this.setState({ error: error.message }),
+     { enableHighAccuracy: true, timeout: 20000 },
+   );
+
+  }
+
+  getGeocode() {
+    fetch('https://maps.googleapis.com/maps/api/geocode/json?address='+ this.state.latitude +','+ this.state.longitude +'&key=AIzaSyAPjYkDq0-iiCd6W5-qCw46J-r0EW39L1U') // be sure your api key is correct and has access to the geocode api
+    .then( response => response.json() ).then( (data) => {
+        let address = data.results[0].formatted_address.split(' ');
+        this.setState({
+            city: address[3] + " " + address[4],
+            state: address[5]
+        });
+
+        console.log(address)
+     }).catch((error) => {
+       this.setState({ error: error.message })
+     });
+  }
+
 
   shuffle(arr) {
     for (let i = arr.length - 1; i > 0; i--) {
@@ -48,14 +76,6 @@ class EventIndex extends React.Component {
     });
   }
 
-  // getUserLocation() {
-  //   !this.props.isGeolocationAvailable
-  //   ? <div>Your browser does not support Geolocation</div>
-  //   : !this.props.isGeolocationEnabled
-  //   ? <div>Geolocation is not enabled</div>
-  //   : this.props.coords
-  // }
-
 
   render () {
     if (this.state.loading === true) {
@@ -67,7 +87,7 @@ class EventIndex extends React.Component {
 
     return (
       <div className="event-index-container">
-        <h2>Popular Events Near <span className="location-selector">New York, NY
+        <h2>Popular Events Near <span className="location-selector">{' '}{this.state.city} {this.state.state}
           <img className="teal-x" src={image}/></span>
           <div className="events-container">
             <ul className="events-list">
@@ -116,12 +136,5 @@ class EventIndex extends React.Component {
 
   }
 };
-
-// export default geolocated({
-//   positionOptions: {
-//     enableHighAccuracy: false,
-//   },
-//   userDecisionTimeout: 5000
-// })(EventIndex);
 
 export default EventIndex;
