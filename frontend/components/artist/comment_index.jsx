@@ -10,7 +10,7 @@ const CommentIndex = ({ artistComments = [], comments, currentUser, deleteCommen
   } else {
     CommentIndexItems = artistComments.map((commentId) => {
       const comment = comments[commentId] || {};
-
+      
       return (
         <CommentIndexItem
           key={commentId}

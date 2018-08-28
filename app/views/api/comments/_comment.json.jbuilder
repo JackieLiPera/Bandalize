@@ -1,6 +1,8 @@
 photo = nil
 if comment.photo.attached?
   photo = url_for(comment.photo)
+else
+  photo = nil
 end
 
 json.extract! comment, :id, :body, :user_id, :artist_id

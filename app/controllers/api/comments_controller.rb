@@ -2,7 +2,11 @@ class Api::CommentsController < ApplicationController
   before_action :require_logged_in
 
   def create
-    @comment = @current_user.comments.includes(:user).new(comment_params)
+    @comment = Comment.with_attached_photo.includes(:user).new(comment_params)
+
+    unless params[:comment][:photo] == "null" || params[:comment][:photo] == "undefined"
+      @comment.photo.attach(params[:comment][:photo]) if params[:comment][:photo]
+    end
 
     if @comment.save
       render :show

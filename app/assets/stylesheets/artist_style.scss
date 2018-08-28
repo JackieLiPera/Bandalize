@@ -2,7 +2,7 @@
   background-color: #ededed;
   display: flex;
   justify-content: center;
-  height: -webkit-fill-available;
+  height: 100%;
 }
 
 .artist-show-container {
@@ -243,7 +243,7 @@
 
 .comment-body {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
   margin: 10px 0px;
 }
@@ -301,4 +301,9 @@
 a {
   text-decoration: none;
   color: black;
+}
+
+.comment-photo {
+  width: 45%;
+  height: 45%;
 }

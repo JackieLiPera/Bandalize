@@ -34,14 +34,14 @@ class EventShow extends React.Component {
 
     if (this.state.rsvpd) {
       let rsvpId;
-      debugger
+
       rsvps.forEach ((rsvp) => {
         if (rsvp.user_id === currentUser.id) {
           rsvpId = rsvp.id;
         }
       });
 
-      debugger
+      
       this.props.deleteRsvp(rsvpId, event.id);
         this.setState({
           rsvpd: false

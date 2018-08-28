@@ -6,9 +6,9 @@ class Artist < ApplicationRecord
 
   has_many :events
   has_many :venues, through: :events, source: :venue
-  has_many :trackings
+  has_many :trackings, dependent: :destroy
   has_many :trackers, through: :trackings, source: :user
-  has_many :comments
+  has_many :comments, dependent: :destroy
   has_many :rsvps, through: :events, source: :rsvps
   has_one_attached :photo
 end
