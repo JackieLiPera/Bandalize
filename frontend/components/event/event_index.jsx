@@ -11,7 +11,6 @@ class EventIndex extends React.Component {
       latitude: null,
       longitude: null,
       city: null,
-      state: null,
       loading: true,
       error: null
     }
@@ -43,13 +42,12 @@ class EventIndex extends React.Component {
   getGeocode() {
     fetch('https://maps.googleapis.com/maps/api/geocode/json?address='+ this.state.latitude +','+ this.state.longitude +'&key=AIzaSyAPjYkDq0-iiCd6W5-qCw46J-r0EW39L1U') // be sure your api key is correct and has access to the geocode api
     .then( response => response.json() ).then( (data) => {
-        let address = data.results[0].formatted_address.split(' ');
+        let address = data.results[0].formatted_address.split(',');
+
         this.setState({
-            city: address[3] + " " + address[4],
-            state: address[5]
+            city: address[1]
         });
 
-        console.log(address)
      }).catch((error) => {
        this.setState({ error: error.message })
      });
@@ -87,7 +85,8 @@ class EventIndex extends React.Component {
 
     return (
       <div className="event-index-container">
-        <h2>Popular Events Near <span className="location-selector">{' '}{this.state.city} {this.state.state}
+        <h2>Popular Events Near
+          <span className="location-selector">{" "}{this.state.city}
           <img className="teal-x" src={image}/></span>
           <div className="events-container">
             <ul className="events-list">

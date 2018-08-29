@@ -23,6 +23,12 @@ class VenueMap extends React.Component {
       zoom: 15
     }
     this.map = new google.maps.Map(this.mapNode, mapOptions);
+
+    const marker = new google.maps.Marker({
+      position: { lat: this.state.lat, lng: this.state.lng },
+      map: this.map,
+      title: 'Hello World!'
+    });
   };
 
 
