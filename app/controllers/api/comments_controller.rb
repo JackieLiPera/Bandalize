@@ -3,11 +3,10 @@ class Api::CommentsController < ApplicationController
 
   def create
     @comment = Comment.with_attached_photo.includes(:user).new(comment_params)
+    @comment.user_id = params[:comment][:user_id]
+    @comment.artist_id = params[:comment][:artist_id]
     optional_photo = params[:comment][:photo]
-
-    unless optional_photo == "undefined" || optional_photo == "null"
-      @comment.photo.attach(params[:comment][:photo]) if params[:comment][:photo]
-    end
+    @comment.photo.attach(params[:comment][:photo]) unless optional_photo == "undefined" || optional_photo == "null"
 
     if @comment.save
       render :show
@@ -24,6 +23,6 @@ class Api::CommentsController < ApplicationController
 
   private
   def comment_params
-    params.require(:comment).permit(:body, :user_id, :artist_id)
+    params.require(:comment).permit(:body)
   end
 end
