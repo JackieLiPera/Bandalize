@@ -1,6 +1,5 @@
-
 .event-index-container {
-  font-family: helvetica;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
   font-weight: 500;
   display: flex;
   flex-direction: column;
@@ -17,7 +16,6 @@
   border-radius: 5px;
 }
 
-
 .events-container {
   display: flex;
   justify-content: space-between;
@@ -25,7 +23,9 @@
   margin-top: 10px;
 }
 
-.events-list, .recent-news-list, .genre-list {
+.events-list,
+.recent-news-list,
+.genre-list {
   display: flex;
   justify-content: space-between;
   margin-bottom: 50px;
@@ -53,7 +53,7 @@
   height: 252px;
   border-radius: 5px;
   margin-right: 20px;
-  box-shadow: 0 3px 15px 0 rgba(0,0,0,.09);
+  box-shadow: 0 3px 15px 0 rgba(0, 0, 0, 0.09);
   cursor: pointer;
   text-align: left;
   padding: 0 15px;
@@ -63,7 +63,6 @@
   position: relative;
 }
 
-
 .recent-news-list {
   display: -webkit-box;
   overflow: scroll;
@@ -71,7 +70,7 @@
 
 .recent-news-list li {
   border-radius: 4px;
-  box-shadow: 0 3px 15px 0 rgba(0,0,0,.09);
+  box-shadow: 0 3px 15px 0 rgba(0, 0, 0, 0.09);
   font-size: 16px;
   width: 252px;
   height: 270px;
@@ -92,10 +91,9 @@
   font-weight: bold;
   word-wrap: break-word;
   display: block;
-  font-family: sans-serif;
-  letter-spacing: .2px;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  letter-spacing: 0.2px;
 }
-
 
 .genre-list li {
   width: 151px;
@@ -103,7 +101,7 @@
   border-radius: 5px;
   border: 1px solid #cdcdcd;
   margin-right: 15px;
-  box-shadow: 0 3px 15px 0 rgba(0,0,0,.09);
+  box-shadow: 0 3px 15px 0 rgba(0, 0, 0, 0.09);
   background-color: white;
   cursor: pointer;
   text-align: center;
@@ -113,41 +111,40 @@
   color: white;
 }
 
-
 li.rock {
-  background-image: image_url('rock2.svg');
+  background-image: image_url("rock2.svg");
   background-size: contain;
-  background-color: rgba(205,99,73,.83);
+  background-color: rgba(205, 99, 73, 0.83);
 }
 
 li.electronic {
-  background-image: image_url('electronic.svg');
+  background-image: image_url("electronic.svg");
   background-size: contain;
-  background-color: rgba(245,153,35,.83);
+  background-color: rgba(245, 153, 35, 0.83);
 }
 
 li.pop {
-  background-image: image_url('pop.svg');
+  background-image: image_url("pop.svg");
   background-size: contain;
-  background-color: rgba(116,85,157,.83);
+  background-color: rgba(116, 85, 157, 0.83);
 }
 
 li.alternative {
-  background-image: image_url('alternative.svg');
+  background-image: image_url("alternative.svg");
   background-size: contain;
-  background-color: rgba(73,184,232,.71);
+  background-color: rgba(73, 184, 232, 0.71);
 }
 
 li.folk {
-  background-image: image_url('folk.svg');
+  background-image: image_url("folk.svg");
   background-size: contain;
-  background-color: rgba(191,136,61,.83);
+  background-color: rgba(191, 136, 61, 0.83);
 }
 
 li.r-b {
-  background-image: image_url('hipHop.svg');
+  background-image: image_url("hipHop.svg");
   background-size: contain;
-  background-color: rgba(92,141,146,.83);
+  background-color: rgba(92, 141, 146, 0.83);
 }
 
 .popular-event-index-item a {
@@ -177,13 +174,13 @@ li.r-b {
   color: black;
   font-size: 14px;
   font-weight: normal;
-  font-family: helvetica;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
 }
 
 .date-box {
   background: white;
   border-radius: 3px;
-  box-shadow: 0 2px 7px 0 rgba(0,0,0,.31);
+  box-shadow: 0 2px 7px 0 rgba(0, 0, 0, 0.31);
   top: 94px;
   right: 10px;
   position: absolute;
@@ -202,11 +199,11 @@ li.r-b {
   color: #8f8f8f;
   font-size: 7px;
   padding-bottom: 1px;
-  font-family: helvetica;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
 }
 
 .link {
-  font-family: helvetica;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
   text-decoration: none;
   color: #259998;
   font-size: 18px;

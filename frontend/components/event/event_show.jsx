@@ -1,5 +1,5 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
 class EventShow extends React.Component {
   constructor(props) {
@@ -7,7 +7,7 @@ class EventShow extends React.Component {
     this.state = {
       rsvpd: this.props.rsvpd,
       loading: true
-    }
+    };
 
     this.changeRSVPStatus = this.changeRSVPstatus.bind(this);
     this.handleVenueClick = this.handleVenueClick.bind(this);
@@ -17,9 +17,9 @@ class EventShow extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchEvent(this.props.match.params.id).then(
-      success => this.setState({ loading: false })
-    );
+    this.props
+      .fetchEvent(this.props.match.params.id)
+      .then(success => this.setState({ loading: false }));
   }
 
   changeRSVPstatus(e) {
@@ -28,24 +28,23 @@ class EventShow extends React.Component {
     const event = this.props.event;
 
     if (!currentUser) {
-      this.props.openModal('login');
+      this.props.openModal("login");
       return;
     }
 
     if (this.state.rsvpd) {
       let rsvpId;
 
-      rsvps.forEach ((rsvp) => {
+      rsvps.forEach(rsvp => {
         if (rsvp.user_id === currentUser.id) {
           rsvpId = rsvp.id;
         }
       });
 
-      
       this.props.deleteRsvp(rsvpId, event.id);
-        this.setState({
-          rsvpd: false
-        });
+      this.setState({
+        rsvpd: false
+      });
     } else {
       this.props.createRsvp(currentUser.id, event.id);
       this.setState({
@@ -65,57 +64,83 @@ class EventShow extends React.Component {
   }
 
   didEventHappen() {
-    const eventDate = new Date (this.props.event.event_on);
-    return (Date.parse(eventDate) < Date.now()) ? true : false;
+    const eventDate = new Date(this.props.event.event_on);
+    return Date.parse(eventDate) < Date.now() ? true : false;
   }
 
   generateTicketButton() {
     const eventHappened = this.didEventHappen();
 
     if (eventHappened === false) {
-      return <button className="ticket-button"> <a href="https://www.stubhub.com/">Get Tickets on Stubhub</a></button>;
+      return (
+        <button className="ticket-button">
+          {" "}
+          <a href="https://www.stubhub.com/">Get Tickets</a>
+        </button>
+      );
     }
   }
-
 
   generateRsvpButton() {
     const eventHappened = this.didEventHappen();
     const rsvpd = this.state.rsvpd;
 
     if (eventHappened && rsvpd) {
-      return <button onClick={this.changeRSVPStatus} className="rsvp-button-checked">	&#10004; I Was There</button>;
+      return (
+        <button onClick={this.changeRSVPStatus} className="rsvp-button-checked">
+          {" "}
+          &#10004; I Was There
+        </button>
+      );
     } else if (!eventHappened && rsvpd) {
-      return <button onClick={this.changeRSVPStatus} className="rsvp-button-checked">	&#10004; Going</button>;
+      return (
+        <button onClick={this.changeRSVPStatus} className="rsvp-button-checked">
+          {" "}
+          &#10004; Going
+        </button>
+      );
     }
 
     if (eventHappened && !rsvpd) {
-      return <button onClick={this.handleArtistClick} className="rsvp-button">See More Events</button>;
+      return (
+        <button onClick={this.handleArtistClick} className="rsvp-button">
+          See More Events
+        </button>
+      );
     } else if (!eventHappened && !rsvpd) {
-      return <button onClick={this.changeRSVPStatus} className="rsvp-button">RSVP</button>;
+      return (
+        <button onClick={this.changeRSVPStatus} className="rsvp-button">
+          RSVP
+        </button>
+      );
     }
   }
-
 
   render() {
     const event = this.props.event;
     const venue = this.props.venue;
 
     if (this.state.loading === true) {
-      return <img className="loading" src={window.loadingGif}></img>
+      return <img className="loading" src={window.loadingGif} />;
     }
 
-    const eventDate = new Date (event.event_on)
+    const eventDate = new Date(event.event_on);
     let dateString = eventDate.toString().slice(0, 15);
-    let timeString = eventDate.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+    let timeString = eventDate.toLocaleTimeString([], {
+      hour: "2-digit",
+      minute: "2-digit"
+    });
 
     return (
       <div className="event-show-component">
         <div className="event-show-container">
-          <img src={this.props.artist.image} className="artist-image"></img>
-          <div className= "event-info">
-            <h2 onClick={this.handleArtistClick}>{this.props.artist.name} <img src={bluecheck}/></h2>
+          <img src={this.props.artist.image} className="artist-image" />
+          <div className="event-info">
+            <h2 onClick={this.handleArtistClick}>
+              {this.props.artist.name} <img src={bluecheck} />
+            </h2>
             {dateString} @ {venue.name}
-              <br></br>
+            <br />
             {venue.city}, {venue.state}
             {this.generateRsvpButton()}
             {this.generateTicketButton()}
@@ -127,11 +152,15 @@ class EventShow extends React.Component {
             <ul>
               <li className="bold-date-string">{dateString}</li>
               <li className="event-venue-timestring">{timeString}</li>
-                <br></br>
-              <li className="event-venue-name" onClick={this.handleVenueClick}>{venue.name}</li>
-              <li>{venue.address } {venue.city}, {venue.state}</li>
-                <br></br>
-              <li className='rsvp-display'>{event.rsvps.length} RSVPs</li>
+              <br />
+              <li className="event-venue-name" onClick={this.handleVenueClick}>
+                {venue.name}
+              </li>
+              <li>
+                {venue.address} {venue.city}, {venue.state}
+              </li>
+              <br />
+              <li className="rsvp-display">{event.rsvps.length} RSVPs</li>
             </ul>
           </div>
         </div>
@@ -139,6 +168,5 @@ class EventShow extends React.Component {
     );
   }
 }
-
 
 export default EventShow;

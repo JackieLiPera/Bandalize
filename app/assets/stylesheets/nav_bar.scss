@@ -15,17 +15,16 @@
   border: 1px solid white;
   background-color: #16b4b3;
   color: white;
-  font-family: 'Roboto', sans-serif;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
   padding: 10px 10px;
   font-size: 16px;
   width: 100px;
   cursor: pointer;
-
 }
 
 .nav-button:hover {
   background-color: #109291;
-  transition: background-color .3s,color .3s;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 .nav-buttons {
@@ -35,7 +34,7 @@
 }
 
 .app-title {
-  font-family: helvetica;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
   font-size: 26px;
   align-items: center;
   margin-left: 10px;
@@ -43,10 +42,10 @@
   text-decoration: none;
   color: black;
   cursor: pointer;
-  letter-spacing: .3px;
+  letter-spacing: 0.3px;
 }
 
-.nav-logo img{
+.nav-logo img {
   width: 30px;
   height: 30px;
 }
@@ -59,13 +58,12 @@
 }
 
 .search-results-container {
-
 }
 
 .search-bar {
   height: 47px;
   font-size: 20px;
-  font-family: helvetica;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
 }
 
 .search-results {
@@ -73,7 +71,7 @@
   position: absolute;
   top: 50px;
   width: 702.5px;
-  box-shadow: 0 1px 3px 0 rgba(0,0,0,.08);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.08);
   border-radius: 3px;
 }
 
@@ -116,7 +114,7 @@ img.result-image {
   border: 1px solid #cdcdcd;
   color: #8f8f8f;
   font-weight: bold;
-  font-family: 'Roboto', sans-serif;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
   cursor: pointer;
   padding: 20px;
   background: white;

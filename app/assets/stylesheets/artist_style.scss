@@ -12,9 +12,9 @@
   border-radius: 2px;
   display: flex;
   flex-direction: column;
-  font-family: 'Roboto', sans-serif;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
   text-align: initial;
-  box-shadow: 0 3px 15px 0 rgba(0,0,0,.09);
+  box-shadow: 0 3px 15px 0 rgba(0, 0, 0, 0.09);
   margin-top: 20px;
   margin-right: 20px;
   padding-bottom: 20px;
@@ -26,7 +26,7 @@
   width: 601px;
   height: 75px;
   margin-top: 2px;
-  box-shadow: 0 3px 15px 0 rgba(0,0,0,.09);
+  box-shadow: 0 3px 15px 0 rgba(0, 0, 0, 0.09);
   align-items: center;
   justify-content: space-between;
   color: black;
@@ -47,7 +47,7 @@
 
 .artist-events-list {
   margin-top: 20px;
-  font-family: 'Roboto', sans-serif;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
   color: #259998;
   font-size: 13px;
   font-weight: bold;
@@ -93,8 +93,7 @@
   color: #00b4b3;
   margin-right: 10px;
   border-radius: 2px;
-  font-family: 'Roboto', sans-serif;
-
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
 }
 
 .artist-show-image {
@@ -105,14 +104,14 @@
   padding-top: 15px;
 }
 
-.artist-show-info ul{
+.artist-show-info ul {
   height: 50px;
   width: 270px;
   margin: auto;
   margin-top: 5px;
 }
 
-.artist-show-info ul li{
+.artist-show-info ul li {
   padding-top: 5px;
 }
 
@@ -127,32 +126,31 @@
 }
 
 .artist-track-button {
-  height: 34px;
+  height: 40px;
   width: 270px;
   background: #00b4b3;
   border: 1px solid #00b4b3;
   border-radius: 2px;
   color: white;
-  font-size: 14px;
+  font-size: 16px;
   text-align: center;
   display: block;
-  margin: 10px 0;
-  margin: auto;
+  margin: 15px auto;
   cursor: pointer;
 }
 
-.artist-track-button-going {
-  height: 34px;
+.artist-track-button-tracked {
+  height: 40px;
   width: 270px;
+  background: white;
   border: 1px solid #00b4b3;
+  border-radius: 2px;
   color: #00b4b3;
-  font-size: 14px;
+  font-size: 16px;
   text-align: center;
   display: block;
-  margin: 10px 0;
-  margin: auto;
+  margin: 15px auto;
   cursor: pointer;
-  background-color: white;
 }
 
 .tour-info {
@@ -168,13 +166,13 @@
 }
 
 .comments {
-  font-family: helvetica;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
 }
 
 .comments-index li {
   background-color: white;
   border-bottom: 1px solid #d8d8d8;
-  box-shadow: 0 3px 15px 0 rgba(0,0,0,.09);
+  box-shadow: 0 3px 15px 0 rgba(0, 0, 0, 0.09);
   color: black;
   padding: 20px 20px;
   box-sizing: border-box;
@@ -187,14 +185,14 @@
   background: white;
   margin: 20px 0;
   padding-bottom: 30px;
-  box-shadow: 0 10px 15px 0 rgba(0,0,0,.09);
+  box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.09);
 }
 
 .comment-form-title {
   background: #ededed;
   padding-bottom: 8px;
   font-size: 20px;
-  font-family: helvetica;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
   color: #00b4b3;
 }
 .comment-box {
@@ -214,11 +212,10 @@
 .comment-form-buttons button {
   border-radius: 2px;
   color: white;
-  font-family: helvetica;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
   background-color: #00b4b3;
   border: 1px solid #00b4b3;
   font-size: 13px;
-  font-weight: lighter;
   letter-spacing: 0.8px;
   width: 269px;
   height: 34px;
@@ -249,9 +246,9 @@
 }
 
 .comment-body span {
-  font-family: helvetica;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
   font-size: 18px;
-  letter-spacing: .6px;
+  letter-spacing: 0.6px;
   word-wrap: normal;
 }
 
@@ -275,9 +272,9 @@
 .artist-bio {
   background: white;
   color: black;
-  font-family: helvetica;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
   width: 100%;
-  box-shadow: 0 3px 15px 0 rgba(0,0,0,.09);
+  box-shadow: 0 3px 15px 0 rgba(0, 0, 0, 0.09);
   box-sizing: border-box;
   padding: 20px;
 }
@@ -306,4 +303,11 @@ a {
 .comment-photo {
   width: 45%;
   height: 45%;
+}
+
+.no-upcoming-events {
+  color: black;
+  font-size: 16px;
+  font-weight: 400;
+  padding-top: 20px;
 }
