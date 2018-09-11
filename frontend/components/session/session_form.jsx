@@ -1,5 +1,5 @@
-import React from 'react';
-import { withRouter } from 'react-router-dom';
+import React from "react";
+import { withRouter } from "react-router-dom";
 
 class SessionForm extends React.Component {
   constructor(props) {
@@ -9,7 +9,7 @@ class SessionForm extends React.Component {
       lastname: "",
       email: "",
       password: ""
-    }
+    };
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleEmailChange = this.handleEmailChange.bind(this);
@@ -48,61 +48,99 @@ class SessionForm extends React.Component {
   }
 
   render() {
-    if (this.props.formType === 'Sign Up') {
+    if (this.props.formType === "Sign Up") {
       return (
         <div>
           <form onSubmit={this.handleSubmit}>
-            <span className="session-title" >{this.props.formType}</span>
-            <ul className='form-list'>
+            <span className="session-title">{this.props.formType}</span>
+            <ul className="form-list">
               <li className="session-input">
                 <label>First Name</label>
-                <input className="input-box" type="text" onChange={this.handleFNameChange} value={this.state.firstname} />
+                <input
+                  className="input-box"
+                  type="text"
+                  onChange={this.handleFNameChange}
+                  value={this.state.firstname}
+                />
               </li>
               <li className="session-input">
                 <label>Last Name</label>
-                <input className="input-box" type="text" onChange={this.handleLNameChange} value={this.state.lastname} />
+                <input
+                  className="input-box"
+                  type="text"
+                  onChange={this.handleLNameChange}
+                  value={this.state.lastname}
+                />
               </li>
               <li className="session-input">
                 <label>Email</label>
-                <input className="input-box" type="text" onChange={this.handleEmailChange} value={this.state.email} />
+                <input
+                  className="input-box"
+                  type="email"
+                  onChange={this.handleEmailChange}
+                  value={this.state.email}
+                  placeholder={"demo_user@bandalize.com"}
+                />
               </li>
               <li className="session-input">
                 <label>Password</label>
-                <input className="input-box" type="password" onChange={this.handlePasswordChange} value={this.state.password} />
+                <input
+                  className="input-box"
+                  type="password"
+                  onChange={this.handlePasswordChange}
+                  value={this.state.password}
+                  placeholder={"******"}
+                />
               </li>
               <li className="session-buttons">
                 <span className="session-errors">{this.props.errors}</span>
-                <button className="session-button">{this.props.formType}</button>
+                <button className="session-button">
+                  {this.props.formType}
+                </button>
                 <span>{this.props.otherForm}</span>
               </li>
             </ul>
           </form>
         </div>
-      )
+      );
     } else {
       return (
         <div>
           <form onSubmit={this.handleSubmit}>
-            <span className="session-title" >{this.props.formType}</span>
-            <ul className='form-list'>
+            <span className="session-title">{this.props.formType}</span>
+            <ul className="form-list">
               <li className="session-input">
                 <label>Email</label>
-                <input className="input-box" type="text" onChange={this.handleEmailChange} value={this.state.email} />
+                <input
+                  className="input-box"
+                  type="text"
+                  onChange={this.handleEmailChange}
+                  value={this.state.email}
+                  placeholder={"demo_user@bandalize.com"}
+                />
               </li>
               <li className="session-input">
                 <label>Password</label>
-                <input className="input-box" type="password" onChange={this.handlePasswordChange} value={this.state.password} />
+                <input
+                  className="input-box"
+                  type="password"
+                  onChange={this.handlePasswordChange}
+                  value={this.state.password}
+                  placeholder={"******"}
+                />
               </li>
               <li className="session-buttons">
                 <span className="session-errors">{this.props.errors}</span>
-                <button className="session-button">{this.props.formType}</button>
+                <button className="session-button">
+                  {this.props.formType}
+                </button>
                 <span>{this.props.otherForm}</span>
               </li>
             </ul>
           </form>
         </div>
-      )
-    };
+      );
+    }
   }
 }
 

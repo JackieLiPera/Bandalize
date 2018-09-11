@@ -90,17 +90,12 @@ class EventIndex extends React.Component {
       return <img className="loading" src={window.loadingGif} />;
     }
 
-    const image = window.tealx;
     let localEvents = this.generateLocalEvents();
     return (
       <div className="event-index-container">
         <h2>
           Popular Events Near
-          <span className="location-selector">
-            {" "}
-            {this.state.city}
-            <img className="teal-x" src={image} />
-          </span>
+          <span className="location-selector"> {this.state.city}</span>
           <div className="events-container">
             <ul className="events-list">{localEvents.slice(0, 6)}</ul>
           </div>
