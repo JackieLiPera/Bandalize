@@ -61,6 +61,7 @@ class SessionForm extends React.Component {
                   type="text"
                   onChange={this.handleFNameChange}
                   value={this.state.firstname}
+                  placeholder={"Demo"}
                 />
               </li>
               <li className="session-input">
@@ -70,6 +71,7 @@ class SessionForm extends React.Component {
                   type="text"
                   onChange={this.handleLNameChange}
                   value={this.state.lastname}
+                  placeholder={"User"}
                 />
               </li>
               <li className="session-input">

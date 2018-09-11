@@ -15,15 +15,15 @@
   transform: translate(-50%, -50%);
   border: 1px solid black;
   width: 500px;
-  height: 350px;
   background-color: white;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   padding: 45px;
-  border-radius: 3px;
+  border-radius: 8px;
 }
 
 .form-list {
   margin-top: 20px;
+  font-size: 20px;
 }
 
 .session-input {
@@ -31,15 +31,15 @@
   justify-content: space-between;
   padding: 10px;
   font-family: helvetica;
-  height: 27px;
+  height: 40px;
   width: 85%;
 }
 
 .session-title {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: bold;
   font-size: 30px;
-  padding-bottom: 20px;
+  padding-bottom: 8px;
 }
 
 .session-button {
@@ -47,38 +47,40 @@
   background-color: #16b4b3;
   border: 1px solid #16b4b3;
   color: white;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   padding: 13px 10px;
-  font-size: 16px;
+  font-size: 20px;
   width: 150px;
-  margin: 20px 0px;
+  margin: 10px 0px;
   cursor: pointer;
 }
 
 .session-button:hover {
   background-color: #109291;
-  transition: background-color .3s,color .3s;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 .input-box {
   width: 300px;
+  font-size: 16px;
+  padding-left: 6px;
 }
 
 .other-form-button {
   border-radius: 5px;
   color: white;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   background-color: #50b137;
   border: 1px solid #50b137;
   padding: 13px 10px;
-  font-size: 16px;
+  font-size: 20px;
   width: 300px;
   cursor: pointer;
 }
 
 .other-form-button:hover {
   background-color: #7aaf4df2;
-  transition: background-color .3s,color .3s;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 .session-buttons {

@@ -1,10 +1,10 @@
 import { connect } from "react-redux";
-import SessionForm from './session_form';
-import { signup } from '../../actions/session_actions'
-import { openModal, closeModal } from '../../actions/modal_actions';
-import React from 'react';
+import SessionForm from "./session_form";
+import { signup } from "../../actions/session_actions";
+import { openModal, closeModal } from "../../actions/modal_actions";
+import React from "react";
 
-export const msp = (state) => {
+export const msp = state => {
   return {
     errors: state.errors,
     formType: "Sign Up"
@@ -13,9 +13,12 @@ export const msp = (state) => {
 
 const mdp = dispatch => {
   return {
-    processForm: (user) => dispatch(signup(user)),
+    processForm: user => dispatch(signup(user)),
     otherForm: (
-      <button className="other-form-button" onClick={() => dispatch(openModal('login'))}>
+      <button
+        className="other-form-button"
+        onClick={() => dispatch(openModal("login"))}
+      >
         Log In
       </button>
     ),
@@ -23,4 +26,7 @@ const mdp = dispatch => {
   };
 };
 
-export default connect(msp, mdp)(SessionForm);
+export default connect(
+  msp,
+  mdp
+)(SessionForm);
