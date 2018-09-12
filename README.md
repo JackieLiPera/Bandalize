@@ -1,6 +1,6 @@
 **Bandalize**
 
-Bandalize is full-stack, single-page application built with React.js and Ruby on Rails inspired by the popular live-music site BandsInTown.
+Bandalize is a full-stack, single-page web application built with React.js, Redux, Ruby on Rails with a PostgreSQL database inspired by the popular live-music site BandsInTown.
 
 Check out the live link [here](https://bandalize.herokuapp.com/)
 
@@ -13,7 +13,8 @@ The app homepage allows users to see events in their area using browser location
 
 **User Auth**
 
-![Imgur](https://i.imgur.com/fDwRByV.png)
+![Imgur](https://i.imgur.com/szA20pt.png)
+![Imgur](https://i.imgur.com/ODHR2af.png)
 Users can sign up and log in using the app modal. Click the demo button to start exploring!
 
 **User Account Page**
@@ -39,7 +40,7 @@ The artist page displays key pieces of information such as the artist's tour sta
 The tracking feature allows users to follow specific artists. Users can see how many trackers an artist has by clicking on the artist page. Once a user tracks an artist, the artist will appear on the user account page and future events will be incorporated into the user's suggested events feed.
 
 **Venue Page with Google API Map**
-![Imgur](https://i.imgur.com/0Ae8jXG.png)
+![Imgur](https://i.imgur.com/1d9UfEX.png)
 
 The venue page displays all of the key information about a particular venue including location information and a map linked to Google Maps. Users can view upcoming events at each venue and RSVP to an event directly on this page.
 
