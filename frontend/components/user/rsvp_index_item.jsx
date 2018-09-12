@@ -1,5 +1,5 @@
-import React from 'react';
-import { withRouter } from 'react-router-dom';
+import React from "react";
+import { withRouter } from "react-router-dom";
 
 class RsvpIndexItem extends React.Component {
   constructor(props) {
@@ -15,10 +15,10 @@ class RsvpIndexItem extends React.Component {
   render() {
     return (
       <div className="rsvp-event" onClick={this.handleClick}>
-        <img src={this.props.artist.image} className='rsvp-image'></img>
-        <span className='rsvp-title'>{this.props.artist.name}</span>
-        <br></br>
-        <span className='rsvp-venue'>{this.props.venue.name}</span>
+        <img src={this.props.artist.image} className="rsvp-image" />
+        <span className="rsvp-title">{this.props.artist.name}</span>
+        <br />
+        <span className="rsvp-venue">{this.props.venue.name}</span>
       </div>
     );
   }

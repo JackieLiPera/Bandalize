@@ -1,7 +1,9 @@
 import React from "react";
+import { withRouter } from "react-router-dom";
 import { Link } from "react-router-dom";
 import PopularEventIndexItem from "./popular_event_index_item";
 import { geolocated } from "react-geolocated";
+import ArtistByGenreIndex from "../artist/artist_by_genre_index";
 
 class EventIndex extends React.Component {
   constructor(props) {
@@ -15,6 +17,8 @@ class EventIndex extends React.Component {
     };
 
     this.generateLocalEvents = this.generateLocalEvents.bind(this);
+    this.generateGenreIndexItem = this.generateGenreIndexItem.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount() {
@@ -45,7 +49,7 @@ class EventIndex extends React.Component {
         "," +
         this.state.longitude +
         "&key=AIzaSyAPjYkDq0-iiCd6W5-qCw46J-r0EW39L1U"
-    ) // be sure your api key is correct and has access to the geocode api
+    )
       .then(response => response.json())
       .then(data => {
         let address = data.results[0].formatted_address.split(",");
@@ -83,6 +87,33 @@ class EventIndex extends React.Component {
         </li>
       );
     });
+  }
+
+  generateGenreIndexItem() {
+    const genres = ["Rock", "Electronic", "Pop", "Alternative", "Folk", "R&B"];
+    return genres.map(genre => {
+      let classname;
+      if (genre === "R&B") {
+        classname = "r-b";
+      } else {
+        classname = genre.toLowerCase();
+      }
+
+      return (
+        <li
+          className={classname}
+          value={classname}
+          onClick={genre => this.handleClick(classname)}
+        >
+          <ArtistByGenreIndex />
+          {genre}
+        </li>
+      );
+    });
+  }
+
+  handleClick(genre) {
+    this.props.history.push(`api/artists/${genre}`);
   }
 
   render() {
@@ -137,28 +168,9 @@ class EventIndex extends React.Component {
         </h2>
 
         <h2>
-          Events by Genre
+          Artists by Genre
           <div>
-            <ul className="genre-list">
-              <li className="rock">
-                <Link to="/api/artists" />Rock
-              </li>
-              <li className="electronic">
-                <Link to="/api/artists" />Electronic
-              </li>
-              <li className="pop">
-                <Link to="/api/artists" />Pop
-              </li>
-              <li className="alternative">
-                <Link to="/api/artists" />Alternative
-              </li>
-              <li className="folk">
-                <Link to="/api/artists" />Folk
-              </li>
-              <li className="r-b">
-                <Link to="/api/artists" />R&B
-              </li>
-            </ul>
+            <ul className="genre-list">{this.generateGenreIndexItem()}</ul>
           </div>
         </h2>
       </div>
@@ -166,4 +178,4 @@ class EventIndex extends React.Component {
   }
 }
 
-export default EventIndex;
+export default withRouter(EventIndex);

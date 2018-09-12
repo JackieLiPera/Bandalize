@@ -7,8 +7,8 @@ Rails.application.routes.draw do
     resource :session, only: [:create, :destroy]
     resources :users, only: [:create, :show] do
     end
-
     resources :artists, only: [:show, :index] do
+      get "genre"
       resources :comments, only: [:create, :destroy]
       resources :trackings, only: [:create, :destroy]
     end

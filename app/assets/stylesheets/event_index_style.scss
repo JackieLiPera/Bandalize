@@ -101,12 +101,11 @@
 
 .genre-list li {
   width: 151px;
-  height: 151px;
+  height: 100%;
   border-radius: 5px;
   border: 1px solid #cdcdcd;
   margin-right: 15px;
   box-shadow: 0 3px 15px 0 rgba(0, 0, 0, 0.09);
-  background-color: white;
   cursor: pointer;
   text-align: center;
   box-sizing: border-box;
@@ -119,36 +118,42 @@ li.rock {
   background-image: image_url("rock2.svg");
   background-size: contain;
   background-color: rgba(205, 99, 73, 0.83);
+  border: 1px solid rgba(205, 99, 73, 0.83);
 }
 
 li.electronic {
   background-image: image_url("electronic.svg");
   background-size: contain;
   background-color: rgba(245, 153, 35, 0.83);
+  border: 1px solid rgba(245, 153, 35, 0.83);
 }
 
 li.pop {
   background-image: image_url("pop.svg");
   background-size: contain;
   background-color: rgba(116, 85, 157, 0.83);
+  border: 1px solid rgba(116, 85, 157, 0.83);
 }
 
 li.alternative {
   background-image: image_url("alternative.svg");
   background-size: contain;
   background-color: rgba(73, 184, 232, 0.71);
+  border: 1px solid rgba(73, 184, 232, 0.71);
 }
 
 li.folk {
   background-image: image_url("folk.svg");
   background-size: contain;
   background-color: rgba(191, 136, 61, 0.83);
+  border: 1px solid rgba(191, 136, 61, 0.83);
 }
 
 li.r-b {
   background-image: image_url("hipHop.svg");
   background-size: contain;
   background-color: rgba(92, 141, 146, 0.83);
+  border: 1px solid rgba(92, 141, 146, 0.83);
 }
 
 .popular-event-index-item a {
