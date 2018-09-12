@@ -39,7 +39,7 @@ The artist page displays key pieces of information such as the artist's tour sta
 
 The tracking feature allows users to follow specific artists. Users can see how many trackers an artist has by clicking on the artist page. Once a user tracks an artist, the artist will appear on the user account page and future events will be incorporated into the user's suggested events feed.
 
-**Venue Page with Google API Map**
+**Venue Page with Google Maps API**
 ![Imgur](https://i.imgur.com/1d9UfEX.png)
 
 The venue page displays all of the key information about a particular venue including location information and a map linked to Google Maps. Users can view upcoming events at each venue and RSVP to an event directly on this page.
