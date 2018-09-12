@@ -7,7 +7,7 @@ Check out the live link [here](https://bandalize.herokuapp.com/)
 
 **Event Homepage with Geolocation**
 
-![Imgur](https://i.imgur.com/oCiaRyK.png)
+![Imgur](https://i.imgur.com/IItz1H4.png)
 
 The app homepage allows users to see events in their area using browser location. Event images are handled with Rails Active Storage and the AWS s3 cloud.
 
@@ -15,7 +15,7 @@ The app homepage allows users to see events in their area using browser location
 
 ![Imgur](https://i.imgur.com/szA20pt.png)
 ![Imgur](https://i.imgur.com/ODHR2af.png)
-Users can sign up and log in using the app modal. Click the demo button to start exploring!
+Users can sign up and log in using the app modal. Click the demo button to start exploring.
 
 **User Account Page**
 
