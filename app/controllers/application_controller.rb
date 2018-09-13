@@ -4,7 +4,9 @@ class ApplicationController < ActionController::Base
   helper_method :logged_in?, :current_user, :require_logged_in
 
   def log_in!(user)
-    session[:session_token] = user.reset_session_token!
+    user.reset_session_token!
+    session[:session_token] = user.session_token
+    @current_user = user
   end
 
   def log_out

@@ -6,7 +6,6 @@ class ArtistByGenreIndexItem extends React.Component {
   }
 
   render() {
-    debugger;
     return <div>"hi"</div>;
   }
 }

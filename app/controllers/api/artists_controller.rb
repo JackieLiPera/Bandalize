@@ -21,7 +21,6 @@ class Api::ArtistsController < ApplicationController
   end
 
   def index
-    debugger
     @artists = Artist.all.includes(:events, :venues, :trackings)
     @rock = Artist.all.where(genre: "Rock").with_attached_photo
     @electronic = Artist.all.where(genre: "Electronic").with_attached_photo
