@@ -8,7 +8,6 @@ Rails.application.routes.draw do
     resources :users, only: [:create, :show] do
     end
     resources :artists, only: [:show, :index] do
-      get "genre"
       resources :comments, only: [:create, :destroy]
       resources :trackings, only: [:create, :destroy]
     end
@@ -18,4 +17,7 @@ Rails.application.routes.draw do
     resources :venues, only: [:show]
     resources :search, only: [:index]
   end
+
+  get 'api/artists/genre', controller: 'api/artists', action: :index, defaults: {:format=>:json}
+  # get '/api/artists/genre', :to => 'api/artists#index', defaults: {:format=>:json}
 end

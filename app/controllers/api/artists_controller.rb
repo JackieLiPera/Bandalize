@@ -21,11 +21,8 @@ class Api::ArtistsController < ApplicationController
   end
 
   def index
+    debugger
     @artists = Artist.all.includes(:events, :venues, :trackings)
-  end
-
-  def genre
-    @artists = Artist.all
     @rock = Artist.all.where(genre: "Rock").with_attached_photo
     @electronic = Artist.all.where(genre: "Electronic").with_attached_photo
     @pop = Artist.all.where(genre: "Pop").with_attached_photo
@@ -33,4 +30,5 @@ class Api::ArtistsController < ApplicationController
     @folk = Artist.all.where(genre: "Folk").with_attached_photo
     @r_b = Artist.all.where(genre: "R&B").with_attached_photo
   end
+
 end

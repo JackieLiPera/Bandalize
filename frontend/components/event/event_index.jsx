@@ -1,6 +1,5 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
-import { Link } from "react-router-dom";
 import PopularEventIndexItem from "./popular_event_index_item";
 import { geolocated } from "react-geolocated";
 import ArtistByGenreIndex from "../artist/artist_by_genre_index";
@@ -17,8 +16,6 @@ class EventIndex extends React.Component {
     };
 
     this.generateLocalEvents = this.generateLocalEvents.bind(this);
-    this.generateGenreIndexItem = this.generateGenreIndexItem.bind(this);
-    this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount() {
@@ -89,33 +86,6 @@ class EventIndex extends React.Component {
     });
   }
 
-  generateGenreIndexItem() {
-    const genres = ["Rock", "Electronic", "Pop", "Alternative", "Folk", "R&B"];
-    return genres.map(genre => {
-      let classname;
-      if (genre === "R&B") {
-        classname = "r-b";
-      } else {
-        classname = genre.toLowerCase();
-      }
-
-      return (
-        <li
-          className={classname}
-          value={classname}
-          onClick={genre => this.handleClick(classname)}
-        >
-          <ArtistByGenreIndex />
-          {genre}
-        </li>
-      );
-    });
-  }
-
-  handleClick(genre) {
-    this.props.history.push(`api/artists/${genre}`);
-  }
-
   render() {
     if (this.state.loading === true) {
       return <img className="loading" src={window.loadingGif} />;
@@ -170,7 +140,7 @@ class EventIndex extends React.Component {
         <h2>
           Artists by Genre
           <div>
-            <ul className="genre-list">{this.generateGenreIndexItem()}</ul>
+            <ArtistByGenreIndex />
           </div>
         </h2>
       </div>
