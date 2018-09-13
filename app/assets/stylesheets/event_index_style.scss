@@ -26,6 +26,7 @@
   margin-bottom: 30px;
   margin-top: 10px;
   width: 100%;
+  overflow: scroll;
 }
 
 .events-list,
@@ -69,7 +70,7 @@
 }
 
 .recent-news-list {
-  display: -webkit-box;
+  display: flex;
   overflow: scroll;
 }
 
@@ -117,37 +118,43 @@
 
 li.rock {
   background-image: image_url("rock2.svg");
-  background-size: contain;
+  background-position: center;
+  background-size: cover;
   background-color: rgba(205, 99, 73, 0.83);
 }
 
 li.electronic {
   background-image: image_url("electronic.svg");
-  background-size: contain;
+  background-position: center;
+  background-size: cover;
   background-color: rgba(245, 153, 35, 0.83);
 }
 
 li.pop {
   background-image: image_url("pop.svg");
-  background-size: contain;
+  background-position: center;
+  background-size: cover;
   background-color: rgba(116, 85, 157, 0.83);
 }
 
 li.alternative {
   background-image: image_url("alternative.svg");
-  background-size: contain;
+  background-position: center;
+  background-size: cover;
   background-color: rgba(73, 184, 232, 0.71);
 }
 
 li.folk {
   background-image: image_url("folk.svg");
-  background-size: contain;
+  background-position: center;
+  background-size: cover;
   background-color: rgba(191, 136, 61, 0.83);
 }
 
 li.r-b {
   background-image: image_url("hipHop.svg");
-  background-size: contain;
+  background-position: center;
+  background-size: cover;
   background-color: rgba(92, 141, 146, 0.83);
 }
 
@@ -165,7 +172,7 @@ li.r-b {
 }
 
 .imager {
-  width: 149.011px;
+  width: 100%;
   position: absolute;
   top: 0;
   left: 0;
