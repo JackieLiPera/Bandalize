@@ -1,10 +1,10 @@
-import { connect } from 'react-redux';
-import ArtistShow from './artist_show';
-import { fetchArtist } from '../../actions/artist_actions';
-import { createTracking, deleteTracking } from '../../actions/tracking_actions';
-import { createRsvp, deleteRsvp } from '../../actions/rsvp_actions';
-import { createComment, deleteComment } from '../../actions/comment_actions';
-import { openModal } from '../../actions/modal_actions';
+import { connect } from "react-redux";
+import ArtistShow from "./artist_show";
+import { fetchArtist } from "../../actions/artist_actions";
+import { createTracking, deleteTracking } from "../../actions/tracking_actions";
+import { createRsvp, deleteRsvp } from "../../actions/rsvp_actions";
+import { createComment, deleteComment } from "../../actions/comment_actions";
+import { openModal } from "../../actions/modal_actions";
 
 const msp = (state, ownProps) => {
   const currentUser = state.session.currentUser;
@@ -12,8 +12,10 @@ const msp = (state, ownProps) => {
   const artist = state.entities.artists[artistId] || {};
 
   let tracking, tour;
-  (currentUser) ? tracking = currentUser.tracked_artists.includes(Number(artistId)) : tracking = false;
-  (artist && artist.on_tour === true) ? tour = "On Tour" : tour = "";
+  currentUser
+    ? (tracking = currentUser.tracked_artists.includes(Number(artistId)))
+    : (tracking = false);
+  artist && artist.on_tour === true ? (tour = "On Tour") : (tour = "");
 
   return {
     artist,
@@ -26,21 +28,26 @@ const msp = (state, ownProps) => {
     users: state.entities.users,
     tracking,
     tour
-  }
+  };
 };
 
-const mdp = (dispatch) => {
+const mdp = dispatch => {
   return {
-    fetchArtist: (id) => dispatch(fetchArtist(id)),
-    createTracking: (userId, artistId) => dispatch(createTracking(userId, artistId)),
-    deleteTracking: (trackingId, artistId) => dispatch(deleteTracking(trackingId, artistId)),
+    fetchArtist: id => dispatch(fetchArtist(id)),
+    createTracking: (userId, artistId) =>
+      dispatch(createTracking(userId, artistId)),
+    deleteTracking: (trackingId, artistId) =>
+      dispatch(deleteTracking(trackingId, artistId)),
     createRsvp: (userId, eventId) => dispatch(createRsvp(userId, eventId)),
     deleteRsvp: (rsvpId, eventId) => dispatch(deleteRsvp(rsvpId, eventId)),
-    processForm: (formData) => dispatch(createComment(formData)),
-    deleteComment: (commentId, artistId) => dispatch(deleteComment(commentId, artistId)),
-    openModal: (modal) => dispatch(openModal(modal))
-  }
+    processForm: formData => dispatch(createComment(formData)),
+    deleteComment: (commentId, artistId) =>
+      dispatch(deleteComment(commentId, artistId)),
+    openModal: modal => dispatch(openModal(modal))
+  };
 };
 
-
-export default connect(msp, mdp)(ArtistShow);
+export default connect(
+  msp,
+  mdp
+)(ArtistShow);

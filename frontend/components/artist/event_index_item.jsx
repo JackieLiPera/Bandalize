@@ -1,5 +1,5 @@
-import React from 'react';
-import { withRouter } from 'react-router-dom';
+import React from "react";
+import { withRouter } from "react-router-dom";
 
 class EventIndexItem extends React.Component {
   constructor(props) {
@@ -15,7 +15,7 @@ class EventIndexItem extends React.Component {
 
     this.state = {
       rsvpd: rsvpd
-    }
+    };
 
     this.handleClick = this.handleClick.bind(this);
     this.changeRSVPstatus = this.changeRSVPstatus.bind(this);
@@ -25,14 +25,14 @@ class EventIndexItem extends React.Component {
     e.stopPropagation();
 
     if (!this.props.currentUser) {
-      this.props.openModal('login');
+      this.props.openModal("login");
       return;
     }
 
     if (this.state.rsvpd) {
       const rsvps = this.props.rsvps;
       let rsvpId;
-      rsvps.forEach ((rsvp) => {
+      rsvps.forEach(rsvp => {
         if (rsvp.user_id === this.props.currentUser.id) {
           rsvpId = rsvp.id;
         }
@@ -58,42 +58,53 @@ class EventIndexItem extends React.Component {
   generateRsvpButton() {
     let eventHappened;
     if (Date.parse(this.props.event.event_on) < Date.now()) {
-      eventHappened = true
+      eventHappened = true;
     } else {
       eventHappened = false;
     }
 
     if (this.state.rsvpd && !eventHappened) {
-      return <button
-        onClick={this.changeRSVPstatus}
-        className="artist-rsvp-button-going"
-        >&#10004; Going </button>
+      return (
+        <button
+          onClick={this.changeRSVPstatus}
+          className="artist-rsvp-button-going"
+        >
+          &#10004; Going{" "}
+        </button>
+      );
     } else if (this.state.rsvpd && eventHappened) {
-      return <button
-        onClick={this.changeRSVPstatus}
-        className="artist-rsvp-button-going"
-        >&#10004; I Was There </button>
+      return (
+        <button
+          onClick={this.changeRSVPstatus}
+          className="artist-rsvp-button-going"
+        >
+          &#10004; I Was There{" "}
+        </button>
+      );
     } else {
-      return <button
-        onClick={this.changeRSVPstatus}
-        className="artist-rsvp-button"
-        >RSVP</button>
+      return (
+        <button onClick={this.changeRSVPstatus} className="artist-rsvp-button">
+          RSVP
+        </button>
+      );
     }
   }
 
   render() {
     const eventVenue = this.props.venue || {};
-    const month = new Date(this.props.event.event_on).toString().slice(4,7);
-    const date = new Date(this.props.event.event_on).toString().slice(8,10);
+    const month = new Date(this.props.event.event_on).toString().slice(4, 7);
+    const date = new Date(this.props.event.event_on).toString().slice(8, 10);
 
     return (
-      <li onClick={() => this.handleClick()} >
+      <li onClick={() => this.handleClick()}>
         <div className="event-date-icon">
-          <span className='month'>{month}</span>
+          <span className="month">{month}</span>
           {date}
         </div>
         <div className="event-index-text">
-          {eventVenue.name}<span> </span>{eventVenue.city}, {eventVenue.state}
+          {eventVenue.name}
+          <span> </span>
+          {eventVenue.city}, {eventVenue.state}
         </div>
         {this.generateRsvpButton()}
       </li>
