@@ -8,7 +8,7 @@
     "babel-preset-react": "^6.24.1",
     "lodash": "^4.17.10",
     "react": "^16.4.1",
-    "react-dom": "^16.4.1",
+    "react-dom": "^16.4.2",
     "react-geolocated": "^2.4.0",
     "react-geolocation": "^1.0.4",
     "react-icons": "^2.2.7",
