@@ -2,8 +2,6 @@
 
 Bandalize is a full-stack, single-page web application built with React.js, Redux, Ruby on Rails with a PostgreSQL database inspired by the popular live-music site BandsInTown.
 
-Check out the live link [here](https://bandalize.herokuapp.com/)
-
 
 **Event Homepage with Geolocation**
 
